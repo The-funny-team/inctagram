@@ -34,6 +34,7 @@ pipeline {
                  echo "Push image started..."
                      script {
                           docker.withRegistry("https://${env.REGISTRY}", 'ft-inctagram-site') {
+                            sh 'sudo usermod -a -G docker jenkins'
                             app.push("${env.IMAGE_NAME}")
                         }
                      }
