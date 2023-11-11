@@ -1,14 +1,14 @@
 FROM node:18.15 as dependencies
 WORKDIR /app
 COPY package.json pnpm-lock.yaml ./
-RUN npm install pnpm
+RUN npm install -g pnpm
 RUN pnpm install
 
 FROM node:18.15 as builder
 WORKDIR /app
 COPY . .
 COPY --from=dependencies /app/node_modules ./node_modules
-RUN npm install pnpm
+RUN npm install -g pnpm
 RUN pnpm build:production
 
 FROM node:18.15 as runner
