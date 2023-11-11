@@ -4,12 +4,12 @@ pipeline {
     agent any
     environment {
         ENV_TYPE = "production"
-        PORT = 3173
+        PORT = 3174
         NAMESPACE = "ft-inctagram-site"
         REGISTRY_HOSTNAME = "vladnen97"
         REGISTRY = "registry.hub.docker.com"
-        PROJECT = "funny-team-ictagram"
-        DEPLOYMENT_NAME = "funny-team-ictagram-deployment"
+        PROJECT = "front-end-inctagram"
+        DEPLOYMENT_NAME = "front-end-inctagram-deployment"
         IMAGE_NAME = "${env.BUILD_ID}_${env.ENV_TYPE}_${env.GIT_COMMIT}"
         DOCKER_BUILD_NAME = "${env.REGISTRY_HOSTNAME}/${env.PROJECT}:${env.IMAGE_NAME}"
     }
