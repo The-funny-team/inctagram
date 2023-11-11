@@ -1,17 +1,17 @@
-FROM node:18.15 as dependencies
+FROM node:alpine3.17 as dependencies
 WORKDIR /app
 COPY package.json pnpm-lock.yaml ./
 RUN npm install -g pnpm
 RUN pnpm install
 
-FROM node:18.15 as builder
+FROM node:alpine3.17 as builder
 WORKDIR /app
 COPY . .
 COPY --from=dependencies /app/node_modules ./node_modules
 RUN npm install -g pnpm
 RUN pnpm build:production
 
-FROM node:18.15 as runner
+FROM node:alpine3.17 as runner
 WORKDIR /app
 ENV NODE_ENV production
 # If you are using a custom next.config.js file, uncomment this line.
