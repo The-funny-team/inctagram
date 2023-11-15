@@ -1,16 +1,8 @@
-import Head from 'next/head'
+import { getRootLayout } from '@/common/components'
 
-export default function Home() {
-  return (
-    <>
-      <Head>
-        <title>Create Next App</title>
-        <meta content={'width=device-width, initial-scale=1'} name={'viewport'} />
-        <link href={'/favicon.ico'} rel={'icon'} />
-      </Head>
-      <main>
-        <h1>Hello</h1>
-      </main>
-    </>
-  )
+function Home() {
+  return <h1>Hello</h1>
 }
+
+Home.getLayout = getRootLayout
+export default Home
