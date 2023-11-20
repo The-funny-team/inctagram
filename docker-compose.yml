@@ -1,0 +1,16 @@
+# How to use it?
+# docker-compose --env-file .env.local  up 
+
+version: '3'
+services:
+  # You can rename this service special for docker-hub like: ydubovitsky/memorush
+  inctagram-mock-backend:
+    image: ydubovitsky/inctagram-mock-backend:v.0.0.1
+    ports:
+      - 8080:8080
+    networks:
+      - inctagram
+
+networks:
+  inctagram:
+    driver: bridge

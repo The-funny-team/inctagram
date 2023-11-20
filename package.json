@@ -9,10 +9,15 @@
     "format": "prettier --write src",
     "lint": "eslint --fix src/**/*.{tsx,ts,jsx,js} --no-error-on-unmatched-pattern && stylelint --fix src/{,*/}*.{scss,css} --allow-empty-input",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "api:download": "curl http://localhost:8080/v2/api-docs >> src/shared/api/schema.yaml",
+    "api:generate": "orval"
   },
   "dependencies": {
     "@reduxjs/toolkit": "1.9.7",
+    "@tanstack/react-query": "^5.8.4",
+    "axios": "^1.6.2",
+    "clsx": "^2.0.0",
     "next": "14.0.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
@@ -35,6 +40,7 @@
     "@types/react-dom": "18",
     "eslint": "8.53.0",
     "eslint-config-next": "14.0.1",
+    "orval": "^6.20.0",
     "sass": "1.69.5",
     "storybook": "7.5.3",
     "stylelint": "^15.11.0",

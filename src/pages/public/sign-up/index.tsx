@@ -1,8 +1,4 @@
-import {getRootLayout} from '@/common/components'
-
-const SignUp = () => {
+export const SignUpPage = () => {
     return <h1>Sign Up</h1>
 }
 
-SignUp.getLayout = getRootLayout
-export default SignUp
