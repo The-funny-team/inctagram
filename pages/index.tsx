@@ -1,3 +1,3 @@
-import HomePage from '@/pages/home'
+import SignUp from '@/pages/sign-up'
 
-export default HomePage
+export default SignUp
