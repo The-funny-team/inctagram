@@ -1,0 +1,10 @@
+.ui-root-layout {
+  display: grid;
+  min-height: 100vh;
+  background-color: var(--color-dark-700);
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+}
