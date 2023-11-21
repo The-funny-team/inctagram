@@ -1,0 +1,60 @@
+.sign-up-form {
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+  background-color: var(--color-dark-500);
+  width: 378px;
+  height: 648px;
+  top: 84px;
+  left: 451px;
+  border-radius: 2px;
+  padding: 20px;
+  justify-content: center;
+  border-radius: 2px;
+  border: 1px solid #393939;
+}
+
+.auth-icons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+}
+
+.account-question {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  p {
+    color: var(--color-light-100);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0em;
+    text-align: center;
+  }
+}
+
+.sign-in-link {
+  color: #397df6;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  letter-spacing: 0px;
+  text-align: center;
+}
+
+.agreement {
+  color: var(--color-light-100);
+  font-family: Inter;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  letter-spacing: 0em;
+  text-align: left;
+
+  a {
+    color: var(--color-accent-500);
+  }
+}
