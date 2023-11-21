@@ -1,0 +1,15 @@
+.ui-button {
+  height: 36px;
+  padding: 6px, 24px, 6px, 24px;
+  border-radius: 2px;
+  gap: 10px;
+}
+
+.primary {
+  color: var(--color-light-100);
+  background-color: var(--color-accent-500);
+}
+
+.secondary {
+  background-color: var(--color-accent-900);
+}

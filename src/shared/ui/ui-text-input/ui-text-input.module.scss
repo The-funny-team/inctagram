@@ -1,0 +1,26 @@
+.ui-text-input {
+  display: flex;
+  flex-direction: column;
+
+  label {
+    color: #8c9094;
+  }
+
+  input {
+    height: 36px;
+    padding: 5px;
+    border-radius: 2px;
+    background-color: inherit;
+    border: 1px solid #393939;
+    color: var(--color-light-100);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0em;
+    text-align: left;
+  }
+}
+
+.error-message {
+  color: var(--color-light-100);
+}
