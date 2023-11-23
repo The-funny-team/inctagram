@@ -1,6 +1,5 @@
 import React, { PropsWithChildren, ReactElement } from 'react'
 
-import { SideBar } from '@/common/components/SideBar/SideBar'
 import { NextPage } from 'next'
 import { Inter } from 'next/font/google'
 import Head from 'next/head'
@@ -15,10 +14,7 @@ export const RootLayout: NextPage<PropsWithChildren<any>> = ({ children }) => {
         <meta content={'width=device-width, initial-scale=1'} name={'viewport'} />
         <link href={'/favicon.ico'} rel={'icon'} />
       </Head>
-      <main className={inter.className}>
-        <SideBar />
-        {children}
-      </main>
+      <main className={inter.className}>{children}</main>
     </>
   )
 }
