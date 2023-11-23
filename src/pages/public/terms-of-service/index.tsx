@@ -1,4 +1,4 @@
-import {getRootLayout} from '@/common/components'
+import {getRootLayout} from '@/shared/ui'
 
 const TermsOfService = () => {
   return <h1>Terms Of Service</h1>
