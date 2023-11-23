@@ -1,4 +1,4 @@
-import {getRootLayout} from '@/shared/ui'
+import { getRootLayout } from '@/shared/ui'
 
 const SignIn = () => {
   return <h1>Sign In</h1>

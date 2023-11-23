@@ -1,7 +1,7 @@
-import {getRootLayout} from '@/shared/ui'
+import { getRootLayout } from '@/shared/ui'
 
 const SignUp = () => {
-    return <h1>Sign Up</h1>
+  return <h1>Sign Up</h1>
 }
 
 SignUp.getLayout = getRootLayout

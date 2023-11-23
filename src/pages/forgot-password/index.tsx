@@ -1,7 +1,7 @@
-import {getRootLayout} from '@/shared/ui'
+import { getRootLayout } from '@/shared/ui'
 
 const ForgotPassword = () => {
-    return <h1>ForgotPassword</h1>
+  return <h1>ForgotPassword</h1>
 }
 
 ForgotPassword.getLayout = getRootLayout
