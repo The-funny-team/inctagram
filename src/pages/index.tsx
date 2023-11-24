@@ -1,6 +1,6 @@
-import { getRootLayout } from '@/common/components'
+import { getRootLayout } from '@/shared/ui'
 
-function Home() {
+const Home = () => {
   return <h1>Hello</h1>
 }
 
