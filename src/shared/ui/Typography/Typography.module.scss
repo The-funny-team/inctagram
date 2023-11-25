@@ -1,0 +1,64 @@
+@mixin typography($fontSize, $fontWeight, $lineHeight) {
+  margin: 0;
+
+  font-size: $fontSize;
+  font-weight: $fontWeight;
+  line-height: $lineHeight;
+  color: var(--color-light-100);
+}
+
+.large {
+  @include typography(var(--font-size-xxl), var(--font-weight-semi-bold), var(--line-height-l));
+}
+
+.h1 {
+  @include typography(var(--font-size-xl), var(--font-weight-bold), var(--line-height-l));
+}
+
+.h2 {
+  @include typography(var(--font-size-l), var(--font-weight-bold), var(--line-height-m));
+}
+
+.h3 {
+  @include typography(var(--font-size-m), var(--font-weight-semi-bold), var(--line-height-m));
+}
+
+.regularText16 {
+  @include typography(var(--font-size-m), var(--font-weight-regular), var(--line-height-m));
+}
+
+.boldText16 {
+  @include typography(var(--font-size-m), var(--font-weight-bold), var(--line-height-m));
+}
+
+.regularText14 {
+  @include typography(var(--font-size-s), var(--font-weight-regular), var(--line-height-m));
+}
+
+.mediumText14 {
+  @include typography(var(--font-size-s), var(--font-weight-medium), var(--line-height-m));
+}
+
+.boldText14 {
+  @include typography(var(--font-size-s), var(--font-weight-bold), var(--line-height-m));
+}
+
+.smallText {
+  @include typography(var(--font-size-xs), var(--font-weight-regular), var(--line-height-s));
+}
+
+.semiBoldSmallText {
+  @include typography(var(--font-size-xs), var(--font-weight-semi-bold), var(--line-height-s));
+}
+
+.regularLink {
+  @include typography(var(--font-size-s), var(--font-weight-regular), var(--line-height-m));
+
+  color: var(--color-accent-500);
+}
+
+.smallLink {
+  @include typography(var(--font-size-xs), var(--font-weight-regular), var(--line-height-s));
+
+  color: var(--color-accent-500);
+}
