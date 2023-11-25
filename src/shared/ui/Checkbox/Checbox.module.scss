@@ -14,11 +14,6 @@
   line-height: $height;
 }
 
-button {
-  all: unset;
-  box-sizing: border-box;
-}
-
 .wrapper {
   @include flex($align: center, $gap: 12px, $direction: row-reverse, $justify: start);
 }
@@ -30,10 +25,11 @@ button {
 
   position: relative;
 
+  box-sizing: border-box;
   width: 18px;
   height: 18px;
 
-  background-color: var(--color-dark-900);
+  background-color: transparent;
   border: solid 2px var(--color-light-100);
   border-radius: 3px;
 
@@ -72,6 +68,10 @@ button {
     border-color: var(--color-light-900);
   }
 
+  &[data-state='checked'] {
+    background-color: var(--color-dark-900);
+  }
+
   &[data-state='unchecked'] {
     background-color: transparent;
   }
@@ -107,6 +107,10 @@ button {
 
 .label:active + .root::before {
   background-color: var(--color-dark-100);
+}
+
+.label:active + .root:disabled::before {
+  background-color: transparent;
 }
 
 .disabledLabel {
