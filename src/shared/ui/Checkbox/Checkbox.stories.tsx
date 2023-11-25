@@ -1,6 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { Checkbox } from './Checkbox'
+import { useState } from 'react'
+
+import { Checkbox, CheckboxProps } from './Checkbox'
 
 const meta = {
   component: Checkbox,
@@ -14,6 +16,45 @@ type Story = StoryObj<typeof meta>
 export const Default: Story = {
   args: {
     checked: false,
+    label: 'Unchecked checkbox',
+  },
+}
+
+export const DefaultChecked: Story = {
+  args: {
+    checked: true,
     label: 'Checked checkbox',
   },
+}
+
+export const DisabledCheckedCheckbox: Story = {
+  args: {
+    checked: true,
+    disabled: true,
+    label: 'Checkbox',
+  },
+}
+
+export const DisabledUnCheckedCheckbox: Story = {
+  args: {
+    checked: false,
+    disabled: true,
+    label: 'Checkbox',
+  },
+}
+
+const CheckboxWithHooks = (args: CheckboxProps) => {
+  const [checked, setChecked] = useState(false)
+  const onCheckboxClickHandler = (value: boolean) => {
+    setChecked(value)
+  }
+
+  return <Checkbox {...args} checked={checked} onCheckedChange={onCheckboxClickHandler} />
+}
+
+export const Controlled: Story = {
+  args: {
+    label: 'Controlled checkbox',
+  },
+  render: args => <CheckboxWithHooks {...args} />,
 }
