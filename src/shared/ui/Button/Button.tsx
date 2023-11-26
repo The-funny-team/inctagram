@@ -25,7 +25,7 @@ export const Button: FC<Props> = <T extends ElementType = 'button'>(
   } = props
 
   return (
-    <Component className={clsx(s[variant], fullWidth ? s.fullWidth : '', className)} {...rest}>
+    <Component className={clsx(s[variant], fullWidth && s.fullWidth, className)} {...rest}>
       {children}
     </Component>
   )
