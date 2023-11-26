@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 
 import {
   ArrowLeftIcon,
+  BellNotifyIcon,
   CheckboxIcon,
   EmailConfirmedIcon,
   ExpiredTimeIcon,
@@ -98,6 +99,16 @@ export const Recaptcha: Story = {
     children: (
       <>
         <RecaptchaIcon />
+      </>
+    ),
+  },
+}
+
+export const BellNotify: Story = {
+  args: {
+    children: (
+      <>
+        <BellNotifyIcon />
       </>
     ),
   },
