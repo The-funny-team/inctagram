@@ -4,7 +4,7 @@ import { CheckboxIcon } from '@/shared/assets'
 import * as RadixCheckbox from '@radix-ui/react-checkbox'
 import { clsx } from 'clsx'
 
-import s from './Checbox.module.scss'
+import s from './Checkbox.module.scss'
 export type CheckboxProps = { label?: string } & ComponentPropsWithoutRef<typeof RadixCheckbox.Root>
 
 export const Checkbox = forwardRef<ElementRef<typeof RadixCheckbox.Root>, CheckboxProps>(
