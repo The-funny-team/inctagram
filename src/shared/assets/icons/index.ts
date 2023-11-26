@@ -1,3 +1,4 @@
+export { ArrowLeftIcon } from './ArrowLeftIcon'
 export { CheckboxIcon } from './CheckboxIcon'
 export { EmailConfirmedIcon } from './EmailConfirmed'
 export { ExpiredTimeIcon } from './ExpiredTimeIcon'
