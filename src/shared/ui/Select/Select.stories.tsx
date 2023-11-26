@@ -2,8 +2,10 @@ import type { Meta, StoryObj } from '@storybook/react'
 
 import { ComponentProps, useState } from 'react'
 
-import FlagEnglish from '../../assets/icons/FlagEnglish'
-import FlagRussian from '../../assets/icons/FlagRussian'
+import Image from 'next/image'
+
+import flagRu from '../../../../public/flagRussia.png'
+import flagEng from '../../../../public/flagUnitedKingdom.png'
 import { Select } from './Select'
 
 const meta = {
@@ -29,9 +31,7 @@ const optionsWithIcons = [
   {
     label: (
       <>
-        <span style={{ alignItems: 'center', display: 'flex', justifyContent: 'center' }}>
-          <FlagRussian />
-        </span>
+        <Image alt={'flag russian'} height={20} src={flagRu} width={20} />
         <span>Russian</span>
       </>
     ),
@@ -40,9 +40,7 @@ const optionsWithIcons = [
   {
     label: (
       <>
-        <span style={{ alignItems: 'center', display: 'flex', justifyContent: 'center' }}>
-          <FlagEnglish />
-        </span>
+        <Image alt={'flag english'} height={20} src={flagEng} width={20} />
         <span>English</span>
       </>
     ),
@@ -51,19 +49,11 @@ const optionsWithIcons = [
 ]
 const optionsOnlyIcons = [
   {
-    label: (
-      <span style={{ alignItems: 'center', display: 'flex', justifyContent: 'center' }}>
-        <FlagRussian />
-      </span>
-    ),
+    label: <Image alt={'flag russian'} height={20} src={flagRu} width={20} />,
     value: 'ru',
   },
   {
-    label: (
-      <span style={{ alignItems: 'center', display: 'flex', justifyContent: 'center' }}>
-        <FlagEnglish />
-      </span>
-    ),
+    label: <Image alt={'flag english'} height={20} src={flagEng} width={20} />,
     value: 'en',
   },
 ]
