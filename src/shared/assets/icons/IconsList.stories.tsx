@@ -1,8 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
 import ArrowDown from './ArrowDown'
-import FlagEnglish from './FlagEnglish'
-import FlagRussian from './FlagRussian'
 import { IconsList } from './IconsList'
 
 const meta = {
@@ -20,26 +18,6 @@ export const ArrowDownIcon: Story = {
     children: (
       <>
         <ArrowDown />
-      </>
-    ),
-  },
-}
-
-export const FlagEnglishIcon: Story = {
-  args: {
-    children: (
-      <>
-        <FlagEnglish />
-      </>
-    ),
-  },
-}
-
-export const FlagRussianIcon: Story = {
-  args: {
-    children: (
-      <>
-        <FlagRussian />
       </>
     ),
   },
