@@ -1,26 +1,44 @@
-import { ComponentPropsWithoutRef, ReactElement } from 'react'
+import { ComponentPropsWithoutRef, useState } from 'react'
 
 import { BellNotifyIcon } from '@/shared/assets'
 import { ROUTES_URL } from '@/shared/const'
 import { Select, Typography } from '@/shared/ui'
 import { clsx } from 'clsx'
+import Image from 'next/image'
 import Link from 'next/link'
 
 import s from './Header.module.scss'
 
+import flagRu from '/public/flagRussia.png'
+import flagEng from '/public/flagUnitedKingdom.png'
+
+const languageOptions = [
+  {
+    label: (
+      <>
+        <Image alt={'flag russian'} height={20} src={flagRu} width={20} />
+        <span>Russian</span>
+      </>
+    ),
+    value: 'ru',
+  },
+  {
+    label: (
+      <>
+        <Image alt={'flag english'} height={20} src={flagEng} width={20} />
+        <span>English</span>
+      </>
+    ),
+    value: 'en',
+  },
+]
+
 type Props = {
   isLoggedIn: boolean
-  languageOptions: Array<{ label: ReactElement | string; value: string }>
-  languageValue: string
 } & ComponentPropsWithoutRef<'header'>
 
-export const Header = ({
-  className,
-  isLoggedIn,
-  languageOptions,
-  languageValue,
-  ...restProps
-}: Props) => {
+export const Header = ({ className, isLoggedIn, ...restProps }: Props) => {
+  const [languageValue, setLanguageValue] = useState(languageOptions[0].value)
   const classNames = {
     authLinks: s.authLinks,
     container: s.container,
@@ -39,7 +57,11 @@ export const Header = ({
         </Typography>
         <div className={classNames.headerDashboard}>
           {isLoggedIn && <BellNotifyIcon />}
-          <Select options={languageOptions} value={languageValue} />
+          <Select
+            onValueChange={setLanguageValue}
+            options={languageOptions}
+            value={languageValue}
+          />
           {!isLoggedIn && (
             <div className={classNames.authLinks}>
               <Typography
