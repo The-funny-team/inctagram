@@ -1,0 +1,89 @@
+@mixin flex($direction: row, $justify: flex-start, $align: stretch, $gap: 0, $wrap: nowrap) {
+  display: flex;
+  flex-flow: $direction $wrap;
+  flex-wrap: $wrap;
+  gap: $gap;
+  align-items: $align;
+  justify-content: $justify;
+}
+
+@mixin font($size, $weight: 400, $style: normal, $height: 24px) {
+  font-size: $size;
+  font-weight: $weight;
+  font-style: $style;
+  line-height: $height;
+}
+
+@mixin container {
+  width: 100%;
+  max-width: 1180px;
+  min-height: 100%;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+.header {
+  height: 60px;
+  border-bottom: solid 1px var(--color-dark-300);
+}
+
+.container {
+  @include container;
+  @include flex($align: center, $justify: space-between);
+}
+
+.link {
+  @include font($size: 26px, $weight: 600, $height: 36px);
+
+  all: unset;
+  cursor: pointer;
+}
+
+.headerDashboard {
+  @include flex($align: center, $justify: space-between);
+
+  & > :nth-child(2) {
+    margin-left: 48px;
+  }
+}
+
+.authLinks {
+  @include flex($align: center, $justify: space-between, $gap: 24px);
+
+  margin-left: 36px;
+}
+
+.signInLink {
+  all: unset;
+
+  cursor: pointer;
+
+  padding: 0 24px;
+
+  color: var(--color-accent-500);
+
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: var(--color-accent-100);
+  }
+}
+
+.signUpLink {
+  all: unset;
+
+  cursor: pointer;
+
+  padding: 6px 24px;
+
+  color: var(--color-light-100);
+
+  background-color: var(--color-accent-500);
+  border-radius: 2px;
+
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background-color: var(--color-accent-100);
+  }
+}
