@@ -1,0 +1,81 @@
+.dialogOverlay {
+  position: fixed;
+  inset: 0;
+  background-color: var(--color-dark-900);
+  animation: overlayShow 150ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dialogContent {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 90vw;
+  max-width: 378px;
+  max-height: 85vh;
+
+  background-color: var(--color-dark-300);
+  border: 1px solid var(--color-dark-100);
+  border-radius: 2px;
+
+  animation: contentShow 150ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dialogHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 24px;
+
+  border: 1px solid var(--color-dark-100);
+}
+
+.dialogContent:focus {
+  outline: none;
+}
+
+.iconButton {
+  cursor: pointer;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 24px;
+  height: 24px;
+
+  font-family: inherit;
+  font-weight: bold;
+
+  background: none;
+  border: none;
+  outline: inherit;
+}
+
+.content {
+  padding: 24px;
+}
+
+@keyframes overlayShow {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes contentShow {
+  from {
+    transform: translate(-50%, -48%) scale(0.96);
+    opacity: 0;
+  }
+
+  to {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+}
