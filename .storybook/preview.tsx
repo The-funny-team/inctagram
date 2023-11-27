@@ -6,6 +6,19 @@ const inter = Inter({ subsets: ['latin'] })
 
 const preview: Preview = {
   parameters: {
+    backgrounds: {
+      default: 'Dark',
+      values: [
+        {
+          name: 'Dark',
+          value: '#000',
+        },
+        {
+          name: 'Light',
+          value: '#f4f4f4',
+        },
+      ],
+    },
     actions: { argTypesRegex: '^on[A-Z].*' },
     controls: {
       matchers: {
