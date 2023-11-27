@@ -1,6 +1,7 @@
 import React, { ChangeEvent, ComponentPropsWithoutRef, forwardRef, useState } from 'react'
 
 import { EyeOutlineIcon, SearchOutlineIcon } from '@/shared/assets'
+import clsx from 'clsx'
 
 import s from './Input.module.scss'
 
@@ -14,9 +15,9 @@ type Props = {
 } & ComponentPropsWithoutRef<'input'>
 
 export const Input = forwardRef<HTMLInputElement, Props>((props, ref) => {
-  const { error, label, onEnter, onKeyDown, onValueChange, type, value, ...rest } = props
+  const { className, error, label, onEnter, onKeyDown, onValueChange, type, value, ...rest } = props
 
-  const [isVisible, setIsVisible] = useState(false)
+  const [isVisible, setIsVisible] = useState<boolean>(false)
 
   const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
     if (onValueChange) {
@@ -32,18 +33,35 @@ export const Input = forwardRef<HTMLInputElement, Props>((props, ref) => {
   }
 
   const showPassword = () => {
-    setIsVisible(prevState => !prevState)
+    if (!rest.disabled) {
+      setIsVisible(prevState => !prevState)
+    }
+  }
+  const classNames = {
+    eyeIcon: clsx(s.eyeIcon, rest.disabled && s.disabledIcon),
+    input: clsx(
+      s.input,
+      type === 'search' && s.searchInput,
+      type === 'password' && s.passwordInput,
+      error && s.error
+    ),
+    label: clsx(s.label, rest.disabled && s.disabledLabel),
+    span: clsx(s.span, rest.disabled && s.disabledSpan),
+    textField: clsx(s.textField),
+    wrapper: clsx(s.wrapper, className),
   }
 
   return (
-    <div className={s.wrapper}>
-      {label && <label htmlFor={'input'}>{label}</label>}
-      <div className={s.textField}>
-        {type === 'search' && <SearchOutlineIcon className={s.searchIcon} />}
+    <div className={classNames.wrapper}>
+      {label && (
+        <label className={classNames.label} htmlFor={'input'}>
+          {label}
+        </label>
+      )}
+      <div className={classNames.textField}>
+        {type === 'search' && <SearchOutlineIcon className={`${s.searchIcon} `} />}
         <input
-          className={`${s.input} ${type === 'search' ? s.searchInput : ''} ${
-            type === 'password' ? s.passwordInput : ''
-          } ${error && s.error}`}
+          className={classNames.input}
           id={'input'}
           onChange={onChangeHandler}
           onKeyDown={onPressKeyHandler}
@@ -52,9 +70,11 @@ export const Input = forwardRef<HTMLInputElement, Props>((props, ref) => {
           value={value}
           {...rest}
         />
-        {type === 'password' && <EyeOutlineIcon className={s.eyeIcon} onClick={showPassword} />}
+        {type === 'password' && (
+          <EyeOutlineIcon className={classNames.eyeIcon} onClick={showPassword} />
+        )}
       </div>
-      {error && <span>{error}</span>}
+      {error && <span className={classNames.span}>{error}</span>}
     </div>
   )
 })

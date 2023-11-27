@@ -16,6 +16,7 @@ export const TextInputWithOutError: Story = {
   args: {
     disabled: false,
     label: 'Email',
+    placeholder: 'Epam@epam.com',
     type: 'text',
   },
 }
@@ -24,6 +25,7 @@ export const TextInputWithError: Story = {
     disabled: false,
     error: 'error text',
     label: 'Email',
+    placeholder: 'Epam@epam.com',
     type: 'text',
   },
 }
@@ -32,6 +34,7 @@ export const SearchInput: Story = {
     disabled: false,
     error: '',
     label: 'Email',
+    placeholder: 'Input search',
     type: 'search',
   },
 }
@@ -40,6 +43,7 @@ export const SearchInputWithError: Story = {
     disabled: false,
     error: 'some error',
     label: 'Email',
+    placeholder: 'Input search',
     type: 'search',
   },
 }
@@ -49,6 +53,7 @@ export const PasswordInput: Story = {
     disabled: false,
     error: '',
     label: 'Email',
+    placeholder: 'Epam@epam.com',
     type: 'password',
   },
 }
