@@ -34,7 +34,7 @@ export const Header = ({
   return (
     <header className={classNames.header} {...restProps}>
       <div className={classNames.container}>
-        <Typography as={Link} className={classNames.link} href={'/'}>
+        <Typography as={Link} className={classNames.link} href={'/'} variant={'large'}>
           Inctagram
         </Typography>
         <div className={classNames.headerDashboard}>
@@ -42,10 +42,20 @@ export const Header = ({
           <Select options={languageOptions} value={languageValue} />
           {!isLoggedIn && (
             <div className={classNames.authLinks}>
-              <Typography as={Link} className={classNames.signInLink} href={ROUTES_URL.SIGN_IN}>
+              <Typography
+                as={Link}
+                className={classNames.signInLink}
+                href={ROUTES_URL.SIGN_IN}
+                variant={'h3'}
+              >
                 Log in
               </Typography>
-              <Typography as={Link} className={classNames.signUpLink} href={ROUTES_URL.SIGN_UP}>
+              <Typography
+                as={Link}
+                className={classNames.signUpLink}
+                href={ROUTES_URL.SIGN_UP}
+                variant={'h3'}
+              >
                 Sign up
               </Typography>
             </div>
