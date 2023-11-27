@@ -19,4 +19,4 @@ const SvgComponent = (props: SVGProps<SVGSVGElement>, ref: Ref<SVGSVGElement>) =
 )
 const ForwardRef = forwardRef(SvgComponent)
 
-export const SearchOutline = memo(ForwardRef)
+export const SearchOutlineIcon = memo(ForwardRef)

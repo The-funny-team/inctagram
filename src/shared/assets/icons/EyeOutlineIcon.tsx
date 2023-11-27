@@ -25,4 +25,4 @@ const SvgComponent = (props: SVGProps<SVGSVGElement>, ref: Ref<SVGSVGElement>) =
 )
 const ForwardRef = forwardRef(SvgComponent)
 
-export const EyeOutline = memo(ForwardRef)
+export const EyeOutlineIcon = memo(ForwardRef)
