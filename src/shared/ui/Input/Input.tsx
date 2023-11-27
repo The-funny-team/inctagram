@@ -46,6 +46,7 @@ export const Input = forwardRef<HTMLInputElement, Props>((props, ref) => {
       error && s.error
     ),
     label: clsx(s.label, rest.disabled && s.disabledLabel),
+    searchIcon: clsx(s.searchIcon),
     span: clsx(s.span, rest.disabled && s.disabledSpan),
     textField: clsx(s.textField),
     wrapper: clsx(s.wrapper, className),
@@ -54,15 +55,15 @@ export const Input = forwardRef<HTMLInputElement, Props>((props, ref) => {
   return (
     <div className={classNames.wrapper}>
       {label && (
-        <label className={classNames.label} htmlFor={'input'}>
+        <label className={classNames.label} htmlFor={label}>
           {label}
         </label>
       )}
       <div className={classNames.textField}>
-        {type === 'search' && <SearchOutlineIcon className={`${s.searchIcon} `} />}
+        {type === 'search' && <SearchOutlineIcon className={classNames.searchIcon} />}
         <input
           className={classNames.input}
-          id={'input'}
+          id={label}
           onChange={onChangeHandler}
           onKeyDown={onPressKeyHandler}
           ref={ref}
