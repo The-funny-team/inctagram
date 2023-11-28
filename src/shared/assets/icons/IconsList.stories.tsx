@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 
 import {
   ArrowLeftIcon,
+  BellNotifyIcon,
   CheckboxIcon,
   EmailConfirmedIcon,
   ExpiredTimeIcon,
@@ -120,6 +121,16 @@ export const SearchOutline: Story = {
     children: (
       <>
         <SearchOutlineIcon />
+      </>
+    ),
+  },
+}
+
+export const BellNotify: Story = {
+  args: {
+    children: (
+      <>
+        <BellNotifyIcon />
       </>
     ),
   },

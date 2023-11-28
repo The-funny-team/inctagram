@@ -1,4 +1,4 @@
-const ROUTES_URL = {
+export const ROUTES_URL = {
   FORGOT_PASSWORD: '/forgot-password',
   PRIVACY_POLICY: '/privacy-policy',
   PROFILE: '/profile',
@@ -6,5 +6,3 @@ const ROUTES_URL = {
   SIGN_UP: '/sign-up',
   TERMS_OF_SERVICE: '/terms-of-service',
 }
-
-export default ROUTES_URL
