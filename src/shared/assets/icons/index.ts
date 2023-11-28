@@ -1,3 +1,4 @@
+export { ArrowDownIcon } from './ArrowDown'
 export { ArrowLeftIcon } from './ArrowLeftIcon'
 export { BellNotifyIcon } from './BellNotifyIcon'
 export { CheckboxIcon } from './CheckboxIcon'
