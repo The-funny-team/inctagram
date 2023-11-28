@@ -12,7 +12,7 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const TextInputWithOutError: Story = {
+export const Default: Story = {
   args: {
     disabled: false,
     label: 'Email',
@@ -20,7 +20,8 @@ export const TextInputWithOutError: Story = {
     type: 'text',
   },
 }
-export const TextInputWithError: Story = {
+
+export const WithError: Story = {
   args: {
     disabled: false,
     error: 'error text',
@@ -29,26 +30,18 @@ export const TextInputWithError: Story = {
     type: 'text',
   },
 }
-export const SearchInput: Story = {
+
+export const Search: Story = {
   args: {
     disabled: false,
     error: '',
-    label: 'Email',
-    placeholder: 'Input search',
-    type: 'search',
-  },
-}
-export const SearchInputWithError: Story = {
-  args: {
-    disabled: false,
-    error: 'some error',
     label: 'Email',
     placeholder: 'Input search',
     type: 'search',
   },
 }
 
-export const PasswordInput: Story = {
+export const Password: Story = {
   args: {
     disabled: false,
     error: '',
@@ -57,18 +50,10 @@ export const PasswordInput: Story = {
     type: 'password',
   },
 }
-export const PasswordInputWithError: Story = {
-  args: {
-    disabled: false,
-    error: 'error text',
-    label: 'Email',
-    type: 'password',
-  },
-}
-export const DisabledPasswordInputWithLabelAndError: Story = {
+
+export const Disabled: Story = {
   args: {
     disabled: true,
-    error: 'error text',
     label: 'Email',
     type: 'password',
   },
