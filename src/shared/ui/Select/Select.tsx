@@ -1,9 +1,8 @@
 import { ElementRef, ReactElement, forwardRef } from 'react'
 
+import { ArrowDownIcon } from '@/shared/assets'
 import * as SelectRadix from '@radix-ui/react-select'
 import { clsx } from 'clsx'
-
-import Down from '../../assets/icons/ArrowDown'
 
 // eslint-disable-next-line perfectionist/sort-imports
 import s from './Select.module.scss'
@@ -36,7 +35,7 @@ export const Select = forwardRef<ElementRef<typeof SelectRadix.Trigger>, Props>(
           <SelectRadix.Trigger className={clsx(s.trigger)} id={label} ref={ref} tabIndex={0}>
             <SelectRadix.Value placeholder={placeholder} />
             <SelectRadix.Icon className={clsx(s.icon)}>
-              <Down />
+              <ArrowDownIcon />
             </SelectRadix.Icon>
           </SelectRadix.Trigger>
 
