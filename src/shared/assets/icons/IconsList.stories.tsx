@@ -6,9 +6,11 @@ import {
   CheckboxIcon,
   EmailConfirmedIcon,
   ExpiredTimeIcon,
+  EyeOutlineIcon,
   GithubIcon,
   GoogleIcon,
   RecaptchaIcon,
+  SearchOutlineIcon,
 } from '@/shared/assets'
 
 import ArrowDown from './ArrowDown'
@@ -99,6 +101,26 @@ export const Recaptcha: Story = {
     children: (
       <>
         <RecaptchaIcon />
+      </>
+    ),
+  },
+}
+
+export const EyeOutline: Story = {
+  args: {
+    children: (
+      <>
+        <EyeOutlineIcon />
+      </>
+    ),
+  },
+}
+
+export const SearchOutline: Story = {
+  args: {
+    children: (
+      <>
+        <SearchOutlineIcon />
       </>
     ),
   },
