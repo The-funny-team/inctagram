@@ -29,7 +29,6 @@
       font-weight: var(--font-weight-regular);
       font-style: normal;
       line-height: var(--line-height-m);
-      color: var(--color-light-900);
 
       appearance: none;
       background-color: transparent;
@@ -37,6 +36,7 @@
       border-radius: 2px;
 
       &:hover {
+        color: var(--color-light-900);
         border: 1px solid var(--color-light-900);
       }
 
@@ -45,12 +45,15 @@
       }
 
       &:focus-visible {
-        border: 2px solid var(--color-accent-500);
+        color: var(--color-light-100);
+        border-color: var(--color-accent-500);
+        outline: 1px solid var(--color-accent-500);
       }
 
       &:active {
         color: var(--color-light-100);
         border: 1px solid var(--color-light-100);
+        outline: none;
       }
 
       &:disabled {
@@ -91,6 +94,8 @@
   }
 
   label {
+    user-select: none;
+
     font-size: var(--font-size-s);
     font-weight: var(--font-weight-regular);
     line-height: var(--line-height-m);
