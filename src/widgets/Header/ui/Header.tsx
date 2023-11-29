@@ -2,11 +2,11 @@ import { ComponentPropsWithoutRef, useState } from 'react'
 
 import { BellNotifyIcon } from '@/shared/assets'
 import { ROUTES_URL } from '@/shared/const'
+import { useTranslation } from '@/shared/lib/hooks'
 import { Select, Typography } from '@/shared/ui'
 import { clsx } from 'clsx'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useRouter } from 'next/router'
 
 import s from './Header.module.scss'
 
@@ -40,14 +40,9 @@ type Props = {
 } & ComponentPropsWithoutRef<'header'>
 
 export const Header = ({ className, isLoggedIn, ...restProps }: Props) => {
-  const router = useRouter()
-
-  const text = router.locale === 'en' ? en : ru
-
-  const [languageValue, setLanguageValue] = useState(router.locale)
+  const { router, text } = useTranslation()
 
   const changeLangHandler = (value: string) => {
-    setLanguageValue(value)
     router.push({ pathname: router.pathname, query: router.query }, router.asPath, {
       locale: value,
     })
@@ -74,7 +69,7 @@ export const Header = ({ className, isLoggedIn, ...restProps }: Props) => {
           <Select
             onValueChange={changeLangHandler}
             options={languageOptions}
-            value={languageValue}
+            value={router.locale}
           />
           {!isLoggedIn && (
             <div className={classNames.authLinks}>
