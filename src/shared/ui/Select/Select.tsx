@@ -3,6 +3,9 @@ import { ElementRef, ReactElement, forwardRef } from 'react'
 import { ArrowDownIcon } from '@/shared/assets'
 import * as SelectRadix from '@radix-ui/react-select'
 import { clsx } from 'clsx'
+import { Inter } from 'next/font/google'
+
+const inter = Inter({ subsets: ['latin'] })
 
 // eslint-disable-next-line perfectionist/sort-imports
 import s from './Select.module.scss'
@@ -41,7 +44,7 @@ export const Select = forwardRef<ElementRef<typeof SelectRadix.Trigger>, Props>(
 
           <SelectRadix.Portal>
             <SelectRadix.Content position={'popper'} sideOffset={-1}>
-              <SelectRadix.Viewport className={clsx(s.viewport)}>
+              <SelectRadix.Viewport className={clsx(s.viewport, inter.className)}>
                 {options.map(el => (
                   <SelectRadix.Item className={clsx(s.item)} key={el.value} value={el.value}>
                     <SelectRadix.ItemText asChild>
