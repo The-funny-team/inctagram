@@ -1,7 +1,10 @@
+import { useTranslation } from '@/shared/lib/hooks'
 import { getRootLayout } from '@/shared/ui'
 
 const Home = () => {
-  return <h1>Hello</h1>
+  const { text } = useTranslation()
+
+  return <h1>{text.pages.home}</h1>
 }
 
 Home.getLayout = getRootLayout
