@@ -1,5 +1,6 @@
 import React, { PropsWithChildren, ReactElement } from 'react'
 
+import { Header } from '@/widgets/Header'
 import { NextPage } from 'next'
 import { Inter } from 'next/font/google'
 import Head from 'next/head'
@@ -14,7 +15,10 @@ export const RootLayout: NextPage<PropsWithChildren<any>> = ({ children }) => {
         <meta content={'width=device-width, initial-scale=1'} name={'viewport'} />
         <link href={'/favicon.ico'} rel={'icon'} />
       </Head>
-      <main className={inter.className}>{children}</main>
+      <div className={inter.className}>
+        <Header isLoggedIn={false} />
+        <main>{children}</main>
+      </div>
     </>
   )
 }
