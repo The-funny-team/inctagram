@@ -6,9 +6,11 @@ import { Select, Typography } from '@/shared/ui'
 import { clsx } from 'clsx'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 
 import s from './Header.module.scss'
 
+import { en, ru } from '../../../../locales'
 import flagRu from '/public/flagRussia.png'
 import flagEng from '/public/flagUnitedKingdom.png'
 
@@ -38,7 +40,19 @@ type Props = {
 } & ComponentPropsWithoutRef<'header'>
 
 export const Header = ({ className, isLoggedIn, ...restProps }: Props) => {
-  const [languageValue, setLanguageValue] = useState(languageOptions[0].value)
+  const router = useRouter()
+
+  const text = router.locale === 'en' ? en : ru
+
+  const [languageValue, setLanguageValue] = useState(router.locale)
+
+  const changeLangHandler = (value: string) => {
+    setLanguageValue(value)
+    router.push({ pathname: router.pathname, query: router.query }, router.asPath, {
+      locale: value,
+    })
+  }
+
   const classNames = {
     authLinks: s.authLinks,
     container: s.container,
@@ -58,7 +72,7 @@ export const Header = ({ className, isLoggedIn, ...restProps }: Props) => {
         <div className={classNames.headerDashboard}>
           {isLoggedIn && <BellNotifyIcon />}
           <Select
-            onValueChange={setLanguageValue}
+            onValueChange={changeLangHandler}
             options={languageOptions}
             value={languageValue}
           />
@@ -70,7 +84,7 @@ export const Header = ({ className, isLoggedIn, ...restProps }: Props) => {
                 href={ROUTES_URL.SIGN_IN}
                 variant={'h3'}
               >
-                Log in
+                {text.layout.header.signInBtn}
               </Typography>
               <Typography
                 as={Link}
@@ -78,7 +92,7 @@ export const Header = ({ className, isLoggedIn, ...restProps }: Props) => {
                 href={ROUTES_URL.SIGN_UP}
                 variant={'h3'}
               >
-                Sign up
+                {text.layout.header.signUpBtn}
               </Typography>
             </div>
           )}
