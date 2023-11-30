@@ -5,7 +5,7 @@ import clsx from 'clsx'
 
 import s from './Input.module.scss'
 
-type Props = {
+export type InputProps = {
   error?: string
   label?: string
   onEnter?: ComponentPropsWithoutRef<'input'>['onKeyDown']
@@ -14,7 +14,7 @@ type Props = {
   value?: string
 } & ComponentPropsWithoutRef<'input'>
 
-export const Input = forwardRef<HTMLInputElement, Props>((props, ref) => {
+export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
   const { className, error, label, onEnter, onKeyDown, onValueChange, type, value, ...rest } = props
 
   const [isVisible, setIsVisible] = useState<boolean>(false)
