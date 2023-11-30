@@ -10,9 +10,9 @@ type Props<T extends ElementType = 'button'> = {
   className?: string
   fullWidth?: boolean
   variant?: 'link' | 'primary' | 'secondary' | 'tertiary'
-} & ComponentPropsWithoutRef<T>
+}
 
-export const Button: FC<Props> = <T extends ElementType = 'button'>(
+export const Button = <T extends ElementType = 'button'>(
   props: Props<T> & Omit<ComponentPropsWithoutRef<T>, keyof Props<T>>
 ) => {
   const {
