@@ -8,8 +8,8 @@ import s from './ExpiredLink.module.scss'
 export const ExpiredLink = () => {
   const [showModal, setShowModal] = useState<boolean>(false)
 
-  const t = useTranslation().widgets.expiredLink
-
+  const { text } = useTranslation()
+  const t = text.widgets.expiredLink
   const showModalHandler = () => {
     setShowModal(!showModal)
   }
