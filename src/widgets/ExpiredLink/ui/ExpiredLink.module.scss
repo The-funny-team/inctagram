@@ -1,0 +1,26 @@
+.wrapper {
+  width: 100%;
+  max-width: 475px;
+  margin: 0 auto;
+  text-align: center;
+
+  .title {
+    padding: 35px 0 20px;
+  }
+
+  .text {
+    width: 100%;
+    max-width: 295px;
+    margin: 0 auto;
+    padding-bottom: 30px;
+  }
+
+  .button {
+    padding-bottom: 30px;
+  }
+
+  .modalButton {
+    display: flex;
+    justify-content: flex-end;
+  }
+}

@@ -4,6 +4,7 @@ import { ExpiredTimeIcon } from '@/shared/assets'
 import { useTranslation } from '@/shared/lib/hooks'
 import { Button, Modal, Typography } from '@/shared/ui'
 
+import s from './ExpiredLink.module.scss'
 export const ExpiredLink = () => {
   const [showModal, setShowModal] = useState<boolean>(false)
 
