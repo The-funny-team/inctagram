@@ -9,7 +9,8 @@ export const ExpiredLink = () => {
   const [showModal, setShowModal] = useState<boolean>(false)
 
   const { text } = useTranslation()
-  const t = text.widgets.expiredLink
+  const textWidget = text.widgets.expiredLink
+  const textModal = text.modals.expiredLink
   const showModalHandler = () => {
     setShowModal(!showModal)
   }
@@ -18,20 +19,20 @@ export const ExpiredLink = () => {
     <div className={s.wrapper}>
       <div className={s.text}>
         <Typography className={s.title} variant={'h1'}>
-          {t.title}
+          {textWidget.title}
         </Typography>
-        <Typography variant={'regularText16'}>{t.description}</Typography>
+        <Typography variant={'regularText16'}>{textWidget.description}</Typography>
       </div>
       <div className={s.button}>
         <Button fullWidth={false} onClick={showModalHandler}>
-          {t.btnTitle}
+          {textWidget.btnTitle}
           {/*Resend verification link*/}
         </Button>
       </div>
       <ExpiredTimeIcon />
       {
-        <Modal isOpen={showModal} onIsOpenChange={showModalHandler} title={'Email sent'}>
-          <p>We have resent a verification link to epam@epam.com</p>
+        <Modal isOpen={showModal} onIsOpenChange={showModalHandler} title={textModal.title}>
+          <p>{textModal.description}</p>
           <div className={s.modalButton}>
             <Button fullWidth={false} onClick={showModalHandler} type={'button'}>
               OK
