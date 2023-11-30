@@ -5,6 +5,12 @@ export const en = {
       signUpBtn: 'Sign up',
     },
   },
+  modals: {
+    expiredLink: {
+      description: 'Мы отправили ссылку для подтверждения на epam@epam.com',
+      title: 'Email отправлен',
+    },
+  },
   pages: {
     home: 'Home page',
   },

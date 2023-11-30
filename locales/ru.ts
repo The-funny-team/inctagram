@@ -7,6 +7,12 @@ export const ru: LocaleType = {
       signUpBtn: 'Регистрация',
     },
   },
+  modals: {
+    expiredLink: {
+      description: 'We have resent a verification link to epam@epam.com',
+      title: 'Email sent',
+    },
+  },
   pages: {
     home: 'Главная страница',
   },
