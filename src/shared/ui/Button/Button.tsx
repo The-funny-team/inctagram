@@ -1,4 +1,4 @@
-import React, { ComponentPropsWithoutRef, ElementType, FC, ReactNode } from 'react'
+import React, { ComponentPropsWithoutRef, ElementType, ReactNode } from 'react'
 
 import clsx from 'clsx'
 
