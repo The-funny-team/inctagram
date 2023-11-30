@@ -2,6 +2,11 @@ import { FC, ReactNode } from 'react'
 
 import { Cross2Icon } from '@/shared/assets'
 import * as Dialog from '@radix-ui/react-dialog'
+import { Inter } from 'next/font/google'
+
+const inter = Inter({ subsets: ['latin'] })
+
+import clsx from 'clsx'
 
 import styles from './Modal.module.scss'
 
@@ -17,7 +22,7 @@ export const Modal: FC<Props> = ({ children, isOpen, onIsOpenChange, title }: Pr
     <Dialog.Root onOpenChange={onIsOpenChange} open={isOpen}>
       <Dialog.Portal>
         <Dialog.Overlay className={styles.dialogOverlay} />
-        <Dialog.Content className={styles.dialogContent}>
+        <Dialog.Content className={clsx(styles.dialogContent, inter.className)}>
           <div className={styles.dialogHeader}>
             <Dialog.Title className={styles.dialogTitle}>{title}</Dialog.Title>
             <Dialog.Close asChild>

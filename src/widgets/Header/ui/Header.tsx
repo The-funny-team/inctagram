@@ -1,7 +1,8 @@
-import { ComponentPropsWithoutRef, useState } from 'react'
+import { ComponentPropsWithoutRef } from 'react'
 
 import { BellNotifyIcon } from '@/shared/assets'
 import { ROUTES_URL } from '@/shared/const'
+import { useTranslation } from '@/shared/lib/hooks'
 import { Select, Typography } from '@/shared/ui'
 import { clsx } from 'clsx'
 import Image from 'next/image'
@@ -9,6 +10,7 @@ import Link from 'next/link'
 
 import s from './Header.module.scss'
 
+import { en, ru } from '../../../../locales'
 import flagRu from '/public/flagRussia.png'
 import flagEng from '/public/flagUnitedKingdom.png'
 
@@ -38,7 +40,14 @@ type Props = {
 } & ComponentPropsWithoutRef<'header'>
 
 export const Header = ({ className, isLoggedIn, ...restProps }: Props) => {
-  const [languageValue, setLanguageValue] = useState(languageOptions[0].value)
+  const { router, text } = useTranslation()
+
+  const changeLangHandler = (value: string) => {
+    router.push({ pathname: router.pathname, query: router.query }, router.asPath, {
+      locale: value,
+    })
+  }
+
   const classNames = {
     authLinks: s.authLinks,
     container: s.container,
@@ -58,9 +67,9 @@ export const Header = ({ className, isLoggedIn, ...restProps }: Props) => {
         <div className={classNames.headerDashboard}>
           {isLoggedIn && <BellNotifyIcon />}
           <Select
-            onValueChange={setLanguageValue}
+            onValueChange={changeLangHandler}
             options={languageOptions}
-            value={languageValue}
+            value={router.locale}
           />
           {!isLoggedIn && (
             <div className={classNames.authLinks}>
@@ -70,7 +79,7 @@ export const Header = ({ className, isLoggedIn, ...restProps }: Props) => {
                 href={ROUTES_URL.SIGN_IN}
                 variant={'h3'}
               >
-                Log in
+                {text.layout.header.signInBtn}
               </Typography>
               <Typography
                 as={Link}
@@ -78,7 +87,7 @@ export const Header = ({ className, isLoggedIn, ...restProps }: Props) => {
                 href={ROUTES_URL.SIGN_UP}
                 variant={'h3'}
               >
-                Sign up
+                {text.layout.header.signUpBtn}
               </Typography>
             </div>
           )}

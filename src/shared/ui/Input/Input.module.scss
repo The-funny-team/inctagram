@@ -52,19 +52,25 @@
 
       &:active {
         color: var(--color-light-100);
+        background-color: var(--color-dark-500);
         border: 1px solid var(--color-light-100);
         outline: none;
       }
 
       &:disabled {
         color: var(--color-dark-100);
-        border: 1px solid var(--color-dark-100);
+        border-color: var(--color-dark-100);
       }
     }
 
     .error {
       color: var(--color-light-100);
-      border: 1px solid var(--color-danger-500);
+      border-color: var(--color-danger-500);
+
+      &:focus-visible {
+        border-color: var(--color-danger-500);
+        outline: 1px solid var(--color-danger-500);
+      }
     }
 
     .searchInput {

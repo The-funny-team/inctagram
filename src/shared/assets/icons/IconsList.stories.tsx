@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
 import {
+  ArrowDownIcon,
   ArrowLeftIcon,
   BellNotifyIcon,
   CheckboxIcon,
@@ -13,7 +14,6 @@ import {
   SearchOutlineIcon,
 } from '@/shared/assets'
 
-import ArrowDown from './ArrowDown'
 import { IconsList } from './IconsList'
 
 const meta = {
@@ -26,11 +26,11 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const ArrowDownIcon: Story = {
+export const ArrowDown: Story = {
   args: {
     children: (
       <>
-        <ArrowDown />
+        <ArrowDownIcon />
       </>
     ),
   },
