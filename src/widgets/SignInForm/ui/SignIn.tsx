@@ -79,14 +79,14 @@ export const SignIn = () => {
       <Typography className={classNames.questionText} variant={'regularText16'}>
         {text.pages.signIn.questionAboutAccount}
       </Typography>
-      <Typography
+      <Button
         as={Link}
         className={classNames.signUpLink}
         href={ROUTES_URL.SIGN_UP}
-        variant={'h3'}
+        variant={'link'}
       >
         {text.pages.signIn.signUpLink}
-      </Typography>
+      </Button>
     </Card>
   )
 }
