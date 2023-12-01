@@ -1,8 +1,8 @@
 import { RecaptchaIcon } from '@/shared/assets'
 import { ROUTES_URL } from '@/shared/const'
 import { Button, Card, Checkbox, Modal, Typography } from '@/shared/ui'
-import { ForgotPasswordFormValues, useForgotPasswordForm } from '@/widgets/FrogotPassword/services'
-import { ControlledInput } from '@/widgets/FrogotPassword/ui/ControlledInput'
+import { ForgotPasswordFormValues, useForgotPasswordForm } from '@/widgets/ForgotPassword/services'
+import { ControlledInput } from '@/widgets/ForgotPassword/ui/ControlledInput'
 import Link from 'next/link'
 
 import s from './ForgotPassword.module.scss'
@@ -20,7 +20,7 @@ export const ForgotPassword = () => {
     setIsChecked,
     setIsOpenModal,
     setIsSuccess,
-    transcripton,
+    transcription,
   } = useForgotPasswordForm()
 
   const submitHandler = (data: ForgotPasswordFormValues) => {
@@ -42,36 +42,36 @@ export const ForgotPassword = () => {
   return (
     <Card className={s.card}>
       <Typography as={'h1'} className={s.title} variant={'h1'}>
-        {transcripton.title}
+        {transcription.title}
       </Typography>
       <form onSubmit={handleSubmit(submitHandler)}>
         <ControlledInput
           control={control}
-          label={transcripton.inputLabel}
+          label={transcription.inputLabel}
           name={'email'}
           placeholder={'Example@mail.com'}
           type={'text'}
         />
         <Typography className={s.caption} variant={'regularText14'}>
-          {transcripton.caption}
+          {transcription.caption}
         </Typography>
         {isSuccess && (
           <Typography className={s.captionAfterSubmit} variant={'regularText14'}>
-            {transcripton.captionAfterSubmit}
+            {transcription.captionAfterSubmit}
           </Typography>
         )}
         <Button className={s.sendLink} disabled={isDisabled} type={'submit'}>
-          {isSuccess ? transcripton.resendLink : transcripton.sendLinkBtn}
+          {isSuccess ? transcription.resendLink : transcription.sendLinkBtn}
         </Button>
       </form>
       <Button as={Link} className={s.link} fullWidth href={ROUTES_URL.SIGN_IN} variant={'link'}>
-        {transcripton.signInBtn}
+        {transcription.signInBtn}
       </Button>
       {!isSuccess && (
         <div className={s.notARobot}>
           <Checkbox
             checked={isChecked}
-            label={transcripton.recaptcha}
+            label={transcription.recaptcha}
             onCheckedChange={(value: boolean) => setIsChecked(value)}
           />
           <span className={s.recaptcha}>
@@ -79,9 +79,9 @@ export const ForgotPassword = () => {
           </span>
         </div>
       )}
-      <Modal isOpen={isOpenModal} onIsOpenChange={setIsOpenModal} title={transcripton.modal.title}>
+      <Modal isOpen={isOpenModal} onIsOpenChange={setIsOpenModal} title={transcription.modal.title}>
         <Typography variant={'regularText16'}>
-          {transcripton.modal.getBody(getValues('email'))}
+          {transcription.modal.getBody(getValues('email'))}
         </Typography>
         <div className={s.modalBtnGroup}>
           <Button fullWidth={false} onClick={() => setIsOpenModal(false)}>

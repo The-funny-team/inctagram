@@ -5,13 +5,13 @@ import { useTranslation } from '@/shared/lib/hooks'
 import {
   ForgotPasswordFormValues,
   forgotPasswordSchema,
-} from '@/widgets/FrogotPassword/services/forgotPasswordSchema'
+} from '@/widgets/ForgotPassword/services/forgotPasswordSchema'
 import { zodResolver } from '@hookform/resolvers/zod'
 
 export const useForgotPasswordForm = () => {
   const {
     text: {
-      pages: { forgotPassword: transcripton },
+      pages: { forgotPassword: transcription },
     },
   } = useTranslation()
   const [isChecked, setIsChecked] = useState(false)
@@ -22,7 +22,7 @@ export const useForgotPasswordForm = () => {
       email: '',
     },
     mode: 'onTouched',
-    resolver: zodResolver(forgotPasswordSchema(transcripton)),
+    resolver: zodResolver(forgotPasswordSchema(transcription)),
   })
 
   const isDisabled = !(watch('email') && isChecked)
@@ -39,6 +39,6 @@ export const useForgotPasswordForm = () => {
     setIsChecked,
     setIsOpenModal,
     setIsSuccess,
-    transcripton,
+    transcription,
   }
 }
