@@ -5,18 +5,18 @@ import { Button, Card, Typography } from '@/shared/ui'
 import { clsx } from 'clsx'
 import Link from 'next/link'
 
-import s from './SignInForm.module.scss'
+import s from './SignIn.module.scss'
 
 import { ControlledInput } from './ControlledInput'
-import { SignInFormValuesType, useSignInForm } from './useSignInForm'
-export const SignInForm = () => {
+import { SignInFormValuesType, useSignIn } from './useSignIn'
+export const SignIn = () => {
   const { text } = useTranslation()
 
   const {
     control,
     formState: { errors, isValid },
     handleSubmit,
-  } = useSignInForm(text)
+  } = useSignIn(text)
 
   const classNames = {
     forgotLink: s.forgotLink,
