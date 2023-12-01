@@ -9,5 +9,13 @@ export const ru: LocaleType = {
   },
   pages: {
     home: 'Главная страница',
+    signIn: {
+      emailLabel: 'Емейл',
+      forgotPasswordLink: 'Забыли пароль?',
+      formTitle: 'Войти',
+      questionAboutAccount: 'У вас нет учетной записи?',
+      signInBtn: 'Войти',
+      signUpLink: 'Зарегистрироваться',
+    },
   },
 }
