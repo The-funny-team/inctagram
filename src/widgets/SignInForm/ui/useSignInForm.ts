@@ -4,30 +4,28 @@ import { PASSWORD_PATTERN } from '@/shared/const'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 
-const signInSchema = z.object({
-  email: z
-    .string()
-    .email({ message: 'The email must match the format example@example.com' })
-    .trim(),
-  password: z
-    .string()
-    .min(6, 'Minimum number of characters 6')
-    .max(20, 'Maximum number of characters 20')
-    .regex(
-      PASSWORD_PATTERN,
-      'Password must contain 0-9, a-z, A-Z, ! " # $ % & \' () * + , - . / : ; < = > ? @ [ \\ ] ^ _ ` { | } ~'
-    )
-    .trim(),
-})
+import { LocaleType } from '../../../../locales'
 
-export type SignInFormValuesType = z.infer<typeof signInSchema>
+const signInSchema = (text: LocaleType) => {
+  return z.object({
+    email: z.string().email({ message: text.errors.signInform.emailVerification }).trim(),
+    password: z
+      .string()
+      .min(6, text.errors.signInform.minPasswordLength)
+      .max(20, text.errors.signInform.maxPasswordLength)
+      .regex(PASSWORD_PATTERN, text.errors.signInform.passwordVerification)
+      .trim(),
+  })
+}
 
-export const useSignInForm = () =>
+export type SignInFormValuesType = z.infer<ReturnType<typeof signInSchema>>
+
+export const useSignInForm = (text: LocaleType) =>
   useForm<SignInFormValuesType>({
     defaultValues: {
       email: '',
       password: '',
     },
     mode: 'onTouched',
-    resolver: zodResolver(signInSchema),
+    resolver: zodResolver(signInSchema(text)),
   })
