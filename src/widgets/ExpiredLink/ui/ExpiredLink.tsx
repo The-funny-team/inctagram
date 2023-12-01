@@ -14,7 +14,7 @@ export const ExpiredLink = ({ email }: PropsType) => {
 
   const { text } = useTranslation()
   const textWidget = text.pages.expiredLink
-  const textModal = text.pages.expiredLink
+  const textModal = text.pages.expiredLink.modal
   const showModalHandler = () => {
     setShowModal(!showModal)
   }
