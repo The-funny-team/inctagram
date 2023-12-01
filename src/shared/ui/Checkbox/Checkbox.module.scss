@@ -15,7 +15,7 @@
 }
 
 .wrapper {
-  @include flex($align: center, $gap: 12px, $direction: row-reverse, $justify: start);
+  @include flex($align: center, $gap: 12px, $direction: row-reverse, $justify: flex-start);
 }
 
 .root {
