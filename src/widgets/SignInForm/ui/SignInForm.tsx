@@ -1,45 +1,66 @@
 import { GithubIcon, GoogleIcon } from '@/shared/assets'
 import { ROUTES_URL } from '@/shared/const'
+import { useTranslation } from '@/shared/lib/hooks'
 import { Button, Card, Typography } from '@/shared/ui'
+import { clsx } from 'clsx'
 import Link from 'next/link'
 
 import s from './SignInForm.module.scss'
 
 import { ControlledInput } from './ControlledInput'
-import { useSignInForm } from './useSignInForm'
+import { SignInFormValuesType, useSignInForm } from './useSignInForm'
 export const SignInForm = () => {
-  const { control } = useSignInForm()
+  const { text } = useTranslation()
+
+  const {
+    control,
+    formState: { errors, isValid },
+    handleSubmit,
+  } = useSignInForm(text)
 
   const classNames = {
     forgotLink: s.forgotLink,
     form: s.form,
-    formInput: s.formInput,
+    formInput(error?: string) {
+      return clsx(s.formInput, error && s.formInputWithError)
+    },
     formTitle: s.formTitle,
     providers: s.providers,
+    questionText: s.questionText,
     root: s.root,
+    signUpLink: s.signUpLink,
+  }
+
+  const onFormSubmit = (data: SignInFormValuesType) => {
+    console.log(data)
   }
 
   return (
     <Card className={classNames.root}>
       <Typography as={'h1'} className={classNames.formTitle} variant={'h1'}>
-        Sign In
+        {text.pages.signIn.formTitle}
       </Typography>
       <div className={classNames.providers}>
-        <GoogleIcon />
-        <GithubIcon />
+        <Link href={'https://accounts.google.com/o/oauth2/v2/auth'} target={'_blank'}>
+          <GoogleIcon />
+        </Link>
+        <Link href={'https://github.com/login/oauth/authorize'} target={'_blank'}>
+          <GithubIcon />
+        </Link>
       </div>
-      <form className={classNames.form}>
+      <form className={classNames.form} onSubmit={handleSubmit(onFormSubmit)}>
         <ControlledInput
-          className={classNames.formInput}
+          className={classNames.formInput(errors.email?.message)}
           control={control}
-          label={'Email'}
+          label={text.pages.signIn.emailLabel}
           name={'email'}
           type={'text'}
         />
         <ControlledInput
-          className={classNames.formInput}
+          autoComplete={'off'}
+          className={classNames.formInput(errors.password?.message)}
           control={control}
-          label={'Password'}
+          label={text.pages.signIn.passwordLabel}
           name={'password'}
           type={'password'}
         />
@@ -49,13 +70,22 @@ export const SignInForm = () => {
           href={ROUTES_URL.FORGOT_PASSWORD}
           variant={'regularText14'}
         >
-          Forgot Password?
+          {text.pages.signIn.forgotPasswordLink}
         </Typography>
-        <Button>Sign In</Button>
+        <Button disabled={!isValid} type={'submit'}>
+          {text.pages.signIn.signInBtn}
+        </Button>
       </form>
-      <Typography variant={'regularText16'}>Don’t have an account?</Typography>
-      <Typography as={Link} href={ROUTES_URL.SIGN_UP} variant={'h3'}>
-        Sign Up
+      <Typography className={classNames.questionText} variant={'regularText16'}>
+        {text.pages.signIn.questionAboutAccount}
+      </Typography>
+      <Typography
+        as={Link}
+        className={classNames.signUpLink}
+        href={ROUTES_URL.SIGN_UP}
+        variant={'h3'}
+      >
+        {text.pages.signIn.signUpLink}
       </Typography>
     </Card>
   )
