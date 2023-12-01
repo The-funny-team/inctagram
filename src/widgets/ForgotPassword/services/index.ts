@@ -1,2 +1,2 @@
 export * from './forgotPasswordSchema'
-export * from './useForgotPasswordForm'
+export * from './useForgotPassword'

@@ -1,7 +1,7 @@
 import { RecaptchaIcon } from '@/shared/assets'
 import { ROUTES_URL } from '@/shared/const'
 import { Button, Card, Checkbox, Modal, Typography } from '@/shared/ui'
-import { ForgotPasswordFormValues, useForgotPasswordForm } from '@/widgets/ForgotPassword/services'
+import { ForgotPasswordFormValues, useForgotPassword } from '@/widgets/ForgotPassword/services'
 import { ControlledInput } from '@/widgets/ForgotPassword/ui/ControlledInput'
 import Link from 'next/link'
 
@@ -21,7 +21,7 @@ export const ForgotPassword = () => {
     setIsOpenModal,
     setIsSuccess,
     transcription,
-  } = useForgotPasswordForm()
+  } = useForgotPassword()
 
   const submitHandler = (data: ForgotPasswordFormValues) => {
     new Promise((res, rej) => {

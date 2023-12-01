@@ -8,7 +8,7 @@ import {
 } from '@/widgets/ForgotPassword/services/forgotPasswordSchema'
 import { zodResolver } from '@hookform/resolvers/zod'
 
-export const useForgotPasswordForm = () => {
+export const useForgotPassword = () => {
   const {
     text: {
       pages: { forgotPassword: transcription },
