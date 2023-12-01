@@ -5,13 +5,22 @@ import { useTranslation } from '@/shared/lib/hooks'
 import { Button, Modal, Typography } from '@/shared/ui'
 
 import s from './ExpiredLink.module.scss'
-export const ExpiredLink = () => {
+
+type PropsType = {
+  email: string
+}
+export const ExpiredLink = ({ email }: PropsType) => {
   const [showModal, setShowModal] = useState<boolean>(false)
 
   const { text } = useTranslation()
-  const textWidget = text.widgets.expiredLink
-  const textModal = text.modals.expiredLink
+  const textWidget = text.pages.expiredLink
+  const textModal = text.pages.expiredLink
   const showModalHandler = () => {
+    setShowModal(!showModal)
+  }
+
+  const sendEmailHandler = () => {
+    console.log(email)
     setShowModal(!showModal)
   }
 
@@ -24,15 +33,16 @@ export const ExpiredLink = () => {
         <Typography variant={'regularText16'}>{textWidget.description}</Typography>
       </div>
       <div className={s.button}>
-        <Button fullWidth={false} onClick={showModalHandler}>
-          {textWidget.btnTitle}
-          {/*Resend verification link*/}
+        <Button fullWidth={false} onClick={sendEmailHandler}>
+          {textWidget.expiredLinkBtn}
         </Button>
       </div>
       <ExpiredTimeIcon />
       {
         <Modal isOpen={showModal} onIsOpenChange={showModalHandler} title={textModal.title}>
-          <p>{textModal.description}</p>
+          <p>
+            {textModal.description} {email}
+          </p>
           <div className={s.modalButton}>
             <Button fullWidth={false} onClick={showModalHandler} type={'button'}>
               OK
