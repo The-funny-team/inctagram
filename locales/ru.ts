@@ -19,7 +19,7 @@ export const ru: LocaleType = {
   pages: {
     home: 'Главная страница',
     signIn: {
-      emailLabel: 'Е-мейл',
+      emailLabel: 'Электронная почта',
       forgotPasswordLink: 'Забыли пароль?',
       formTitle: 'Войти',
       passwordLabel: 'Пароль',

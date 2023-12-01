@@ -30,7 +30,6 @@
   &:disabled {
     cursor: default;
     color: var(--color-light-900);
-    opacity: 0.5;
   }
 
   &.fullWidth {
@@ -44,16 +43,15 @@
 
   color: var(--color-light-100);
   background-color: var(--color-accent-500);
-  border: 2px solid transparent;
 
   &:disabled {
     color: var(--color-light-900);
-    border-color: var(--color-accent-900);
+    background-color: var(--color-accent-900);
   }
 
-  &:focus:enabled {
-    background-color: var(--primary-500, #397df6);
-    border: 2px solid var(--primary-700, #2f68cc);
+  &:focus-visible {
+    background-color: var(--color-accent-500);
+    outline: 2px solid var(--color-accent-700);
   }
 
   &:hover:enabled {
@@ -71,16 +69,15 @@
 
   color: var(--color-light-100);
   background-color: var(--color-dark-300);
-  border: 1px solid transparent;
 
   &:disabled {
     color: var(--color-light-900);
     background-color: var(--color-accent-500);
   }
 
-  &:focus:enabled {
-    background-color: var(--dark-300, #333);
-    border: 1px solid var(--primary-300, #4c8dff);
+  &:focus-visible {
+    background-color: var(--color-dark-300);
+    outline: 1px solid var(--color-accent-300);
   }
 
   &:hover:enabled {
@@ -97,35 +94,34 @@
 
   color: var(--color-accent-500);
   background-color: transparent;
-  border: 1px solid var(--color-accent-500);
+  outline: 1px solid var(--color-accent-500);
 
   &:disabled {
     color: var(--color-accent-900);
-    border-color: var(--color-accent-900);
+    outline: 1px solid var(--color-accent-900);
   }
 
-  &:focus:enabled {
-    border: 2px solid var(--color-accent-700);
+  &:focus-visible {
+    outline: 2px solid var(--color-accent-700);
   }
 
   &:hover:enabled {
     color: var(--color-accent-100);
-    border: 1px solid var(--color-accent-100);
+    outline: 1px solid var(--color-accent-100);
   }
 
   &:active:enabled {
     color: var(--color-accent-700);
-    border: 1px solid var(--color-accent-700);
+    outline: 1px solid var(--color-accent-700);
   }
 }
 
 .link {
   @include button;
 
-  color: var(--color-accent-700);
-  border: 2px solid transparent;
+  color: var(--color-accent-500);
 
-  &:active {
+  &:active:enabled {
     color: var(--color-accent-700);
   }
 
@@ -133,12 +129,11 @@
     color: var(--color-accent-900);
   }
 
-  &:hover {
+  &:hover:enabled {
     color: var(--color-accent-100);
   }
 
-  &:focus:enabled {
-    color: var(--color-accent-500);
-    border: 2px solid var(--color-accent-700);
+  &:focus-visible {
+    outline: 2px solid var(--color-accent-700);
   }
 }

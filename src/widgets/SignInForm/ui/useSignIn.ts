@@ -20,7 +20,7 @@ const signInSchema = (text: LocaleType) => {
 
 export type SignInFormValuesType = z.infer<ReturnType<typeof signInSchema>>
 
-export const useSignInForm = (text: LocaleType) =>
+export const useSignIn = (text: LocaleType) =>
   useForm<SignInFormValuesType>({
     defaultValues: {
       email: '',
