@@ -7,21 +7,17 @@ export const ru: LocaleType = {
       signUpBtn: 'Регистрация',
     },
   },
-  modals: {
-    expiredLink: {
-      description: 'We have resent a verification link to epam@epam.com',
-      title: 'Email sent',
-    },
-  },
   pages: {
-    home: 'Главная страница',
-  },
-  widgets: {
     expiredLink: {
-      btnTitle: 'Отправить ссылку еще раз',
       description:
         'Похоже, срок действия ссылки для подтверждения истек. Не волнуйтесь, мы можем отправить ссылку еще раз.',
+      expiredLinkBtn: 'Отправить ссылку повторно',
+      modal: {
+        description: 'Мы отправили ссылку для подтверждения на',
+        title: 'Email отправлен',
+      },
       title: 'Срок действия ссылки для подтверждения электронной почты истек',
     },
+    home: 'Главная страница',
   },
 }
