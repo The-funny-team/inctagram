@@ -15,6 +15,11 @@ export const en = {
     },
   },
   pages: {
+    confirmedEmail: {
+      description: 'Your email has been confirmed',
+      signInBtn: 'Sign In',
+      title: 'Congratulations!',
+    },
     home: 'Home page',
     signIn: {
       emailLabel: 'Email',
