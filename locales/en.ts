@@ -11,7 +11,7 @@ export const en = {
         'Looks like the verification link has expired. Not to worry, we can send the link again',
       expiredLinkBtn: 'Resend link',
       modal: {
-        description: 'We have resent a verification link to',
+        getDescription: (email: string) => `We have resent a verification link to ${email}`,
         title: 'Email sent',
       },
       title: 'Email verification link expired',

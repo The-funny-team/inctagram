@@ -40,9 +40,7 @@ export const ExpiredLink = ({ email }: PropsType) => {
       <ExpiredTimeIcon />
       {
         <Modal isOpen={showModal} onIsOpenChange={showModalHandler} title={textModal.title}>
-          <p>
-            {textModal.description} {email}
-          </p>
+          <p>{textModal.getDescription(email)}</p>
           <div className={s.modalButton}>
             <Button fullWidth={false} onClick={showModalHandler} type={'button'}>
               OK
