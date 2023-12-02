@@ -14,13 +14,18 @@ export const SignUp = () => {
   const { text } = useTranslation()
   const {
     control,
-    formState: { isValid },
+    formState: { errors, isValid },
     handleSubmit,
   } = useSignUp(text)
   const classNames = {
     form: clsx(s.form),
     formCheckbox: clsx(s.formCheckbox),
-    formInput: clsx(s.formInput),
+    formInput(error?: string) {
+      return clsx(
+        s.formInput,
+        error && error.length > 50 ? s.formInputWithErrorDouble : s.formInputWithErrorSingle
+      )
+    },
     otherRegistration: clsx(s.otherRegistration),
     question: clsx(s.question),
     root: clsx(s.root),
@@ -46,28 +51,28 @@ export const SignUp = () => {
       </div>
       <form className={classNames.form} onSubmit={handleSubmit(onSubmit)}>
         <ControlledInput
-          className={classNames.formInput}
+          className={classNames.formInput(errors.username?.message)}
           control={control}
           label={text.pages.signUp.username}
           name={'username'}
           type={'text'}
         ></ControlledInput>
         <ControlledInput
-          className={classNames.formInput}
+          className={classNames.formInput(errors.email?.message)}
           control={control}
           label={text.pages.signUp.email}
           name={'email'}
           type={'text'}
         ></ControlledInput>
         <ControlledInput
-          className={classNames.formInput}
+          className={classNames.formInput(errors.password?.message)}
           control={control}
           label={text.pages.signUp.password}
           name={'password'}
           type={'password'}
         ></ControlledInput>
         <ControlledInput
-          className={classNames.formInput}
+          className={classNames.formInput(errors.confirmPassword?.message)}
           control={control}
           label={text.pages.signUp.confirmPassword}
           name={'confirmPassword'}
