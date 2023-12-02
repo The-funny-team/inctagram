@@ -1,9 +1,9 @@
 import { Meta, StoryObj } from '@storybook/react'
 
-import { SignOutForm } from './SignOutForm'
+import { SignOutForm } from './SignOut'
 
 const meta = {
-  component: SignOutForm,
+  component: SignOut,
   tags: ['autodocs'],
   title: 'Widgets/SignOutForm',
 } satisfies Meta<typeof SignOutForm>
@@ -11,4 +11,4 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const SignOut: Story = {}
+export const SignOutWidget: Story = {}
