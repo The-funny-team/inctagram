@@ -1,0 +1,39 @@
+.root{
+  display: flex;
+  flex-direction: column;
+  width: 378px;
+  padding: 24px;
+
+  .title{
+    margin:0 auto;
+  }
+
+  .otherRegistration{
+    display: flex;
+    gap:60px;
+    justify-content: center;
+    margin-top: 13px;
+
+  }
+
+  .form{
+    .formInput{
+      margin-top: 24px;
+    }
+
+    .formCheckbox{
+      display: flex;
+      gap:8px;
+      justify-content: center;
+      margin:22px 0;
+    }
+  }
+
+  .question{
+    margin: 18px auto 6px;
+  }
+
+
+
+
+}
