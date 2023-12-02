@@ -15,6 +15,11 @@ export const en = {
     },
   },
   pages: {
+    confirmedEmail: {
+      description: 'Your email has been confirmed',
+      signInBtn: 'Sign In',
+      title: 'Congratulations!',
+    },
     expiredLink: {
       description:
         'Looks like the verification link has expired. Not to worry, we can send the link again',

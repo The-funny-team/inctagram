@@ -17,6 +17,11 @@ export const ru: LocaleType = {
     },
   },
   pages: {
+    confirmedEmail: {
+      description: 'Ваш адрес электронной почты подтвержден',
+      signInBtn: 'Войти',
+      title: 'Поздравляем!',
+    },
     expiredLink: {
       description:
         'Похоже, срок действия ссылки для подтверждения истек. Не волнуйтесь, мы можем отправить ссылку еще раз.',
