@@ -16,6 +16,12 @@ export const en = {
   },
   pages: {
     home: 'Home page',
+    passwordRecovery: {
+      resendBtnText: 'Resend link',
+      subtitle:
+        'Looks like the verification link has expired. Not to worry, we can send the link again',
+      title: 'Email verification link expired',
+    },
     signIn: {
       emailLabel: 'Email',
       forgotPasswordLink: 'Forgot Password?',

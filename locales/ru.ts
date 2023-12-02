@@ -18,6 +18,11 @@ export const ru: LocaleType = {
   },
   pages: {
     home: 'Главная страница',
+    passwordRecovery: {
+      resendBtnText: 'Восстановить пароль',
+      subtitle: 'Похоже, ссылка на проверку истек. Не волнуйтесь, мы можем снова отправить ссылку',
+      title: 'Ссылка на проверку электронной почты истек',
+    },
     signIn: {
       emailLabel: 'Электронная почта',
       forgotPasswordLink: 'Забыли пароль?',
