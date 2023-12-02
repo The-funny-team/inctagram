@@ -21,7 +21,7 @@ export const ExpiredLink = ({ email }: PropsType) => {
 
   const sendEmailHandler = () => {
     console.log(email)
-    setShowModal(!showModal)
+    showModalHandler()
   }
 
   return (
@@ -40,7 +40,7 @@ export const ExpiredLink = ({ email }: PropsType) => {
       <ExpiredTimeIcon />
       {
         <Modal isOpen={showModal} onIsOpenChange={showModalHandler} title={textModal.title}>
-          <p>{textModal.getDescription(email)}</p>
+          <Typography variant={'regularText16'}>{textModal.getDescription(email)}</Typography>
           <div className={s.modalButton}>
             <Button fullWidth={false} onClick={showModalHandler} type={'button'}>
               OK
