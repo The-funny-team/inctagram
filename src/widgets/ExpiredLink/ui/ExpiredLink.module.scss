@@ -1,7 +1,6 @@
 .wrapper {
   width: 100%;
   max-width: 475px;
-  margin: 0 auto;
   text-align: center;
 
   .title {
@@ -18,9 +17,10 @@
   .button {
     padding-bottom: 30px;
   }
+}
 
-  .modalButton {
-    display: flex;
-    justify-content: flex-end;
-  }
+.modalButton {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 18px;
 }
