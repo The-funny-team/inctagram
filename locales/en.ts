@@ -31,7 +31,7 @@ export const en = {
       formTitle: 'Sign Up',
       password: 'Password',
       questionAboutAccount: 'Do you have an account?',
-      signInBtn: 'Sign Up',
+      signUpBtn: 'Sign Up',
       signUpLink: 'Sign In',
       username: 'Username',
     },
