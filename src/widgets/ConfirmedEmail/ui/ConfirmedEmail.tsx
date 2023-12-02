@@ -3,6 +3,8 @@ import { ROUTES_URL } from '@/shared/const'
 import { Button, Typography } from '@/shared/ui'
 import Link from 'next/link'
 
+import s from './ConfirmedEmail.module.scss'
+
 export const ConfirmedEmail = () => {
   return (
     <div className={s.wrapper}>
