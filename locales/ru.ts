@@ -17,6 +17,11 @@ export const ru: LocaleType = {
     },
   },
   pages: {
+    confirmedEmail: {
+      description: 'Ваш адрес электронной почты подтвержден',
+      signInBtn: 'Войти',
+      title: 'Поздравляем!',
+    },
     home: 'Главная страница',
     signIn: {
       emailLabel: 'Электронная почта',
