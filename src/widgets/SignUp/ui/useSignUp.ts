@@ -11,7 +11,7 @@ const USERNAME_PATTERN = /^[0-9A-Za-z_-]+$/
 const signUpSchema = (text: LocaleType) => {
   return z
     .object({
-      agree: z.boolean().default(false),
+      agree: z.boolean(),
       confirmPassword: z.string().trim(),
       email: z.string().email({ message: text.errors.signUp.emailVerification }).trim(),
       password: z
@@ -41,6 +41,7 @@ export type SignUpSchemaType = z.infer<ReturnType<typeof signUpSchema>>
 export const useSignUp = (text: LocaleType) =>
   useForm<SignUpSchemaType>({
     defaultValues: {
+      agree: false,
       confirmPassword: '',
       email: '',
       password: '',
