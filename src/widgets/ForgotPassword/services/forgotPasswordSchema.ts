@@ -1,6 +1,5 @@
+import { LocaleType } from '@locales/en'
 import { z } from 'zod'
-
-import { LocaleType } from '../../../../locales'
 
 export const forgotPasswordSchema = (transcription: LocaleType['pages']['forgotPassword']) =>
   z.object({
