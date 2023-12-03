@@ -2,9 +2,8 @@ import { useForm } from 'react-hook-form'
 
 import { PASSWORD_PATTERN } from '@/shared/const'
 import { zodResolver } from '@hookform/resolvers/zod'
+import { LocaleType } from '@locales/en'
 import { z } from 'zod'
-
-import { LocaleType } from '../../../../locales'
 
 const signInSchema = (text: LocaleType) => {
   return z.object({
