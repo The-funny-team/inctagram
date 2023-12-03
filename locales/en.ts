@@ -20,11 +20,10 @@ export const en = {
   pages: {
     home: 'Home page',
     signUp: {
-      agreementCheck: {
-        agree: 'I agree to the',
-        and: 'and',
+      agreement: {
+        description: `I agree to the <1>privacy</1> and <2>terms</2>`,
         privacy: 'Privacy Policy',
-        term: 'Terms of Service',
+        terms: 'Terms of Service',
       },
       confirmPassword: 'Password confirmation',
       email: 'Email',

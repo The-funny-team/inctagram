@@ -23,11 +23,10 @@ export const ru: LocaleType = {
   pages: {
     home: 'Главная страница',
     signUp: {
-      agreementCheck: {
-        agree: 'Я согласен с',
-        and: 'и',
+      agreement: {
+        description: `Я согласен с <1>privacy</1> и <2>terms</2>`,
         privacy: 'политикой конфиденциальности',
-        term: 'условиями предоставления услуг',
+        terms: 'условиями предоставления услуг',
       },
       confirmPassword: 'Подтверждение пароля',
       email: 'Электронная почта',

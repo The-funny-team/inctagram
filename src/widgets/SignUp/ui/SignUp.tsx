@@ -4,6 +4,7 @@ import { useTranslation } from '@/shared/lib/hooks'
 import { Button, Card, Typography } from '@/shared/ui'
 import { ControlledCheckbox } from '@/widgets/SignUp/ui/ControlledCheckbox'
 import { ControlledInput } from '@/widgets/SignUp/ui/ControlledInput'
+import { Trans } from '@/widgets/SignUp/ui/Trans'
 import { SignUpSchemaType, useSignUp } from '@/widgets/SignUp/ui/useSignUp'
 import { clsx } from 'clsx'
 import Link from 'next/link'
@@ -82,14 +83,21 @@ export const SignUp = () => {
         <div className={classNames.formCheckbox}>
           <ControlledCheckbox control={control} name={'agree'} />
           <Typography as={'span'} variant={'smallText'}>
-            {text.pages.signUp.agreementCheck.agree}{' '}
-            <Typography as={Link} href={ROUTES_URL.TERMS_OF_SERVICE} variant={'smallLink'}>
-              {text.pages.signUp.agreementCheck.term}
-            </Typography>{' '}
-            {text.pages.signUp.agreementCheck.and}{' '}
-            <Typography as={Link} href={ROUTES_URL.PRIVACY_POLICY} variant={'smallLink'}>
-              {text.pages.signUp.agreementCheck.privacy}
-            </Typography>{' '}
+            <Trans
+              tags={{
+                1: () => (
+                  <Typography as={Link} href={ROUTES_URL.TERMS_OF_SERVICE} variant={'smallLink'}>
+                    {text.pages.signUp.agreement.privacy}
+                  </Typography>
+                ),
+                2: () => (
+                  <Typography as={Link} href={ROUTES_URL.PRIVACY_POLICY} variant={'smallLink'}>
+                    {text.pages.signUp.agreement.terms}
+                  </Typography>
+                ),
+              }}
+              text={text.pages.signUp.agreement.description}
+            />
           </Typography>
         </div>
         <Button disabled={!isValid} type={'submit'}>
