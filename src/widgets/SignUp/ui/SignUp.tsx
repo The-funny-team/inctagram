@@ -31,7 +31,6 @@ export const SignUp = () => {
     otherRegistration: clsx(s.otherRegistration),
     question: clsx(s.question),
     root: clsx(s.root),
-    signInLink: clsx(s.signInLink),
     title: clsx(s.title),
   }
   const onSubmit = (data: SignUpSchemaType) => {
@@ -58,30 +57,30 @@ export const SignUp = () => {
           label={text.pages.signUp.username}
           name={'username'}
           type={'text'}
-        ></ControlledInput>
+        />
         <ControlledInput
           className={classNames.formInput(errors.email?.message)}
           control={control}
           label={text.pages.signUp.email}
           name={'email'}
           type={'text'}
-        ></ControlledInput>
+        />
         <ControlledInput
           className={classNames.formInput(errors.password?.message)}
           control={control}
           label={text.pages.signUp.password}
           name={'password'}
           type={'password'}
-        ></ControlledInput>
+        />
         <ControlledInput
           className={classNames.formInput(errors.confirmPassword?.message)}
           control={control}
           label={text.pages.signUp.confirmPassword}
           name={'confirmPassword'}
           type={'password'}
-        ></ControlledInput>
+        />
         <div className={classNames.formCheckbox}>
-          <ControlledCheckbox control={control} name={'agree'}></ControlledCheckbox>
+          <ControlledCheckbox control={control} name={'agree'} />
           <Typography as={'span'} variant={'smallText'}>
             {text.pages.signUp.agreementCheck.agree}{' '}
             <Typography as={Link} href={ROUTES_URL.TERMS_OF_SERVICE} variant={'smallLink'}>
@@ -100,12 +99,7 @@ export const SignUp = () => {
       <Typography className={classNames.question} variant={'regularText16'}>
         {text.pages.signUp.questionAboutAccount}
       </Typography>
-      <Button
-        as={Link}
-        className={classNames.signInLink}
-        href={ROUTES_URL.SIGN_IN}
-        variant={'link'}
-      >
+      <Button as={Link} href={ROUTES_URL.SIGN_IN} variant={'link'}>
         {text.pages.signUp.signUpLink}
       </Button>
     </Card>
