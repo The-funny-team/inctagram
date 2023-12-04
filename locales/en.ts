@@ -20,6 +20,14 @@ export const en = {
       signInBtn: 'Sign In',
       title: 'Congratulations!',
     },
+    createNewPassword: {
+      createNewPasswordBtn: 'Create new password',
+      newPasswordLabel: 'New password',
+      newPasswordLabelConfirmation: 'Password Confirmation',
+      passwordError: 'The passwords must match',
+      prompt: 'Your password must be between 6 and 20 characters',
+      title: 'New password',
+    },
     expiredLink: {
       description:
         'Looks like the verification link has expired. Not to worry, we can send the link again',
@@ -30,7 +38,6 @@ export const en = {
       },
       title: 'Email verification link expired',
     },
-    home: 'Home page',
     forgotPassword: {
       caption: 'Enter your email address and we will send you further instructions',
       captionAfterSubmit:
@@ -47,6 +54,7 @@ export const en = {
       signInBtn: 'Back to Sign In',
       title: 'Forgot Password',
     },
+    home: 'Home page',
     signIn: {
       emailLabel: 'Email',
       forgotPasswordLink: 'Forgot Password?',
