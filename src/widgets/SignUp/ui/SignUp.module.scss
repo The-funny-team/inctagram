@@ -36,23 +36,11 @@
         margin-bottom: 0;
       }
 
-      &.formInputWithErrorSingle {
-        margin-bottom: 24px;
+      &.formInputWithError {
+        margin-bottom: 0;
 
         span:last-of-type {
-          position: absolute;
-          top: 100%;
-          left: 0;
-        }
-      }
-
-      &.formInputWithErrorDouble {
-        margin-bottom: 48px;
-
-        span:last-of-type {
-          position: absolute;
-          top: 100%;
-          left: 0;
+          margin-bottom: 0;
         }
       }
     }

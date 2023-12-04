@@ -18,16 +18,11 @@ export const SignUp = () => {
     formState: { errors, isValid },
     handleSubmit,
   } = useSignUp(text)
-  const maxLengthCharacters = 50
   const classNames = {
     form: clsx(s.form),
     formCheckbox: clsx(s.formCheckbox),
     formInput(error?: string) {
-      return clsx(
-        s.formInput,
-        error && error.length > maxLengthCharacters && s.formInputWithErrorDouble,
-        error && error.length <= maxLengthCharacters && s.formInputWithErrorSingle
-      )
+      return clsx(s.formInput, error && s.formInputWithError)
     },
     otherRegistration: clsx(s.otherRegistration),
     question: clsx(s.question),

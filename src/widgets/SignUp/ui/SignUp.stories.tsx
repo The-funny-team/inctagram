@@ -10,4 +10,4 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const SignOutWidget: Story = {}
+export const SignUpWidget: Story = {}
