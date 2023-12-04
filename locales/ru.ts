@@ -9,6 +9,16 @@ export const ru: LocaleType = {
       passwordVerification:
         'Пароль должен содержать 0–9, a–z, A–Z, ! " # $ % & \' () * + , - . / : ; < = > ? @ [ \\ ] ^ _ ` { | } ~',
     },
+    signUp: {
+      emailVerification: 'Электронная почта должна соответствовать формату example@example.com',
+      maxPasswordLength20: 'Максимальное количество символов 20',
+      maxPasswordLength30: 'Максимальное количество символов 30',
+      minPasswordLength: 'Минимальное количество символов 6',
+      passwordMismatch: 'Пароли должны совпадать',
+      passwordVerification:
+        'Пароль должен содержать 0-9, a-z, A-Z, ! " # $ % & \' () * + , - . / : ; < = > ? @ [ \\ ] ^ _ ` { | } ~',
+      usernameVerification: 'Пароль может содержать 0-9; A-Z; a-z; _ ; - ',
+    },
   },
   layout: {
     header: {
@@ -57,6 +67,21 @@ export const ru: LocaleType = {
       sendLinkBtn: 'Отправить Письмо',
       signInBtn: 'Вернуться на Вход',
       title: 'Восстановить Пароль',
+    },
+    signUp: {
+      agreement: {
+        description: `Я согласен с <1>privacy</1> и <2>terms</2>`,
+        privacy: 'политикой конфиденциальности',
+        terms: 'условиями предоставления услуг',
+      },
+      confirmPassword: 'Подтверждение пароля',
+      email: 'Электронная почта',
+      formTitle: 'Регистрация',
+      password: 'Пароль',
+      questionAboutAccount: 'У вас есть учетная запись?',
+      signUpBtn: 'Зарегистрироваться',
+      signUpLink: 'Войти',
+      username: 'Имя пользователя',
     },
   },
 }
