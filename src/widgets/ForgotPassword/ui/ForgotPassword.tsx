@@ -1,8 +1,9 @@
+import { Controller } from 'react-hook-form'
+
 import { RecaptchaIcon } from '@/shared/assets'
 import { ROUTES_URL } from '@/shared/const'
-import { Button, Card, Checkbox, Modal, Typography } from '@/shared/ui'
+import { Button, Card, Checkbox, Input, Modal, Typography } from '@/shared/ui'
 import { ForgotPasswordFormValues, useForgotPassword } from '@/widgets/ForgotPassword/services'
-import { ControlledInput } from '@/widgets/ForgotPassword/ui/ControlledInput'
 import Link from 'next/link'
 
 import s from './ForgotPassword.module.scss'
@@ -45,12 +46,18 @@ export const ForgotPassword = () => {
         {transcription.title}
       </Typography>
       <form onSubmit={handleSubmit(submitHandler)}>
-        <ControlledInput
+        <Controller
           control={control}
-          label={transcription.inputLabel}
           name={'email'}
-          placeholder={'Example@mail.com'}
-          type={'text'}
+          render={({ field, fieldState: { error } }) => (
+            <Input
+              label={transcription.inputLabel}
+              placeholder={'Example@mail.com'}
+              type={'text'}
+              {...field}
+              error={error?.message}
+            />
+          )}
         />
         <Typography className={s.caption} variant={'regularText14'}>
           {transcription.caption}
