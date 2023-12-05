@@ -1,10 +1,10 @@
 import React from 'react'
-import { Controller, SubmitHandler, useForm } from 'react-hook-form'
+import { Controller, SubmitHandler } from 'react-hook-form'
 
 import { useTranslation } from '@/shared/lib/hooks/useTranslation'
 import { Button, Card, Input, Typography } from '@/shared/ui'
 import {
-  CreateNewPasswordProps,
+  FormCreateNewPasswordProps,
   useCreateNewPassword,
 } from '@/widgets/CreateNewPassword/service/useCreateNewPassword'
 import clsx from 'clsx'
@@ -15,19 +15,17 @@ type Props = {
   className?: string
 }
 
-export const CreateNewPassword: React.FC<Props> = ({ className, ...props }) => {
+export const CreateNewPassword: React.FC<Props> = ({ className, ...restProps }) => {
   const { text } = useTranslation()
 
-  const { control, errors, handleSubmit, watch } = useCreateNewPassword()
+  const { control, errors, handleSubmit, isDisabled } = useCreateNewPassword()
 
-  const password = watch('password', '')
-
-  const submitFormHandler: SubmitHandler<CreateNewPasswordProps> = data => {
+  const submitFormHandler: SubmitHandler<FormCreateNewPasswordProps> = data => {
     console.log(data)
   }
 
   return (
-    <Card className={clsx(styles.createNewPassword, className)} {...props}>
+    <Card className={clsx(styles.createNewPassword, className)} {...restProps}>
       <Typography as={'h1'} className={styles.title} variant={'h1'}>
         {text.pages.createNewPassword.title}
       </Typography>
@@ -45,26 +43,22 @@ export const CreateNewPassword: React.FC<Props> = ({ className, ...props }) => {
         />
         <Controller
           control={control}
-          name={'password2'}
+          name={'confirmPassword'}
           render={({ field }) => (
             <Input
               type={'password'}
               {...field}
-              error={errors?.password2?.message}
+              error={errors?.confirmPassword?.message}
               label={text.pages.createNewPassword.newPasswordLabelConfirmation}
             />
           )}
-          rules={{
-            required: 'Password is required',
-            validate: value =>
-              (value === password && password.length > 6) ||
-              text.pages.createNewPassword.passwordError,
-          }}
         />
         <Typography className={styles.prompt} variant={'regularText14'}>
           {text.pages.createNewPassword.prompt}
         </Typography>
-        <Button>{text.pages.createNewPassword.createNewPasswordBtn}</Button>
+        <Button disabled={isDisabled} type={'submit'}>
+          {text.pages.createNewPassword.createNewPasswordBtn}
+        </Button>
       </form>
     </Card>
   )
