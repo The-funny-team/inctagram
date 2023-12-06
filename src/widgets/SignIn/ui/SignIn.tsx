@@ -16,9 +16,9 @@ export const SignIn = () => {
   const t = text.pages.signIn
   const {
     control,
-    formState: { errors, isValid },
+    formState: { isValid },
     handleSubmit,
-  } = useSignIn(text.errors.signInform)
+  } = useSignIn(text.validation)
 
   const classNames = {
     forgotLink: s.forgotLink,
@@ -56,12 +56,12 @@ export const SignIn = () => {
           name={'email'}
           render={({ field, fieldState: { error } }) => (
             <Input
-              {...field}
-              className={classNames.formInput(errors.email?.message)}
+              className={classNames.formInput(error?.message)}
               error={error?.message}
               label={t.emailLabel}
               placeholder={'Epam@epam.com'}
               type={'text'}
+              {...field}
             />
           )}
         />
@@ -70,12 +70,12 @@ export const SignIn = () => {
           name={'password'}
           render={({ field, fieldState: { error } }) => (
             <Input
-              {...field}
               autoComplete={'off'}
-              className={classNames.formInput(errors.password?.message)}
+              className={classNames.formInput(error?.message)}
               error={error?.message}
               label={t.passwordLabel}
               type={'password'}
+              {...field}
             />
           )}
         />
