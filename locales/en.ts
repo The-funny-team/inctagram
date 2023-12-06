@@ -9,9 +9,9 @@ export const en = {
     },
     signUp: {
       emailVerification: 'The email must match the format example@example.com',
-      maxPasswordLength20: 'Maximum number of characters 20',
-      maxPasswordLength30: 'Maximum number of characters 30',
-      minPasswordLength: 'Minimum number of characters 6',
+      maxLength20: 'Maximum number of characters 20',
+      maxLength30: 'Maximum number of characters 30',
+      minLength6: 'Minimum number of characters 6',
       passwordMismatch: 'Passwords must match',
       passwordVerification:
         'Password must contain 0-9, a-z, A-Z, ! " # $ % & \' () * + , - . / : ; < = > ? @ [ \\ ] ^ _ ` { | } ~',
@@ -40,7 +40,6 @@ export const en = {
       },
       title: 'Email verification link expired',
     },
-    home: 'Home page',
     forgotPassword: {
       caption: 'Enter your email address and we will send you further instructions',
       captionAfterSubmit:
@@ -57,6 +56,7 @@ export const en = {
       signInBtn: 'Back to Sign In',
       title: 'Forgot Password',
     },
+    home: 'Home page',
     signIn: {
       emailLabel: 'Email',
       forgotPasswordLink: 'Forgot Password?',
