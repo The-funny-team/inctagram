@@ -7,22 +7,22 @@ export const signUpSchema = (text: LocaleType) => {
     .object({
       agree: z.boolean(),
       confirmPassword: z.string().trim(),
-      email: z.string().email({ message: text.errors.signUp.emailVerification }).trim(),
+      email: z.string().email({ message: text.validation.emailVerification }).trim(),
       password: z
         .string()
-        .min(6, text.errors.signUp.minLength6)
-        .max(20, text.errors.signUp.maxLength20)
-        .regex(PASSWORD_PATTERN, text.errors.signUp.passwordVerification)
+        .min(6, text.validation.minLength6)
+        .max(20, text.validation.maxLength20)
+        .regex(PASSWORD_PATTERN, text.validation.passwordVerification)
         .trim(),
       username: z
         .string()
-        .min(6, text.errors.signUp.minLength6)
-        .max(30, text.errors.signUp.maxLength30)
-        .regex(USERNAME_PATTERN, text.errors.signUp.usernameVerification)
+        .min(6, text.validation.minLength6)
+        .max(30, text.validation.maxLength30)
+        .regex(USERNAME_PATTERN, text.validation.usernameVerification)
         .trim(),
     })
     .refine(({ confirmPassword, password }) => password === confirmPassword, {
-      message: text.errors.signUp.passwordMismatch,
+      message: text.validation.passwordMismatch,
       path: ['confirmPassword'],
     })
     .refine(({ agree }) => agree, {
