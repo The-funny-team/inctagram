@@ -8,7 +8,7 @@ import Link from 'next/link'
 import s from './SignIn.module.scss'
 
 import { ControlledInput } from './ControlledInput'
-import { SignInFormValuesType, useSignIn } from './useSignIn'
+import { SignInFormValuesType, useSignIn } from '../services/useSignIn'
 export const SignIn = () => {
   const { text } = useTranslation()
 
