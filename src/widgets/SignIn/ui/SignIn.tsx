@@ -1,22 +1,24 @@
+import { Controller } from 'react-hook-form'
+
 import { GithubIcon, GoogleIcon } from '@/shared/assets'
 import { ROUTES_URL } from '@/shared/const'
 import { useTranslation } from '@/shared/lib/hooks'
-import { Button, Card, Typography } from '@/shared/ui'
+import { Button, Card, Input, Typography } from '@/shared/ui'
 import { clsx } from 'clsx'
 import Link from 'next/link'
 
 import s from './SignIn.module.scss'
 
-import { ControlledInput } from './ControlledInput'
-import { SignInFormValuesType, useSignIn } from './useSignIn'
+import { SignInFormValuesType, useSignIn } from '../services'
+
 export const SignIn = () => {
   const { text } = useTranslation()
-
+  const t = text.pages.signIn
   const {
     control,
     formState: { errors, isValid },
     handleSubmit,
-  } = useSignIn(text)
+  } = useSignIn(text.errors.signInform)
 
   const classNames = {
     forgotLink: s.forgotLink,
@@ -38,7 +40,7 @@ export const SignIn = () => {
   return (
     <Card className={classNames.root}>
       <Typography as={'h1'} className={classNames.formTitle} variant={'h1'}>
-        {text.pages.signIn.formTitle}
+        {t.formTitle}
       </Typography>
       <div className={classNames.providers}>
         <Link href={'https://accounts.google.com/o/oauth2/v2/auth'} target={'_blank'}>
@@ -49,20 +51,33 @@ export const SignIn = () => {
         </Link>
       </div>
       <form className={classNames.form} onSubmit={handleSubmit(onFormSubmit)}>
-        <ControlledInput
-          className={classNames.formInput(errors.email?.message)}
+        <Controller
           control={control}
-          label={text.pages.signIn.emailLabel}
           name={'email'}
-          type={'text'}
+          render={({ field, fieldState: { error } }) => (
+            <Input
+              {...field}
+              className={classNames.formInput(errors.email?.message)}
+              error={error?.message}
+              label={t.emailLabel}
+              placeholder={'Epam@epam.com'}
+              type={'text'}
+            />
+          )}
         />
-        <ControlledInput
-          autoComplete={'off'}
-          className={classNames.formInput(errors.password?.message)}
+        <Controller
           control={control}
-          label={text.pages.signIn.passwordLabel}
           name={'password'}
-          type={'password'}
+          render={({ field, fieldState: { error } }) => (
+            <Input
+              {...field}
+              autoComplete={'off'}
+              className={classNames.formInput(errors.password?.message)}
+              error={error?.message}
+              label={t.passwordLabel}
+              type={'password'}
+            />
+          )}
         />
         <Typography
           as={Link}
@@ -70,14 +85,14 @@ export const SignIn = () => {
           href={ROUTES_URL.FORGOT_PASSWORD}
           variant={'regularText14'}
         >
-          {text.pages.signIn.forgotPasswordLink}
+          {t.forgotPasswordLink}
         </Typography>
         <Button disabled={!isValid} type={'submit'}>
-          {text.pages.signIn.signInBtn}
+          {t.signInBtn}
         </Button>
       </form>
       <Typography className={classNames.questionText} variant={'regularText16'}>
-        {text.pages.signIn.questionAboutAccount}
+        {t.questionAboutAccount}
       </Typography>
       <Button
         as={Link}
@@ -85,7 +100,7 @@ export const SignIn = () => {
         href={ROUTES_URL.SIGN_UP}
         variant={'link'}
       >
-        {text.pages.signIn.signUpLink}
+        {t.signUpLink}
       </Button>
     </Card>
   )

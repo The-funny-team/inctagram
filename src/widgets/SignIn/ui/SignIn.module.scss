@@ -36,6 +36,15 @@
   width: 100%;
   background-color: transparent;
 
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active {
+    box-shadow: 0 0 0 30px var(--color-dark-500) inset !important;
+
+    -webkit-text-fill-color: var(--color-light-900) !important;
+  }
+
   &:first-child {
     margin-bottom: 24px;
   }
