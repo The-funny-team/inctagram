@@ -4,7 +4,7 @@ import { z } from 'zod'
 
 type Props = LocaleType['errors']['signInform']
 
-const signInSchema = (t: Props) => {
+export const signInSchema = (t: Props) => {
   return z.object({
     email: z.string().email({ message: t.emailVerification }).trim(),
     password: z
