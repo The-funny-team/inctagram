@@ -1,23 +1,4 @@
 export const en = {
-  errors: {
-    signInform: {
-      emailVerification: 'The email must match the format example@example.com',
-      maxPasswordLength: 'Maximum number of characters 20',
-      minPasswordLength: 'Minimum number of characters 6',
-      passwordVerification:
-        'Password must contain 0-9, a-z, A-Z, ! " # $ % & \' () * + , - . / : ; < = > ? @ [ \\ ] ^ _ ` { | } ~',
-    },
-    signUp: {
-      emailVerification: 'The email must match the format example@example.com',
-      maxLength20: 'Maximum number of characters 20',
-      maxLength30: 'Maximum number of characters 30',
-      minLength6: 'Minimum number of characters 6',
-      passwordMismatch: 'Passwords must match',
-      passwordVerification:
-        'Password must contain 0-9, a-z, A-Z, ! " # $ % & \' () * + , - . / : ; < = > ? @ [ \\ ] ^ _ ` { | } ~',
-      usernameVerification: 'Password must contain 0-9; A-Z; a-z; _ ; - ',
-    },
-  },
   layout: {
     header: {
       signInBtn: 'Log in',
@@ -35,7 +16,7 @@ export const en = {
         'Looks like the verification link has expired. Not to worry, we can send the link again',
       expiredLinkBtn: 'Resend link',
       modal: {
-        getDescription: (email: string) => `We have resent a verification link to ${email}`,
+        description: 'We have resent a verification link',
         title: 'Email sent',
       },
       title: 'Email verification link expired',
@@ -81,6 +62,16 @@ export const en = {
       signUpLink: 'Sign In',
       username: 'Username',
     },
+  },
+  validation: {
+    emailVerification: 'The email must match the format example@example.com',
+    maxLength20: 'Maximum number of characters 20',
+    maxLength30: 'Maximum number of characters 30',
+    minLength6: 'Minimum number of characters 6',
+    passwordMismatch: 'Passwords must match',
+    passwordVerification:
+      'Password must contain 0-9, a-z, A-Z, ! " # $ % & \' () * + , - . / : ; < = > ? @ [ \\ ] ^ _ ` { | } ~',
+    usernameVerification: 'Username can contain 0-9; A-Z; a-z; _ ; - ',
   },
 }
 export type LocaleType = typeof en
