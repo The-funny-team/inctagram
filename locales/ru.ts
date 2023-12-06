@@ -11,9 +11,9 @@ export const ru: LocaleType = {
     },
     signUp: {
       emailVerification: 'Электронная почта должна соответствовать формату example@example.com',
-      maxPasswordLength20: 'Максимальное количество символов 20',
-      maxPasswordLength30: 'Максимальное количество символов 30',
-      minPasswordLength: 'Минимальное количество символов 6',
+      maxLength20: 'Максимальное количество символов 20',
+      maxLength30: 'Максимальное количество символов 30',
+      minLength6: 'Минимальное количество символов 6',
       passwordMismatch: 'Пароли должны совпадать',
       passwordVerification:
         'Пароль должен содержать 0-9, a-z, A-Z, ! " # $ % & \' () * + , - . / : ; < = > ? @ [ \\ ] ^ _ ` { | } ~',
@@ -42,16 +42,6 @@ export const ru: LocaleType = {
       },
       title: 'Срок действия ссылки для подтверждения электронной почты истек',
     },
-    home: 'Главная страница',
-    signIn: {
-      emailLabel: 'Электронная почта',
-      forgotPasswordLink: 'Забыли пароль?',
-      formTitle: 'Войти',
-      passwordLabel: 'Пароль',
-      questionAboutAccount: 'У вас нет учетной записи?',
-      signInBtn: 'Войти',
-      signUpLink: 'Зарегистрироваться',
-    },
     forgotPassword: {
       caption: 'Введите вашу почту и мы вышлем вам дальнейшие иснструкции',
       captionAfterSubmit:
@@ -67,6 +57,16 @@ export const ru: LocaleType = {
       sendLinkBtn: 'Отправить Письмо',
       signInBtn: 'Вернуться на Вход',
       title: 'Восстановить Пароль',
+    },
+    home: 'Главная страница',
+    signIn: {
+      emailLabel: 'Электронная почта',
+      forgotPasswordLink: 'Забыли пароль?',
+      formTitle: 'Войти',
+      passwordLabel: 'Пароль',
+      questionAboutAccount: 'У вас нет учетной записи?',
+      signInBtn: 'Войти',
+      signUpLink: 'Зарегистрироваться',
     },
     signUp: {
       agreement: {

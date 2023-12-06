@@ -1,11 +1,11 @@
+import { Controller } from 'react-hook-form'
+
 import { GithubIcon, GoogleIcon } from '@/shared/assets'
 import { ROUTES_URL } from '@/shared/const'
 import { useTranslation } from '@/shared/lib/hooks'
-import { Button, Card, Typography } from '@/shared/ui'
-import { ControlledCheckbox } from '@/widgets/SignUp/ui/ControlledCheckbox'
-import { ControlledInput } from '@/widgets/SignUp/ui/ControlledInput'
+import { Button, Card, Checkbox, Input, Typography } from '@/shared/ui'
+import { SignUpSchemaType, useSignUp } from '@/widgets/SignUp/services'
 import { Trans } from '@/widgets/SignUp/ui/Trans'
-import { SignUpSchemaType, useSignUp } from '@/widgets/SignUp/ui/useSignUp'
 import { clsx } from 'clsx'
 import Link from 'next/link'
 
@@ -18,6 +18,7 @@ export const SignUp = () => {
     formState: { errors, isValid },
     handleSubmit,
   } = useSignUp(text)
+
   const classNames = {
     form: clsx(s.form),
     formCheckbox: clsx(s.formCheckbox),
@@ -47,36 +48,68 @@ export const SignUp = () => {
         </Link>
       </div>
       <form className={classNames.form} onSubmit={handleSubmit(onSubmit)}>
-        <ControlledInput
-          className={classNames.formInput(errors.username?.message)}
+        <Controller
           control={control}
-          label={text.pages.signUp.username}
           name={'username'}
-          type={'text'}
+          render={({ field, fieldState: { error } }) => (
+            <Input
+              className={classNames.formInput(errors.username?.message)}
+              error={error && error.message}
+              label={text.pages.signUp.username}
+              type={'text'}
+              {...field}
+            />
+          )}
         />
-        <ControlledInput
-          className={classNames.formInput(errors.email?.message)}
+        <Controller
           control={control}
-          label={text.pages.signUp.email}
           name={'email'}
-          type={'text'}
+          render={({ field, fieldState: { error } }) => (
+            <Input
+              className={classNames.formInput(errors.email?.message)}
+              error={error && error.message}
+              label={text.pages.signUp.email}
+              type={'text'}
+              {...field}
+            />
+          )}
         />
-        <ControlledInput
-          className={classNames.formInput(errors.password?.message)}
+        <Controller
           control={control}
-          label={text.pages.signUp.password}
           name={'password'}
-          type={'password'}
+          render={({ field, fieldState: { error } }) => (
+            <Input
+              className={classNames.formInput(errors.password?.message)}
+              error={error && error.message}
+              label={text.pages.signUp.password}
+              type={'password'}
+              {...field}
+            />
+          )}
         />
-        <ControlledInput
-          className={classNames.formInput(errors.confirmPassword?.message)}
+        <Controller
           control={control}
-          label={text.pages.signUp.confirmPassword}
           name={'confirmPassword'}
-          type={'password'}
+          render={({ field, fieldState: { error } }) => (
+            <Input
+              className={classNames.formInput(errors.confirmPassword?.message)}
+              error={error && error.message}
+              label={text.pages.signUp.confirmPassword}
+              type={'password'}
+              {...field}
+            />
+          )}
         />
+
         <div className={classNames.formCheckbox}>
-          <ControlledCheckbox control={control} name={'agree'} />
+          <Controller
+            control={control}
+            name={'agree'}
+            render={({ field }) => (
+              <Checkbox checked={field.value} onCheckedChange={field.onChange} />
+            )}
+          />
+
           <Typography as={'span'} variant={'smallText'}>
             <Trans
               tags={{
