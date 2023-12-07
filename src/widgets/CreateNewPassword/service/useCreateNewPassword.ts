@@ -3,39 +3,29 @@ import { useForm } from 'react-hook-form'
 import { useTranslation } from '@/shared/lib/hooks'
 import { zodResolver } from '@hookform/resolvers/zod'
 
-import { createNewPasswordSchema } from './createNewPasswordSchema'
-
-export type FormCreateNewPasswordProps = {
-  confirmPassword: string
-  password: string
-}
+import { CreateNewPasswordSchemaType, createNewPasswordSchema } from './createNewPasswordSchema'
 
 export const useCreateNewPassword = () => {
-  const {
-    text: {
-      pages: { createNewPassword: transcription },
-    },
-  } = useTranslation()
+  const { text } = useTranslation()
   const {
     control,
-    formState: { errors },
+    formState: { isValid },
     handleSubmit,
-    watch,
-  } = useForm<FormCreateNewPasswordProps>({
+  } = useForm<CreateNewPasswordSchemaType>({
     defaultValues: {
+      confirmPassword: '',
       password: '',
     },
     mode: 'onTouched',
-    resolver: zodResolver(createNewPasswordSchema(transcription)),
+    resolver: zodResolver(createNewPasswordSchema(text.validation)),
   })
 
-  const isDisabled = !(watch('confirmPassword') && watch('password'))
+  const isDisabled = !isValid
 
   return {
     control,
-    errors,
     handleSubmit,
     isDisabled,
-    watch,
+    text: text.pages.createNewPassword,
   }
 }
