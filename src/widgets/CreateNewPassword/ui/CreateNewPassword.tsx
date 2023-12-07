@@ -1,12 +1,11 @@
 import React from 'react'
 import { Controller, SubmitHandler } from 'react-hook-form'
 
-import { useTranslation } from '@/shared/lib/hooks/useTranslation'
 import { Button, Card, Input, Typography } from '@/shared/ui'
 import {
-  FormCreateNewPasswordProps,
+  CreateNewPasswordSchemaType,
   useCreateNewPassword,
-} from '@/widgets/CreateNewPassword/service/useCreateNewPassword'
+} from '@/widgets/CreateNewPassword/service'
 import clsx from 'clsx'
 
 import styles from './CreateNewPassword.module.scss'
@@ -16,48 +15,47 @@ type Props = {
 }
 
 export const CreateNewPassword: React.FC<Props> = ({ className, ...restProps }) => {
-  const { text } = useTranslation()
+  const { control, handleSubmit, isDisabled, text } = useCreateNewPassword()
 
-  const { control, errors, handleSubmit, isDisabled } = useCreateNewPassword()
-
-  const submitFormHandler: SubmitHandler<FormCreateNewPasswordProps> = data => {
+  const submitFormHandler: SubmitHandler<CreateNewPasswordSchemaType> = data => {
     console.log(data)
   }
 
   return (
     <Card className={clsx(styles.createNewPassword, className)} {...restProps}>
       <Typography as={'h1'} className={styles.title} variant={'h1'}>
-        {text.pages.createNewPassword.title}
+        {text.title}
       </Typography>
       <form className={styles.createNewPasswordForm} onSubmit={handleSubmit(submitFormHandler)}>
         <Controller
           control={control}
           name={'password'}
-          render={({ field }) => (
+          render={({ field, fieldState: { error } }) => (
             <Input
               type={'password'}
               {...field}
-              label={text.pages.createNewPassword.newPasswordLabel}
+              error={error?.message}
+              label={text.newPasswordLabel}
             />
           )}
         />
         <Controller
           control={control}
           name={'confirmPassword'}
-          render={({ field }) => (
+          render={({ field, fieldState: { error } }) => (
             <Input
               type={'password'}
               {...field}
-              error={errors?.confirmPassword?.message}
-              label={text.pages.createNewPassword.newPasswordLabelConfirmation}
+              error={error?.message}
+              label={text.newPasswordLabelConfirmation}
             />
           )}
         />
         <Typography className={styles.prompt} variant={'regularText14'}>
-          {text.pages.createNewPassword.prompt}
+          {text.prompt}
         </Typography>
         <Button disabled={isDisabled} type={'submit'}>
-          {text.pages.createNewPassword.createNewPasswordBtn}
+          {text.createNewPasswordBtn}
         </Button>
       </form>
     </Card>
