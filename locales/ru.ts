@@ -17,11 +17,6 @@ export const ru: LocaleType = {
       createNewPasswordBtn: 'Создать новый пароль',
       newPasswordLabel: 'Новый пароль',
       newPasswordLabelConfirmation: 'Повторите пароль',
-      passwordError: 'Пароли должны совпадать',
-      passwordMaxLengthMessage: 'Пароль должен содержать максимум 20 символов',
-      passwordMinLengthMessage: 'Пароль должен содержать минимум 6 символов',
-      passwordVerification:
-        'Пароль должен содержать 0–9, a–z, A–Z, ! " # $ % & \' () * + , - . / : ; < = > ? @ [ \\ ] ^ _ ` { | } ~',
       prompt: 'Ваш пароль должен содержать от 6 до 20 символов',
       title: 'Задать новый пароль',
     },
@@ -30,7 +25,7 @@ export const ru: LocaleType = {
         'Похоже, срок действия ссылки для подтверждения истек. Не волнуйтесь, мы можем отправить ссылку еще раз.',
       expiredLinkBtn: 'Отправить ссылку повторно',
       modal: {
-        getDescription: (email: string) => `Мы отправили ссылку для подтверждения на ${email}`,
+        description: 'Мы повторно отправили ссылку для подтверждения почты',
         title: 'Email отправлен',
       },
       title: 'Срок действия ссылки для подтверждения электронной почты истек',
@@ -50,16 +45,6 @@ export const ru: LocaleType = {
       sendLinkBtn: 'Отправить письмо',
       signInBtn: 'Страница входа',
       title: 'Восстановить пароль',
-    },
-    home: 'Главная страница',
-    signIn: {
-      emailLabel: 'Электронная почта',
-      forgotPasswordLink: 'Забыли пароль?',
-      formTitle: 'Войти',
-      passwordLabel: 'Пароль',
-      questionAboutAccount: 'У вас нет учетной записи?',
-      signInBtn: 'Войти',
-      signUpLink: 'Зарегистрироваться',
     },
     home: 'Главная страница',
     signIn: {

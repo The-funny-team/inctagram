@@ -15,13 +15,8 @@ export const en = {
       createNewPasswordBtn: 'Create new password',
       newPasswordLabel: 'New password',
       newPasswordLabelConfirmation: 'Password Confirmation',
-      passwordError: 'The passwords must match',
-      passwordMaxLengthMessage: 'Maximum number of characters 20',
-      passwordMinLengthMessage: 'Minimum number of characters 6',
-      passwordVerification:
-        'Password must contain 0-9, a-z, A-Z, ! " # $ % & \' () * + , - . / : ; < = > ? @ [ \\ ] ^ _ ` { | } ~',
       prompt: 'Your password must be between 6 and 20 characters',
-      title: 'New password',
+      title: 'Create New Password',
     },
     expiredLink: {
       description:
