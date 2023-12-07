@@ -6,10 +6,7 @@ import { Button, Modal, Typography } from '@/shared/ui'
 
 import s from './ExpiredLink.module.scss'
 
-type PropsType = {
-  email: string
-}
-export const ExpiredLink = ({ email }: PropsType) => {
+export const ExpiredLink = () => {
   const [showModal, setShowModal] = useState<boolean>(false)
 
   const { text } = useTranslation()
@@ -20,7 +17,6 @@ export const ExpiredLink = ({ email }: PropsType) => {
   }
 
   const sendEmailHandler = () => {
-    console.log(email)
     showModalHandler()
   }
 
@@ -40,7 +36,7 @@ export const ExpiredLink = ({ email }: PropsType) => {
       <ExpiredTimeIcon />
       {
         <Modal isOpen={showModal} onIsOpenChange={showModalHandler} title={textModal.title}>
-          <Typography variant={'regularText16'}>{textModal.getDescription(email)}</Typography>
+          <Typography variant={'regularText16'}>{textModal.description}</Typography>
           <div className={s.modalButton}>
             <Button fullWidth={false} onClick={showModalHandler} type={'button'}>
               OK

@@ -1,15 +1,6 @@
 import { LocaleType } from './en'
 
 export const ru: LocaleType = {
-  errors: {
-    signInform: {
-      emailVerification: 'Электронная почта должна соответствовать формату example@example.com',
-      maxPasswordLength: 'Максимальное количество символов 20',
-      minPasswordLength: 'Минимальное количество символов 6',
-      passwordVerification:
-        'Пароль должен содержать 0–9, a–z, A–Z, ! " # $ % & \' () * + , - . / : ; < = > ? @ [ \\ ] ^ _ ` { | } ~',
-    },
-  },
   layout: {
     header: {
       signInBtn: 'Войти',
@@ -70,5 +61,40 @@ export const ru: LocaleType = {
       signInBtn: 'Войти',
       signUpLink: 'Зарегистрироваться',
     },
+    home: 'Главная страница',
+    signIn: {
+      emailLabel: 'Электронная почта',
+      forgotPasswordLink: 'Забыли пароль?',
+      formTitle: 'Войти',
+      passwordLabel: 'Пароль',
+      questionAboutAccount: 'У вас нет учетной записи?',
+      signInBtn: 'Войти',
+      signUpLink: 'Зарегистрироваться',
+    },
+    signUp: {
+      agreement: {
+        description: `Я согласен с <1>privacy</1> и <2>terms</2>`,
+        privacy: 'политикой конфиденциальности',
+        terms: 'условиями предоставления услуг',
+      },
+      confirmPassword: 'Подтверждение пароля',
+      email: 'Электронная почта',
+      formTitle: 'Регистрация',
+      password: 'Пароль',
+      questionAboutAccount: 'У вас есть учетная запись?',
+      signUpBtn: 'Зарегистрироваться',
+      signUpLink: 'Войти',
+      username: 'Имя пользователя',
+    },
+  },
+  validation: {
+    emailVerification: 'Электронная почта должна соответствовать формату example@example.com',
+    maxLength20: 'Максимальное количество символов 20',
+    maxLength30: 'Максимальное количество символов 30',
+    minLength6: 'Минимальное количество символов 6',
+    passwordMismatch: 'Пароли должны совпадать',
+    passwordVerification:
+      'Пароль должен содержать 0-9, a-z, A-Z, ! " # $ % & \' () * + , - . / : ; < = > ? @ [ \\ ] ^ _ ` { | } ~',
+    usernameVerification: 'Имя пользователя может содержать 0-9; A-Z; a-z; _ ; - ',
   },
 }

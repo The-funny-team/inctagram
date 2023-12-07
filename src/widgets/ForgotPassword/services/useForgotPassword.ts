@@ -17,7 +17,13 @@ export const useForgotPassword = () => {
   const [isChecked, setIsChecked] = useState(false)
   const [isSuccess, setIsSuccess] = useState(false)
   const [isOpenModal, setIsOpenModal] = useState(false)
-  const { control, getValues, handleSubmit, setError, watch } = useForm<ForgotPasswordFormValues>({
+  const {
+    control,
+    formState: { isValid },
+    getValues,
+    handleSubmit,
+    setError,
+  } = useForm<ForgotPasswordFormValues>({
     defaultValues: {
       email: '',
     },
@@ -25,7 +31,7 @@ export const useForgotPassword = () => {
     resolver: zodResolver(forgotPasswordSchema(transcription)),
   })
 
-  const isDisabled = !(watch('email') && isChecked)
+  const isDisabled = !(isValid && isChecked)
 
   return {
     control,
