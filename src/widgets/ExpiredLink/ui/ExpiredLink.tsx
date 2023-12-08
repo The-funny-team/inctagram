@@ -1,28 +1,16 @@
-import { useState } from 'react'
-
 import { ExpiredTimeIcon } from '@/shared/assets'
 import { useTranslation } from '@/shared/lib/hooks'
-import { Button, Modal, Typography } from '@/shared/ui'
+import { Button, Typography } from '@/shared/ui'
 
 import s from './ExpiredLink.module.scss'
 
-type PropsType = {
-  email: string
+type Props = {
+  sendEmailHandler: () => void
 }
-export const ExpiredLink = ({ email }: PropsType) => {
-  const [showModal, setShowModal] = useState<boolean>(false)
 
+export const ExpiredLink = ({ sendEmailHandler }: Props) => {
   const { text } = useTranslation()
   const textWidget = text.pages.expiredLink
-  const textModal = text.pages.expiredLink.modal
-  const showModalHandler = () => {
-    setShowModal(!showModal)
-  }
-
-  const sendEmailHandler = () => {
-    console.log(email)
-    showModalHandler()
-  }
 
   return (
     <div className={s.wrapper}>
@@ -38,16 +26,6 @@ export const ExpiredLink = ({ email }: PropsType) => {
         </Button>
       </div>
       <ExpiredTimeIcon />
-      {
-        <Modal isOpen={showModal} onIsOpenChange={showModalHandler} title={textModal.title}>
-          <Typography variant={'regularText16'}>{textModal.getDescription(email)}</Typography>
-          <div className={s.modalButton}>
-            <Button fullWidth={false} onClick={showModalHandler} type={'button'}>
-              OK
-            </Button>
-          </div>
-        </Modal>
-      }
     </div>
   )
 }

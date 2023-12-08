@@ -1,7 +1,6 @@
 import { FC, Fragment } from 'react'
 
-const tagsRegex = /(<\d+>[^<>]*<\/\d+>)/
-const openCloseTagRegex = /<(\d+)>([^<>]*)<\/(\d+)>/
+import { OPEN_CLOSE_TAG_REGEX, TAGS_REGEX } from '@/shared/const'
 
 type TransType = {
   tags?: Record<string, (str: string) => JSX.Element>
@@ -19,10 +18,10 @@ const interpolateTags = (data: TransType) => {
     return text
   }
 
-  const tokens = text.split(tagsRegex)
+  const tokens = text.split(TAGS_REGEX)
 
   return tokens.map(token => {
-    const matchResult = openCloseTagRegex.exec(token)
+    const matchResult = OPEN_CLOSE_TAG_REGEX.exec(token)
 
     if (!matchResult) {
       return token

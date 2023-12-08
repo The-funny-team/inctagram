@@ -1,25 +1,6 @@
 import { LocaleType } from './en'
 
 export const ru: LocaleType = {
-  errors: {
-    signInform: {
-      emailVerification: 'Электронная почта должна соответствовать формату example@example.com',
-      maxPasswordLength: 'Максимальное количество символов 20',
-      minPasswordLength: 'Минимальное количество символов 6',
-      passwordVerification:
-        'Пароль должен содержать 0–9, a–z, A–Z, ! " # $ % & \' () * + , - . / : ; < = > ? @ [ \\ ] ^ _ ` { | } ~',
-    },
-    signUp: {
-      emailVerification: 'Электронная почта должна соответствовать формату example@example.com',
-      maxLength20: 'Максимальное количество символов 20',
-      maxLength30: 'Максимальное количество символов 30',
-      minLength6: 'Минимальное количество символов 6',
-      passwordMismatch: 'Пароли должны совпадать',
-      passwordVerification:
-        'Пароль должен содержать 0-9, a-z, A-Z, ! " # $ % & \' () * + , - . / : ; < = > ? @ [ \\ ] ^ _ ` { | } ~',
-      usernameVerification: 'Пароль может содержать 0-9; A-Z; a-z; _ ; - ',
-    },
-  },
   layout: {
     header: {
       signInBtn: 'Войти',
@@ -32,14 +13,17 @@ export const ru: LocaleType = {
       signInBtn: 'Войти',
       title: 'Поздравляем!',
     },
+    createNewPassword: {
+      createNewPasswordBtn: 'Создать новый пароль',
+      newPasswordLabel: 'Новый пароль',
+      newPasswordLabelConfirmation: 'Повторите пароль',
+      prompt: 'Ваш пароль должен содержать от 6 до 20 символов',
+      title: 'Задать новый пароль',
+    },
     expiredLink: {
       description:
         'Похоже, срок действия ссылки для подтверждения истек. Не волнуйтесь, мы можем отправить ссылку еще раз.',
       expiredLinkBtn: 'Отправить ссылку повторно',
-      modal: {
-        getDescription: (email: string) => `Мы отправили ссылку для подтверждения на ${email}`,
-        title: 'Email отправлен',
-      },
       title: 'Срок действия ссылки для подтверждения электронной почты истек',
     },
     forgotPassword: {
@@ -53,10 +37,10 @@ export const ru: LocaleType = {
         title: 'Письмо отправлено',
       },
       recaptcha: 'Я не робот',
-      resendLink: 'Выслать Письмо Повторно',
-      sendLinkBtn: 'Отправить Письмо',
-      signInBtn: 'Вернуться на Вход',
-      title: 'Восстановить Пароль',
+      resendLink: 'Выслать письмо повторно',
+      sendLinkBtn: 'Отправить письмо',
+      signInBtn: 'Страница входа',
+      title: 'Восстановить пароль',
     },
     home: 'Главная страница',
     signIn: {
@@ -83,5 +67,15 @@ export const ru: LocaleType = {
       signUpLink: 'Войти',
       username: 'Имя пользователя',
     },
+  },
+  validation: {
+    emailVerification: 'Электронная почта должна соответствовать формату example@example.com',
+    maxLength20: 'Максимальное количество символов 20',
+    maxLength30: 'Максимальное количество символов 30',
+    minLength6: 'Минимальное количество символов 6',
+    passwordMismatch: 'Пароли должны совпадать',
+    passwordVerification:
+      'Пароль должен содержать 0-9, a-z, A-Z, ! " # $ % & \' () * + , - . / : ; < = > ? @ [ \\ ] ^ _ ` { | } ~',
+    usernameVerification: 'Имя пользователя может содержать 0-9; A-Z; a-z; _ ; - ',
   },
 }

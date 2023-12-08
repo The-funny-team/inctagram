@@ -5,9 +5,7 @@ import { LocaleType } from '@locales/en'
 
 import { SignInFormValuesType, signInSchema } from './signInSchema'
 
-type Props = LocaleType['errors']['signInform']
-
-export const useSignIn = (t: Props) =>
+export const useSignIn = (t: LocaleType['validation']) =>
   useForm<SignInFormValuesType>({
     defaultValues: {
       email: '',
