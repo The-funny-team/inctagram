@@ -4,7 +4,7 @@ import { Controller } from 'react-hook-form'
 import { useSignUpMutation } from '@/shared/api/authApi'
 import { GithubIcon, GoogleIcon } from '@/shared/assets'
 import { ROUTES_URL } from '@/shared/const'
-import { useTranslation } from '@/shared/lib/hooks'
+import { isFetchBaseQueryError } from '@/shared/lib/predicate'
 import { Button, Card, Checkbox, Input, Modal, Typography } from '@/shared/ui'
 import { SignUpSchemaType, useSignUp } from '@/widgets/SignUp/services'
 import { Trans } from '@/widgets/SignUp/ui/Trans'
@@ -14,17 +14,9 @@ import Link from 'next/link'
 import s from './SignUp.module.scss'
 
 export const SignUp = () => {
-  const { text } = useTranslation()
   const [signUp] = useSignUpMutation()
   const [isOpen, setIsOpen] = useState<boolean>(false)
-  const {
-    control,
-    formState: { isValid },
-    getValues,
-    handleSubmit,
-    reset,
-    setError,
-  } = useSignUp(text)
+  const { control, getValues, handleSubmit, isValid, reset, setError, text } = useSignUp()
 
   const classNames = {
     form: clsx(s.form),
@@ -39,25 +31,27 @@ export const SignUp = () => {
     root: clsx(s.root),
     title: clsx(s.title),
   }
-  const submitHandler = (data: SignUpSchemaType) => {
-    signUp(data)
-      .unwrap()
-      .then(() => {
-        setIsOpen(true)
-        reset()
-      })
-      .catch(err => {
-        // eslint-disable-next-line no-console
-        console.log(JSON.stringify(err))
-        setError(
-          err.data.message[0].field,
-          {
-            message: err.data.message[0].message,
-            type: 'custom',
-          },
-          { shouldFocus: true }
-        )
-      })
+  const submitHandler = async (data: SignUpSchemaType) => {
+    try {
+      await signUp(data).unwrap()
+      setIsOpen(true)
+      reset()
+    } catch (e: unknown) {
+      if (isFetchBaseQueryError(e)) {
+        if (Array.isArray(e.data.message)) {
+          e.data.message.forEach(message => {
+            setError(message.field, {
+              message: message.message,
+              type: 'custom',
+            })
+          })
+        } else {
+          console.log(e.data.message)
+        }
+      } else {
+        console.log(JSON.stringify(e))
+      }
+    }
   }
   const modalCloseHandler = () => {
     setIsOpen(false)
