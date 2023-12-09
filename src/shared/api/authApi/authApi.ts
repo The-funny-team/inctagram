@@ -14,14 +14,14 @@ const authApi = baseApi.injectEndpoints({
 
 export const { useSignUpMutation } = authApi
 
-type CreateUserDto = {
+export type CreateUserDto = {
   email: string
   password: string
   passwordConfirm: string
   username: string
 }
 
-type SignUpResponse = {
+export type SignUpResponse = {
   createdAt: string
   email: string
   id: string
