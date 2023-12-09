@@ -23,6 +23,7 @@ export const SignUp = () => {
     getValues,
     handleSubmit,
     reset,
+    setError,
   } = useSignUp(text)
 
   const classNames = {
@@ -48,6 +49,14 @@ export const SignUp = () => {
       .catch(err => {
         // eslint-disable-next-line no-console
         console.log(JSON.stringify(err))
+        setError(
+          err.data.message[0].field,
+          {
+            message: err.data.message[0].message,
+            type: 'custom',
+          },
+          { shouldFocus: true }
+        )
       })
   }
   const modalCloseHandler = () => {
