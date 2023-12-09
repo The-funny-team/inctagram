@@ -8,9 +8,9 @@ export const useSignUp = (text: LocaleType) =>
   useForm<SignUpSchemaType>({
     defaultValues: {
       agree: false,
-      confirmPassword: '',
       email: '',
       password: '',
+      passwordConfirm: '',
       username: '',
     },
     mode: 'onTouched',
