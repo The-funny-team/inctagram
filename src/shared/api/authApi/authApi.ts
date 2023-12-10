@@ -19,7 +19,7 @@ const authApi = baseApi.injectEndpoints({
   }),
 })
 
-export const { useSignUpMutation } = authApi
+export const { useSignInMutation, useSignUpMutation } = authApi
 
 export type CreateUserDto = {
   email: string
