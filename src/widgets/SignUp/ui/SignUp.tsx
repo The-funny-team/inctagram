@@ -16,7 +16,7 @@ import s from './SignUp.module.scss'
 export const SignUp = () => {
   const [signUp] = useSignUpMutation()
   const [isOpen, setIsOpen] = useState<boolean>(false)
-  const { control, getValues, handleSubmit, isValid, reset, setError, text } = useSignUp()
+  const { control, getValues, handleSubmit, isDisabled, reset, setError, text } = useSignUp()
 
   const classNames = {
     form: clsx(s.form),
@@ -151,7 +151,7 @@ export const SignUp = () => {
             />
           </Typography>
         </div>
-        <Button disabled={!isValid} type={'submit'}>
+        <Button disabled={isDisabled} type={'submit'}>
           {text.pages.signUp.signUpBtn}
         </Button>
       </form>

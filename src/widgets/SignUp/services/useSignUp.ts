@@ -9,7 +9,7 @@ export const useSignUp = () => {
 
   const {
     control,
-    formState: { isValid },
+    formState: { isSubmitting, isValid },
     getValues,
     handleSubmit,
     reset,
@@ -26,11 +26,13 @@ export const useSignUp = () => {
     resolver: zodResolver(signUpSchema(text)),
   })
 
+  const isDisabled = !isValid || isSubmitting
+
   return {
     control,
     getValues,
     handleSubmit,
-    isValid,
+    isDisabled,
     reset,
     setError,
     text,
