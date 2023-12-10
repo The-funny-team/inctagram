@@ -1,4 +1,4 @@
-import { baseApi } from '@/app/store'
+import { baseApi } from '@/shared/api/baseApi'
 
 const authApi = baseApi.injectEndpoints({
   endpoints: builder => ({

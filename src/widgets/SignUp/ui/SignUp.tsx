@@ -35,7 +35,6 @@ export const SignUp = () => {
     try {
       await signUp(data).unwrap()
       setIsOpen(true)
-      reset()
     } catch (e: unknown) {
       if (isFetchBaseQueryError(e)) {
         if (Array.isArray(e.data.message)) {
@@ -55,6 +54,7 @@ export const SignUp = () => {
   }
   const modalCloseHandler = () => {
     setIsOpen(false)
+    reset()
   }
 
   return (
