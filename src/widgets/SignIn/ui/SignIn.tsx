@@ -4,10 +4,10 @@ import { useSignInMutation } from '@/shared/api/authApi'
 import { GithubIcon, GoogleIcon } from '@/shared/assets'
 import { ROUTES_URL } from '@/shared/const'
 import { useTranslation } from '@/shared/lib/hooks'
-import { onRequestErrorHandler } from '@/shared/lib/predicate'
 import { Button, Card, Input, Typography } from '@/shared/ui'
 import { clsx } from 'clsx'
 import Link from 'next/link'
+import { onRequestErrorHandler } from 'src/shared/lib/helpers'
 
 import s from './SignIn.module.scss'
 
