@@ -1,8 +1,9 @@
 import { getRootLayout } from '@/shared/ui'
+import { EmailVerification } from '@/widgets/EmailVerification'
 
-const EmailVerification = () => {
-  return <h1>email verification page</h1>
+const EmailVerificationPage = () => {
+  return <EmailVerification />
 }
 
-EmailVerification.getLayout = getRootLayout
-export default EmailVerification
+EmailVerificationPage.getLayout = getRootLayout
+export default EmailVerificationPage
