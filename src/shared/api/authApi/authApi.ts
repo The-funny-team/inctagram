@@ -16,10 +16,17 @@ const authApi = baseApi.injectEndpoints({
         url: '/auth/registration',
       }),
     }),
+    confirmation: builder.mutation<void, { code: string }>({
+      query: body => ({
+        url: '/auth/registration-confirmation',
+        method: 'POST',
+        body,
+      }),
+    }),
   }),
 })
 
-export const { useSignInMutation, useSignUpMutation } = authApi
+export const { useSignInMutation, useSignUpMutation, useConfirmationMutation } = authApi
 
 export type CreateUserDto = {
   email: string
