@@ -14,7 +14,7 @@ import s from './SignIn.module.scss'
 import { SignInFormValuesType, useSignIn } from '../services'
 
 export const SignIn = () => {
-  const [signIn] = useSignInMutation()
+  const [signIn, { isLoading }] = useSignInMutation()
   const { router, text } = useTranslation()
   const t = text.pages.signIn
   const {
@@ -94,7 +94,7 @@ export const SignIn = () => {
         >
           {t.forgotPasswordLink}
         </Typography>
-        <Button disabled={!isValid} type={'submit'}>
+        <Button disabled={!isValid || isLoading} type={'submit'}>
           {t.signInBtn}
         </Button>
       </form>
