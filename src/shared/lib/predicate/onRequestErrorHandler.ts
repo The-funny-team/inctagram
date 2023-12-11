@@ -1,21 +1,11 @@
-import { FieldError } from 'react-hook-form'
+import { ErrorOption } from 'react-hook-form'
 
 import { isFetchBaseQueryError } from './isFetchBaseQueryError'
-
-const isFetchError = (error: unknown): error is { error: string; status: 'FETCH_ERROR' } => {
-  return (
-    typeof error === 'object' &&
-    error != null &&
-    'status' in error &&
-    error.status === 'FETCH_ERROR' &&
-    'error' in error &&
-    typeof error.error === 'string'
-  )
-}
+import { isFetchError } from './isFetchError'
 
 export const onRequestErrorHandler = <T>(
   error: unknown,
-  setError: (name: T, error: FieldError) => void
+  setError: (name: T, error: ErrorOption) => void
 ) => {
   if (isFetchBaseQueryError(error)) {
     if (Array.isArray(error.data.message)) {
