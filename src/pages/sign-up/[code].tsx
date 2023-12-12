@@ -1,8 +1,30 @@
-import { getRootLayout } from '@/shared/ui'
+import { useEffect } from 'react'
 
-const EmailVerification = () => {
-  return <h1>email verification page</h1>
+import { useConfirmationMutation } from '@/shared/api/authApi'
+import { getRootLayout } from '@/shared/ui'
+import { ConfirmedEmail } from '@/widgets/ConfirmedEmail'
+import { ExpiredLink } from '@/widgets/ExpiredLink'
+import { useRouter } from 'next/router'
+
+const EmailVerificationPage = () => {
+  const router = useRouter()
+
+  const { code } = router.query
+
+  const [confirmation, { isSuccess }] = useConfirmationMutation()
+
+  useEffect(() => {
+    if (code && typeof code === 'string') {
+      confirmation({ code })
+    }
+  }, [code, confirmation])
+
+  const sendEmail = () => {
+    console.log('send request')
+  }
+
+  return <>{isSuccess ? <ConfirmedEmail /> : <ExpiredLink sendEmailHandler={sendEmail} />}</>
 }
 
-EmailVerification.getLayout = getRootLayout
-export default EmailVerification
+EmailVerificationPage.getLayout = getRootLayout
+export default EmailVerificationPage

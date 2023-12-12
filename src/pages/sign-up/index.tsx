@@ -1,8 +1,13 @@
 import { getRootLayout } from '@/shared/ui'
+import { SignUp } from '@/widgets/SignUp'
 
-const SignUp = () => {
-  return <h1>Sign Up</h1>
+const SignUpPage = () => {
+  return (
+    <div style={{ padding: '36px 10px 0' }}>
+      <SignUp />
+    </div>
+  )
 }
 
-SignUp.getLayout = getRootLayout
-export default SignUp
+SignUpPage.getLayout = getRootLayout
+export default SignUpPage

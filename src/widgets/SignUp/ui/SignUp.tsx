@@ -1,23 +1,22 @@
+import { useState } from 'react'
 import { Controller } from 'react-hook-form'
 
+import { useSignUpMutation } from '@/shared/api/authApi'
 import { GithubIcon, GoogleIcon } from '@/shared/assets'
 import { ROUTES_URL } from '@/shared/const'
-import { useTranslation } from '@/shared/lib/hooks'
-import { Button, Card, Checkbox, Input, Typography } from '@/shared/ui'
+import { Button, Card, Checkbox, Input, Modal, Typography } from '@/shared/ui'
 import { SignUpSchemaType, useSignUp } from '@/widgets/SignUp/services'
 import { Trans } from '@/widgets/SignUp/ui/Trans'
 import { clsx } from 'clsx'
 import Link from 'next/link'
+import { isFetchBaseQueryError } from 'src/shared/lib/helpers'
 
 import s from './SignUp.module.scss'
 
 export const SignUp = () => {
-  const { text } = useTranslation()
-  const {
-    control,
-    formState: { errors, isValid },
-    handleSubmit,
-  } = useSignUp(text)
+  const [signUp] = useSignUpMutation()
+  const [isOpen, setIsOpen] = useState<boolean>(false)
+  const { control, getValues, handleSubmit, isDisabled, reset, setError, text } = useSignUp()
 
   const classNames = {
     form: clsx(s.form),
@@ -25,13 +24,37 @@ export const SignUp = () => {
     formInput(error?: string) {
       return clsx(s.formInput, error && s.formInputWithError)
     },
+    modalCloseBtn: s.modalCloseBtn,
+    modalDescription: s.modalDescription,
     otherRegistration: clsx(s.otherRegistration),
     question: clsx(s.question),
     root: clsx(s.root),
     title: clsx(s.title),
   }
-  const onSubmit = (data: SignUpSchemaType) => {
-    console.log(data)
+  const submitHandler = async (data: SignUpSchemaType) => {
+    try {
+      await signUp(data).unwrap()
+      setIsOpen(true)
+    } catch (e: unknown) {
+      if (isFetchBaseQueryError(e)) {
+        if (Array.isArray(e.data.message)) {
+          e.data.message.forEach(message => {
+            setError(message.field, {
+              message: message.message,
+              type: 'custom',
+            })
+          })
+        } else {
+          console.log(e.data.message)
+        }
+      } else {
+        console.log(JSON.stringify(e))
+      }
+    }
+  }
+  const modalCloseHandler = () => {
+    setIsOpen(false)
+    reset()
   }
 
   return (
@@ -47,13 +70,13 @@ export const SignUp = () => {
           <GithubIcon />
         </Link>
       </div>
-      <form className={classNames.form} onSubmit={handleSubmit(onSubmit)}>
+      <form className={classNames.form} onSubmit={handleSubmit(submitHandler)}>
         <Controller
           control={control}
           name={'username'}
           render={({ field, fieldState: { error } }) => (
             <Input
-              className={classNames.formInput(errors.username?.message)}
+              className={classNames.formInput(error?.message)}
               error={error && error.message}
               label={text.pages.signUp.username}
               type={'text'}
@@ -66,7 +89,7 @@ export const SignUp = () => {
           name={'email'}
           render={({ field, fieldState: { error } }) => (
             <Input
-              className={classNames.formInput(errors.email?.message)}
+              className={classNames.formInput(error?.message)}
               error={error && error.message}
               label={text.pages.signUp.email}
               type={'text'}
@@ -79,7 +102,7 @@ export const SignUp = () => {
           name={'password'}
           render={({ field, fieldState: { error } }) => (
             <Input
-              className={classNames.formInput(errors.password?.message)}
+              className={classNames.formInput(error?.message)}
               error={error && error.message}
               label={text.pages.signUp.password}
               type={'password'}
@@ -89,10 +112,10 @@ export const SignUp = () => {
         />
         <Controller
           control={control}
-          name={'confirmPassword'}
+          name={'passwordConfirm'}
           render={({ field, fieldState: { error } }) => (
             <Input
-              className={classNames.formInput(errors.confirmPassword?.message)}
+              className={classNames.formInput(error?.message)}
               error={error && error.message}
               label={text.pages.signUp.confirmPassword}
               type={'password'}
@@ -128,7 +151,7 @@ export const SignUp = () => {
             />
           </Typography>
         </div>
-        <Button disabled={!isValid} type={'submit'}>
+        <Button disabled={isDisabled} type={'submit'}>
           {text.pages.signUp.signUpBtn}
         </Button>
       </form>
@@ -138,6 +161,20 @@ export const SignUp = () => {
       <Button as={Link} href={ROUTES_URL.SIGN_IN} variant={'link'}>
         {text.pages.signUp.signUpLink}
       </Button>
+      <Modal
+        isOpen={isOpen}
+        onIsOpenChange={modalCloseHandler}
+        title={text.pages.signUp.modal.title}
+      >
+        <Typography className={classNames.modalDescription}>
+          {text.pages.signUp.modal.getDescription(getValues('email'))}
+        </Typography>
+        <div className={classNames.modalCloseBtn}>
+          <Button fullWidth={false} onClick={modalCloseHandler}>
+            OK
+          </Button>
+        </div>
+      </Modal>
     </Card>
   )
 }

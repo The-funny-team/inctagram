@@ -61,6 +61,11 @@ export const ru: LocaleType = {
       confirmPassword: 'Подтверждение пароля',
       email: 'Электронная почта',
       formTitle: 'Регистрация',
+      modal: {
+        getDescription: (email: string) =>
+          `Мы отправили письмо для подтверждения почты на ${email}`,
+        title: 'Письмо отправлено',
+      },
       password: 'Пароль',
       questionAboutAccount: 'У вас есть учетная запись?',
       signUpBtn: 'Зарегистрироваться',

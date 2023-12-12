@@ -1,8 +1,12 @@
 import { getRootLayout } from '@/shared/ui'
+import { SignIn } from '@/widgets/SignIn'
 
-const SignIn = () => {
-  return <h1>Sign In</h1>
-}
+import s from './SignInPage.module.scss'
+const SignInPage = () => (
+  <div className={s.root}>
+    <SignIn />
+  </div>
+)
 
-SignIn.getLayout = getRootLayout
-export default SignIn
+SignInPage.getLayout = getRootLayout
+export default SignInPage
