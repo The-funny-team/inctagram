@@ -1,0 +1,24 @@
+.root {
+  padding: 24px 10px 0;
+}
+
+.Btn {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+
+  .link {
+    text-decoration: none;
+  }
+}
+
+.title {
+  padding: 23px 0 20px;
+  text-align: center;
+}
+
+.desc {
+  text-align: center;
+  text-indent: 12px;
+  white-space: pre-wrap;
+}
