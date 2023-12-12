@@ -15,7 +15,7 @@ const PrivacyPolicy = () => {
 
   return (
     <div className={s.root}>
-      <div className={s.Btn}>
+      <div className={s.BackToBtn}>
         <ArrowLeftIcon />
         <Typography
           as={Link}
