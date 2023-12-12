@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 
-import { useConfirmationMutation } from '@/shared/api/authApi'
+import { useEmailConfirmationMutation } from '@/shared/api/authApi'
 import { getRootLayout } from '@/shared/ui'
 import { ConfirmedEmail } from '@/widgets/ConfirmedEmail'
 import { ExpiredLink } from '@/widgets/ExpiredLink'
@@ -11,7 +11,7 @@ const EmailVerificationPage = () => {
 
   const { code } = router.query
 
-  const [confirmation, { isSuccess }] = useConfirmationMutation()
+  const [confirmation, { isSuccess }] = useEmailConfirmationMutation()
 
   useEffect(() => {
     if (code && typeof code === 'string') {
