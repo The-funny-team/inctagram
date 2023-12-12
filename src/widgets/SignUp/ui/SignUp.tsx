@@ -4,12 +4,12 @@ import { Controller } from 'react-hook-form'
 import { useSignUpMutation } from '@/shared/api/authApi'
 import { GithubIcon, GoogleIcon } from '@/shared/assets'
 import { ROUTES_URL } from '@/shared/const'
-import { isFetchBaseQueryError } from '@/shared/lib/predicate'
 import { Button, Card, Checkbox, Input, Modal, Typography } from '@/shared/ui'
 import { SignUpSchemaType, useSignUp } from '@/widgets/SignUp/services'
 import { Trans } from '@/widgets/SignUp/ui/Trans'
 import { clsx } from 'clsx'
 import Link from 'next/link'
+import { isFetchBaseQueryError } from 'src/shared/lib/helpers'
 
 import s from './SignUp.module.scss'
 

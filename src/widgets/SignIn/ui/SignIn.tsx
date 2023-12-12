@@ -1,23 +1,27 @@
 import { Controller } from 'react-hook-form'
 
+import { useSignInMutation } from '@/shared/api/authApi'
 import { GithubIcon, GoogleIcon } from '@/shared/assets'
 import { ROUTES_URL } from '@/shared/const'
 import { useTranslation } from '@/shared/lib/hooks'
 import { Button, Card, Input, Typography } from '@/shared/ui'
 import { clsx } from 'clsx'
 import Link from 'next/link'
+import { onRequestErrorHandler } from 'src/shared/lib/helpers'
 
 import s from './SignIn.module.scss'
 
 import { SignInFormValuesType, useSignIn } from '../services'
 
 export const SignIn = () => {
-  const { text } = useTranslation()
+  const [signIn, { isLoading }] = useSignInMutation()
+  const { router, text } = useTranslation()
   const t = text.pages.signIn
   const {
     control,
     formState: { isValid },
     handleSubmit,
+    setError,
   } = useSignIn(text.validation)
 
   const classNames = {
@@ -34,7 +38,10 @@ export const SignIn = () => {
   }
 
   const onFormSubmit = (data: SignInFormValuesType) => {
-    console.log(data)
+    signIn(data)
+      .unwrap()
+      .then(data => router.push(ROUTES_URL.PROFILE))
+      .catch(error => onRequestErrorHandler(error, setError))
   }
 
   return (
@@ -87,7 +94,7 @@ export const SignIn = () => {
         >
           {t.forgotPasswordLink}
         </Typography>
-        <Button disabled={!isValid} type={'submit'}>
+        <Button disabled={!isValid || isLoading} type={'submit'}>
           {t.signInBtn}
         </Button>
       </form>
