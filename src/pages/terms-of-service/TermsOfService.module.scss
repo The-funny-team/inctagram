@@ -1,15 +1,5 @@
-@mixin container {
-  width: 100%;
-  max-width: 1180px;
-  min-height: 100%;
-  margin: 0 auto;
-  padding: 0 10px;
-}
-
 .root {
-  @include container;
-
-  margin: 24px 0;
+  margin: 24px auto;
 }
 
 .link {
