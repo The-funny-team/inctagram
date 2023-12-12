@@ -23,7 +23,7 @@ const EmailVerificationPage = () => {
     console.log('send request')
   }
 
-  return <>{isSuccess ? <ConfirmedEmail /> : <ExpiredLink sendEmailHandler={sendEmail} />}</>
+  return <>{isSuccess ? <ConfirmedEmail /> : <ExpiredLink resendEmailHandler={sendEmail} />}</>
 }
 
 EmailVerificationPage.getLayout = getRootLayout
