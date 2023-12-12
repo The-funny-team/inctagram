@@ -18,11 +18,11 @@ export const LinkTo = ({ children, className, href }: Props) => {
   }
 
   return (
-    <div className={clsx(s.linkTo, className)} onClick={redirectHandler}>
+    <button className={clsx(s.linkTo, className)} onClick={redirectHandler}>
       <ArrowLeftIcon />
       <Typography as={'span'} variant={'regularText14'}>
         {children}
       </Typography>
-    </div>
+    </button>
   )
 }
