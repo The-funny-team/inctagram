@@ -59,6 +59,10 @@ export const en = {
       confirmPassword: 'Password confirmation',
       email: 'Email',
       formTitle: 'Sign Up',
+      modal: {
+        getDescription: (email: string) => `We have sent a link to confirm your email to ${email}`,
+        title: 'Email sent',
+      },
       password: 'Password',
       questionAboutAccount: 'Do you have an account?',
       signUpBtn: 'Sign Up',

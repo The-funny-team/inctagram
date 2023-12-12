@@ -5,6 +5,8 @@ import { NextPage } from 'next'
 import { Inter } from 'next/font/google'
 import Head from 'next/head'
 
+import s from './RootLayout.module.scss'
+
 const inter = Inter({ subsets: ['latin'] })
 
 export const RootLayout: NextPage<PropsWithChildren<any>> = ({ children }) => {
@@ -17,7 +19,7 @@ export const RootLayout: NextPage<PropsWithChildren<any>> = ({ children }) => {
       </Head>
       <div className={inter.className}>
         <Header isLoggedIn={false} />
-        <main>{children}</main>
+        <main className={s.main}>{children}</main>
       </div>
     </>
   )
