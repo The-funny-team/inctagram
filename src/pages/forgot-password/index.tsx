@@ -1,8 +1,15 @@
 import { getRootLayout } from '@/shared/ui'
+import { ForgotPassword } from '@/widgets/ForgotPassword'
 
-const ForgotPassword = () => {
-  return <h1>ForgotPassword</h1>
+import s from './ForgotPasswordPage.module.scss'
+
+const ForgotPasswordPage = () => {
+  return (
+    <div className={s.root}>
+      <ForgotPassword />
+    </div>
+  )
 }
 
-ForgotPassword.getLayout = getRootLayout
-export default ForgotPassword
+ForgotPasswordPage.getLayout = getRootLayout
+export default ForgotPasswordPage
