@@ -6,7 +6,6 @@ export const signUpSchema = (text: LocaleType) => {
   return z
     .object({
       agree: z.boolean(),
-      confirmPassword: z.string().trim(),
       email: z.string().email({ message: text.validation.emailVerification }).trim(),
       password: z
         .string()
@@ -14,6 +13,7 @@ export const signUpSchema = (text: LocaleType) => {
         .max(20, text.validation.maxLength20)
         .regex(PASSWORD_PATTERN, text.validation.passwordVerification)
         .trim(),
+      passwordConfirm: z.string().trim(),
       username: z
         .string()
         .min(6, text.validation.minLength6)
@@ -21,7 +21,7 @@ export const signUpSchema = (text: LocaleType) => {
         .regex(USERNAME_PATTERN, text.validation.usernameVerification)
         .trim(),
     })
-    .refine(({ confirmPassword, password }) => password === confirmPassword, {
+    .refine(({ password, passwordConfirm }) => password === passwordConfirm, {
       message: text.validation.passwordMismatch,
       path: ['confirmPassword'],
     })
