@@ -1,6 +1,6 @@
-import { ExpiredTimeIcon } from '@/shared/assets'
 import { useTranslation } from '@/shared/lib/hooks'
 import { Button, Typography } from '@/shared/ui'
+import Image from 'next/image'
 
 import s from './ExpiredLink.module.scss'
 
@@ -25,7 +25,7 @@ export const ExpiredLink = ({ resendEmailHandler }: Props) => {
           {textWidget.expiredLinkBtn}
         </Button>
       </div>
-      <ExpiredTimeIcon />
+      <Image alt={'email confirmed img'} height={353} src={'/linkExpired.png'} width={473} />
     </div>
   )
 }

@@ -1,13 +1,13 @@
-import { FC, Fragment } from 'react'
+import { Fragment, ReactElement } from 'react'
 
 import { OPEN_CLOSE_TAG_REGEX, TAGS_REGEX } from '@/shared/const'
 
 type TransType = {
-  tags?: Record<string, (str: string) => JSX.Element>
+  tags?: Record<string, (str: string) => ReactElement>
   text: string
 }
 
-export const Trans: FC<TransType> = props => {
+export const Trans = (props: TransType) => {
   return <>{interpolateTags(props)}</>
 }
 

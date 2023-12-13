@@ -2,6 +2,13 @@ import { baseApi } from '@/shared/api/baseApi'
 
 const authApi = baseApi.injectEndpoints({
   endpoints: builder => ({
+    emailConfirmation: builder.mutation<void, { code: string }>({
+      query: body => ({
+        body,
+        method: 'POST',
+        url: '/auth/registration-confirmation',
+      }),
+    }),
     passwordRecovery: builder.mutation<void, { email: string }>({
       query: body => ({
         body,
@@ -21,13 +28,6 @@ const authApi = baseApi.injectEndpoints({
         body,
         method: 'POST',
         url: '/auth/registration',
-      }),
-    }),
-    emailConfirmation: builder.mutation<void, { code: string }>({
-      query: body => ({
-        url: '/auth/registration-confirmation',
-        method: 'POST',
-        body,
       }),
     }),
   }),

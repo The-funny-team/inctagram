@@ -1,7 +1,7 @@
-import { EmailConfirmedIcon } from '@/shared/assets'
 import { ROUTES_URL } from '@/shared/const'
 import { useTranslation } from '@/shared/lib/hooks'
 import { Button, Typography } from '@/shared/ui'
+import Image from 'next/image'
 import Link from 'next/link'
 
 import s from './ConfirmedEmail.module.scss'
@@ -23,7 +23,7 @@ export const ConfirmedEmail = () => {
           {t.signInBtn}
         </Button>
       </div>
-      <EmailConfirmedIcon />
+      <Image alt={'email confirmed img'} height={300} src={'/emailConfirmed.png'} width={432} />
     </div>
   )
 }

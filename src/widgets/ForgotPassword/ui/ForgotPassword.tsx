@@ -29,7 +29,7 @@ export const ForgotPassword = () => {
     emailSending(data)
       .unwrap()
       .then(data => {
-        console.log(data)
+        alert(data)
         setIsOpenModal(true)
       })
       .catch(error => {
