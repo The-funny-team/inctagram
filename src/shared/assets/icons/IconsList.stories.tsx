@@ -5,8 +5,6 @@ import {
   ArrowLeftIcon,
   BellNotifyIcon,
   CheckboxIcon,
-  EmailConfirmedIcon,
-  ExpiredTimeIcon,
   EyeOutlineIcon,
   GithubIcon,
   GoogleIcon,
@@ -51,26 +49,6 @@ export const Checkbox: Story = {
     children: (
       <>
         <CheckboxIcon />
-      </>
-    ),
-  },
-}
-
-export const EmailConfirmed: Story = {
-  args: {
-    children: (
-      <>
-        <EmailConfirmedIcon />
-      </>
-    ),
-  },
-}
-
-export const ExpiredTime: Story = {
-  args: {
-    children: (
-      <>
-        <ExpiredTimeIcon />
       </>
     ),
   },
