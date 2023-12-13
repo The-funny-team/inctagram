@@ -12,8 +12,9 @@
   input:-webkit-autofill:focus,
   input:-webkit-autofill:active {
     box-shadow: 0 0 0 30px var(--color-dark-500) inset !important;
+    caret-color: var(--color-light-100);
 
-    -webkit-text-fill-color: var(--color-light-900) !important;
+    -webkit-text-fill-color: var(--color-light-100) !important;
   }
 
   .textField {
