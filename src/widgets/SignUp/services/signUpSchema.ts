@@ -23,7 +23,7 @@ export const signUpSchema = (text: LocaleType) => {
     })
     .refine(({ password, passwordConfirm }) => password === passwordConfirm, {
       message: text.validation.passwordMismatch,
-      path: ['confirmPassword'],
+      path: ['passwordConfirm'],
     })
     .refine(({ agree }) => agree, {
       path: ['agree'],
