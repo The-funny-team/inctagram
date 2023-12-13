@@ -2,6 +2,20 @@ import { baseApi } from '@/shared/api/baseApi'
 
 const authApi = baseApi.injectEndpoints({
   endpoints: builder => ({
+    confirmation: builder.mutation<void, { code: string }>({
+      query: body => ({
+        body,
+        method: 'POST',
+        url: '/auth/registration-confirmation',
+      }),
+    }),
+    passwordRecovery: builder.mutation<void, { email: string }>({
+      query: body => ({
+        body,
+        method: 'POST',
+        url: '/auth/password-recovery',
+      }),
+    }),
     signIn: builder.mutation<SignInResponseType, SignInRequestType>({
       query: body => ({
         body,
@@ -16,17 +30,15 @@ const authApi = baseApi.injectEndpoints({
         url: '/auth/registration',
       }),
     }),
-    confirmation: builder.mutation<void, { code: string }>({
-      query: body => ({
-        url: '/auth/registration-confirmation',
-        method: 'POST',
-        body,
-      }),
-    }),
   }),
 })
 
-export const { useSignInMutation, useSignUpMutation, useConfirmationMutation } = authApi
+export const {
+  useConfirmationMutation,
+  usePasswordRecoveryMutation,
+  useSignInMutation,
+  useSignUpMutation,
+} = authApi
 
 export type CreateUserDto = {
   email: string
