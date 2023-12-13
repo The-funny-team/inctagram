@@ -11,7 +11,7 @@ import Link from 'next/link'
 import s from './ForgotPassword.module.scss'
 
 export const ForgotPassword = () => {
-  const [emailSending] = usePasswordRecoveryMutation()
+  const [emailSending, { isSuccess }] = usePasswordRecoveryMutation()
   const {
     control,
     getValues,
@@ -19,11 +19,9 @@ export const ForgotPassword = () => {
     isChecked,
     isDisabled,
     isOpenModal,
-    isSuccess,
     setError,
     setIsChecked,
     setIsOpenModal,
-    setIsSuccess,
     transcription,
   } = useForgotPassword()
 
@@ -32,7 +30,7 @@ export const ForgotPassword = () => {
       .unwrap()
       .then(data => {
         console.log(data)
-        setIsSuccess(true)
+        setIsOpenModal(true)
       })
       .catch(error => {
         onRequestErrorHandler(error, setError)
