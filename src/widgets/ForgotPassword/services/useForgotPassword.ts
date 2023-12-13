@@ -15,7 +15,6 @@ export const useForgotPassword = () => {
     },
   } = useTranslation()
   const [isChecked, setIsChecked] = useState(false)
-  const [isSuccess, setIsSuccess] = useState(false)
   const [isOpenModal, setIsOpenModal] = useState(false)
   const {
     control,
@@ -40,11 +39,9 @@ export const useForgotPassword = () => {
     isChecked,
     isDisabled,
     isOpenModal,
-    isSuccess,
     setError,
     setIsChecked,
     setIsOpenModal,
-    setIsSuccess,
     transcription,
   }
 }
