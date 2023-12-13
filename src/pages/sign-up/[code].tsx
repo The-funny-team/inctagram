@@ -20,7 +20,7 @@ const EmailVerificationPage = () => {
   }, [code, confirmation])
 
   const sendEmail = () => {
-    console.log('send request')
+    alert('send request')
   }
 
   return <>{isSuccess ? <ConfirmedEmail /> : <ExpiredLink resendEmailHandler={sendEmail} />}</>
