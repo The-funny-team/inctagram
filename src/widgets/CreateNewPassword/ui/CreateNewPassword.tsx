@@ -18,7 +18,7 @@ export const CreateNewPassword: React.FC<Props> = ({ className, ...restProps }) 
   const { control, handleSubmit, isDisabled, text } = useCreateNewPassword()
 
   const submitFormHandler: SubmitHandler<CreateNewPasswordSchemaType> = data => {
-    console.log(data)
+    alert(data)
   }
 
   return (
