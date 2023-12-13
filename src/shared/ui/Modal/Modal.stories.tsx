@@ -20,7 +20,7 @@ export const Primary: Story = {
 
 export const WithContent: Story = {
   args: {
-    children: <>Make changes to your profile here. Click save when you're done.</>,
+    children: <>Make changes to your profile here. Click save when you&apos;re done.</>,
     isOpen: true,
     title: 'Subscribe',
   },
