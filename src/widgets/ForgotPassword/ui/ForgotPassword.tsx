@@ -1,7 +1,9 @@
 import { Controller } from 'react-hook-form'
 
+import { usePasswordRecoveryMutation } from '@/shared/api/authApi'
 import { RecaptchaIcon } from '@/shared/assets'
 import { ROUTES_URL } from '@/shared/const'
+import { onRequestErrorHandler } from '@/shared/lib/helpers'
 import { Button, Card, Checkbox, Input, Modal, Typography } from '@/shared/ui'
 import { ForgotPasswordFormValues, useForgotPassword } from '@/widgets/ForgotPassword/services'
 import Link from 'next/link'
@@ -9,6 +11,7 @@ import Link from 'next/link'
 import s from './ForgotPassword.module.scss'
 
 export const ForgotPassword = () => {
+  const [emailSending, { isSuccess }] = usePasswordRecoveryMutation()
   const {
     control,
     getValues,
@@ -16,27 +19,21 @@ export const ForgotPassword = () => {
     isChecked,
     isDisabled,
     isOpenModal,
-    isSuccess,
     setError,
     setIsChecked,
     setIsOpenModal,
-    setIsSuccess,
     transcription,
   } = useForgotPassword()
 
   const submitHandler = (data: ForgotPasswordFormValues) => {
-    new Promise((res, rej) => {
-      setTimeout(() => {
-        res(data)
-      }, 2000)
-    })
+    emailSending(data)
+      .unwrap()
       .then(data => {
         console.log(data)
-        setIsSuccess(true)
         setIsOpenModal(true)
       })
-      .catch(() => {
-        setError('email', { message: `User with this email doesn't exist`, type: 'custom' })
+      .catch(error => {
+        onRequestErrorHandler(error, setError)
       })
   }
 
