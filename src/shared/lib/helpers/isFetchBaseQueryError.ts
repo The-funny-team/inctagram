@@ -1,8 +1,6 @@
-import { CreateUserDto } from '@/shared/api/authApi'
-
 type ErrorData = {
   data: {
-    message: { field: keyof CreateUserDto; message: string }[] | string
+    message: { field: string; message: string }[] | string
     path: string
     timestamp: string
   }

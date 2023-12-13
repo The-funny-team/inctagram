@@ -5,10 +5,10 @@ import { Button, Typography } from '@/shared/ui'
 import s from './ExpiredLink.module.scss'
 
 type Props = {
-  sendEmailHandler: () => void
+  resendEmailHandler: () => void
 }
 
-export const ExpiredLink = ({ sendEmailHandler }: Props) => {
+export const ExpiredLink = ({ resendEmailHandler }: Props) => {
   const { text } = useTranslation()
   const textWidget = text.pages.expiredLink
 
@@ -21,7 +21,7 @@ export const ExpiredLink = ({ sendEmailHandler }: Props) => {
         <Typography variant={'regularText16'}>{textWidget.description}</Typography>
       </div>
       <div className={s.button}>
-        <Button fullWidth={false} onClick={sendEmailHandler}>
+        <Button fullWidth={false} onClick={resendEmailHandler}>
           {textWidget.expiredLinkBtn}
         </Button>
       </div>

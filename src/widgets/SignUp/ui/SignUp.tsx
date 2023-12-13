@@ -9,7 +9,7 @@ import { SignUpSchemaType, useSignUp } from '@/widgets/SignUp/services'
 import { Trans } from '@/widgets/SignUp/ui/Trans'
 import { clsx } from 'clsx'
 import Link from 'next/link'
-import { isFetchBaseQueryError } from 'src/shared/lib/helpers'
+import { onRequestErrorHandler } from 'src/shared/lib/helpers'
 
 import s from './SignUp.module.scss'
 
@@ -36,20 +36,7 @@ export const SignUp = () => {
       await signUp(data).unwrap()
       setIsOpen(true)
     } catch (e: unknown) {
-      if (isFetchBaseQueryError(e)) {
-        if (Array.isArray(e.data.message)) {
-          e.data.message.forEach(message => {
-            setError(message.field, {
-              message: message.message,
-              type: 'custom',
-            })
-          })
-        } else {
-          console.log(e.data.message)
-        }
-      } else {
-        console.log(JSON.stringify(e))
-      }
+      onRequestErrorHandler(e, setError)
     }
   }
   const modalCloseHandler = () => {
