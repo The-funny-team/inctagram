@@ -2,6 +2,15 @@ import { baseApi } from '@/shared/api/baseApi'
 
 const authApi = baseApi.injectEndpoints({
   endpoints: builder => ({
+    createNewPassword: builder.mutation<void, NewPasswordRequestType>({
+      query: body => {
+        return {
+          body,
+          method: 'POST',
+          url: '/auth/new-password',
+        }
+      },
+    }),
     emailConfirmation: builder.mutation<void, { code: string }>({
       query: body => ({
         body,
@@ -34,6 +43,7 @@ const authApi = baseApi.injectEndpoints({
 })
 
 export const {
+  useCreateNewPasswordMutation,
   useEmailConfirmationMutation,
   usePasswordRecoveryMutation,
   useSignInMutation,
@@ -58,3 +68,9 @@ export type SignUpResponse = {
 export type SignInRequestType = Pick<CreateUserDto, 'email' | 'password'>
 
 export type SignInResponseType = { accessToken: string }
+
+export type NewPasswordRequestType = {
+  password: string
+  passwordConfirmation: string
+  recoveryCode: string
+}
