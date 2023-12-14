@@ -11,6 +11,7 @@ export const useCreateNewPassword = () => {
     control,
     formState: { isValid },
     handleSubmit,
+    setError,
   } = useForm<CreateNewPasswordSchemaType>({
     defaultValues: {
       confirmPassword: '',
@@ -26,6 +27,7 @@ export const useCreateNewPassword = () => {
     control,
     handleSubmit,
     isDisabled,
+    setError,
     text: text.pages.createNewPassword,
   }
 }
