@@ -1,34 +1,22 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
 import { getRootLayout } from '@/shared/ui'
 import { CreateNewPassword } from '@/widgets/CreateNewPassword'
 import { ExpiredLink } from '@/widgets/ExpiredLink'
-import { useParams } from 'next/navigation'
+import { useRouter } from 'next/router'
 
 const CreateNewPasswordPage = () => {
-  const [isSuccess, setIsSuccess] = useState(false)
-  const params = useParams()
-  const code = params?.code as string
-
-  const requestCodeFromApi = () => {
-    return '90c87f21-5085-4ce7-be3b-493c8c58053d' // temporary test code
-  }
-
-  useEffect(() => {
-    const codeFromApi = requestCodeFromApi()
-
-    if (code && code === codeFromApi) {
-      setIsSuccess(true)
-    }
-  }, [code])
+  const [recoveryError, setRecoveryError] = useState(false)
+  const router = useRouter()
+  const { code } = router.query
   const sendEmail = () => {
     alert('send request')
   }
 
   return (
     <>
-      {isSuccess ? (
-        <CreateNewPassword code={code} />
+      {!recoveryError ? (
+        <CreateNewPassword code={code} submitFormHandler={setRecoveryError} />
       ) : (
         <ExpiredLink resendEmailHandler={sendEmail} />
       )}
