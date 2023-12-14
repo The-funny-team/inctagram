@@ -43,6 +43,10 @@ export const ru: LocaleType = {
       title: 'Восстановить пароль',
     },
     home: 'Главная страница',
+    notFound: {
+      captionBtn: 'Вернуться на главную',
+      title: 'Извините! Эта страница недоступна',
+    },
     privacyPolicy: {
       backToBtn: 'Назад к регистрации',
       descripton:
