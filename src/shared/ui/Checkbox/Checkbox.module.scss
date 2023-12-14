@@ -1,0 +1,122 @@
+@mixin flex($direction: row, $justify: flex-start, $align: stretch, $gap: 0, $wrap: nowrap) {
+  display: flex;
+  flex-flow: $direction $wrap;
+  flex-wrap: $wrap;
+  gap: $gap;
+  align-items: $align;
+  justify-content: $justify;
+}
+
+@mixin font($size, $weight: 400, $style: normal, $height: 24px) {
+  font-size: $size;
+  font-weight: $weight;
+  font-style: $style;
+  line-height: $height;
+}
+
+.wrapper {
+  @include flex($align: center, $gap: 12px, $direction: row-reverse, $justify: flex-start);
+
+  position: relative;
+  z-index: 1;
+}
+
+.root {
+  @include flex($align: center, $justify: center);
+
+  cursor: pointer;
+
+  position: relative;
+
+  box-sizing: border-box;
+  width: 18px;
+  height: 18px;
+
+  background-color: transparent;
+  border: solid 2px var(--color-light-100);
+  border-radius: 3px;
+
+  &::before {
+    content: '';
+
+    position: absolute;
+    z-index: -1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 36px;
+    height: 36px;
+
+    border-radius: 50%;
+
+    transition: background-color 0.2s ease;
+  }
+
+  &:focus-visible::before {
+    background-color: var(--color-dark-500);
+  }
+
+  &:hover::before {
+    background-color: var(--color-dark-300);
+  }
+
+  &:active::before {
+    background-color: var(--color-dark-100);
+  }
+
+  &[data-disabled] {
+    cursor: auto;
+    background-color: var(--color-light-700);
+    border-color: var(--color-light-900);
+  }
+
+  &[data-state='checked'] {
+    background-color: var(--color-dark-900);
+  }
+
+  &[data-state='unchecked'] {
+    background-color: transparent;
+  }
+
+  &[data-disabled][data-state='unchecked'] {
+    background-color: transparent;
+  }
+
+  &[data-disabled]::before {
+    background-color: transparent;
+    border-color: var(--color-dark-100);
+  }
+}
+
+.indicator {
+  @include flex($align: center, $justify: center);
+
+  width: 18px;
+  height: 18px;
+
+  &[data-disabled] {
+    color: var(--color-dark-100);
+  }
+}
+
+.label {
+  @include font($size: 14px);
+
+  cursor: pointer;
+  user-select: none;
+  color: var(--color-light-100);
+}
+
+.label:active + .root::before {
+  background-color: var(--color-dark-100);
+}
+
+.label:active + .root:disabled::before {
+  background-color: transparent;
+}
+
+.disabledLabel {
+  cursor: auto;
+  color: var(--color-light-900);
+}

@@ -1,0 +1,70 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  width: 378px;
+  padding: 24px;
+
+  .title {
+    margin: 0 auto;
+  }
+
+  .otherRegistration {
+    display: flex;
+    gap: 60px;
+    justify-content: center;
+
+    margin-top: 13px;
+    margin-bottom: 24px;
+  }
+
+  .form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .formInput {
+      position: relative;
+      width: 100%;
+
+      &:nth-child(-n + 3) {
+        margin-bottom: 24px;
+      }
+
+      &:nth-child(4) {
+        margin-bottom: 0;
+      }
+
+      &.formInputWithError {
+        margin-bottom: 0;
+
+        span:last-of-type {
+          margin-bottom: 0;
+        }
+      }
+    }
+
+    .formCheckbox {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      justify-content: center;
+
+      margin-top: 12px;
+      margin-bottom: 22px;
+    }
+  }
+
+  .question {
+    margin: 18px auto 6px;
+  }
+}
+
+.modalDescription {
+  margin-top: 0;
+}
+
+.modalCloseBtn {
+  display: flex;
+  justify-content: flex-end;
+}
