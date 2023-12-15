@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import { getRootLayout } from '@/shared/ui'
 import { CreateNewPassword } from '@/widgets/CreateNewPassword'
@@ -8,7 +8,7 @@ import { useRouter } from 'next/router'
 const CreateNewPasswordPage = () => {
   const [recoveryError, setRecoveryError] = useState(false)
   const router = useRouter()
-  const { code } = router.query
+  const code = router.query.code as string
   const sendEmail = () => {
     alert('send request')
   }

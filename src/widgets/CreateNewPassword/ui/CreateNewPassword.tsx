@@ -20,12 +20,10 @@ type Props = {
   submitFormHandler: (b: boolean) => void
 }
 
-export const CreateNewPassword: React.FC<Props> = ({ className, ...restProps }) => {
+export const CreateNewPassword = ({ className, code, submitFormHandler, ...restProps }: Props) => {
   const { control, handleSubmit, isDisabled, setError, text } = useCreateNewPassword()
 
   const router = useRouter()
-
-  const { code, submitFormHandler } = restProps
 
   const [creatNewPassword] = useCreateNewPasswordMutation()
   const createNewPasswordHandler: SubmitHandler<CreateNewPasswordSchemaType> = data => {
