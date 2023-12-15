@@ -14,7 +14,7 @@ export const onRequestErrorHandler = <T>(
         setError(item.field as T, { message: item.message, type: 'validationError' })
       )
     } else {
-      if (fieldName) {
+      if (fieldName && error.status === 401) {
         setError(fieldName, { message: error.data.message, type: 'validationError' })
       } else {
         alert(error.data.message)
