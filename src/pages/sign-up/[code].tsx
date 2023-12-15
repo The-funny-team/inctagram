@@ -1,6 +1,6 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 
-import { useEmailConfirmationMutation } from '@/shared/api/authApi'
+import { useEmailConfirmationMutation, useEmailResendingMutation } from '@/shared/api/authApi'
 import { getRootLayout } from '@/shared/ui'
 import { ConfirmedEmail } from '@/widgets/ConfirmedEmail'
 import { ExpiredLink } from '@/widgets/ExpiredLink'
@@ -10,8 +10,11 @@ const EmailVerificationPage = () => {
   const router = useRouter()
 
   const { code } = router.query
+  const [isOpenModal, setIsOpenModal] = useState(false)
 
   const [confirmation, { isSuccess }] = useEmailConfirmationMutation()
+
+  const [emailResending] = useEmailResendingMutation()
 
   useEffect(() => {
     if (code && typeof code === 'string') {
@@ -20,10 +23,26 @@ const EmailVerificationPage = () => {
   }, [code, confirmation])
 
   const sendEmail = () => {
-    alert('send request')
+    if (code && typeof code === 'string') {
+      emailResending({ code })
+        .unwrap()
+        .then(() => setIsOpenModal(true))
+    }
   }
 
-  return <>{isSuccess ? <ConfirmedEmail /> : <ExpiredLink resendEmailHandler={sendEmail} />}</>
+  return (
+    <>
+      {isSuccess ? (
+        <ConfirmedEmail />
+      ) : (
+        <ExpiredLink
+          isOpenModal={isOpenModal}
+          resendEmailHandler={sendEmail}
+          setIsOpenModal={setIsOpenModal}
+        />
+      )}
+    </>
+  )
 }
 
 EmailVerificationPage.getLayout = getRootLayout
