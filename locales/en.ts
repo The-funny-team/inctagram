@@ -31,6 +31,7 @@ export const en = {
       emailValidationError: 'The email must match the format example@example.com',
       inputLabel: 'Email',
       modal: {
+        bodyWithOutEmail: 'We have sent a link to confirm to your email',
         getBody: (email: string) => `We have sent a link to confirm your email to ${email}`,
         title: 'Email sent',
       },

@@ -9,6 +9,13 @@ const authApi = baseApi.injectEndpoints({
         url: '/auth/registration-confirmation',
       }),
     }),
+    emailResending: builder.mutation<void, { code: string }>({
+      query: body => ({
+        body,
+        method: 'POST',
+        url: '/auth/registration-email-resending',
+      }),
+    }),
     passwordRecovery: builder.mutation<void, { email: string }>({
       query: body => ({
         body,
@@ -35,6 +42,7 @@ const authApi = baseApi.injectEndpoints({
 
 export const {
   useEmailConfirmationMutation,
+  useEmailResendingMutation,
   usePasswordRecoveryMutation,
   useSignInMutation,
   useSignUpMutation,
