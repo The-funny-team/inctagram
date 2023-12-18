@@ -11,10 +11,11 @@ export const useCreateNewPassword = () => {
     control,
     formState: { isValid },
     handleSubmit,
+    setError,
   } = useForm<CreateNewPasswordSchemaType>({
     defaultValues: {
-      confirmPassword: '',
       password: '',
+      passwordConfirmation: '',
     },
     mode: 'onTouched',
     resolver: zodResolver(createNewPasswordSchema(text.validation)),
@@ -26,6 +27,7 @@ export const useCreateNewPassword = () => {
     control,
     handleSubmit,
     isDisabled,
+    setError,
     text: text.pages.createNewPassword,
   }
 }

@@ -5,17 +5,17 @@ import { z } from 'zod'
 export const createNewPasswordSchema = (transcription: LocaleType['validation']) =>
   z
     .object({
-      confirmPassword: z.string().trim(),
       password: z
         .string()
         .min(6, { message: transcription.minLength6 })
         .max(20, { message: transcription.maxLength20 })
         .regex(PASSWORD_PATTERN, transcription.passwordVerification)
         .trim(),
+      passwordConfirmation: z.string().trim(),
     })
-    .refine(({ confirmPassword, password }) => password === confirmPassword, {
+    .refine(({ password, passwordConfirmation }) => password === passwordConfirmation, {
       message: transcription.passwordMismatch,
-      path: ['confirmPassword'],
+      path: ['passwordConfirmation'],
     })
 
 export type CreateNewPasswordSchemaType = z.infer<ReturnType<typeof createNewPasswordSchema>>
