@@ -10,7 +10,7 @@ const CreateNewPasswordPage = () => {
   const router = useRouter()
   const code = router.query.code as string
 
-  const submitFormHandler = (isError: boolean) => {
+  const setRecoveryErrorHandler = (isError: boolean) => {
     setRecoveryError(isError)
   }
   const sendEmail = () => {
@@ -20,7 +20,7 @@ const CreateNewPasswordPage = () => {
   return (
     <>
       {!recoveryError ? (
-        <CreateNewPassword code={code} submitFormHandler={submitFormHandler} />
+        <CreateNewPassword code={code} setRecoveryErrorHandler={setRecoveryErrorHandler} />
       ) : (
         <ExpiredLink resendEmailHandler={sendEmail} />
       )}

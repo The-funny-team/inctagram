@@ -17,10 +17,15 @@ import styles from './CreateNewPassword.module.scss'
 type Props = {
   className?: string
   code: string
-  submitFormHandler: (isError: boolean) => void
+  setRecoveryErrorHandler: (isError: boolean) => void
 }
 
-export const CreateNewPassword = ({ className, code, submitFormHandler, ...restProps }: Props) => {
+export const CreateNewPassword = ({
+  className,
+  code,
+  setRecoveryErrorHandler,
+  ...restProps
+}: Props) => {
   const { control, handleSubmit, isDisabled, setError, text } = useCreateNewPassword()
 
   const router = useRouter()
@@ -39,7 +44,7 @@ export const CreateNewPassword = ({ className, code, submitFormHandler, ...restP
             const el = error.data.message.find(el => el.field === 'recoveryCode')
 
             if (el) {
-              submitFormHandler(true)
+              setRecoveryErrorHandler(true)
             } else {
               onRequestErrorHandler(error, setError)
             }
