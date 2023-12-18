@@ -17,7 +17,7 @@ import styles from './CreateNewPassword.module.scss'
 type Props = {
   className?: string
   code: string
-  submitFormHandler: (b: boolean) => void
+  submitFormHandler: (isError: boolean) => void
 }
 
 export const CreateNewPassword = ({ className, code, submitFormHandler, ...restProps }: Props) => {
