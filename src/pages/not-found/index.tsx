@@ -5,7 +5,7 @@ import Link from 'next/link'
 
 import s from './NotFound.module.scss'
 
-const NotFoundPage = () => {
+const NotFound = () => {
   const { text } = useTranslation()
   const t = text.pages.notFound
 
@@ -24,5 +24,5 @@ const NotFoundPage = () => {
   )
 }
 
-NotFoundPage.getLayout = getRootLayout
-export default NotFoundPage
+NotFound.getLayout = getRootLayout
+export default NotFound

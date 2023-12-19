@@ -3,7 +3,7 @@ import type { AppProps } from 'next/app'
 
 import type { ReactElement, ReactNode } from 'react'
 
-import { WithStore } from '@/app/providers/WithStore'
+import { WithStore } from '@/application/providers/WithStore'
 
 import './styles/index.scss'
 

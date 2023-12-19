@@ -2,14 +2,6 @@
 
 const nextConfig = {
   reactStrictMode: true,
-  async rewrites() {
-    return [
-      {
-        destination: '/not-found',
-        source: '/:path*',
-      },
-    ]
-  },
 }
 
 module.exports = {
