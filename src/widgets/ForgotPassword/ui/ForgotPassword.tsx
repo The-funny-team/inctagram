@@ -1,4 +1,5 @@
 import { Controller } from 'react-hook-form'
+import { toast } from 'react-toastify'
 
 import { usePasswordRecoveryMutation } from '@/shared/api/authApi'
 import { RecaptchaIcon } from '@/shared/assets'
@@ -28,8 +29,8 @@ export const ForgotPassword = () => {
   const submitHandler = (data: ForgotPasswordFormValues) => {
     emailSending(data)
       .unwrap()
-      .then(data => {
-        alert(data)
+      .then(() => {
+        toast.success('email resented')
         setIsOpenModal(true)
       })
       .catch(error => {

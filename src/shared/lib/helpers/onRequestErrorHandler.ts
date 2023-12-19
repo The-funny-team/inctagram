@@ -1,4 +1,5 @@
 import { ErrorOption } from 'react-hook-form'
+import { toast } from 'react-toastify'
 
 import { isFetchBaseQueryError } from './isFetchBaseQueryError'
 import { isFetchError } from './isFetchError'
@@ -17,11 +18,11 @@ export const onRequestErrorHandler = <T>(
       if (fieldName && error.status === 401) {
         setError(fieldName, { message: error.data.message, type: 'validationError' })
       } else {
-        alert(error.data.message)
+        toast.error(error.data.message as string)
       }
     }
   }
   if (isFetchError(error)) {
-    alert(error.error)
+    toast.error(error.error as string)
   }
 }
