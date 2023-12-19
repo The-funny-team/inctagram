@@ -30,7 +30,6 @@ export const ForgotPassword = () => {
     emailSending(data)
       .unwrap()
       .then(() => {
-        toast.success('email resented')
         setIsOpenModal(true)
       })
       .catch(error => {
