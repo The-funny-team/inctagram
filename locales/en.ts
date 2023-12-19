@@ -42,6 +42,10 @@ export const en = {
       title: 'Forgot Password',
     },
     home: 'Home page',
+    notFound: {
+      captionBtn: 'Back to home page',
+      title: 'Sorry! Page not found!',
+    },
     privacyPolicy: {
       backToBtn: 'Back to Sign Up',
       descripton:

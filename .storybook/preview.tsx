@@ -1,5 +1,5 @@
 import type { Preview } from '@storybook/react'
-import '../src/app/styles/index.scss'
+import '@/application/styles/index.scss'
 import { Inter } from 'next/font/google'
 
 const inter = Inter({ subsets: ['latin'] })
