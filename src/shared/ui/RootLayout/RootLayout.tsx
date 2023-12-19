@@ -1,5 +1,6 @@
 import React, { PropsWithChildren, ReactElement } from 'react'
 
+import { Toast } from '@/shared/ui/Toast'
 import { Header } from '@/widgets/Header'
 import { NextPage } from 'next'
 import { Inter } from 'next/font/google'
@@ -12,6 +13,7 @@ const inter = Inter({ subsets: ['latin'] })
 export const RootLayout: NextPage<PropsWithChildren<any>> = ({ children }) => {
   return (
     <>
+      <Toast />
       <Head>
         <title>Next App</title>
         <meta content={'width=device-width, initial-scale=1'} name={'viewport'} />
