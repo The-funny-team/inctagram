@@ -41,7 +41,7 @@ export const SignIn = () => {
     signIn(data)
       .unwrap()
       .then(data => router.push(ROUTES_URL.PROFILE))
-      .catch(error => onRequestErrorHandler(error, setError))
+      .catch(error => onRequestErrorHandler(error, setError, 'password'))
   }
 
   return (
