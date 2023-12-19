@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { toast } from 'react-toastify'
 
 import { getRootLayout } from '@/shared/ui'
 import { CreateNewPassword } from '@/widgets/CreateNewPassword'
@@ -14,7 +15,7 @@ const CreateNewPasswordPage = () => {
     setRecoveryError(isError)
   }
   const sendEmail = () => {
-    alert('send request')
+    toast.info('send request')
   }
 
   return (
