@@ -15,17 +15,11 @@ import { useRouter } from 'next/router'
 import styles from './CreateNewPassword.module.scss'
 
 type Props = {
-  className?: string
   code: string
   setRecoveryErrorHandler: (isError: boolean) => void
 }
 
-export const CreateNewPassword = ({
-  className,
-  code,
-  setRecoveryErrorHandler,
-  ...restProps
-}: Props) => {
+export const CreateNewPassword = ({ code, setRecoveryErrorHandler }: Props) => {
   const { control, handleSubmit, isDisabled, setError, text } = useCreateNewPassword()
 
   const router = useRouter()
@@ -54,7 +48,7 @@ export const CreateNewPassword = ({
   }
 
   return (
-    <Card className={clsx(styles.createNewPassword, className)} {...restProps}>
+    <Card className={clsx(styles.createNewPassword)}>
       <Typography as={'h1'} className={styles.title} variant={'h1'}>
         {text.title}
       </Typography>
