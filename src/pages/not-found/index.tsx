@@ -3,7 +3,7 @@ import { Button, Typography, getRootLayout } from '@/shared/ui'
 import Image from 'next/image'
 import Link from 'next/link'
 
-import s from './NotFound.module.scss'
+import s from '../../application/styles/NotFound.module.scss'
 
 const NotFound = () => {
   const { text } = useTranslation()

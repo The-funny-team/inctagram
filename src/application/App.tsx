@@ -5,8 +5,6 @@ import type { ReactElement, ReactNode } from 'react'
 
 import { WithStore } from '@/application/providers/WithStore'
 
-import './styles/index.scss'
-
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
   getLayout?: (page: ReactElement) => ReactNode
 }
