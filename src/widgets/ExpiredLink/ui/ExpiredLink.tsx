@@ -4,6 +4,8 @@ import Image from 'next/image'
 
 import s from './ExpiredLink.module.scss'
 
+import linkExpired from '../../../../public/linkExpired.png'
+
 type Props = {
   isOpenModal: boolean
   resendEmailHandler: () => void
@@ -33,7 +35,7 @@ export const ExpiredLink = ({ isOpenModal, resendEmailHandler, setIsOpenModal }:
             {textWidget.expiredLinkBtn}
           </Button>
         </div>
-        <Image alt={'email confirmed img'} height={353} src={'/linkExpired.png'} width={473} />
+        <Image alt={'email confirmed img'} height={353} src={linkExpired} width={473} />
       </div>
       <Modal isOpen={isOpenModal} onIsOpenChange={setIsOpenModal} title={transcription.modal.title}>
         <Typography variant={'regularText16'}>{transcription.modal.bodyWithOutEmail}</Typography>
