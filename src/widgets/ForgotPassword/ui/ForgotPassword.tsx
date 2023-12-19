@@ -28,8 +28,7 @@ export const ForgotPassword = () => {
   const submitHandler = (data: ForgotPasswordFormValues) => {
     emailSending(data)
       .unwrap()
-      .then(data => {
-        alert(data)
+      .then(() => {
         setIsOpenModal(true)
       })
       .catch(error => {

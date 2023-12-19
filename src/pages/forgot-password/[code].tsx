@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { toast } from 'react-toastify'
 
 import { usePasswordRecoveryResendingMutation } from '@/shared/api/authApi'
 import { getRootLayout } from '@/shared/ui'
@@ -17,7 +18,7 @@ const CreateNewPasswordPage = () => {
     passwordRecoveryResending({ code })
       .unwrap()
       .then(() => setIsOpenModal(true))
-      .catch(err => alert(JSON.stringify(err)))
+      .catch(err => toast.error(JSON.stringify(err)))
   }
 
   return (
