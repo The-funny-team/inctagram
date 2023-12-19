@@ -1,5 +1,4 @@
 import { Controller } from 'react-hook-form'
-import { toast } from 'react-toastify'
 
 import { usePasswordRecoveryMutation } from '@/shared/api/authApi'
 import { RecaptchaIcon } from '@/shared/assets'
