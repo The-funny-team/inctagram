@@ -33,6 +33,7 @@ export const ru: LocaleType = {
       emailValidationError: 'Почта должна соответствовать формату example@example.com',
       inputLabel: 'Почта',
       modal: {
+        bodyWithOutEmail: 'Мы отправили ссылку для подтверждения на Вашу электронную почту',
         getBody: (email: string) => `Мы выслали вам письмо для подтверждения почты на ${email}`,
         title: 'Письмо отправлено',
       },

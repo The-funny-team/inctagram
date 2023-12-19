@@ -2,11 +2,27 @@ import { baseApi } from '@/shared/api/baseApi'
 
 const authApi = baseApi.injectEndpoints({
   endpoints: builder => ({
-    emailConfirmation: builder.mutation<void, { code: string }>({
+    createNewPassword: builder.mutation<void, NewPasswordRequestType>({
+      query: body => {
+        return {
+          body,
+          method: 'POST',
+          url: '/auth/new-password',
+        }
+      },
+    }),
+    emailConfirmation: builder.mutation<void, ConfirmationCodeDto>({
       query: body => ({
         body,
         method: 'POST',
         url: '/auth/registration-confirmation',
+      }),
+    }),
+    emailResending: builder.mutation<void, ConfirmationCodeDto>({
+      query: body => ({
+        body,
+        method: 'POST',
+        url: '/auth/registration-email-resending',
       }),
     }),
     passwordRecovery: builder.mutation<void, { email: string }>({
@@ -14,6 +30,13 @@ const authApi = baseApi.injectEndpoints({
         body,
         method: 'POST',
         url: '/auth/password-recovery',
+      }),
+    }),
+    passwordRecoveryResending: builder.mutation<void, ConfirmationCodeDto>({
+      query: body => ({
+        body,
+        method: 'POST',
+        url: '/auth/password-recovery-resending',
       }),
     }),
     signIn: builder.mutation<SignInResponseType, SignInRequestType>({
@@ -34,8 +57,11 @@ const authApi = baseApi.injectEndpoints({
 })
 
 export const {
+  useCreateNewPasswordMutation,
   useEmailConfirmationMutation,
+  useEmailResendingMutation,
   usePasswordRecoveryMutation,
+  usePasswordRecoveryResendingMutation,
   useSignInMutation,
   useSignUpMutation,
 } = authApi
@@ -58,3 +84,13 @@ export type SignUpResponse = {
 export type SignInRequestType = Pick<CreateUserDto, 'email' | 'password'>
 
 export type SignInResponseType = { accessToken: string }
+
+export type NewPasswordRequestType = {
+  password: string
+  passwordConfirmation: string
+  recoveryCode: string
+}
+
+type ConfirmationCodeDto = {
+  code: string
+}

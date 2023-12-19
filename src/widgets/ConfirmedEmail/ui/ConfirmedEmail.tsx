@@ -6,6 +6,8 @@ import Link from 'next/link'
 
 import s from './ConfirmedEmail.module.scss'
 
+import emailConfirmed from '../../../../public/emailConfirmed.png'
+
 export const ConfirmedEmail = () => {
   const { text } = useTranslation()
   const t = text.pages.confirmedEmail
@@ -23,7 +25,7 @@ export const ConfirmedEmail = () => {
           {t.signInBtn}
         </Button>
       </div>
-      <Image alt={'email confirmed img'} height={300} src={'/emailConfirmed.png'} width={432} />
+      <Image alt={'email confirmed img'} height={300} src={emailConfirmed} width={432} />
     </div>
   )
 }
