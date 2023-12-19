@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { toast } from 'react-toastify'
 
 import { usePasswordRecoveryResendingMutation } from '@/shared/api/authApi'
 import { getRootLayout } from '@/shared/ui'
@@ -14,7 +15,7 @@ const CreateNewPasswordPage = () => {
   const code = router.query.code as string
 
   const sendEmail = () => {
-    alert('send request')
+    toast.info('send request')
   }
 
   return (
