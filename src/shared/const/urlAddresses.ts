@@ -1,4 +1,6 @@
 const BASE_URL = 'https://ft-inctagram.site/'
+
+export const BASE_API_URL = 'https://ft-inctagram.site/api/v1'
 const GOOGLE_OAUTH_CLIENT_ID =
   '1054565512290-ao2v9c9vubhqj7vs90jssm7j9rbomp9o.apps.googleusercontent.com'
 
