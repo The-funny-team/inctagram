@@ -67,6 +67,7 @@ export const {
   useCreateNewPasswordMutation,
   useEmailConfirmationMutation,
   useEmailResendingMutation,
+  useLoginByGoogleQuery,
   usePasswordRecoveryMutation,
   usePasswordRecoveryResendingMutation,
   useSignInMutation,

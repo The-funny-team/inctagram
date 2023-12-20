@@ -1,5 +1,5 @@
 const BASE_URL = 'https://ft-inctagram.site/'
-const CLIENT_ID = process.env.GOOGLE_OAUTH_CLIENT_ID
+const CLIENT_ID = process.env.NEXT_PUBLIC_GOOGLE_OAUTH_CLIENT_ID
 
 const FRONTEND_REDIRECT_URL =
   (process.env.NODE_ENV === 'development' ? 'http://localhost:3000/' : BASE_URL) + 'auth/google'
