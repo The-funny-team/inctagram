@@ -17,11 +17,12 @@ const GoogleAuthPage = () => {
       saveToLocalStorage('accessToken', data.accessToken)
       router.push('/')
     }
-    if (error) {
-      toast.error('Authentication Error. Please try again later.')
-      router.push(ROUTES_URL.SIGN_IN)
-    }
-  }, [data?.accessToken, error])
+  }, [data?.accessToken])
+
+  if (error) {
+    toast.error('Authentication Error. Please try again later.')
+    router.push(ROUTES_URL.SIGN_IN)
+  }
 
   if (isLoading) {
     return <h1>Loading...</h1>
