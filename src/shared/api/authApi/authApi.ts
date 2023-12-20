@@ -25,6 +25,13 @@ const authApi = baseApi.injectEndpoints({
         url: '/auth/registration-email-resending',
       }),
     }),
+    loginByGoogle: builder.query<SignInResponseType, ConfirmationCodeDto>({
+      query: ({ code }) => ({
+        method: 'GET',
+        params: { code },
+        url: 'auth/google',
+      }),
+    }),
     passwordRecovery: builder.mutation<void, { email: string }>({
       query: body => ({
         body,
