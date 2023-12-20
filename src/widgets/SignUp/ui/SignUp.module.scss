@@ -15,6 +15,12 @@
 
     margin-top: 13px;
     margin-bottom: 24px;
+
+    & button {
+      cursor: pointer;
+      background-color: transparent;
+      border: none;
+    }
   }
 
   .form {
