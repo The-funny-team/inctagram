@@ -24,6 +24,12 @@
   @include flex($gap: 60px, $justify: center);
 
   margin-bottom: 24px;
+
+  & button {
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+  }
 }
 
 .form {

@@ -2,7 +2,7 @@ import { Controller } from 'react-hook-form'
 
 import { useSignInMutation } from '@/shared/api/authApi'
 import { GithubIcon, GoogleIcon } from '@/shared/assets'
-import { ROUTES_URL } from '@/shared/const'
+import { GOOGLE_URL, ROUTES_URL } from '@/shared/const'
 import { useTranslation } from '@/shared/lib/hooks'
 import { Button, Card, Input, Typography } from '@/shared/ui'
 import { clsx } from 'clsx'
@@ -44,15 +44,19 @@ export const SignIn = () => {
       .catch(error => onRequestErrorHandler(error, setError, 'password'))
   }
 
+  const loginByGoogle = () => {
+    window.location.assign(GOOGLE_URL)
+  }
+
   return (
     <Card className={classNames.root}>
       <Typography as={'h1'} className={classNames.formTitle} variant={'h1'}>
         {t.formTitle}
       </Typography>
       <div className={classNames.providers}>
-        <Link href={'https://accounts.google.com/o/oauth2/v2/auth'} target={'_blank'}>
+        <button onClick={loginByGoogle}>
           <GoogleIcon />
-        </Link>
+        </button>
         <Link href={'https://github.com/login/oauth/authorize'} target={'_blank'}>
           <GithubIcon />
         </Link>
