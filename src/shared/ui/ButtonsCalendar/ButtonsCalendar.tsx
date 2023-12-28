@@ -3,7 +3,7 @@ import { CalendarBtnRightIcon } from '@/shared/assets/icons/CalendarBtnRightIcon
 
 import s from './ButtonsClendar.module.scss'
 type CalendarButtonsPropsType = {
-  direction: string
+  direction: 'left' | 'right'
 }
 export const ButtonsCalendar = ({ direction }: CalendarButtonsPropsType) => {
   return (
