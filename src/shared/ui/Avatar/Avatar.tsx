@@ -1,4 +1,4 @@
-import { getFallBackUserName } from '@/shared/lib/helpers'
+import { PhotoIcon } from '@/shared/assets'
 import { clsx } from 'clsx'
 import Image from 'next/image'
 
@@ -6,22 +6,16 @@ import s from './Avatar.module.scss'
 
 type Props = {
   className?: string
-  size: 'large' | 'small'
+  iconSize?: number
+  size: number
   src?: string
   userName: string
 }
-export const Avatar = ({ className, size, src, userName }: Props) => {
-  const classNames = {
-    image: s.image,
-    root: clsx(s.root, s[size], className),
-    userName: s.userName,
-  }
-  const fallbackUserName = getFallBackUserName(userName)
-
+export const Avatar = ({ className, iconSize = 24, size, src, userName }: Props) => {
   return (
-    <div className={classNames.root}>
-      {!src && <span className={classNames.userName}>{fallbackUserName}</span>}
-      {src && <Image alt={'User avatar'} className={classNames.image} fill src={src} />}
+    <div className={clsx(s.root, className)} style={{ height: `${size}px`, width: `${size}px` }}>
+      {!src && <PhotoIcon iconSize={iconSize} />}
+      {src && <Image alt={`${userName} avatar`} height={size} src={src} width={size} />}
     </div>
   )
 }

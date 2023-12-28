@@ -10,35 +10,8 @@
 .root {
   @include flex($justify: center, $align: center);
 
-  position: relative;
   overflow: hidden;
-  background-color: var(--color-accent-500);
+  background-color: var(--color-dark-500);
   border-radius: 50%;
-
-
-  .userName {
-    font-weight: 700;
-  }
-
-  .image {
-    object-fit: cover;
-  }
-}
-
-.small {
-  width: 48px;
-  height: 48px;
-
-  & span {
-    font-size: 20px;
-  }
-}
-
-.large {
-  width: 204px;
-  height: 204px;
-
-  & span {
-    font-size: 48px;
-  }
+  
 }
