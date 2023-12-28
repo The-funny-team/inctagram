@@ -20,4 +20,4 @@ const SvgComponent = (props: SVGProps<SVGSVGElement>, ref: Ref<SVGSVGElement>) =
 const ForwardRef = forwardRef(SvgComponent)
 const Memo = memo(ForwardRef)
 
-export const CalendarBtnIcon = memo(ForwardRef)
+export const CalendarBtnLeftIcon = memo(ForwardRef)
