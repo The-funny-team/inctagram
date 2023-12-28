@@ -1,4 +1,21 @@
 export const en = {
+  calendar: {
+    months: [
+      'January',
+      'February',
+      'March',
+      'April',
+      'May',
+      'June',
+      'July',
+      'August',
+      'September',
+      'October',
+      'November',
+      'December',
+    ],
+    weekDays: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
+  },
   layout: {
     header: {
       signInBtn: 'Log in',
