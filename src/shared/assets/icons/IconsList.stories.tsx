@@ -4,6 +4,8 @@ import {
   ArrowDownIcon,
   ArrowLeftIcon,
   BellNotifyIcon,
+  CalendarBtnLeftIcon,
+  CalendarBtnRightIcon,
   CheckboxIcon,
   EyeOutlineIcon,
   GithubIcon,
@@ -109,6 +111,26 @@ export const BellNotify: Story = {
     children: (
       <>
         <BellNotifyIcon />
+      </>
+    ),
+  },
+}
+
+export const CalendarBtnLeft: Story = {
+  args: {
+    children: (
+      <>
+        <CalendarBtnLeftIcon />
+      </>
+    ),
+  },
+}
+
+export const CalendarBtnRight: Story = {
+  args: {
+    children: (
+      <>
+        <CalendarBtnRightIcon />
       </>
     ),
   },
