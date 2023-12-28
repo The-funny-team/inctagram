@@ -1,12 +1,15 @@
 import * as React from 'react'
 import { Ref, SVGProps, forwardRef, memo } from 'react'
-const SvgComponent = (props: SVGProps<SVGSVGElement>, ref: Ref<SVGSVGElement>) => (
+const SvgComponent = (
+  props: SVGProps<SVGSVGElement> & { iconSize?: number },
+  ref: Ref<SVGSVGElement>
+) => (
   <svg
     fill={'none'}
-    height={'100%'}
+    height={props.iconSize || '24'}
     ref={ref}
     viewBox={'0 0 24 24'}
-    width={'100%'}
+    width={props.iconSize || '24'}
     xmlns={'http://www.w3.org/2000/svg'}
     {...props}
   >

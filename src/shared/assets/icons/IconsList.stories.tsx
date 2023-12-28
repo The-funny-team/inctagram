@@ -8,6 +8,7 @@ import {
   EyeOutlineIcon,
   GithubIcon,
   GoogleIcon,
+  PhotoIcon,
   RecaptchaIcon,
   SearchOutlineIcon,
 } from '@/shared/assets'
@@ -109,6 +110,16 @@ export const BellNotify: Story = {
     children: (
       <>
         <BellNotifyIcon />
+      </>
+    ),
+  },
+}
+
+export const PhotoOutline: Story = {
+  args: {
+    children: (
+      <>
+        <PhotoIcon />
       </>
     ),
   },
