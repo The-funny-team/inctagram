@@ -4,6 +4,7 @@ import { toast } from 'react-toastify'
 import { useLoginByGoogleQuery } from '@/shared/api/authApi'
 import { ROUTES_URL } from '@/shared/const'
 import { saveToLocalStorage } from '@/shared/lib/helpers'
+import { Loader } from '@/shared/ui/Loader'
 import { useRouter } from 'next/router'
 
 const GoogleAuthPage = () => {
@@ -25,7 +26,7 @@ const GoogleAuthPage = () => {
   }
 
   if (isLoading) {
-    return <h1>Loading...</h1>
+    return <Loader />
   }
 
   return null
