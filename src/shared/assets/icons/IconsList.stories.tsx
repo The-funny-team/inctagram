@@ -22,6 +22,7 @@ import {
   RecaptchaIcon,
   SearchOutlineIcon,
   StatisticsIcon,
+  PhotoIcon,
 } from '@/shared/assets'
 
 import { IconsList } from './IconsList'
@@ -241,6 +242,16 @@ export const LogOut: Story = {
     children: (
       <>
         <LogOutIcon />
+      </>
+    ),
+  },
+}
+
+export const PhotoOutline: Story = {
+  args: {
+    children: (
+      <>
+        <PhotoIcon />
       </>
     ),
   },
