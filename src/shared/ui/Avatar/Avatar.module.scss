@@ -19,26 +19,4 @@
   .userName {
     font-weight: 700;
   }
-
-  .image {
-    object-fit: cover;
-  }
-}
-
-.small {
-  width: 48px;
-  height: 48px;
-
-  & span {
-    font-size: 20px;
-  }
-}
-
-.large {
-  width: 204px;
-  height: 204px;
-
-  & span {
-    font-size: 48px;
-  }
 }
