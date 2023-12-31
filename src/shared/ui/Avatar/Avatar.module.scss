@@ -10,7 +10,6 @@
 .root {
   @include flex($justify: center, $align: center);
 
-  position: relative;
   overflow: hidden;
   background-color: var(--color-accent-500);
   border-radius: 50%;
