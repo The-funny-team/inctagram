@@ -12,6 +12,7 @@ type Props = {
 }
 export const Avatar = ({ className, size, src, userName }: Props) => {
   const classNames = {
+    image: s.image,
     root: clsx(s.root, className),
     userName: s.userName,
   }
@@ -24,7 +25,15 @@ export const Avatar = ({ className, size, src, userName }: Props) => {
           {fallbackUserName}
         </span>
       )}
-      {src && <Image alt={`${userName} avatar`} height={size} src={src} width={size} />}
+      {src && (
+        <Image
+          alt={`${userName} avatar`}
+          className={classNames.image}
+          height={size}
+          src={src}
+          width={size}
+        />
+      )}
     </div>
   )
 }
