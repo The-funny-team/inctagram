@@ -21,8 +21,8 @@ export const TextField = forwardRef<HTMLTextAreaElement, Props>((props, ref) => 
   const onChangeHandler = (e: ChangeEvent<HTMLTextAreaElement>) => {
     if (onValueChange) {
       onValueChange(e.target.value)
-      onChange?.(e)
     }
+    onChange?.(e)
   }
 
   return (
