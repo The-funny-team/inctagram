@@ -8,7 +8,6 @@ type Props = {
   error?: string
   label?: string
   onValueChange?: (value: string) => void
-  value?: string
 } & ComponentPropsWithoutRef<'textarea'>
 export const TextField = forwardRef<HTMLTextAreaElement, Props>((props, ref) => {
   const { className, error, label, onChange, onValueChange, value, ...rest } = props
