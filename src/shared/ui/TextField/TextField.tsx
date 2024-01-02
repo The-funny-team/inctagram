@@ -11,7 +11,7 @@ type Props = {
   value?: string
 } & ComponentPropsWithoutRef<'textarea'>
 export const TextField = forwardRef<HTMLTextAreaElement, Props>((props, ref) => {
-  const { className, error, label, onValueChange, value, ...rest } = props
+  const { className, error, label, onChange, onValueChange, value, ...rest } = props
 
   const classNames = {
     errorMessage: clsx(s.errorMessage),
@@ -22,6 +22,7 @@ export const TextField = forwardRef<HTMLTextAreaElement, Props>((props, ref) => 
   const onChangeHandler = (e: ChangeEvent<HTMLTextAreaElement>) => {
     if (onValueChange) {
       onValueChange(e.target.value)
+      onChange?.(e)
     }
   }
 
