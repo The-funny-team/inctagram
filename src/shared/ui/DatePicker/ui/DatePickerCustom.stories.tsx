@@ -22,7 +22,7 @@ const meta = {
     layout: 'fullscreen',
   },
   tags: ['autodocs'],
-  title: 'Widgets/DatePicker',
+  title: 'Components/DatePicker',
 } satisfies Meta<typeof DatePickerCustom>
 
 export default meta
