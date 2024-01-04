@@ -5,6 +5,7 @@ import { CalendarBtnLeftIcon, CalendarBtnRightIcon } from '@/shared/assets'
 import { CalendarIcon } from '@/shared/assets/icons/CalendarIcon'
 import { useTranslation } from '@/shared/lib/hooks'
 import { mapDays } from '@/shared/ui/DatePicker/services/mapDays'
+import { dateRangeParser } from '@/shared/ui/DatePicker/services/parseDate'
 import { BaseDatePickerProps, DatePickerType } from '@/shared/ui/DatePicker/types'
 import { clsx } from 'clsx'
 
@@ -32,7 +33,7 @@ export function DatePickerCustom<T extends boolean = false>({
   const { text } = useTranslation()
   const t = text.calendar
   const dateChangeHandler = (date: DateObject | DateObject[]) => {
-    //onChange()
+    onChange(dateRangeParser(rangeMode, date))
   }
 
   const classNames = {
