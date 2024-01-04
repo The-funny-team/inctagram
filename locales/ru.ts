@@ -12,7 +12,7 @@ export const ru: LocaleType = {
     favorites: 'Избранное',
     home: 'Главная',
     logOut: 'Выйти',
-    messenger: 'Месенджер',
+    messenger: 'Чат',
     profile: 'Мой профиль',
     search: 'Поиск',
     statistics: 'Статистика',
