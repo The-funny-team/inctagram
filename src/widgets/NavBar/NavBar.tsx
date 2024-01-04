@@ -15,9 +15,9 @@ import {
 } from '@/shared/assets'
 import { ROUTES_URL } from '@/shared/const'
 import { useTranslation } from '@/shared/lib/hooks'
-import { NavBarLink } from '@/shared/ui'
-import { IconButton } from '@/shared/ui/IconButton'
+import { Button } from '@/shared/ui'
 import clsx from 'clsx'
+import Link from 'next/link'
 
 import s from './NavBar.module.scss'
 
@@ -34,64 +34,67 @@ export const NavBar = ({ className }: Props) => {
   return (
     <div className={clsx(s.root, className)}>
       <nav className={s.nav}>
-        <NavBarLink
-          activeIcon={<FilledHomeIcon />}
-          defaultIcon={<HomeIcon />}
-          isActive={pathname === ROUTES_URL.HOME}
-          linkUrl={ROUTES_URL.HOME}
+        <Button
+          as={Link}
+          className={clsx(s.button, pathname === ROUTES_URL.HOME && s.active)}
+          href={ROUTES_URL.HOME}
         >
+          {pathname === ROUTES_URL.HOME ? <FilledHomeIcon /> : <HomeIcon />}
           {t.home}
-        </NavBarLink>
-        <NavBarLink
-          activeIcon={<FilledCreateIcon />}
-          defaultIcon={<CreateIcon />}
-          isActive={pathname === ROUTES_URL.CREATE}
-          linkUrl={ROUTES_URL.CREATE}
+        </Button>
+        <Button
+          as={Link}
+          className={clsx(s.button, pathname === ROUTES_URL.CREATE && s.active)}
+          href={ROUTES_URL.CREATE}
         >
+          {pathname === ROUTES_URL.CREATE ? <FilledCreateIcon /> : <CreateIcon />}
           {t.create}
-        </NavBarLink>
-        <NavBarLink
-          activeIcon={<FilledProfileIcon />}
-          defaultIcon={<ProfileIcon />}
-          isActive={pathname === ROUTES_URL.PROFILE}
-          linkUrl={ROUTES_URL.PROFILE}
+        </Button>
+        <Button
+          as={Link}
+          className={clsx(s.button, pathname === ROUTES_URL.PROFILE && s.active)}
+          href={ROUTES_URL.PROFILE}
         >
+          {pathname === ROUTES_URL.PROFILE ? <FilledProfileIcon /> : <ProfileIcon />}
           {t.profile}
-        </NavBarLink>
-        <NavBarLink
-          activeIcon={<FilledMessengerIcon />}
-          defaultIcon={<MessengerIcon />}
-          isActive={pathname === ROUTES_URL.MESSENGER}
-          linkUrl={ROUTES_URL.MESSENGER}
+        </Button>
+        <Button
+          as={Link}
+          className={clsx(s.button, pathname === ROUTES_URL.MESSENGER && s.active)}
+          href={ROUTES_URL.MESSENGER}
         >
+          {pathname === ROUTES_URL.MESSENGER ? <FilledMessengerIcon /> : <MessengerIcon />}
           {t.messenger}
-        </NavBarLink>
-        <NavBarLink
-          defaultIcon={<SearchOutlineIcon />}
-          isActive={pathname === ROUTES_URL.SEARCH}
-          linkUrl={ROUTES_URL.SEARCH}
+        </Button>
+        <Button
+          as={Link}
+          className={clsx(s.button, pathname === ROUTES_URL.SEARCH && s.active)}
+          href={ROUTES_URL.SEARCH}
         >
+          <SearchOutlineIcon />
           {t.search}
-        </NavBarLink>
-        <NavBarLink
-          defaultIcon={<StatisticsIcon />}
-          isActive={pathname === ROUTES_URL.STATISTICS}
-          linkUrl={ROUTES_URL.STATISTICS}
+        </Button>
+        <Button
+          as={Link}
+          className={clsx(s.button, pathname === ROUTES_URL.STATISTICS && s.active)}
+          href={ROUTES_URL.STATISTICS}
         >
+          <StatisticsIcon />
           {t.statistics}
-        </NavBarLink>
-        <NavBarLink
-          activeIcon={<FilledFavoritesIcon />}
-          defaultIcon={<FavoritesIcon />}
-          isActive={pathname === ROUTES_URL.FAVORITES}
-          linkUrl={ROUTES_URL.FAVORITES}
+        </Button>
+        <Button
+          as={Link}
+          className={clsx(s.button, pathname === ROUTES_URL.FAVORITES && s.active)}
+          href={ROUTES_URL.FAVORITES}
         >
+          {pathname === ROUTES_URL.MESSENGER ? <FilledFavoritesIcon /> : <FavoritesIcon />}
           {t.favorites}
-        </NavBarLink>
+        </Button>
       </nav>
-      <IconButton icon={<LogOutIcon />} onClick={() => console.log('Logout from app')}>
+      <Button className={s.button} onClick={() => console.log('Logout from app')}>
+        <LogOutIcon />
         {t.logOut}
-      </IconButton>
+      </Button>
     </div>
   )
 }
