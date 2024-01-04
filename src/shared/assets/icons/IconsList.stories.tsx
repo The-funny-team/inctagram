@@ -18,11 +18,11 @@ import {
   HomeIcon,
   LogOutIcon,
   MessengerIcon,
+  PhotoIcon,
   ProfileIcon,
   RecaptchaIcon,
   SearchOutlineIcon,
   StatisticsIcon,
-  PhotoIcon,
 } from '@/shared/assets'
 
 import { IconsList } from './IconsList'

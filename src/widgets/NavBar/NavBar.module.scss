@@ -1,0 +1,55 @@
+@mixin flex($direction: row, $justify: flex-start, $align: stretch, $gap: 0, $wrap: nowrap) {
+  display: flex;
+  flex-flow: $direction $wrap;
+  flex-wrap: $wrap;
+  gap: $gap;
+  align-items: $align;
+  justify-content: $justify;
+}
+
+.root {
+  @include flex($direction: column, $gap: 180px);
+
+  width: 150px;
+  height: 100%;
+  padding-top: 72px;
+  border-right: solid 1px var(--color-dark-300);
+
+  .button {
+    gap: 12px;
+    justify-content: flex-start;
+
+    padding: 0;
+
+    font-size: 14px;
+    font-weight: 500;
+
+    background: transparent;
+
+    transition: color .2s ease;
+
+    &:hover{
+      color: var(--color-accent-100);
+      background-color: transparent;
+    }
+
+    &.active{
+      font-weight: 700;
+      color: var(--color-accent-500);
+    }
+  }
+}
+
+.nav {
+  @include flex($direction: column);
+
+  a:not(:last-child) {
+    margin-bottom: 24px;
+  }
+
+  a:nth-child(5) {
+    margin-bottom: 60px;
+  }
+
+}
+
