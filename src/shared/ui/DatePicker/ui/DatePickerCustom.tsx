@@ -8,6 +8,8 @@ import { mapDays } from '@/shared/ui/DatePicker/services/mapDays'
 import { BaseDatePickerProps, DatePickerType } from '@/shared/ui/DatePicker/types'
 import { clsx } from 'clsx'
 
+import s from './DatePickerCustom.module.scss'
+
 const DEFAULT_PROPS: Partial<BaseDatePickerProps> = {
   arrow: false,
   dateSeparator: ' - ',
