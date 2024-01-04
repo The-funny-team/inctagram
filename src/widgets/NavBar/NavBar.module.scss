@@ -10,7 +10,10 @@
 .root {
   @include flex($direction: column, $gap: 180px);
 
+  width: 150px;
   height: 100%;
+  padding-top: 72px;
+  border-right: solid 1px var(--color-dark-300);
 }
 
 .nav {
