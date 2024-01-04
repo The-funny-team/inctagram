@@ -1,0 +1,37 @@
+@mixin flex($direction: row, $justify: flex-start, $align: stretch, $gap: 0, $wrap: nowrap) {
+  display: flex;
+  flex-flow: $direction $wrap;
+  flex-wrap: $wrap;
+  gap: $gap;
+  align-items: $align;
+  justify-content: $justify;
+}
+
+.button {
+  @include flex($align: center, $gap: 12px);
+
+  padding: 0;
+
+  color: var(--color-light-100);
+
+  background: transparent;
+  border: none;
+
+  transition: color 0.2s ease;
+
+  .title {
+    font-size: 14px;
+    font-weight: 500;
+    font-style: normal;
+    line-height: 24px;
+    color: var(--color-light-100);
+
+    transition: color 0.2s ease;
+  }
+
+  &:hover,
+  &:hover .title {
+    cursor: pointer;
+    color: var(--color-accent-100);
+  }
+}
