@@ -1,10 +1,11 @@
+// eslint-disable-next-line import/no-named-as-default
+import ReCAPTCHA from 'react-google-recaptcha'
 import { Controller } from 'react-hook-form'
 
 import { usePasswordRecoveryMutation } from '@/shared/api/authApi'
-import { RecaptchaIcon } from '@/shared/assets'
 import { ROUTES_URL } from '@/shared/const'
 import { onRequestErrorHandler } from '@/shared/lib/helpers'
-import { Button, Card, Checkbox, Input, Modal, Typography } from '@/shared/ui'
+import { Button, Card, Input, Modal, Typography } from '@/shared/ui'
 import { ForgotPasswordFormValues, useForgotPassword } from '@/widgets/ForgotPassword/services'
 import Link from 'next/link'
 
@@ -16,11 +17,10 @@ export const ForgotPassword = () => {
     control,
     getValues,
     handleSubmit,
-    isChecked,
     isDisabled,
     isOpenModal,
+    setCaptcha,
     setError,
-    setIsChecked,
     setIsOpenModal,
     transcription,
   } = useForgotPassword()
@@ -71,15 +71,12 @@ export const ForgotPassword = () => {
         {transcription.signInBtn}
       </Button>
       {!isSuccess && (
-        <div className={s.notARobot}>
-          <Checkbox
-            checked={isChecked}
-            label={transcription.recaptcha}
-            onCheckedChange={(value: boolean) => setIsChecked(value)}
+        <div className={s.recaptcha}>
+          <ReCAPTCHA
+            onChange={setCaptcha}
+            sitekey={'6LdB1UQpAAAAABdCmM8MNUd13CwLGz3GGWGozevO'}
+            theme={'dark'}
           />
-          <span className={s.recaptcha}>
-            <RecaptchaIcon height={47} width={54} />
-          </span>
         </div>
       )}
       <Modal isOpen={isOpenModal} onIsOpenChange={setIsOpenModal} title={transcription.modal.title}>
