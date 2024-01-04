@@ -4,7 +4,7 @@ import { toast } from 'react-toastify'
 import { useLoginByGoogleQuery } from '@/shared/api/authApi'
 import { ROUTES_URL } from '@/shared/const'
 import { saveToLocalStorage } from '@/shared/lib/helpers'
-import { Loader } from '@/shared/ui/Loader'
+import { Loader } from '@/shared/ui'
 import { useRouter } from 'next/router'
 
 const GoogleAuthPage = () => {
@@ -18,7 +18,7 @@ const GoogleAuthPage = () => {
       saveToLocalStorage('accessToken', data.accessToken)
       router.push('/')
     }
-  }, [data?.accessToken])
+  }, [data?.accessToken, router])
 
   if (error) {
     toast.error('Authentication Error. Please try again later.')
