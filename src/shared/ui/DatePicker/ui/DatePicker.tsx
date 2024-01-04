@@ -97,6 +97,7 @@ export function DatePicker<T extends boolean = false>({
               </i>
             </div>
           )}
+          showOtherDays
           value={value}
           weekDays={t.weekDays}
           {...DEFAULT_PROPS}
