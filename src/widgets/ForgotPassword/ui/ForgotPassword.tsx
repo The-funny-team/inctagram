@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-named-as-default
 import ReCAPTCHA from 'react-google-recaptcha'
 import { Controller } from 'react-hook-form'
 
