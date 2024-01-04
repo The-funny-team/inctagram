@@ -32,7 +32,7 @@ export const NavBar = ({ className }: Props) => {
   } = useTranslation()
 
   return (
-    <div className={clsx(s.root, className)}>
+    <aside className={clsx(s.root, className)}>
       <nav className={s.nav}>
         <Button
           as={Link}
@@ -95,6 +95,6 @@ export const NavBar = ({ className }: Props) => {
         <LogOutIcon />
         {t.logOut}
       </Button>
-    </div>
+    </aside>
   )
 }
