@@ -1,1 +1,1 @@
-export { DatePickerCustom } from './DatePickerCustom'
+export { DatePicker } from './DatePicker'

@@ -1,5 +1,5 @@
 import { MouseEventHandler } from 'react'
-import DatePicker, { DateObject } from 'react-multi-date-picker'
+import DatePick, { DateObject } from 'react-multi-date-picker'
 
 import { CalendarBtnLeftIcon, CalendarBtnRightIcon } from '@/shared/assets'
 import { CalendarIcon } from '@/shared/assets/icons/CalendarIcon'
@@ -9,7 +9,7 @@ import { dateRangeParser } from '@/shared/ui/DatePicker/services/parseDate'
 import { BaseDatePickerProps, DatePickerType } from '@/shared/ui/DatePicker/types'
 import { clsx } from 'clsx'
 
-import s from './DatePickerCustom.module.scss'
+import s from './DatePicker.module.scss'
 
 const DEFAULT_PROPS: Partial<BaseDatePickerProps> = {
   arrow: false,
@@ -21,7 +21,7 @@ const DEFAULT_PROPS: Partial<BaseDatePickerProps> = {
   weekStartDayIndex: 1,
 }
 
-export function DatePickerCustom<T extends boolean = false>({
+export function DatePicker<T extends boolean = false>({
   error,
   format = 'DD/MM/YYYY',
   label,
@@ -47,7 +47,7 @@ export function DatePickerCustom<T extends boolean = false>({
   return (
     <div>
       <div>
-        <DatePicker
+        <DatePick
           className={`${s.datePicker} ${s.bgDark}`}
           format={format}
           mapDays={mapDays}
