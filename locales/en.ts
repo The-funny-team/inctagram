@@ -5,6 +5,16 @@ export const en = {
       signUpBtn: 'Sign up',
     },
   },
+  navBar: {
+    create: 'Create',
+    favorites: 'Favorites',
+    home: 'Home',
+    logOut: 'Log Out',
+    messenger: 'Messenger',
+    profile: 'My Profile',
+    search: 'Search',
+    statistics: 'Statistics',
+  },
   pages: {
     confirmedEmail: {
       description: 'Your email has been confirmed',

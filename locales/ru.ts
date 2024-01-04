@@ -7,6 +7,16 @@ export const ru: LocaleType = {
       signUpBtn: 'Регистрация',
     },
   },
+  navBar: {
+    create: 'Создать',
+    favorites: 'Избранное',
+    home: 'Главная',
+    logOut: 'Выйти',
+    messenger: 'Месенджер',
+    profile: 'Мой профиль',
+    search: 'Поиск',
+    statistics: 'Статистика',
+  },
   pages: {
     confirmedEmail: {
       description: 'Ваш адрес электронной почты подтвержден',
