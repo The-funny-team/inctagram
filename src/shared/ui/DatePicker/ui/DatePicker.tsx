@@ -26,6 +26,7 @@ export function DatePicker<T extends boolean = false>({
   format = 'DD/MM/YYYY',
   label,
   onChange,
+  placeholder = '00/00/0000',
   rangeMode = false as T,
   value,
   ...otherProps
@@ -71,7 +72,7 @@ export function DatePicker<T extends boolean = false>({
                     defaultValue={stringDate}
                     id={label}
                     onClick={openCalendar}
-                    placeholder={'00/00/0000'}
+                    placeholder={placeholder}
                     type={'text'}
                     value={stringDate}
                   />
