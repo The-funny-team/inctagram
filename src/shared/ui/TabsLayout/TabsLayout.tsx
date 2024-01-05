@@ -1,6 +1,7 @@
 import { PropsWithChildren, ReactElement, useEffect, useRef, useState } from 'react'
 
 import { ROUTES_URL } from '@/shared/const'
+import { useTranslation } from '@/shared/lib/hooks'
 import { RootLayout, Tabs } from '@/shared/ui'
 import { NextPage } from 'next'
 import { useRouter } from 'next/router'
@@ -26,17 +27,19 @@ interface SettingTab {
   value: SettingsTabIds
 }
 
-const OPTIONS_TABS: SettingTab[] = [
-  { label: 'General information', value: SettingsTabIds.General },
-  { label: 'Devices', value: SettingsTabIds.Devices },
-  { label: 'Account management', value: SettingsTabIds.Management },
-  { label: 'My payments', value: SettingsTabIds.Payments },
-]
-
 export const TabsLayout: NextPage<PropsWithChildren<{}>> = ({ children }) => {
   const [value, setValue] = useState<SettingsTabIds | undefined>(undefined)
   const isFirstInitRef = useRef(false)
   const router = useRouter()
+  const { text } = useTranslation()
+  const t = text.pages.profile.settings
+
+  const optionsTabs: SettingTab[] = [
+    { label: t.general.title, value: SettingsTabIds.General },
+    { label: t.devices.title, value: SettingsTabIds.Devices },
+    { label: t.management.title, value: SettingsTabIds.Management },
+    { label: t.payments.title, value: SettingsTabIds.Payments },
+  ]
 
   const onChangeHandler = () => {
     const _value = value as SettingsTabIds
@@ -66,7 +69,7 @@ export const TabsLayout: NextPage<PropsWithChildren<{}>> = ({ children }) => {
 
   return (
     <div className={s.tabsLayoutWrapper}>
-      <Tabs onValueChange={onChangeHandler} options={OPTIONS_TABS} value={value} />
+      <Tabs onValueChange={onChangeHandler} options={optionsTabs} value={value} />
       <div>{children}</div>
     </div>
   )
@@ -75,7 +78,9 @@ export const TabsLayout: NextPage<PropsWithChildren<{}>> = ({ children }) => {
 export const getTabsLayout = (page: ReactElement) => {
   return (
     <RootLayout>
+      {/*<WithNavbarLayout>*/}
       <TabsLayout>{page}</TabsLayout>
+      {/*</WithNavbarLayout>*/}
     </RootLayout>
   )
 }

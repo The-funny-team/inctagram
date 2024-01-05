@@ -68,6 +68,22 @@ export const en = {
         'Eu mi bibendum neque egestas congue quisque egestas diam in. Neque viverra justo nec ultrices dui sapien. Congue mauris rhoncus aenean vel elit. Vitae aliquet nec ullamcorper sit. Tempus imperdiet nulla malesuada pellentesque. Sed lectus vestibulum mattis ullamcorper velit. Commodo odio aenean sed adipiscing diam. Viverra nam libero justo laoreet. Id neque aliquam vestibulum morbi blandit cursus. Vel facilisis volutpat est velit egestas dui id ornare. Feugiat nibh sed pulvinar proin.',
       title: 'Privacy Policy',
     },
+    profile: {
+      settings: {
+        devices: {
+          title: 'Devices',
+        },
+        general: {
+          title: 'General Information',
+        },
+        management: {
+          title: 'Account Management',
+        },
+        payments: {
+          title: 'My payments',
+        },
+      },
+    },
     signIn: {
       emailLabel: 'Email',
       forgotPasswordLink: 'Forgot Password?',
