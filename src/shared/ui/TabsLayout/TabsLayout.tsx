@@ -5,6 +5,8 @@ import { RootLayout, Tabs } from '@/shared/ui'
 import { NextPage } from 'next'
 import { useRouter } from 'next/router'
 
+import s from './TabsLayout.module.scss'
+
 enum SettingsTabIds {
   Devices = 'devices',
   General = 'general',
@@ -63,7 +65,7 @@ export const TabsLayout: NextPage<PropsWithChildren<{}>> = ({ children }) => {
   }, [router.pathname])
 
   return (
-    <div>
+    <div className={s.tabsLayoutWrapper}>
       <Tabs onValueChange={onChangeHandler} options={OPTIONS_TABS} value={value} />
       <div>{children}</div>
     </div>
