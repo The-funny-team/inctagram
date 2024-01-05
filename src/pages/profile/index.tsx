@@ -1,4 +1,3 @@
-import { getRootLayout } from '@/shared/ui'
 import { getWithNavbarLayout } from '@/shared/ui/WithNavbarLayout/WithNavbarLayout'
 
 const ProfilePage = () => (
