@@ -1,4 +1,5 @@
 import { getRootLayout } from '@/shared/ui'
+import { getWithNavbarLayout } from '@/shared/ui/WithNavbarLayout/WithNavbarLayout'
 
 const ProfilePage = () => (
   <div>
@@ -6,5 +7,5 @@ const ProfilePage = () => (
   </div>
 )
 
-ProfilePage.getLayout = getRootLayout
+ProfilePage.getLayout = getWithNavbarLayout
 export default ProfilePage
