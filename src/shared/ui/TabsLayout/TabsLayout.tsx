@@ -14,9 +14,9 @@ enum SettingsTabIds {
 
 const tabsUrlMapper = {
   [SettingsTabIds.Devices]: ROUTES_URL.DEVICES,
-  [SettingsTabIds.General]: ROUTES_URL.GENERAL,
-  [SettingsTabIds.Management]: ROUTES_URL.MANAGEMENT,
-  [SettingsTabIds.Payments]: ROUTES_URL.PAYMENTS,
+  [SettingsTabIds.General]: ROUTES_URL.GENERAL_INFO,
+  [SettingsTabIds.Management]: ROUTES_URL.ACCOUNT_MANAGEMENT,
+  [SettingsTabIds.Payments]: ROUTES_URL.MY_PAYMENTS,
 }
 
 interface SettingTab {
