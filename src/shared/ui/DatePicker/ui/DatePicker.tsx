@@ -11,16 +11,6 @@ import { clsx } from 'clsx'
 
 import s from './DatePicker.module.scss'
 
-const DEFAULT_PROPS: Partial<BaseDatePickerProps> = {
-  arrow: false,
-  dateSeparator: ' - ',
-  headerOrder: ['MONTH_YEAR', 'LEFT_BUTTON', 'RIGHT_BUTTON'],
-  multiple: false,
-  shadow: false,
-  type: 'custom',
-  weekStartDayIndex: 1,
-}
-
 export function DatePicker<T extends boolean = false>({
   error,
   format = 'DD/MM/YYYY',
@@ -49,10 +39,14 @@ export function DatePicker<T extends boolean = false>({
     <div>
       <div>
         <DatePick
+          arrow={false}
           className={`${s.datePicker} ${s.bgDark}`}
+          dateSeparator={' - '}
           format={format}
+          headerOrder={['MONTH_YEAR', 'LEFT_BUTTON', 'RIGHT_BUTTON']}
           mapDays={mapDays}
           months={t.months}
+          multiple={false}
           onChange={dateChangeHandler}
           range={rangeMode}
           render={(stringDate, openCalendar) => {
@@ -98,10 +92,12 @@ export function DatePicker<T extends boolean = false>({
               </i>
             </div>
           )}
+          shadow={false}
           showOtherDays
+          type={'custom'}
           value={value}
           weekDays={t.weekDays}
-          {...DEFAULT_PROPS}
+          weekStartDayIndex={1}
           {...otherProps}
         />
       </div>
