@@ -1,15 +1,16 @@
-import { MouseEventHandler } from 'react'
 import DatePick, { DateObject } from 'react-multi-date-picker'
 
-import { CalendarBtnLeftIcon, CalendarBtnRightIcon } from '@/shared/assets'
 import { CalendarIcon } from '@/shared/assets/icons/CalendarIcon'
 import { useTranslation } from '@/shared/lib/hooks'
 import { mapDays } from '@/shared/ui/DatePicker/services/mapDays'
 import { dateRangeParser } from '@/shared/ui/DatePicker/services/parseDate'
-import { BaseDatePickerProps, DatePickerType } from '@/shared/ui/DatePicker/types'
+import { DatePickerType } from '@/shared/ui/DatePicker/types'
 import { clsx } from 'clsx'
 
 import s from './DatePicker.module.scss'
+
+import { DatePickerButtons } from '../componets/DatePickerButtons'
+import { DatePickerInput } from '../componets/DatePickerInput'
 
 export function DatePicker<T extends boolean = false>({
   error,
@@ -61,12 +62,12 @@ export function DatePicker<T extends boolean = false>({
                       {rangeMode ? t.label.range : t.label.birth}
                     </label>
                   )}
-                  <input
+                  <DatePickerInput
                     className={classNames.input}
                     defaultValue={stringDate}
                     id={label}
                     onClick={openCalendar}
-                    placeholder={placeholder}
+                    placeholder={'00/00/0000'}
                     type={'text'}
                     value={stringDate}
                   />
@@ -75,23 +76,9 @@ export function DatePicker<T extends boolean = false>({
               </div>
             )
           }}
-          renderButton={(
-            direction: string,
-            handleClick: MouseEventHandler<HTMLElement> | undefined
-          ) => (
-            <div>
-              <i
-                onClick={handleClick}
-                style={{
-                  cursor: 'pointer',
-                }}
-              >
-                <div className={s.shapeBtn}>
-                  {direction === 'left' ? <CalendarBtnLeftIcon /> : <CalendarBtnRightIcon />}
-                </div>
-              </i>
-            </div>
-          )}
+          renderButton={
+            <DatePickerButtons className={s.shapeBtn} direction={'left'} handleClick={() => {}} />
+          }
           shadow={false}
           showOtherDays
           type={'custom'}
