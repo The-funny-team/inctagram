@@ -29,14 +29,5 @@ export const mapDays = ({ date, today }: MapDaysPropsType) => {
     }
   }
 
-  if (date.toDays() === today.toDays() && isWeekend) {
-    return {
-      style: {
-        ...props.style,
-        color: 'var(--color-accent-700)',
-      },
-    }
-  }
-
   return props
 }

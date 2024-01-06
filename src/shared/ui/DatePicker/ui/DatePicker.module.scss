@@ -154,13 +154,13 @@
     }
 
     .rmdp-range {
-      box-shadow: none;
       background-color: var(--color-accent-900);
+      box-shadow: none;
     }
 
     .rmdp-day.rmdp-today.rmdp-range span {
-      color: var(--color-light-100);
       font-weight: 400;
+      color: var(--color-light-100);
     }
 
     .rmdp-day.rmdp-today.rmdp-selected span {
@@ -180,6 +180,16 @@
     .rmdp-day.rmdp-selected span:not(.highlight) {
       background-color: var(--color-accent-900);
       box-shadow: none;
+    }
+
+    .rmdp-day.rmdp-today.rmdp-selected .sd {
+      color: var(--color-danger-300);
+      font-weight: 400;
+    }
+
+    .rmdp-day.rmdp-today.rmdp-range.start .weekend {
+      font-weight: 400;
+      color: var(--color-danger-300);
     }
   }
 }
