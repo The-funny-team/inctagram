@@ -33,9 +33,9 @@ export const RootLayout: NextPage<PropsWithChildren<any>> = ({ children }) => {
         <meta content={'width=device-width, initial-scale=1'} name={'viewport'} />
         <link href={'/favicon.ico'} rel={'icon'} />
       </Head>
-      <div className={inter.className}>
+      <div className={`${s.container} ${inter.className}`}>
         <Header isLoggedIn={false} />
-        <main className={s.main}>{children}</main>
+        {children}
       </div>
     </>
   )

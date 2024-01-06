@@ -1,9 +1,11 @@
-.main {
-  display: flex;
-  justify-content: start;
-
+@mixin container {
   width: 100%;
-  max-width: 1180px;
+  max-width: 1200px;
+  min-height: 100%;
   margin: 0 auto;
-  padding: 0 30px;
+  padding: 0 10px;
+}
+
+.container {
+  @include container;
 }

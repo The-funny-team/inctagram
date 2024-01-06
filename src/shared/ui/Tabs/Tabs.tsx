@@ -8,7 +8,7 @@ type RootProps = {
   children?: ReactNode
   onValueChange: (value: string) => void
   options: Array<{ disabled?: boolean; label: string; value: string }>
-  value: string
+  value?: string
 }
 
 export const Tabs = ({ children, onValueChange, options, value }: RootProps) => {

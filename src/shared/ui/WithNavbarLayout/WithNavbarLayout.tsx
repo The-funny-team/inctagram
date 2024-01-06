@@ -9,8 +9,8 @@ import s from 'src/shared/ui/WithNavbarLayout/WithNavbarLayout.module.scss'
 export const WithNavbarLayout: NextPage<PropsWithChildren<any>> = ({ children }) => {
   return (
     <RootLayout>
-      <NavBar />
-      <div className={s.main}> {children}</div>
+      <NavBar className={s.navbar} />
+      <div className={s.container}>{children}</div>
     </RootLayout>
   )
 }
