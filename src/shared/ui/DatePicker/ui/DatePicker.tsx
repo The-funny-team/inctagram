@@ -59,7 +59,7 @@ export function DatePicker<T extends boolean = false>({
                   </div>
                   {label && (
                     <label className={classNames.label} htmlFor={label}>
-                      {rangeMode ? t.label.range : t.label.birth}
+                      {label}
                     </label>
                   )}
                   <DatePickerInput

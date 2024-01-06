@@ -2,10 +2,6 @@ import { LocaleType } from './en'
 
 export const ru: LocaleType = {
   calendar: {
-    label: {
-      birth: 'Дата рождения',
-      range: 'Диапазон дат',
-    },
     months: [
       'Январь',
       'Февраль',

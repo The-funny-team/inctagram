@@ -1,9 +1,5 @@
 export const en = {
   calendar: {
-    label: {
-      birth: 'Date of birth',
-      range: 'Date range',
-    },
     months: [
       'January',
       'February',
