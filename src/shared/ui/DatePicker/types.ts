@@ -1,3 +1,4 @@
+import { MouseEventHandler } from 'react'
 import { CalendarProps, DatePickerProps } from 'react-multi-date-picker'
 
 type GenPickerProps<T> = {
@@ -17,4 +18,20 @@ export interface DatePickerType<V extends boolean>
     RangePropsType<V> {
   error?: string
   label?: string
+}
+
+export type ButtonsPropsType = {
+  className: string
+  direction: string
+  handleClick: MouseEventHandler<HTMLElement> | undefined
+}
+
+export type PropsInputType = {
+  className: string
+  defaultValue?: string
+  id?: string
+  onClick: () => void
+  placeholder?: string
+  type: string
+  value: string
 }

@@ -1,16 +1,14 @@
 import DatePick, { DateObject } from 'react-multi-date-picker'
 
+import { CalendarBtnLeftIcon, CalendarBtnRightIcon } from '@/shared/assets'
 import { CalendarIcon } from '@/shared/assets/icons/CalendarIcon'
 import { useTranslation } from '@/shared/lib/hooks'
 import { mapDays } from '@/shared/ui/DatePicker/services/mapDays'
 import { dateRangeParser } from '@/shared/ui/DatePicker/services/parseDate'
-import { DatePickerType } from '@/shared/ui/DatePicker/types'
+import { ButtonsPropsType, DatePickerType, PropsInputType } from '@/shared/ui/DatePicker/types'
 import { clsx } from 'clsx'
 
 import s from './DatePicker.module.scss'
-
-import { DatePickerButtons } from '../componets/DatePickerButtons'
-import { DatePickerInput } from '../componets/DatePickerInput'
 
 export function DatePicker<T extends boolean = false>({
   error,
@@ -89,5 +87,46 @@ export function DatePicker<T extends boolean = false>({
         />
       </div>
     </div>
+  )
+}
+
+const DatePickerButtons = ({ className, direction, handleClick }: ButtonsPropsType) => {
+  return (
+    <div>
+      <i
+        onClick={handleClick}
+        style={{
+          cursor: 'pointer',
+        }}
+      >
+        <div className={className}>
+          {direction === 'left' ? <CalendarBtnLeftIcon /> : <CalendarBtnRightIcon />}
+        </div>
+      </i>
+    </div>
+  )
+}
+
+const DatePickerInput = ({
+  className,
+  defaultValue,
+  id,
+  onClick,
+  placeholder,
+  type,
+  value,
+  ...otherProps
+}: PropsInputType) => {
+  return (
+    <input
+      className={className}
+      defaultValue={defaultValue}
+      id={id}
+      onClick={onClick}
+      placeholder={placeholder}
+      type={type}
+      value={value}
+      {...otherProps}
+    />
   )
 }
