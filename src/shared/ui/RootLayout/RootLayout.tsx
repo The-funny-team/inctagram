@@ -1,6 +1,7 @@
 import React, { PropsWithChildren, ReactElement } from 'react'
 import { ToastContainer } from 'react-toastify'
 
+import { useMeQuery } from '@/shared/api/profileApi/profileApi'
 import { Header } from '@/widgets/Header'
 import { NextPage } from 'next'
 import { Inter } from 'next/font/google'
@@ -13,6 +14,10 @@ import s from './RootLayout.module.scss'
 const inter = Inter({ subsets: ['latin'] })
 
 export const RootLayout: NextPage<PropsWithChildren<any>> = ({ children }) => {
+  const { data } = useMeQuery()
+
+  const isLoggedIn = !!data
+
   return (
     <>
       <ToastContainer
@@ -29,12 +34,12 @@ export const RootLayout: NextPage<PropsWithChildren<any>> = ({ children }) => {
         theme={'colored'}
       />
       <Head>
-        <title>Next App</title>
+        <title>Inctagram</title>
         <meta content={'width=device-width, initial-scale=1'} name={'viewport'} />
         <link href={'/favicon.ico'} rel={'icon'} />
       </Head>
       <div className={`${s.container} ${inter.className}`}>
-        <Header isLoggedIn={false} />
+        <Header isLoggedIn={isLoggedIn} />
         {children}
       </div>
     </>
