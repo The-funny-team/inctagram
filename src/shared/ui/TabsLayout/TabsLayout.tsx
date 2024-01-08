@@ -2,7 +2,8 @@ import { PropsWithChildren, ReactElement, useEffect, useRef, useState } from 're
 
 import { ROUTES_URL } from '@/shared/const'
 import { useTranslation } from '@/shared/lib/hooks'
-import { RootLayout, Tabs } from '@/shared/ui'
+import { Tabs } from '@/shared/ui'
+import { WithNavbarLayout } from '@/shared/ui/WithNavbarLayout'
 import { NextPage } from 'next'
 import { useRouter } from 'next/router'
 
@@ -41,7 +42,7 @@ export const TabsLayout: NextPage<PropsWithChildren<{}>> = ({ children }) => {
     { label: t.payments.title, value: SettingsTabIds.Payments },
   ]
 
-  const onChangeHandler = () => {
+  const onChangeHandler = (value: string) => {
     const _value = value as SettingsTabIds
 
     setValue(_value)
@@ -77,10 +78,8 @@ export const TabsLayout: NextPage<PropsWithChildren<{}>> = ({ children }) => {
 
 export const getTabsLayout = (page: ReactElement) => {
   return (
-    <RootLayout>
-      {/*<WithNavbarLayout>*/}
+    <WithNavbarLayout>
       <TabsLayout>{page}</TabsLayout>
-      {/*</WithNavbarLayout>*/}
-    </RootLayout>
+    </WithNavbarLayout>
   )
 }
