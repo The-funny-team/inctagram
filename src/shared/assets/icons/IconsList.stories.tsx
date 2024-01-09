@@ -130,7 +130,6 @@ export const BellNotify: Story = {
   },
 }
 
-
 export const CalendarBtnLeft: Story = {
   args: {
     children: (
@@ -156,6 +155,10 @@ export const CalendarImg: Story = {
     children: (
       <>
         <CalendarIcon />
+      </>
+    ),
+  },
+}
 
 export const Home: Story = {
   args: {

@@ -1,1 +1,1 @@
-export * from 'src/shared/ui/WithNavbarLayout/WithNavbarLayout'
+export * from './WithNavbarLayout'

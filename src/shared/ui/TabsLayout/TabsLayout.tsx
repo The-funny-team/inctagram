@@ -2,8 +2,7 @@ import { PropsWithChildren, ReactElement } from 'react'
 
 import { ROUTES_URL } from '@/shared/const'
 import { useTranslation } from '@/shared/lib/hooks'
-import { Tabs } from '@/shared/ui'
-import { WithNavbarLayout } from '@/shared/ui/WithNavbarLayout'
+import { Tabs, WithNavbarLayout } from '@/shared/ui'
 import { NextPage } from 'next'
 
 import s from './TabsLayout.module.scss'

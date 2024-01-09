@@ -1,4 +1,4 @@
-import { getWithNavbarLayout } from '@/shared/ui/WithNavbarLayout/WithNavbarLayout'
+import { getWithNavbarLayout } from '@/shared/ui'
 
 const ProfilePage = () => (
   <div>
