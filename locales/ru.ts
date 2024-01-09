@@ -70,6 +70,22 @@ export const ru: LocaleType = {
         'Eu mi bibendum neque egestas congue quisque egestas diam in. Neque viverra justo nec ultrices dui sapien. Congue mauris rhoncus aenean vel elit. Vitae aliquet nec ullamcorper sit. Tempus imperdiet nulla malesuada pellentesque. Sed lectus vestibulum mattis ullamcorper velit. Commodo odio aenean sed adipiscing diam. Viverra nam libero justo laoreet. Id neque aliquam vestibulum morbi blandit cursus. Vel facilisis volutpat est velit egestas dui id ornare. Feugiat nibh sed pulvinar proin.',
       title: 'Политика Конфидециальности',
     },
+    profile: {
+      settings: {
+        devices: {
+          title: 'Устройства',
+        },
+        general: {
+          title: 'Общая информация',
+        },
+        management: {
+          title: 'Управление аккаунтом',
+        },
+        payments: {
+          title: 'Мои платежи',
+        },
+      },
+    },
     signIn: {
       emailLabel: 'Электронная почта',
       forgotPasswordLink: 'Забыли пароль?',
