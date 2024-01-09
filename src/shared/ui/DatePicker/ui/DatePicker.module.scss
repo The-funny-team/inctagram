@@ -12,7 +12,7 @@
     border-radius: 2px;
 
     &::placeholder {
-      color: var(--color-light-100);
+      color: var(--color-light-900);
     }
 
     &:hover {
@@ -182,14 +182,31 @@
       box-shadow: none;
     }
 
-    .rmdp-day.rmdp-today.rmdp-selected .sd {
-      color: var(--color-danger-300);
+    .rmdp-day.rmdp-today.rmdp-selected .weekend {
       font-weight: 400;
+      color: var(--color-danger-300);
     }
 
     .rmdp-day.rmdp-today.rmdp-range.start .weekend {
       font-weight: 400;
       color: var(--color-danger-300);
+    }
+
+    .rmdp-week .rmdp-day {
+      width: 36px;
+      height: 36px;
+    }
+
+    .rmdp-week .rmdp-day:hover {
+      background-color: var(--color-accent-700);
+      border-radius: 50%;
+    }
+
+    .rmdp-week .rmdp-day.rmdp-selected {
+      width: 36px;
+      height: 36px;
+      background-color: var(--color-accent-900);
+      border-radius: 50%;
     }
   }
 }
