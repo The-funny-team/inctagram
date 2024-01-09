@@ -1,6 +1,23 @@
 import { LocaleType } from './en'
 
 export const ru: LocaleType = {
+  calendar: {
+    months: [
+      'Январь',
+      'Февраль',
+      'Март',
+      'Апрель',
+      'Май',
+      'Июнь',
+      'Июль',
+      'Август',
+      'Сентябрь',
+      'Октябрь',
+      'Ноябрь',
+      'Декабрь',
+    ],
+    weekDays: ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'],
+  },
   layout: {
     header: {
       signInBtn: 'Войти',

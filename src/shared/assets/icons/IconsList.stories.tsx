@@ -4,6 +4,9 @@ import {
   ArrowDownIcon,
   ArrowLeftIcon,
   BellNotifyIcon,
+  CalendarBtnLeftIcon,
+  CalendarBtnRightIcon,
+  CalendarIcon,
   CheckboxIcon,
   CreateIcon,
   EyeOutlineIcon,
@@ -126,6 +129,33 @@ export const BellNotify: Story = {
     ),
   },
 }
+
+
+export const CalendarBtnLeft: Story = {
+  args: {
+    children: (
+      <>
+        <CalendarBtnLeftIcon />
+      </>
+    ),
+  },
+}
+
+export const CalendarBtnRight: Story = {
+  args: {
+    children: (
+      <>
+        <CalendarBtnRightIcon />
+      </>
+    ),
+  },
+}
+
+export const CalendarImg: Story = {
+  args: {
+    children: (
+      <>
+        <CalendarIcon />
 
 export const Home: Story = {
   args: {

@@ -1,0 +1,224 @@
+.inputWrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  .input {
+    padding: 6px 60px 6px 12px;
+
+    appearance: none;
+    background-color: transparent;
+    border: 1px solid var(--color-dark-300);
+    border-radius: 2px;
+
+    &::placeholder {
+      color: var(--color-light-900);
+    }
+
+    &:hover {
+      border: 1px solid var(--color-dark-100);
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &:focus-visible {
+      color: var(--color-light-100);
+      border-color: var(--color-accent-500);
+      outline: 1px solid var(--color-accent-500);
+    }
+
+    &:disabled {
+      color: var(--color-dark-100);
+      border-color: var(--color-dark-100);
+    }
+
+    &.error {
+      color: var(--color-danger-500);
+      border: 1px solid var(--color-danger-500);
+
+      &::placeholder {
+        color: var(--color-danger-500);
+      }
+
+      &:focus-visible {
+        border-color: var(--color-danger-500);
+        outline: 1px solid var(--color-danger-500);
+      }
+    }
+
+    &.range {
+      width: 270px;
+    }
+  }
+
+  span {
+    font-size: var(--font-size-s);
+    font-weight: var(--font-weight-regular);
+    line-height: var(--line-height-m);
+    color: var(--color-danger-500);
+  }
+}
+
+.customInputIcon {
+  cursor: pointer;
+
+  position: absolute;
+  top: 50%;
+  right: 12px;
+
+  width: 24px;
+  height: 24px;
+
+  &.error svg {
+    fill: var(--color-danger-500);
+  }
+}
+
+.errorMessage {
+  font-size: var(--font-size-s);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-m);
+  color: var(--color-danger-500);
+}
+
+.label {
+  user-select: none;
+
+  font-size: var(--font-size-s);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-m);
+  color: var(--color-light-900);
+}
+
+.datePicker.bgDark {
+  padding: 16px 24px;
+  background-color: var(--color-dark-500);
+  border: 1px solid var(--color-dark-300);
+  border-radius: 2px;
+
+  :global {
+    .rmdp-year-picker,
+    .rmdp-month-picker {
+      background-color: var(--color-dark-500);
+      border: 1px solid var(--color-dark-300);
+      border-radius: 3px;
+    }
+
+    .rmdp-year-picker .rmdp-ym .rmdp-day span,
+    .rmdp-month-picker .rmdp-ym .rmdp-day span {
+      color: var(--color-light-100);
+    }
+
+    .rmdp-header-values span {
+      font-size: 16px;
+      font-weight: bold;
+      color: var(--color-light-100);
+    }
+
+    .rmdp-week .rmdp-week-day {
+      font-size: 16px;
+      font-weight: 400;
+      font-style: normal;
+      line-height: 24px;
+      color: var(--color-light-900);
+    }
+
+    .rmdp-day span {
+      font-size: 16px;
+      line-height: 24px;
+      color: var(--color-light-100);
+    }
+
+    .rmdp-day.rmdp-today span {
+      padding: 4px;
+
+      font-weight: 700;
+      color: var(--color-accent-500);
+
+      background-color: transparent;
+      box-shadow: none;
+    }
+
+    .rmdp-day.rmdp-deactive span {
+      color: var(--color-light-900);
+    }
+
+    .rmdp-day .weekend {
+      color: var(--color-danger-300);
+    }
+
+    .rmdp-day.rmdp-deactive .weekend {
+      color: var(--color-light-900);
+    }
+
+    .rmdp-range {
+      background-color: var(--color-accent-900);
+      box-shadow: none;
+    }
+
+    .rmdp-day.rmdp-today.rmdp-range span {
+      font-weight: 400;
+      color: var(--color-light-100);
+    }
+
+    .rmdp-day.rmdp-today.rmdp-selected span {
+      padding: 4px;
+
+      font-weight: 700;
+      color: var(--color-light-100);
+
+      background-color: transparent;
+      box-shadow: none;
+    }
+
+    .rmdp-day span:hover {
+      background-color: var(--color-accent-700);
+    }
+
+    .rmdp-day.rmdp-selected span:not(.highlight) {
+      background-color: var(--color-accent-900);
+      box-shadow: none;
+    }
+
+    .rmdp-day.rmdp-today.rmdp-selected .weekend {
+      font-weight: 400;
+      color: var(--color-danger-300);
+    }
+
+    .rmdp-day.rmdp-today.rmdp-range.start .weekend {
+      font-weight: 400;
+      color: var(--color-danger-300);
+    }
+
+    .rmdp-week .rmdp-day {
+      width: 36px;
+      height: 36px;
+    }
+
+    .rmdp-week .rmdp-day:hover {
+      background-color: var(--color-accent-700);
+      border-radius: 50%;
+    }
+
+    .rmdp-week .rmdp-day.rmdp-selected {
+      width: 36px;
+      height: 36px;
+      background-color: var(--color-accent-900);
+      border-radius: 50%;
+    }
+  }
+}
+
+.shapeBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 36px;
+  height: 36px;
+
+  background-color: var(--color-dark-100);
+  border-radius: 50%;
+}
