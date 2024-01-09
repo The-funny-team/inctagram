@@ -22,6 +22,16 @@ export const en = {
       signUpBtn: 'Sign up',
     },
   },
+  navBar: {
+    create: 'Create',
+    favorites: 'Favorites',
+    home: 'Home',
+    logOut: 'Log Out',
+    messenger: 'Messenger',
+    profile: 'My Profile',
+    search: 'Search',
+    statistics: 'Statistics',
+  },
   pages: {
     confirmedEmail: {
       description: 'Your email has been confirmed',
@@ -74,6 +84,22 @@ export const en = {
         'A diam maecenas sed enim ut. Fermentum et sollicitudin ac orci phasellus. Tincidunt vitae semper quis lectus nulla. Tincidunt dui ut ornare lectus sit amet est. Sed enim ut sem viverra aliquet eget sit. Eu augue ut lectus arcu bibendum at varius. Suspendisse sed nisi lacus sed viverra tellus in hac habitasse. Donec ultrices tincidunt arcu non sodales neque sodales ut etiam. Varius vel pharetra vel turpis nunc eget lorem dolor. Arcu odio ut sem nulla pharetra. Bibendum neque egestas congue quisque. Facilisis volutpat est velit egestas dui. Orci nulla pellentesque dignissim enim sit amet. Mauris vitae ultricies leo integer malesuada nunc vel risus commodo. Odio ut enim blandit volutpat maecenas volutpat blandit.\n' +
         'Eu mi bibendum neque egestas congue quisque egestas diam in. Neque viverra justo nec ultrices dui sapien. Congue mauris rhoncus aenean vel elit. Vitae aliquet nec ullamcorper sit. Tempus imperdiet nulla malesuada pellentesque. Sed lectus vestibulum mattis ullamcorper velit. Commodo odio aenean sed adipiscing diam. Viverra nam libero justo laoreet. Id neque aliquam vestibulum morbi blandit cursus. Vel facilisis volutpat est velit egestas dui id ornare. Feugiat nibh sed pulvinar proin.',
       title: 'Privacy Policy',
+    },
+    profile: {
+      settings: {
+        devices: {
+          title: 'Devices',
+        },
+        general: {
+          title: 'General Information',
+        },
+        management: {
+          title: 'Account Management',
+        },
+        payments: {
+          title: 'My payments',
+        },
+      },
     },
     signIn: {
       emailLabel: 'Email',
