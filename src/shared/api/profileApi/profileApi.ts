@@ -1,7 +1,7 @@
 import { baseApi } from '@/shared/api/baseApi'
 import { loadFromLocalStorage } from '@/shared/lib/helpers'
 
-const profileApi = baseApi.injectEndpoints({
+export const profileApi = baseApi.injectEndpoints({
   endpoints: builder => ({
     deleteAvatar: builder.mutation<void, void>({
       invalidatesTags: ['Me'],
@@ -11,7 +11,7 @@ const profileApi = baseApi.injectEndpoints({
         url: '/user/avatar',
       }),
     }),
-    me: builder.query<User, void>({
+    me: builder.query<MeResponse, void>({
       providesTags: ['Me'],
       query: () => ({
         headers: { Authorization: `Bearer ${loadFromLocalStorage('accessToken', '')}` },
@@ -83,3 +83,5 @@ type UpdateUserDto = {
 type AvatarDto = {
   file: File
 }
+
+type MeResponse = User | null
