@@ -32,6 +32,13 @@ const authApi = baseApi.injectEndpoints({
         url: 'auth/google',
       }),
     }),
+    logout: builder.mutation<void, void>({
+      invalidatesTags: ['Me'],
+      query: () => ({
+        method: 'POST',
+        url: '/auth/logout',
+      }),
+    }),
     passwordRecovery: builder.mutation<void, { email: string }>({
       query: body => ({
         body,
@@ -68,6 +75,7 @@ export const {
   useEmailConfirmationMutation,
   useEmailResendingMutation,
   useLoginByGoogleQuery,
+  useLogoutMutation,
   usePasswordRecoveryMutation,
   usePasswordRecoveryResendingMutation,
   useSignInMutation,
@@ -82,9 +90,16 @@ export type CreateUserDto = {
 }
 
 export type SignUpResponse = {
+  aboutMe: null | string
+  avatarUrl: null | string
+  city: null | string
+  country: null | string
   createdAt: string
+  dateOfBirth: null | string
   email: string
+  firstName: null | string
   id: string
+  lastName: null | string
   updatedAt: string
   username: string
 }
