@@ -1,3 +1,6 @@
+import { toast } from 'react-toastify'
+
+import { useLogoutMutation } from '@/shared/api/authApi'
 import {
   CreateIcon,
   FavoritesIcon,
@@ -14,6 +17,7 @@ import {
   StatisticsIcon,
 } from '@/shared/assets'
 import { ROUTES_URL } from '@/shared/const'
+import { isFetchBaseQueryError } from '@/shared/lib/helpers'
 import { useTranslation } from '@/shared/lib/hooks'
 import { Button } from '@/shared/ui'
 import clsx from 'clsx'
@@ -26,10 +30,26 @@ type Props = {
 }
 
 export const NavBar = ({ className }: Props) => {
+  const [logout] = useLogoutMutation()
+
   const {
     router: { pathname },
     text: { navBar: t },
   } = useTranslation()
+
+  const logoutHandler = async () => {
+    try {
+      await logout().unwrap()
+    } catch (e) {
+      if (isFetchBaseQueryError(e)) {
+        if (!Array.isArray(e.data.message)) {
+          toast.error(e.data.message)
+        }
+      } else {
+        toast.error(JSON.stringify(e))
+      }
+    }
+  }
 
   return (
     <aside className={clsx(s.root, className)}>
@@ -91,7 +111,7 @@ export const NavBar = ({ className }: Props) => {
           {t.favorites}
         </Button>
       </nav>
-      <Button className={s.button} onClick={() => console.log('Logout from app')}>
+      <Button className={s.button} onClick={logoutHandler}>
         <LogOutIcon />
         {t.logOut}
       </Button>
