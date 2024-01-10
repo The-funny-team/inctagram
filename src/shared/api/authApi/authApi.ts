@@ -1,4 +1,5 @@
 import { baseApi } from '@/shared/api/baseApi'
+import { profileApi } from '@/shared/api/profileApi'
 
 const authApi = baseApi.injectEndpoints({
   endpoints: builder => ({
@@ -34,6 +35,21 @@ const authApi = baseApi.injectEndpoints({
     }),
     logout: builder.mutation<void, void>({
       invalidatesTags: ['Me'],
+      async onQueryStarted(_, { dispatch, queryFulfilled }) {
+        const patchResult = dispatch(
+          profileApi.util.updateQueryData('me', undefined, () => {
+            return null
+          })
+        )
+
+        localStorage.removeItem('accessToken')
+
+        try {
+          await queryFulfilled
+        } catch {
+          patchResult.undo()
+        }
+      },
       query: () => ({
         method: 'POST',
         url: '/auth/logout',
