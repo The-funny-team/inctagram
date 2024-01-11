@@ -1,4 +1,5 @@
 import { baseApi } from '@/shared/api/baseApi'
+import { profileApi } from '@/shared/api/profileApi'
 
 const authApi = baseApi.injectEndpoints({
   endpoints: builder => ({
@@ -30,6 +31,28 @@ const authApi = baseApi.injectEndpoints({
         method: 'GET',
         params: { code },
         url: 'auth/google',
+      }),
+    }),
+    logout: builder.mutation<void, void>({
+      invalidatesTags: ['Me'],
+      async onQueryStarted(_, { dispatch, queryFulfilled }) {
+        const patchResult = dispatch(
+          profileApi.util.updateQueryData('me', undefined, () => {
+            return null
+          })
+        )
+
+        localStorage.removeItem('accessToken')
+
+        try {
+          await queryFulfilled
+        } catch {
+          patchResult.undo()
+        }
+      },
+      query: () => ({
+        method: 'POST',
+        url: '/auth/logout',
       }),
     }),
     passwordRecovery: builder.mutation<void, { email: string }>({
@@ -68,6 +91,7 @@ export const {
   useEmailConfirmationMutation,
   useEmailResendingMutation,
   useLoginByGoogleQuery,
+  useLogoutMutation,
   usePasswordRecoveryMutation,
   usePasswordRecoveryResendingMutation,
   useSignInMutation,
@@ -82,9 +106,16 @@ export type CreateUserDto = {
 }
 
 export type SignUpResponse = {
+  aboutMe: null | string
+  avatarUrl: null | string
+  city: null | string
+  country: null | string
   createdAt: string
+  dateOfBirth: null | string
   email: string
+  firstName: null | string
   id: string
+  lastName: null | string
   updatedAt: string
   username: string
 }

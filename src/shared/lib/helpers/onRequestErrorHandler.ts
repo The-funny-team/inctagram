@@ -23,6 +23,6 @@ export const onRequestErrorHandler = <T>(
     }
   }
   if (isFetchError(error)) {
-    toast.error(error.error as string)
+    toast.error(error.error)
   }
 }

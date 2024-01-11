@@ -7,7 +7,7 @@ import { useTranslation } from '@/shared/lib/hooks'
 import { Button, Card, Input, Typography } from '@/shared/ui'
 import { clsx } from 'clsx'
 import Link from 'next/link'
-import { onRequestErrorHandler } from 'src/shared/lib/helpers'
+import { onRequestErrorHandler, saveToLocalStorage } from 'src/shared/lib/helpers'
 
 import s from './SignIn.module.scss'
 
@@ -40,7 +40,10 @@ export const SignIn = () => {
   const onFormSubmit = (data: SignInFormValuesType) => {
     signIn(data)
       .unwrap()
-      .then(data => router.push(ROUTES_URL.PROFILE))
+      .then(data => {
+        saveToLocalStorage('accessToken', data.accessToken)
+        router.push(ROUTES_URL.PROFILE)
+      })
       .catch(error => onRequestErrorHandler(error, setError, 'password'))
   }
 
