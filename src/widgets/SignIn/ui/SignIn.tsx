@@ -1,5 +1,7 @@
 import { Controller } from 'react-hook-form'
+import { useDispatch } from 'react-redux'
 
+import { setAuth } from '@/redux/slices/auth/authSlice'
 import { useSignInMutation } from '@/shared/api/authApi'
 import { GithubIcon, GoogleIcon } from '@/shared/assets'
 import { GOOGLE_URL, ROUTES_URL } from '@/shared/const'
@@ -14,6 +16,7 @@ import s from './SignIn.module.scss'
 import { SignInFormValuesType, useSignIn } from '../services'
 
 export const SignIn = () => {
+  const dispatch = useDispatch()
   const [signIn, { isLoading }] = useSignInMutation()
   const { router, text } = useTranslation()
   const t = text.pages.signIn
@@ -42,6 +45,7 @@ export const SignIn = () => {
       .unwrap()
       .then(data => {
         saveToLocalStorage('accessToken', data.accessToken)
+        dispatch(setAuth(!!data.accessToken))
         router.push(ROUTES_URL.PROFILE)
       })
       .catch(error => onRequestErrorHandler(error, setError, 'password'))
