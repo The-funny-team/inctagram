@@ -1,9 +1,10 @@
+import { ProtectedPage } from '@/hoc/ProtectedPage'
 import { getTabsLayout } from '@/shared/ui/TabsLayout'
 
 const PaymentsPage = () => (
-  <div>
+  <ProtectedPage>
     <p>Payments Page</p>
-  </div>
+  </ProtectedPage>
 )
 
 PaymentsPage.getLayout = getTabsLayout

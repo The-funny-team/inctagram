@@ -5,7 +5,7 @@ import { RootState } from '@/application/store'
 import { ROUTES_URL } from '@/shared/const'
 import { useRouter } from 'next/router'
 
-const ProtectedPage = ({ children }: PropsWithChildren<{}>) => {
+export const ProtectedPage = ({ children }: PropsWithChildren<{}>) => {
   const router = useRouter()
   const isAuth = useSelector((state: RootState) => state.auth.isAuth)
 

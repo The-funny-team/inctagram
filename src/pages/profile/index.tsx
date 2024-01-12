@@ -1,9 +1,10 @@
+import { ProtectedPage } from '@/hoc/ProtectedPage'
 import { getWithNavbarLayout } from '@/shared/ui'
 
 const ProfilePage = () => (
-  <div>
+  <ProtectedPage>
     <h1>Profile Page</h1>
-  </div>
+  </ProtectedPage>
 )
 
 ProfilePage.getLayout = getWithNavbarLayout
