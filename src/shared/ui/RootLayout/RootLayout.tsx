@@ -1,6 +1,8 @@
 import React, { PropsWithChildren, ReactElement } from 'react'
+import { useSelector } from 'react-redux'
 import { ToastContainer } from 'react-toastify'
 
+import { RootState } from '@/application/store'
 import { Header } from '@/widgets/Header'
 import { NextPage } from 'next'
 import { Inter } from 'next/font/google'
@@ -13,6 +15,8 @@ import s from './RootLayout.module.scss'
 const inter = Inter({ subsets: ['latin'] })
 
 export const RootLayout: NextPage<PropsWithChildren<any>> = ({ children }) => {
+  const isAuth = useSelector((state: RootState) => state.auth.isAuth)
+
   return (
     <>
       <ToastContainer
@@ -34,7 +38,7 @@ export const RootLayout: NextPage<PropsWithChildren<any>> = ({ children }) => {
         <link href={'/favicon.ico'} rel={'icon'} />
       </Head>
       <div className={inter.className}>
-        <Header isLoggedIn={false} />
+        <Header isLoggedIn={isAuth} />
         <main className={s.main}>{children}</main>
       </div>
     </>
