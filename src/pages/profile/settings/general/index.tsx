@@ -1,18 +1,23 @@
-import { useMeQuery } from '@/shared/api/profileApi'
-import { getTabsLayout } from '@/shared/ui/TabsLayout'
-import { AddProfilePhoto } from '@/widgets/AddProfilePhoto'
+import {useMeQuery} from '@/shared/api/profileApi'
+import {getTabsLayout} from '@/shared/ui/TabsLayout'
+import {AddProfilePhoto} from '@/widgets/AddProfilePhoto'
+
+import s from './GeneralPage.module.scss'
 
 const GeneralPage = () => {
-  const { data: userInfo } = useMeQuery()
+    const {data: userInfo} = useMeQuery()
+    const avatar = userInfo?.avatarUrl
+    const classNames = {
+        page: s.page,
+        photoUploader: s.photoUploader,
+    }
 
-  const avatar = userInfo?.avatarUrl
-
-  return (
-    <div>
-      <p>General Info Page</p>
-      <AddProfilePhoto avatar={avatar} />
-    </div>
-  )
+    return (
+        <main className={classNames.page}>
+            <div className={s.photoUploader}><AddProfilePhoto avatar={avatar}/></div>
+            <div></div>
+        </main>
+    )
 }
 
 GeneralPage.getLayout = getTabsLayout
