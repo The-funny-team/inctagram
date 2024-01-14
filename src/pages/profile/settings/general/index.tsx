@@ -4,6 +4,7 @@ import {AddProfilePhoto} from '@/widgets/AddProfilePhoto'
 
 import s from './GeneralPage.module.scss'
 
+
 const GeneralPage = () => {
     const {data: userInfo} = useMeQuery()
     const avatar = userInfo?.avatarUrl
