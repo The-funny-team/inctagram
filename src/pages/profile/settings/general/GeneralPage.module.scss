@@ -1,0 +1,12 @@
+.page{
+  display: flex;
+  gap:40px;
+  padding: 24px 0;
+
+  .photoUploader{
+   width: 192px;
+    height: 192px;
+    border: 1px solid var(--color-light-100);
+  }
+
+}
