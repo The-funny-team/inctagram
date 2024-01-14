@@ -1,0 +1,15 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+
+  .selectWrapper {
+    display: flex;
+    gap: 24px;
+
+    .select {
+      flex: 1 1 100%;
+    }
+  }
+}

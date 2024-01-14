@@ -1,4 +1,5 @@
 import { getTabsLayout } from '@/shared/ui/TabsLayout'
+import { ProfileInfoForm } from '@/widgets/ProfileInfoForm'
 
 import s from './GeneralPage.module.scss'
 const GeneralPage = () => {
@@ -10,7 +11,7 @@ const GeneralPage = () => {
   return (
     <main className={classNames.page}>
       <div className={s.photoUploader}></div>
-      <div></div>
+      <ProfileInfoForm />
     </main>
   )
 }
