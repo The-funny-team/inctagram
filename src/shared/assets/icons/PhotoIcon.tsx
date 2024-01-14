@@ -6,10 +6,10 @@ const SvgComponent = (
 ) => (
   <svg
     fill={'none'}
-    height={props.iconSize || '24'}
+    height={props.iconSize || '48'}
     ref={ref}
     viewBox={'0 0 24 24'}
-    width={props.iconSize || '24'}
+    width={props.iconSize || '48'}
     xmlns={'http://www.w3.org/2000/svg'}
     {...props}
   >
