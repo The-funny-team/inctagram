@@ -88,6 +88,21 @@ export const ru: LocaleType = {
       title: 'Политика Конфидециальности',
     },
     profile: {
+      addProfilePhoto: {
+        addPhoto: 'Добавить фото профиля',
+        deletePhoto: 'Удалить фото',
+        deletePhotoQuestion: 'Вы уверены, что хотите удалить фото?',
+        errorText: {
+          error: 'Ошибка!',
+          sizeError: 'Размер фотографии должен быть менее 10 МБ',
+          typeError: 'Формат загружаемой фотографии должен быть PNG или JPEG',
+        },
+        noButton: 'Нет',
+        savePhoto: 'Сохранить',
+        selectPhoto: 'Выберите фото',
+        yesButton: 'Да',
+      },
+
       settings: {
         devices: {
           title: 'Устройства',

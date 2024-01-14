@@ -86,6 +86,20 @@ export const en = {
       title: 'Privacy Policy',
     },
     profile: {
+      addProfilePhoto: {
+        addPhoto: 'Add a Profile Photo',
+        deletePhoto: 'Delete Photo',
+        deletePhotoQuestion: 'Are you sure you want to delete the photo?',
+        errorText: {
+          error: 'Error!',
+          sizeError: 'Photo size must be less than 10 MB',
+          typeError: 'The format of the uploaded photo must be PNG and JPEG',
+        },
+        noButton: 'No',
+        savePhoto: 'Save',
+        selectPhoto: 'Select from Computer',
+        yesButton: 'Yes',
+      },
       settings: {
         devices: {
           title: 'Devices',
