@@ -93,8 +93,10 @@ export const ru: LocaleType = {
         deletePhoto: 'Удалить фото',
         deletePhotoQuestion: 'Вы уверены, что хотите удалить фото?',
         errorText: {
+          description: `<1>error</1> <2>terms</2>`,
           error: 'Ошибка!',
-          sizeError: 'Размер фотографии должен быть менее 10 МБ',
+          getDescription: (message: string) => `${message}`,
+          sizeError: 'Размер фото должен быть менее 10 МБ',
           typeError: 'Формат загружаемой фотографии должен быть PNG или JPEG',
         },
         noButton: 'Нет',

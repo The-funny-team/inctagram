@@ -91,7 +91,9 @@ export const en = {
         deletePhoto: 'Delete Photo',
         deletePhotoQuestion: 'Are you sure you want to delete the photo?',
         errorText: {
+          description: `<1>error!</1> <2>message</2>`,
           error: 'Error!',
+          getDescription: (message: string) => `${message}`,
           sizeError: 'Photo size must be less than 10 MB',
           typeError: 'The format of the uploaded photo must be PNG and JPEG',
         },
