@@ -1,11 +1,6 @@
-import { ProtectedPage } from '@/hoc/ProtectedPage'
 import { getTabsLayout } from '@/shared/ui/TabsLayout'
 
-const ManagementPage = () => (
-  <ProtectedPage>
-    <p>Management Page</p>
-  </ProtectedPage>
-)
+const ManagementPage = () => <p>Management Page</p>
 
 ManagementPage.getLayout = getTabsLayout
 export default ManagementPage

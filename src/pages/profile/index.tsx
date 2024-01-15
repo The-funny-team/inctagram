@@ -1,11 +1,6 @@
-import { ProtectedPage } from '@/hoc/ProtectedPage'
 import { getWithNavbarLayout } from '@/shared/ui'
 
-const ProfilePage = () => (
-  <ProtectedPage>
-    <h1>Profile Page</h1>
-  </ProtectedPage>
-)
+const ProfilePage = () => <h1>Profile Page</h1>
 
 ProfilePage.getLayout = getWithNavbarLayout
 export default ProfilePage

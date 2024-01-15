@@ -1,12 +1,14 @@
-import React, { PropsWithChildren, ReactElement } from 'react'
-import { useSelector } from 'react-redux'
+import React, { PropsWithChildren, ReactElement, useEffect, useLayoutEffect } from 'react'
 import { ToastContainer } from 'react-toastify'
 
-import { RootState } from '@/application/store'
+import { useLazyMeQuery } from '@/shared/api/profileApi'
+import { ROUTES_URL } from '@/shared/const'
+import { Loader } from '@/shared/ui'
 import { Header } from '@/widgets/Header'
 import { NextPage } from 'next'
 import { Inter } from 'next/font/google'
 import Head from 'next/head'
+import { useRouter } from 'next/router'
 
 import 'react-toastify/dist/ReactToastify.css'
 
@@ -15,7 +17,24 @@ import s from './RootLayout.module.scss'
 const inter = Inter({ subsets: ['latin'] })
 
 export const RootLayout: NextPage<PropsWithChildren<any>> = ({ children }) => {
-  const isAuth = useSelector((state: RootState) => state.auth.isAuth)
+  const router = useRouter()
+  const [profileInfo, { isLoading }] = useLazyMeQuery()
+
+  const getProfileData = async () => {
+    const { data: profileData } = await profileInfo()
+
+    if (!profileData) {
+      void router.push(ROUTES_URL.SIGN_IN)
+    }
+
+    if (profileData && router.pathname === ROUTES_URL.SIGN_IN) {
+      void router.push(ROUTES_URL.HOME)
+    }
+  }
+
+  useEffect(() => {
+    void getProfileData()
+  }, [router.pathname])
 
   return (
     <>
@@ -38,8 +57,8 @@ export const RootLayout: NextPage<PropsWithChildren<any>> = ({ children }) => {
         <link href={'/favicon.ico'} rel={'icon'} />
       </Head>
       <div className={inter.className}>
-        <Header isLoggedIn={isAuth} />
-        <main className={s.main}>{children}</main>
+        <Header isLoggedIn={false} />
+        {isLoading ? <Loader /> : <main className={s.main}>{children}</main>}
       </div>
     </>
   )

@@ -50,6 +50,7 @@ export const profileApi = baseApi.injectEndpoints({
 
 export const {
   useDeleteAvatarMutation,
+  useLazyMeQuery,
   useMeQuery,
   useUpdateAvatarMutation,
   useUpdateUserMutation,

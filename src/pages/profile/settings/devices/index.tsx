@@ -1,11 +1,6 @@
-import { ProtectedPage } from '@/hoc/ProtectedPage'
 import { getTabsLayout } from '@/shared/ui/TabsLayout'
 
-const DevicesPage = () => (
-  <ProtectedPage>
-    <p>Devices Page</p>
-  </ProtectedPage>
-)
+const DevicesPage = () => <p>Devices Page</p>
 
 DevicesPage.getLayout = getTabsLayout
 export default DevicesPage

@@ -1,11 +1,6 @@
-import { ProtectedPage } from '@/hoc/ProtectedPage'
 import { getTabsLayout } from '@/shared/ui/TabsLayout'
 
-const PaymentsPage = () => (
-  <ProtectedPage>
-    <p>Payments Page</p>
-  </ProtectedPage>
-)
+const PaymentsPage = () => <p>Payments Page</p>
 
 PaymentsPage.getLayout = getTabsLayout
 export default PaymentsPage
