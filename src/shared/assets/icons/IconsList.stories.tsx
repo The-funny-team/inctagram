@@ -27,6 +27,7 @@ import {
   SearchOutlineIcon,
   StatisticsIcon,
 } from '@/shared/assets'
+import { DeleteIcon } from '@/shared/assets/icons/DeleteIcon'
 
 import { IconsList } from './IconsList'
 
@@ -285,6 +286,15 @@ export const PhotoOutline: Story = {
     children: (
       <>
         <PhotoIcon />
+      </>
+    ),
+  },
+}
+export const DeletePhoto: Story = {
+  args: {
+    children: (
+      <>
+        <DeleteIcon />
       </>
     ),
   },
