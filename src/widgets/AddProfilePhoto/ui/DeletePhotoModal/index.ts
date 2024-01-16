@@ -1,0 +1,1 @@
+export { DeletePhotoModal } from './DeletePhotoModal'
