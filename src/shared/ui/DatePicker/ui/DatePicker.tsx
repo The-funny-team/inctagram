@@ -62,10 +62,10 @@ export function DatePicker<T extends boolean = false>({
                   </div>
                   <DatePickerInput
                     className={classNames.input}
-                    defaultValue={stringDate}
                     id={label}
                     onClick={openCalendar}
                     placeholder={placeholder}
+                    readonly
                     type={'text'}
                     value={stringDate}
                   />
@@ -109,10 +109,10 @@ const DatePickerButtons = ({ className, direction, handleClick }: ButtonsPropsTy
 
 const DatePickerInput = ({
   className,
-  defaultValue,
   id,
   onClick,
   placeholder,
+  readonly,
   type,
   value,
   ...otherProps
@@ -120,10 +120,10 @@ const DatePickerInput = ({
   return (
     <input
       className={className}
-      defaultValue={defaultValue}
       id={id}
       onClick={onClick}
       placeholder={placeholder}
+      readOnly
       type={type}
       value={value}
       {...otherProps}
