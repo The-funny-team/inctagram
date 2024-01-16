@@ -51,26 +51,26 @@ export function DatePicker<T extends boolean = false>({
           render={(stringDate, openCalendar) => {
             return (
               <div>
+                {label && (
+                  <label className={classNames.label} htmlFor={label}>
+                    {label}
+                  </label>
+                )}
                 <div className={s.inputWrapper}>
                   <div className={classNames.icon} onClick={openCalendar}>
                     <CalendarIcon />
                   </div>
-                  {label && (
-                    <label className={classNames.label} htmlFor={label}>
-                      {label}
-                    </label>
-                  )}
                   <DatePickerInput
                     className={classNames.input}
                     defaultValue={stringDate}
                     id={label}
                     onClick={openCalendar}
-                    placeholder={'00/00/0000'}
+                    placeholder={placeholder}
                     type={'text'}
                     value={stringDate}
                   />
+                  {error && <span className={classNames.errorMessage}>{error}</span>}
                 </div>
-                {error && <span className={classNames.errorMessage}>{error}</span>}
               </div>
             )
           }}
