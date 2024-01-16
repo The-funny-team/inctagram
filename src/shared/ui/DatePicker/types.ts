@@ -33,5 +33,5 @@ export type PropsInputType = {
   onClick: () => void
   placeholder?: string
   type: string
-  value: string
+  value: string | string[]
 }

@@ -1,14 +1,10 @@
 import React, { PropsWithChildren, ReactElement, useEffect, useLayoutEffect } from 'react'
 import { ToastContainer } from 'react-toastify'
 
-import { useLazyMeQuery } from '@/shared/api/profileApi'
-import { ROUTES_URL } from '@/shared/const'
-import { Loader } from '@/shared/ui'
 import { Header } from '@/widgets/Header'
 import { NextPage } from 'next'
 import { Inter } from 'next/font/google'
 import Head from 'next/head'
-import { useRouter } from 'next/router'
 
 import 'react-toastify/dist/ReactToastify.css'
 
@@ -17,25 +13,6 @@ import s from './RootLayout.module.scss'
 const inter = Inter({ subsets: ['latin'] })
 
 export const RootLayout: NextPage<PropsWithChildren<any>> = ({ children }) => {
-  const router = useRouter()
-  const [profileInfo, { isLoading }] = useLazyMeQuery()
-
-  const getProfileData = async () => {
-    const { data: profileData } = await profileInfo()
-
-    if (!profileData) {
-      void router.push(ROUTES_URL.SIGN_IN)
-    }
-
-    if (profileData && router.pathname === ROUTES_URL.SIGN_IN) {
-      void router.push(ROUTES_URL.HOME)
-    }
-  }
-
-  useEffect(() => {
-    void getProfileData()
-  }, [router.pathname])
-
   return (
     <>
       <ToastContainer
@@ -58,7 +35,7 @@ export const RootLayout: NextPage<PropsWithChildren<any>> = ({ children }) => {
       </Head>
       <div className={inter.className}>
         <Header isLoggedIn={false} />
-        {isLoading ? <Loader /> : <main className={s.main}>{children}</main>}
+        <main className={s.main}>{children}</main>
       </div>
     </>
   )
