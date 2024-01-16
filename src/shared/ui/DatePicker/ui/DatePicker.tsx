@@ -35,57 +35,55 @@ export function DatePicker<T extends boolean = false>({
   }
 
   return (
-    <div>
-      <div>
-        <DatePick
-          arrow={false}
-          className={`${s.datePicker} ${s.bgDark}`}
-          dateSeparator={' - '}
-          format={format}
-          headerOrder={['MONTH_YEAR', 'LEFT_BUTTON', 'RIGHT_BUTTON']}
-          mapDays={mapDays}
-          months={t.months}
-          multiple={false}
-          onChange={dateChangeHandler}
-          range={rangeMode}
-          render={(stringDate, openCalendar) => {
-            return (
-              <div>
-                {label && (
-                  <label className={classNames.label} htmlFor={label}>
-                    {label}
-                  </label>
-                )}
-                <div className={s.inputWrapper}>
-                  <div className={classNames.icon} onClick={openCalendar}>
-                    <CalendarIcon />
-                  </div>
-                  <DatePickerInput
-                    className={classNames.input}
-                    id={label}
-                    onClick={openCalendar}
-                    placeholder={placeholder}
-                    readonly
-                    type={'text'}
-                    value={stringDate}
-                  />
-                  {error && <span className={classNames.errorMessage}>{error}</span>}
+    <div className={s.datePickContainer}>
+      <DatePick
+        arrow={false}
+        className={`${s.datePicker} ${s.bgDark}`}
+        dateSeparator={' - '}
+        format={format}
+        headerOrder={['MONTH_YEAR', 'LEFT_BUTTON', 'RIGHT_BUTTON']}
+        mapDays={mapDays}
+        months={t.months}
+        multiple={false}
+        onChange={dateChangeHandler}
+        range={rangeMode}
+        render={(stringDate, openCalendar) => {
+          return (
+            <div>
+              {label && (
+                <label className={classNames.label} htmlFor={label}>
+                  {label}
+                </label>
+              )}
+              <div className={s.inputWrapper}>
+                <div className={classNames.icon} onClick={openCalendar}>
+                  <CalendarIcon />
                 </div>
+                <DatePickerInput
+                  className={classNames.input}
+                  id={label}
+                  onClick={openCalendar}
+                  placeholder={placeholder}
+                  readonly
+                  type={'text'}
+                  value={stringDate}
+                />
+                {error && <span className={classNames.errorMessage}>{error}</span>}
               </div>
-            )
-          }}
-          renderButton={
-            <DatePickerButtons className={s.shapeBtn} direction={'left'} handleClick={() => {}} />
-          }
-          shadow={false}
-          showOtherDays
-          type={'custom'}
-          value={value}
-          weekDays={t.weekDays}
-          weekStartDayIndex={1}
-          {...otherProps}
-        />
-      </div>
+            </div>
+          )
+        }}
+        renderButton={
+          <DatePickerButtons className={s.shapeBtn} direction={'left'} handleClick={() => {}} />
+        }
+        shadow={false}
+        showOtherDays
+        type={'custom'}
+        value={value}
+        weekDays={t.weekDays}
+        weekStartDayIndex={1}
+        {...otherProps}
+      />
     </div>
   )
 }
