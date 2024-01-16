@@ -3,17 +3,21 @@ import { toast } from 'react-toastify'
 
 import { useDeleteAvatarMutation } from '@/shared/api/profileApi'
 import { isFetchBaseQueryError } from '@/shared/lib/helpers'
-import { useTranslation } from '@/shared/lib/hooks'
 import { Button, Modal, Typography } from '@/shared/ui'
+import { LocaleType } from '@locales/en'
 
 import s from './DeletePhotoModal.module.scss'
+
 type Props = {
   isOpenDeletePhotoModal: boolean
   setIsOpenDeletePhotoModal: (isOpenDeletePhotoModal: boolean) => void
+  t: LocaleType['pages']['profile']['addProfilePhoto']
 }
-export const DeletePhotoModal = ({ isOpenDeletePhotoModal, setIsOpenDeletePhotoModal }: Props) => {
-  const { text } = useTranslation()
-  const t = text.pages.profile.addProfilePhoto
+export const DeletePhotoModal = ({
+  isOpenDeletePhotoModal,
+  setIsOpenDeletePhotoModal,
+  t,
+}: Props) => {
   const [deleteAvatar] = useDeleteAvatarMutation()
 
   const deletePhoto = () => {

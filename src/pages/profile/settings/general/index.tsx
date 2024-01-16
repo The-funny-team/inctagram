@@ -5,7 +5,7 @@ import { AddProfilePhoto } from '@/widgets/AddProfilePhoto'
 const GeneralPage = () => {
   const { data: userInfo } = useMeQuery()
 
-  const avatar = userInfo && userInfo.avatarUrl
+  const avatar = userInfo?.avatarUrl
 
   return (
     <div>

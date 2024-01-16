@@ -2,14 +2,14 @@ import React, { useState } from 'react'
 
 import { DeleteIcon } from '@/shared/assets/icons/DeleteIcon'
 import { useTranslation } from '@/shared/lib/hooks'
-import { BlankCover, Button } from '@/shared/ui'
-import { AddProfilePhotoModal } from '@/widgets/AddProfilePhoto/ui/AddProfilePhotoModal/AddProfilePhotoModal'
-import { DeletePhotoModal } from '@/widgets/AddProfilePhoto/ui/DeletePhotoModal/DeletePhotoModal'
-import Image from 'next/image'
+import { Avatar, BlankCover, Button } from '@/shared/ui'
 
 import s from './AddProfilePhoto.module.scss'
 
-type Props = { avatar: null | string | undefined }
+import { AddProfilePhotoModal } from './AddProfilePhotoModal/AddProfilePhotoModal'
+import { DeletePhotoModal } from './DeletePhotoModal/DeletePhotoModal'
+
+type Props = { avatar?: null | string }
 export const AddProfilePhoto = ({ avatar }: Props) => {
   const { text } = useTranslation()
   const t = text.pages.profile.addProfilePhoto
@@ -37,14 +37,7 @@ export const AddProfilePhoto = ({ avatar }: Props) => {
             <Button className={s.deleteIcon} onClick={openDeletePhotoModalHandler}>
               <DeleteIcon />
             </Button>
-            <Image
-              alt={'avatar'}
-              className={s.avatarPhoto}
-              height={192}
-              priority
-              src={avatar}
-              width={192}
-            />
+            <Avatar className={s.avatarPhoto} size={192} src={avatar} userName={'user avatar'} />
           </div>
         ) : (
           <BlankCover />
@@ -60,10 +53,12 @@ export const AddProfilePhoto = ({ avatar }: Props) => {
         setCurrentPhoto={setCurrentPhoto}
         setError={setError}
         setIsOpenAddPhotoModal={setIsOpenAddPhotoModal}
+        t={t}
       />
       <DeletePhotoModal
         isOpenDeletePhotoModal={isOpenDeletePhotoModal}
         setIsOpenDeletePhotoModal={setIsOpenDeletePhotoModal}
+        t={t}
       />
     </>
   )

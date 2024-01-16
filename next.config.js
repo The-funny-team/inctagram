@@ -1,11 +1,6 @@
 /** @type {import('next').NextConfig} */
 
 const nextConfig = {
-  reactStrictMode: true,
-}
-
-module.exports = {
-  ...nextConfig,
   i18n: {
     defaultLocale: 'en',
     locales: ['en', 'ru'],
@@ -14,4 +9,9 @@ module.exports = {
     domains: ['it-incubator.storage.yandexcloud.net'],
   },
   output: 'standalone',
+  reactStrictMode: true,
+}
+
+module.exports = {
+  ...nextConfig,
 }

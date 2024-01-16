@@ -5,8 +5,8 @@ import { toast } from 'react-toastify'
 import { useUpdateAvatarMutation } from '@/shared/api/profileApi'
 import { maxFileSize } from '@/shared/const'
 import { isFetchBaseQueryError } from '@/shared/lib/helpers'
-import { useTranslation } from '@/shared/lib/hooks'
 import { BlankCover, Button, Modal, Trans, Typography } from '@/shared/ui'
+import { LocaleType } from '@locales/en'
 import { clsx } from 'clsx'
 
 import s from './AddProfilePhotoModal.module.scss'
@@ -18,6 +18,7 @@ type Props = {
   setCurrentPhoto: (currentPhoto: File | null) => void
   setError: (error: string) => void
   setIsOpenAddPhotoModal: (isOpenAddPhotoModal: boolean) => void
+  t: LocaleType['pages']['profile']['addProfilePhoto']
 }
 
 export const AddProfilePhotoModal = ({
@@ -27,17 +28,17 @@ export const AddProfilePhotoModal = ({
   setCurrentPhoto,
   setError,
   setIsOpenAddPhotoModal,
+  t,
 }: Props) => {
-  const { text } = useTranslation()
-  const t = text.pages.profile.addProfilePhoto
   const editorRef = useRef<AvatarEditor>(null)
   const inputRef = useRef<HTMLInputElement>(null)
 
   const [updateAvatar] = useUpdateAvatarMutation()
+
   const selectPhoto = () => {
     inputRef && inputRef.current?.click()
   }
-  const onChangePhoto = (e: ChangeEvent<HTMLInputElement>) => {
+  const changePhotoHandler = (e: ChangeEvent<HTMLInputElement>) => {
     e.preventDefault()
     if (e.target.files && e.target.files.length > 0) {
       const file = e.target.files[0]
@@ -143,7 +144,7 @@ export const AddProfilePhotoModal = ({
         )}
         <input
           accept={'*/image, .png, .img, .jpg'}
-          onChange={onChangePhoto}
+          onChange={changePhotoHandler}
           ref={inputRef}
           style={{ display: 'none' }}
           type={'file'}
