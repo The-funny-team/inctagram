@@ -1,0 +1,9 @@
+import { ROUTES_URL } from '@/shared/const/routers'
+
+export const PUBLIC_PAGES = [
+  ROUTES_URL.FORGOT_PASSWORD,
+  ROUTES_URL.PRIVACY_POLICY,
+  ROUTES_URL.TERMS_OF_SERVICE,
+  ROUTES_URL.SIGN_UP,
+  ROUTES_URL.SIGN_IN,
+]
