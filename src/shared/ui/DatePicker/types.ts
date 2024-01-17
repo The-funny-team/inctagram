@@ -28,10 +28,10 @@ export type ButtonsPropsType = {
 
 export type PropsInputType = {
   className: string
-  defaultValue?: string
   id?: string
   onClick: () => void
   placeholder?: string
+  readonly: boolean
   type: string
   value: string
 }
