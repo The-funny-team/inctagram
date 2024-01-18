@@ -1,10 +1,8 @@
 import { getTabsLayout } from '@/shared/ui/TabsLayout'
 
-const ManagementPage = () => (
-  <div>
-    <p>Management Page</p>
-  </div>
-)
+const ManagementPage = () => {
+  return <p>Management Page</p>
+}
 
 ManagementPage.getLayout = getTabsLayout
 export default ManagementPage

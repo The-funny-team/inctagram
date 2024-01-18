@@ -1,10 +1,8 @@
-import { getWithNavbarLayout } from '@/shared/ui'
+import { getProtectedNavbarLayout } from '@/shared/ui'
 
-const ProfilePage = () => (
-  <div>
-    <h1>Profile Page</h1>
-  </div>
-)
+const ProfilePage = () => {
+  return <h1>Profile Page</h1>
+}
 
-ProfilePage.getLayout = getWithNavbarLayout
+ProfilePage.getLayout = getProtectedNavbarLayout
 export default ProfilePage

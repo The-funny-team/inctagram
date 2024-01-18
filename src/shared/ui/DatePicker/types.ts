@@ -33,5 +33,5 @@ export type PropsInputType = {
   placeholder?: string
   readonly: boolean
   type: string
-  value: string
+  value: string | string[]
 }

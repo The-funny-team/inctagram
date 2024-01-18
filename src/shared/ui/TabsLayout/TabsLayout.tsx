@@ -2,12 +2,12 @@ import { PropsWithChildren, ReactElement } from 'react'
 
 import { ROUTES_URL } from '@/shared/const'
 import { useTranslation } from '@/shared/lib/hooks'
-import { Tabs, WithNavbarLayout } from '@/shared/ui'
+import { ProtectedNavbarLayout, RootLayout, Tabs, WithNavbarLayout } from '@/shared/ui'
 import { NextPage } from 'next'
 
 import s from './TabsLayout.module.scss'
 
-type optionsTabsType = {
+type TabsOptions = {
   label: string
   value: string
 }
@@ -17,7 +17,7 @@ export const TabsLayout: NextPage<PropsWithChildren<{}>> = ({ children }) => {
   const t = text.pages.profile.settings
   const path = router.pathname
 
-  const optionsTabs: optionsTabsType[] = [
+  const optionsTabs: TabsOptions[] = [
     { label: t.general.title, value: ROUTES_URL.GENERAL_INFO },
     { label: t.devices.title, value: ROUTES_URL.DEVICES },
     { label: t.management.title, value: ROUTES_URL.ACCOUNT_MANAGEMENT },
@@ -38,8 +38,12 @@ export const TabsLayout: NextPage<PropsWithChildren<{}>> = ({ children }) => {
 
 export const getTabsLayout = (page: ReactElement) => {
   return (
-    <WithNavbarLayout>
-      <TabsLayout>{page}</TabsLayout>
-    </WithNavbarLayout>
+    <RootLayout>
+      <ProtectedNavbarLayout>
+        <WithNavbarLayout>
+          <TabsLayout>{page}</TabsLayout>
+        </WithNavbarLayout>
+      </ProtectedNavbarLayout>
+    </RootLayout>
   )
 }

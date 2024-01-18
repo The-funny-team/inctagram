@@ -1,5 +1,5 @@
 import { useTranslation } from '@/shared/lib/hooks'
-import { getRootLayout } from '@/shared/ui'
+import { getWithNavbarLayout } from '@/shared/ui'
 
 const Home = () => {
   const { text } = useTranslation()
@@ -7,5 +7,5 @@ const Home = () => {
   return <h1>{text.pages.home}</h1>
 }
 
-Home.getLayout = getRootLayout
+Home.getLayout = getWithNavbarLayout
 export default Home
