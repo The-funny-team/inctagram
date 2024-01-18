@@ -4,13 +4,30 @@ import {
   ArrowDownIcon,
   ArrowLeftIcon,
   BellNotifyIcon,
+  CalendarBtnLeftIcon,
+  CalendarBtnRightIcon,
+  CalendarIcon,
   CheckboxIcon,
+  CreateIcon,
   EyeOutlineIcon,
+  FavoritesIcon,
+  FilledCreateIcon,
+  FilledFavoritesIcon,
+  FilledHomeIcon,
+  FilledMessengerIcon,
+  FilledProfileIcon,
   GithubIcon,
   GoogleIcon,
+  HomeIcon,
+  LogOutIcon,
+  MessengerIcon,
+  PhotoIcon,
+  ProfileIcon,
   RecaptchaIcon,
   SearchOutlineIcon,
+  StatisticsIcon,
 } from '@/shared/assets'
+import { DeleteIcon } from '@/shared/assets/icons/DeleteIcon'
 
 import { IconsList } from './IconsList'
 
@@ -109,6 +126,174 @@ export const BellNotify: Story = {
     children: (
       <>
         <BellNotifyIcon />
+      </>
+    ),
+  },
+}
+
+export const CalendarBtnLeft: Story = {
+  args: {
+    children: (
+      <>
+        <CalendarBtnLeftIcon />
+      </>
+    ),
+  },
+}
+
+export const CalendarBtnRight: Story = {
+  args: {
+    children: (
+      <>
+        <CalendarBtnRightIcon />
+      </>
+    ),
+  },
+}
+
+export const CalendarImg: Story = {
+  args: {
+    children: (
+      <>
+        <CalendarIcon />
+      </>
+    ),
+  },
+}
+
+export const Home: Story = {
+  args: {
+    children: (
+      <>
+        <HomeIcon />
+      </>
+    ),
+  },
+}
+
+export const FilledHome: Story = {
+  args: {
+    children: (
+      <>
+        <FilledHomeIcon />
+      </>
+    ),
+  },
+}
+
+export const Create: Story = {
+  args: {
+    children: (
+      <>
+        <CreateIcon />
+      </>
+    ),
+  },
+}
+
+export const FilledCreate: Story = {
+  args: {
+    children: (
+      <>
+        <FilledCreateIcon />
+      </>
+    ),
+  },
+}
+
+export const Profile: Story = {
+  args: {
+    children: (
+      <>
+        <ProfileIcon />
+      </>
+    ),
+  },
+}
+
+export const FilledProfile: Story = {
+  args: {
+    children: (
+      <>
+        <FilledProfileIcon />
+      </>
+    ),
+  },
+}
+
+export const Messenger: Story = {
+  args: {
+    children: (
+      <>
+        <MessengerIcon />
+      </>
+    ),
+  },
+}
+
+export const FilledMessenger: Story = {
+  args: {
+    children: (
+      <>
+        <FilledMessengerIcon />
+      </>
+    ),
+  },
+}
+
+export const Statistics: Story = {
+  args: {
+    children: (
+      <>
+        <StatisticsIcon />
+      </>
+    ),
+  },
+}
+
+export const Favorites: Story = {
+  args: {
+    children: (
+      <>
+        <FavoritesIcon />
+      </>
+    ),
+  },
+}
+
+export const FilledFavorites: Story = {
+  args: {
+    children: (
+      <>
+        <FilledFavoritesIcon />
+      </>
+    ),
+  },
+}
+
+export const LogOut: Story = {
+  args: {
+    children: (
+      <>
+        <LogOutIcon />
+      </>
+    ),
+  },
+}
+export const PhotoOutline: Story = {
+  args: {
+    children: (
+      <>
+        <PhotoIcon />
+      </>
+    ),
+  },
+}
+export const DeletePhoto: Story = {
+  args: {
+    children: (
+      <>
+        <DeleteIcon />
       </>
     ),
   },

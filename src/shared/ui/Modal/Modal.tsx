@@ -12,17 +12,18 @@ import styles from './Modal.module.scss'
 
 type Props = {
   children?: ReactNode
+  className?: string
   isOpen: boolean
   onIsOpenChange: (event: any) => void
   title: string
 }
 
-export const Modal: FC<Props> = ({ children, isOpen, onIsOpenChange, title }: Props) => {
+export const Modal: FC<Props> = ({ children, className, isOpen, onIsOpenChange, title }: Props) => {
   return (
     <Dialog.Root onOpenChange={onIsOpenChange} open={isOpen}>
       <Dialog.Portal>
         <Dialog.Overlay className={styles.dialogOverlay} />
-        <Dialog.Content className={clsx(styles.dialogContent, inter.className)}>
+        <Dialog.Content className={clsx(styles.dialogContent, inter.className, className)}>
           <div className={styles.dialogHeader}>
             <Dialog.Title className={styles.dialogTitle}>{title}</Dialog.Title>
             <Dialog.Close asChild>

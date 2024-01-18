@@ -1,11 +1,38 @@
 import { LocaleType } from './en'
 
 export const ru: LocaleType = {
+  calendar: {
+    months: [
+      'Январь',
+      'Февраль',
+      'Март',
+      'Апрель',
+      'Май',
+      'Июнь',
+      'Июль',
+      'Август',
+      'Сентябрь',
+      'Октябрь',
+      'Ноябрь',
+      'Декабрь',
+    ],
+    weekDays: ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'],
+  },
   layout: {
     header: {
       signInBtn: 'Войти',
       signUpBtn: 'Регистрация',
     },
+  },
+  navBar: {
+    create: 'Создать',
+    favorites: 'Избранное',
+    home: 'Главная',
+    logOut: 'Выйти',
+    messenger: 'Мессенджер',
+    profile: 'Мой профиль',
+    search: 'Поиск',
+    statistics: 'Статистика',
   },
   pages: {
     confirmedEmail: {
@@ -59,6 +86,39 @@ export const ru: LocaleType = {
         'A diam maecenas sed enim ut. Fermentum et sollicitudin ac orci phasellus. Tincidunt vitae semper quis lectus nulla. Tincidunt dui ut ornare lectus sit amet est. Sed enim ut sem viverra aliquet eget sit. Eu augue ut lectus arcu bibendum at varius. Suspendisse sed nisi lacus sed viverra tellus in hac habitasse. Donec ultrices tincidunt arcu non sodales neque sodales ut etiam. Varius vel pharetra vel turpis nunc eget lorem dolor. Arcu odio ut sem nulla pharetra. Bibendum neque egestas congue quisque. Facilisis volutpat est velit egestas dui. Orci nulla pellentesque dignissim enim sit amet. Mauris vitae ultricies leo integer malesuada nunc vel risus commodo. Odio ut enim blandit volutpat maecenas volutpat blandit.\n' +
         'Eu mi bibendum neque egestas congue quisque egestas diam in. Neque viverra justo nec ultrices dui sapien. Congue mauris rhoncus aenean vel elit. Vitae aliquet nec ullamcorper sit. Tempus imperdiet nulla malesuada pellentesque. Sed lectus vestibulum mattis ullamcorper velit. Commodo odio aenean sed adipiscing diam. Viverra nam libero justo laoreet. Id neque aliquam vestibulum morbi blandit cursus. Vel facilisis volutpat est velit egestas dui id ornare. Feugiat nibh sed pulvinar proin.',
       title: 'Политика Конфидециальности',
+    },
+    profile: {
+      addProfilePhoto: {
+        addPhoto: 'Добавить фото профиля',
+        deletePhoto: 'Удалить фото',
+        deletePhotoQuestion: 'Вы уверены, что хотите удалить фото?',
+        errorText: {
+          description: `<1>error</1> <2>terms</2>`,
+          error: 'Ошибка!',
+          getDescription: (message: string) => `${message}`,
+          sizeError: 'Размер фото должен быть менее 10 МБ',
+          typeError: 'Формат загружаемой фотографии должен быть PNG или JPEG',
+        },
+        noButton: 'Нет',
+        savePhoto: 'Сохранить',
+        selectPhoto: 'Выберите фото',
+        yesButton: 'Да',
+      },
+
+      settings: {
+        devices: {
+          title: 'Устройства',
+        },
+        general: {
+          title: 'Общая информация',
+        },
+        management: {
+          title: 'Управление аккаунтом',
+        },
+        payments: {
+          title: 'Мои платежи',
+        },
+      },
     },
     signIn: {
       emailLabel: 'Электронная почта',

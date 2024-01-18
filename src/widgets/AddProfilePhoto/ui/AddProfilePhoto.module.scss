@@ -1,0 +1,42 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: center;
+
+  width: 250px;
+  padding: 24px;
+
+  .avatar {
+    position: relative;
+    width: 192px;
+    height: 192px;
+    border-radius: 50%;
+
+    .avatarPhoto {
+      border-radius: 50%;
+    }
+
+    .deleteIcon {
+      position: absolute;
+      top: 8px;
+      left: 68px;
+
+      padding: 0;
+
+      background: transparent;
+    }
+  }
+
+  .avatarButton {
+    width: auto;
+    max-height: 36px;
+    white-space: nowrap
+  }
+}
+
+
+
+
+
+

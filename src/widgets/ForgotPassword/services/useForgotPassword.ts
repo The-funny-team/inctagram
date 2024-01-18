@@ -14,7 +14,7 @@ export const useForgotPassword = () => {
       pages: { forgotPassword: transcription },
     },
   } = useTranslation()
-  const [isChecked, setIsChecked] = useState(false)
+  const [captcha, setCaptcha] = useState<null | string>(null)
   const [isOpenModal, setIsOpenModal] = useState(false)
   const {
     control,
@@ -30,17 +30,17 @@ export const useForgotPassword = () => {
     resolver: zodResolver(forgotPasswordSchema(transcription)),
   })
 
-  const isDisabled = !(isValid && isChecked)
+  const isDisabled = !(isValid && captcha)
 
   return {
+    captcha,
     control,
     getValues,
     handleSubmit,
-    isChecked,
     isDisabled,
     isOpenModal,
+    setCaptcha,
     setError,
-    setIsChecked,
     setIsOpenModal,
     transcription,
   }
