@@ -8,14 +8,16 @@ import s from './WithNavbarLayout.module.scss'
 
 export const WithNavbarLayout: NextPage<PropsWithChildren<any>> = ({ children }) => {
   return (
-    <RootLayout>
-      <div className={s.main}>
-        <NavBar />
-        {children}
-      </div>
-    </RootLayout>
+    <div className={s.main}>
+      <NavBar />
+      {children}
+    </div>
   )
 }
 export const getWithNavbarLayout = (page: ReactElement) => {
-  return <WithNavbarLayout>{page}</WithNavbarLayout>
+  return (
+    <RootLayout>
+      <WithNavbarLayout>{page}</WithNavbarLayout>
+    </RootLayout>
+  )
 }
