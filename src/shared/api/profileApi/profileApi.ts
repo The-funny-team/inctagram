@@ -7,7 +7,7 @@ export const profileApi = baseApi.injectEndpoints({
       invalidatesTags: ['Me'],
       query: () => ({
         headers: { Authorization: `Bearer ${loadFromLocalStorage('accessToken', '')}` },
-        method: 'POST',
+        method: 'DELETE',
         url: '/user/avatar',
       }),
     }),
@@ -29,7 +29,7 @@ export const profileApi = baseApi.injectEndpoints({
         return {
           body: formData,
           headers: { Authorization: `Bearer ${loadFromLocalStorage('accessToken', '')}` },
-          method: 'DELETE',
+          method: 'POST',
           url: '/user/avatar',
         }
       },

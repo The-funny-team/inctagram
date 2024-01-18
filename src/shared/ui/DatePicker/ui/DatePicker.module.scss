@@ -47,10 +47,6 @@
         outline: 1px solid var(--color-danger-500);
       }
     }
-
-    &.range {
-      width: 270px;
-    }
   }
 
   span {
@@ -67,6 +63,7 @@
   position: absolute;
   top: 50%;
   right: 12px;
+  transform: translateY(-50%);
 
   width: 24px;
   height: 24px;
@@ -221,4 +218,8 @@
 
   background-color: var(--color-dark-100);
   border-radius: 50%;
+}
+
+.datePickContainer > div {
+  display: block !important;
 }
