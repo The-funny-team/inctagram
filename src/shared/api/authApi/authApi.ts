@@ -70,6 +70,7 @@ const authApi = baseApi.injectEndpoints({
       }),
     }),
     signIn: builder.mutation<SignInResponseType, SignInRequestType>({
+      invalidatesTags: ['Me'],
       query: body => ({
         body,
         method: 'POST',
