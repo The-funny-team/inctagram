@@ -280,7 +280,6 @@ export const LogOut: Story = {
     ),
   },
 }
-
 export const PhotoOutline: Story = {
   args: {
     children: (
