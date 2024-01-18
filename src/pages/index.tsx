@@ -1,16 +1,11 @@
 import { useTranslation } from '@/shared/lib/hooks'
-import { getRootLayout } from '@/shared/ui'
-import { PublicPage } from '@/shared/ui/PublicPage'
+import { getWithNavbarLayout } from '@/shared/ui'
 
 const Home = () => {
   const { text } = useTranslation()
 
-  return (
-    <PublicPage>
-      <h1>{text.pages.home}</h1>
-    </PublicPage>
-  )
+  return <h1>{text.pages.home}</h1>
 }
 
-Home.getLayout = getRootLayout
+Home.getLayout = getWithNavbarLayout
 export default Home

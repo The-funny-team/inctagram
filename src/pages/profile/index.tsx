@@ -1,13 +1,8 @@
-import { getWithNavbarLayout } from '@/shared/ui'
-import { ProtectedPage } from '@/shared/ui/ProtectedPage'
+import { getProtectedNavbarLayout } from '@/shared/ui'
 
 const ProfilePage = () => {
-  return (
-    <ProtectedPage>
-      <h1>Profile Page</h1>
-    </ProtectedPage>
-  )
+  return <h1>Profile Page</h1>
 }
 
-ProfilePage.getLayout = getWithNavbarLayout
+ProfilePage.getLayout = getProtectedNavbarLayout
 export default ProfilePage

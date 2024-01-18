@@ -1,12 +1,7 @@
-import { ProtectedPage } from '@/shared/ui/ProtectedPage'
 import { getTabsLayout } from '@/shared/ui/TabsLayout'
 
 const GeneralPage = () => {
-  return (
-    <ProtectedPage>
-      <p>General Info Page</p>
-    </ProtectedPage>
-  )
+  return <p>General Info Page</p>
 }
 
 GeneralPage.getLayout = getTabsLayout
