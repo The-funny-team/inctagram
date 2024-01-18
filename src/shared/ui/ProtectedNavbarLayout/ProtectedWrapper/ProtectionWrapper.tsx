@@ -5,7 +5,7 @@ import { ROUTES_URL } from '@/shared/const'
 import { Loader } from '@/shared/ui'
 import { useRouter } from 'next/router'
 
-export const ProtectedPage = ({ children }: PropsWithChildren<{}>) => {
+export const ProtectionWrapper = ({ children }: PropsWithChildren<{}>) => {
   const { data, isLoading } = useMeQuery()
   const router = useRouter()
 
@@ -13,7 +13,7 @@ export const ProtectedPage = ({ children }: PropsWithChildren<{}>) => {
     return <Loader />
   }
 
-  if (data == null && !isLoading) {
+  if (!data) {
     void router.push(ROUTES_URL.SIGN_IN)
 
     return null
