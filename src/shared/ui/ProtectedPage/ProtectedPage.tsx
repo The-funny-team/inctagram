@@ -13,7 +13,7 @@ export const ProtectedPage = ({ children }: PropsWithChildren<{}>) => {
     return <Loader />
   }
 
-  if (data == null) {
+  if (data == null && !isLoading) {
     void router.push(ROUTES_URL.SIGN_IN)
 
     return null
