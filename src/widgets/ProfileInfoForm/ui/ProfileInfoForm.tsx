@@ -1,16 +1,12 @@
 import { Controller, useForm } from 'react-hook-form'
 
-import { Input, Select } from '@/shared/ui'
+import { COUNTRIES_LIST } from '@/shared/const'
+import { Input, Select, TextField } from '@/shared/ui'
 import { DatePicker } from '@/shared/ui/DatePicker'
 
 import s from './ProfileInfoForm.module.scss'
 
-import { useProfileData } from '../services'
-
-const countriesOptions: any[] = [
-  { title: 'Belarus', value: 'belarus' },
-  { title: 'Russia', value: 'russia' },
-]
+import { useProfileData, useProfileForm } from '../services'
 
 const citiesOptions: any[] = [
   { title: 'Minsk', value: 'minsk' },
@@ -18,19 +14,25 @@ const citiesOptions: any[] = [
 ]
 
 export const ProfileInfoForm = () => {
-  const { formData } = useProfileData()
-  const { control } = useForm()
+  const { formData, formErrorsText, formText } = useProfileData()
+  const {
+    control,
+    formState: { errors },
+    handleSubmit,
+    setValue,
+    watch,
+  } = useProfileForm(formData, formErrorsText)
 
   return (
     <form className={s.form}>
       <Controller
         control={control}
-        name={'userName'}
+        name={'username'}
         render={({ field, fieldState: { error } }) => (
           <Input
-            // className={classNames.formInput(error?.message)}
+            className={error && s.formFieldWithError}
             error={error?.message}
-            label={'Username*'}
+            label={formText.userNameLabel}
             type={'text'}
             {...field}
           />
@@ -41,9 +43,9 @@ export const ProfileInfoForm = () => {
         name={'firstName'}
         render={({ field, fieldState: { error } }) => (
           <Input
-            // className={classNames.formInput(error?.message)}
+            className={error && s.formFieldWithError}
             error={error?.message}
-            label={'First Name*'}
+            label={formText.firstNameLabel}
             type={'text'}
             {...field}
           />
@@ -54,9 +56,9 @@ export const ProfileInfoForm = () => {
         name={'lastName'}
         render={({ field, fieldState: { error } }) => (
           <Input
-            // className={classNames.formInput(error?.message)}
+            className={error && s.formFieldWithError}
             error={error?.message}
-            label={'Last Name*'}
+            label={formText.lastNameLabel}
             type={'text'}
             {...field}
           />
@@ -65,14 +67,16 @@ export const ProfileInfoForm = () => {
       <Controller
         control={control}
         name={'dateOfBirth'}
-        render={({ field, fieldState: { error } }) => (
-          <DatePicker
-            error={error?.message}
-            onChange={field.onChange}
-            placeholder={'Date of birth'}
-            value={field.value}
-          />
-        )}
+        render={({ field, fieldState: { error } }) => {
+          return (
+            <DatePicker
+              error={error?.message}
+              onChange={field.onChange}
+              placeholder={formText.dateOfBirth}
+              value={field.value ? new Date(field.value).toString() : ''} // TODO what is value
+            />
+          )
+        }}
       />
 
       <div className={s.selectWrapper}>
@@ -82,9 +86,10 @@ export const ProfileInfoForm = () => {
             name={'country'}
             render={({ field, fieldState: { error } }) => (
               <Select
-                label={'Select your country'}
-                options={countriesOptions}
-                placeholder={'Country'}
+                label={formText.countrySelectLabel}
+                options={COUNTRIES_LIST}
+                placeholder={formText.countrySelectPlaceholder}
+                value={field.value}
               />
             )}
           />
@@ -94,12 +99,28 @@ export const ProfileInfoForm = () => {
             control={control}
             name={'city'}
             render={({ field, fieldState: { error } }) => (
-              <Select label={'Select your city'} options={citiesOptions} placeholder={'City'} />
+              <Select
+                label={formText.citySelectLabel}
+                options={citiesOptions}
+                placeholder={formText.citySelectPlaceholder}
+                value={field.value}
+              />
             )}
           />
         </div>
       </div>
-      {/*<TextField fullWidth label={'About me'} />*/}
+      <Controller
+        control={control}
+        name={'aboutMe'}
+        render={({ field, fieldState: { error } }) => (
+          <TextField
+            error={error?.message}
+            label={formText.textFieldLabel}
+            onChange={field.onChange}
+            value={field.value}
+          />
+        )}
+      />
     </form>
   )
 }
