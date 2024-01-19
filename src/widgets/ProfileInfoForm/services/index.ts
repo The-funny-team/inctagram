@@ -1,0 +1,1 @@
+export { useProfileData } from './useProfileData'
