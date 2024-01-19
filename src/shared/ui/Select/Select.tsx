@@ -1,4 +1,4 @@
-import { ElementRef, ReactElement, forwardRef } from 'react'
+import { ElementRef, ReactElement, ReactNode, forwardRef } from 'react'
 
 import { ArrowDownIcon } from '@/shared/assets'
 import * as SelectRadix from '@radix-ui/react-select'
@@ -11,6 +11,7 @@ const inter = Inter({ subsets: ['latin'] })
 import s from './Select.module.scss'
 
 type Props = {
+  children?: ReactNode
   disabled?: boolean
   label?: string
   name?: string
@@ -21,7 +22,7 @@ type Props = {
 }
 
 export const Select = forwardRef<ElementRef<typeof SelectRadix.Trigger>, Props>(
-  ({ disabled, label, name, onValueChange, options, placeholder, value }, ref) => {
+  ({ children, disabled, label, name, onValueChange, options, placeholder, value }, ref) => {
     return (
       <div>
         {label && (
@@ -45,13 +46,15 @@ export const Select = forwardRef<ElementRef<typeof SelectRadix.Trigger>, Props>(
           <SelectRadix.Portal>
             <SelectRadix.Content position={'popper'} sideOffset={-1}>
               <SelectRadix.Viewport className={clsx(s.viewport, inter.className)}>
-                {options.map(el => (
-                  <SelectRadix.Item className={clsx(s.item)} key={el.value} value={el.value}>
-                    <SelectRadix.ItemText asChild>
-                      <span className={clsx(s.itemText)}>{el.label}</span>
-                    </SelectRadix.ItemText>
-                  </SelectRadix.Item>
-                ))}
+                {children && children}
+                {!children &&
+                  options.map(el => (
+                    <SelectRadix.Item className={clsx(s.item)} key={el.value} value={el.value}>
+                      <SelectRadix.ItemText asChild>
+                        <span className={clsx(s.itemText)}>{el.label}</span>
+                      </SelectRadix.ItemText>
+                    </SelectRadix.Item>
+                  ))}
               </SelectRadix.Viewport>
             </SelectRadix.Content>
           </SelectRadix.Portal>
