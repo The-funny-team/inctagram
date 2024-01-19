@@ -37,6 +37,7 @@ export const TextField = forwardRef<HTMLTextAreaElement, Props>((props, ref) => 
         id={label}
         onChange={onChangeHandler}
         ref={ref}
+        value={value}
         {...rest}
       ></textarea>
       {error && <span className={classNames.errorMessage}>{error}</span>}
