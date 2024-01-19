@@ -18,9 +18,10 @@ const userProfileSchema = (t: ErrorsTextProps) =>
         .string()
         .trim()
         .max(200, t.maxAboutMeLength)
-        .regex(ABOUT_ME_PATTERN, t.aboutMeRegex),
-      city: z.string(),
-      country: z.string(),
+        .regex(ABOUT_ME_PATTERN, t.aboutMeRegex)
+        .optional(),
+      city: z.string().optional(),
+      country: z.string().optional(),
       dateOfBirth: z.date().optional(),
       firstName: z
         .string()
