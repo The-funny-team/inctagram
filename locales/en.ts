@@ -129,6 +129,10 @@ export const en = {
         minUserNameLength: 'Minimum number of characters 6',
         userNameRegex: 'Username may contain 0-9, a-z A-Z, _, -',
       },
+      profileNotifications: {
+        errorSave: 'Error! Server is not available!',
+        successfulSave: 'Your settings are saved!',
+      },
       settings: {
         devices: {
           title: 'Devices',

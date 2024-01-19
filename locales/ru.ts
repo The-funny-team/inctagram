@@ -131,6 +131,10 @@ export const ru: LocaleType = {
         minUserNameLength: 'Минимальное количество символов 6',
         userNameRegex: 'Имя пользователя может быть из символов 0-9, a-z A-Z, _, -',
       },
+      profileNotifications: {
+        errorSave: 'Ошибка! Сервер недоступен!',
+        successfulSave: 'Ваши настройки сохранены!',
+      },
       settings: {
         devices: {
           title: 'Устройства',
