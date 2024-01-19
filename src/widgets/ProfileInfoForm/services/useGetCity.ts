@@ -1,11 +1,13 @@
 import { useEffect, useRef } from 'react'
+import { toast } from 'react-toastify'
 
 import { useGetCitiesMutation } from '@/shared/api/citiesApi'
+import { isFetchBaseQueryError } from '@/shared/lib/helpers'
 
 import { UserProfileFormValuesType } from './useProfileForm'
 
 type Props = {
-  country: string
+  country: string | undefined
   setValue: (name: keyof UserProfileFormValuesType, value: string) => void
 }
 
@@ -23,7 +25,16 @@ export const useGetCity = ({ country, setValue }: Props) => {
       renderCount.current += 1
     }
 
-    getCitiesByCountry({ country })
+    country &&
+      getCitiesByCountry({ country })
+        .unwrap()
+        .catch(error => {
+          if (isFetchBaseQueryError(error)) {
+            toast.error(error.data.message as string)
+          } else {
+            toast.error('Failed to load list of cities')
+          }
+        })
   }, [country])
 
   return { citiesLoading, citiesOptions }
