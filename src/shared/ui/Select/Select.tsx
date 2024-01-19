@@ -23,6 +23,8 @@ type Props = {
 
 export const Select = forwardRef<ElementRef<typeof SelectRadix.Trigger>, Props>(
   ({ children, disabled, label, name, onValueChange, options, placeholder, value }, ref) => {
+    const selectedItem = options.find(el => el.value === value)
+
     return (
       <div>
         {label && (
@@ -37,7 +39,9 @@ export const Select = forwardRef<ElementRef<typeof SelectRadix.Trigger>, Props>(
           value={value}
         >
           <SelectRadix.Trigger className={clsx(s.trigger)} id={label} ref={ref} tabIndex={0}>
-            <SelectRadix.Value placeholder={placeholder} />
+            <SelectRadix.Value className={s.value} placeholder={placeholder}>
+              {selectedItem?.label || placeholder}
+            </SelectRadix.Value>
             <SelectRadix.Icon className={clsx(s.icon)}>
               <ArrowDownIcon />
             </SelectRadix.Icon>
