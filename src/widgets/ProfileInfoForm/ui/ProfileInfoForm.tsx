@@ -1,7 +1,7 @@
 import { Controller, useForm } from 'react-hook-form'
 
 import { COUNTRIES_LIST } from '@/shared/const'
-import { Input, Select, TextField } from '@/shared/ui'
+import { Button, Input, Select, TextField } from '@/shared/ui'
 import { DatePicker } from '@/shared/ui/DatePicker'
 
 import s from './ProfileInfoForm.module.scss'
@@ -121,6 +121,9 @@ export const ProfileInfoForm = () => {
           />
         )}
       />
+      <Button className={s.saveButton} fullWidth={false}>
+        {formText.saveFormButton}
+      </Button>
     </form>
   )
 }
