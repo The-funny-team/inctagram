@@ -5,6 +5,8 @@ import { DatePicker } from '@/shared/ui/DatePicker'
 
 import s from './ProfileInfoForm.module.scss'
 
+import { useProfileData } from '../services'
+
 const countriesOptions: any[] = [
   { title: 'Belarus', value: 'belarus' },
   { title: 'Russia', value: 'russia' },
@@ -16,7 +18,7 @@ const citiesOptions: any[] = [
 ]
 
 export const ProfileInfoForm = () => {
-  // const { control } = useForm()
+  const { formData } = useProfileData()
   const { control } = useForm()
 
   return (
