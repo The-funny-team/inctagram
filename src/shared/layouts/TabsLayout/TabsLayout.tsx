@@ -1,8 +1,9 @@
 import { PropsWithChildren, ReactElement } from 'react'
 
 import { ROUTES_URL } from '@/shared/const'
+import { NavbarLayout, ProtectedNavbarLayout, RootLayout } from '@/shared/layouts'
 import { useTranslation } from '@/shared/lib/hooks'
-import { NavbarLayout, ProtectedNavbarLayout, RootLayout, Tabs } from '@/shared/ui'
+import { Tabs } from '@/shared/ui'
 import { NextPage } from 'next'
 
 import s from './TabsLayout.module.scss'

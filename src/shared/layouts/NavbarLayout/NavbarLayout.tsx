@@ -1,6 +1,6 @@
 import React, { PropsWithChildren, ReactElement } from 'react'
 
-import { RootLayout } from '@/shared/ui'
+import { RootLayout } from '@/shared/layouts'
 import { NavBar } from '@/widgets/NavBar'
 import { NextPage } from 'next'
 
