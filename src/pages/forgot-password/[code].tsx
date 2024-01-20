@@ -3,6 +3,7 @@ import { toast } from 'react-toastify'
 
 import { usePasswordRecoveryResendingMutation } from '@/shared/api/authApi'
 import { getRootLayout } from '@/shared/ui'
+import { HeadMeta } from '@/shared/ui/HeadMeta'
 import { CreateNewPassword } from '@/widgets/CreateNewPassword'
 import { ExpiredLink } from '@/widgets/ExpiredLink'
 import { useRouter } from 'next/router'
@@ -23,6 +24,7 @@ const CreateNewPasswordPage = () => {
 
   return (
     <>
+      <HeadMeta title={'Forgot Password'} />
       {!recoveryError ? (
         <CreateNewPassword code={code} setRecoveryErrorHandler={setRecoveryError} />
       ) : (

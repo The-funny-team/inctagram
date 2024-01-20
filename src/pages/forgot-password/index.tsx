@@ -1,13 +1,17 @@
 import { getRootLayout } from '@/shared/ui'
+import { HeadMeta } from '@/shared/ui/HeadMeta'
 import { ForgotPassword } from '@/widgets/ForgotPassword'
 
 import s from './ForgotPasswordPage.module.scss'
 
 const ForgotPasswordPage = () => {
   return (
-    <div className={s.root}>
-      <ForgotPassword />
-    </div>
+    <>
+      <HeadMeta title={'Forgot Password'} />
+      <div className={s.root}>
+        <ForgotPassword />
+      </div>
+    </>
   )
 }
 
