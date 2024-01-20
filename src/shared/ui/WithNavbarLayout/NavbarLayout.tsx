@@ -4,9 +4,9 @@ import { RootLayout } from '@/shared/ui'
 import { NavBar } from '@/widgets/NavBar'
 import { NextPage } from 'next'
 
-import s from './WithNavbarLayout.module.scss'
+import s from './NavbarLayout.module.scss'
 
-export const WithNavbarLayout: NextPage<PropsWithChildren<any>> = ({ children }) => {
+export const NavbarLayout: NextPage<PropsWithChildren<any>> = ({ children }) => {
   return (
     <div className={s.main}>
       <NavBar />
@@ -14,10 +14,10 @@ export const WithNavbarLayout: NextPage<PropsWithChildren<any>> = ({ children })
     </div>
   )
 }
-export const getWithNavbarLayout = (page: ReactElement) => {
+export const getNavbarLayout = (page: ReactElement) => {
   return (
     <RootLayout>
-      <WithNavbarLayout>{page}</WithNavbarLayout>
+      <NavbarLayout>{page}</NavbarLayout>
     </RootLayout>
   )
 }
