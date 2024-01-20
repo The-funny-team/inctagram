@@ -123,7 +123,7 @@ export const AddProfilePhotoModal = ({
                   tags={{
                     1: () => (
                       <Typography as={'span'} variant={'boldText14'}>
-                        {t.errorText.error}{' '}
+                        {t.errorText.error}
                       </Typography>
                     ),
                     2: () => (
