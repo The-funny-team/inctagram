@@ -1,1 +1,1 @@
-export * from './WithNavbarLayout'
+export * from './NavbarLayout'
