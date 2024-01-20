@@ -1,130 +1,135 @@
-import DatePick, { DateObject } from 'react-multi-date-picker'
+import React, { ComponentProps, forwardRef } from 'react'
+import * as RDP from 'react-datepicker'
+import { registerLocale } from 'react-datepicker'
 
-import { CalendarBtnLeftIcon, CalendarBtnRightIcon } from '@/shared/assets'
-import { CalendarIcon } from '@/shared/assets/icons/CalendarIcon'
 import { useTranslation } from '@/shared/lib/hooks'
-import { mapDays } from '@/shared/ui/DatePicker/services/mapDays'
-import { dateRangeParser } from '@/shared/ui/DatePicker/services/parseDate'
-import { ButtonsPropsType, DatePickerType, PropsInputType } from '@/shared/ui/DatePicker/types'
 import { clsx } from 'clsx'
+import { getYear } from 'date-fns'
+import { ru } from 'date-fns/locale'
+import { range } from 'lodash'
+
+import 'react-datepicker/dist/react-datepicker.min.css'
 
 import s from './DatePicker.module.scss'
 
-export function DatePicker<T extends boolean = false>({
-  error,
-  format = 'DD/MM/YYYY',
-  label,
-  onChange,
-  placeholder = '00/00/0000',
-  rangeMode = false as T,
-  value,
-  ...otherProps
-}: DatePickerType<T>) {
-  const { text } = useTranslation()
-  const t = text.calendar
-  const dateChangeHandler = (date: DateObject | DateObject[]) => {
-    onChange(dateRangeParser(rangeMode, date))
+export type DatePickerProps = {
+  disabled?: boolean
+  endDate?: Date | null
+  error?: string
+  label?: string
+  placeholder?: string
+  setEndDate?: (date: Date | null) => void
+  setStartDate: (date: Date | null) => void
+  startDate: Date | null
+} & ComponentProps<'div'>
+
+registerLocale('ru', ru)
+
+const RDPC = (((RDP.default as any).default as any) ||
+  (RDP.default as any) ||
+  (RDP as any)) as typeof RDP.default
+
+export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>(
+  (
+    {
+      className,
+      disabled,
+      endDate,
+      error,
+      label,
+      placeholder,
+      setEndDate,
+      setStartDate,
+      startDate,
+      ...rest
+    },
+    ref
+  ) => {
+    const isRange = endDate !== undefined
+
+    const { router, text } = useTranslation()
+    const t = text.calendar
+
+    const classNames = {
+      calendar: s.calendar,
+      day: () => s.day,
+      errorText: s.errorText,
+      input: clsx(s.input),
+      popper: s.popper,
+      root: clsx(s.root, className),
+    }
+
+    const locale = router.locale
+    const years = range(1900, getYear(new Date()) + 1, 1)
+    const months = t.months
+
+    const DatePickerHandler = (dates: [Date | null, Date | null] | Date | null) => {
+      if (Array.isArray(dates)) {
+        const [start, end] = dates
+
+        setStartDate(start)
+        setEndDate?.(end)
+      } else {
+        setStartDate(dates)
+      }
+      console.log(dates)
+    }
+
+    return (
+      <div className={classNames.root} {...rest}>
+        <RDPC
+          calendarClassName={classNames.calendar}
+          calendarStartDay={1}
+          className={classNames.input}
+          closeOnScroll={e => e.target === document}
+          customInput={<CustomInput />}
+          dateFormat={'dd/MM/yyyy'}
+          dayClassName={classNames.day}
+          disabled={disabled}
+          endDate={endDate}
+          formatWeekDay={formatWeekDay}
+          locale={locale}
+          onChange={DatePickerHandler}
+          placeholderText={placeholder}
+          popperClassName={classNames.popper}
+          renderCustomHeader={({
+            changeMonth,
+            changeYear,
+            date,
+            decreaseMonth,
+            increaseMonth,
+            monthDate,
+            ...rest
+          }) => (
+            <CustomHeader
+              changeMonth={changeMonth}
+              changeYear={changeYear}
+              date={date}
+              decreaseMonth={decreaseMonth}
+              increaseMonth={increaseMonth}
+              monthDate={monthDate}
+              months={months}
+              years={years}
+              {...rest}
+            />
+          )}
+          selected={startDate}
+          selectsRange={isRange}
+          showPopperArrow={false}
+          showYearPicker={false}
+          startDate={startDate}
+        />
+        {error && <span className={s.errorMessage}>{error}</span>}
+      </div>
+    )
   }
+)
 
-  const classNames = {
-    errorMessage: clsx(s.errorMessage),
-    icon: clsx(s.customInputIcon, error && s.error),
-    input: clsx(s.input, error && s.error, rangeMode && s.range),
-    inputWrapper: clsx(s.inputWrapper),
-    label: clsx(s.label),
-  }
+const regExp = /о|е|у|я|\$/g
 
-  return (
-    <div className={s.datePickContainer}>
-      <DatePick
-        arrow={false}
-        className={`${s.datePicker} ${s.bgDark}`}
-        dateSeparator={' - '}
-        format={format}
-        headerOrder={['MONTH_YEAR', 'LEFT_BUTTON', 'RIGHT_BUTTON']}
-        mapDays={mapDays}
-        months={t.months}
-        multiple={false}
-        onChange={dateChangeHandler}
-        range={rangeMode}
-        render={(stringDate, openCalendar) => {
-          return (
-            <div>
-              {label && (
-                <label className={classNames.label} htmlFor={label}>
-                  {label}
-                </label>
-              )}
-              <div className={s.inputWrapper}>
-                <div className={classNames.icon} onClick={openCalendar}>
-                  <CalendarIcon />
-                </div>
-                <DatePickerInput
-                  className={classNames.input}
-                  id={label}
-                  onClick={openCalendar}
-                  placeholder={placeholder}
-                  readonly
-                  type={'text'}
-                  value={stringDate}
-                />
-                {error && <span className={classNames.errorMessage}>{error}</span>}
-              </div>
-            </div>
-          )
-        }}
-        renderButton={
-          <DatePickerButtons className={s.shapeBtn} direction={'left'} handleClick={() => {}} />
-        }
-        shadow={false}
-        showOtherDays
-        type={'custom'}
-        value={value}
-        weekDays={t.weekDays}
-        weekStartDayIndex={1}
-        {...otherProps}
-      />
-    </div>
-  )
-}
+const formatWeekDay = (day: string) =>
+  capitalizeFirstLetter(day.replace(regExp, '').substring(0, 2))
 
-const DatePickerButtons = ({ className, direction, handleClick }: ButtonsPropsType) => {
-  return (
-    <div>
-      <i
-        onClick={handleClick}
-        style={{
-          cursor: 'pointer',
-        }}
-      >
-        <div className={className}>
-          {direction === 'left' ? <CalendarBtnLeftIcon /> : <CalendarBtnRightIcon />}
-        </div>
-      </i>
-    </div>
-  )
-}
-
-const DatePickerInput = ({
-  className,
-  id,
-  onClick,
-  placeholder,
-  readonly,
-  type,
-  value,
-  ...otherProps
-}: PropsInputType) => {
-  return (
-    <input
-      className={className}
-      id={id}
-      onClick={onClick}
-      placeholder={placeholder}
-      readOnly
-      type={type}
-      value={value}
-      {...otherProps}
-    />
-  )
+const capitalizeFirstLetter = (text: string) => {
+  return text[0].toUpperCase() + text.slice(1)
 }
