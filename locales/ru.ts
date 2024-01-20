@@ -103,8 +103,6 @@ export const ru: LocaleType = {
           description: `<1>error</1> <2>terms</2>`,
           error: 'Ошибка! ',
           getDescription: (message: string) => `${message}`,
-          sizeError: 'Размер фото должен быть менее 10 МБ',
-          typeError: 'Формат загружаемой фотографии должен быть PNG или JPEG',
         },
         noButton: 'Нет',
         savePhoto: 'Сохранить',
@@ -162,6 +160,8 @@ export const ru: LocaleType = {
     passwordMismatch: 'Пароли должны совпадать',
     passwordVerification:
       'Пароль должен содержать 0-9, a-z, A-Z, ! " # $ % & \' () * + , - . / : ; < = > ? @ [ \\ ] ^ _ ` { | } ~',
+    sizeError: 'Размер фото должен быть менее 10 МБ',
+    typeError: 'Формат загружаемой фотографии должен быть PNG или JPEG',
     usernameVerification: 'Имя пользователя может содержать 0-9; A-Z; a-z; _ ; - ',
   },
 }

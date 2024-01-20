@@ -18,7 +18,7 @@ type Props = {
   setCurrentPhoto: (currentPhoto: File | null) => void
   setError: (error: string) => void
   setIsOpenAddPhotoModal: (isOpenAddPhotoModal: boolean) => void
-  t: LocaleType['pages']['profile']['addProfilePhoto']
+  text: LocaleType
 }
 
 export const AddProfilePhotoModal = ({
@@ -28,12 +28,15 @@ export const AddProfilePhotoModal = ({
   setCurrentPhoto,
   setError,
   setIsOpenAddPhotoModal,
-  t,
+  text,
 }: Props) => {
   const editorRef = useRef<AvatarEditor>(null)
   const inputRef = useRef<HTMLInputElement>(null)
 
   const [updateAvatar] = useUpdateAvatarMutation()
+
+  const t = text.pages.profile.addProfilePhoto
+  const tValidation = text.validation
 
   const selectPhoto = () => {
     inputRef && inputRef.current?.click()
@@ -44,10 +47,10 @@ export const AddProfilePhotoModal = ({
       const file = e.target.files[0]
 
       if (file.size > maxFileSize) {
-        setError(t.errorText.sizeError)
+        setError(tValidation.sizeError)
         e.target.value = ''
       } else if (file.type !== 'image/jpeg' && file.type !== 'image/png') {
-        setError(t.errorText.typeError)
+        setError(tValidation.typeError)
         e.target.value = ''
       } else {
         setCurrentPhoto(file)

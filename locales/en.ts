@@ -101,8 +101,6 @@ export const en = {
           description: `<1>error!</1> <2>message</2>`,
           error: 'Error! ',
           getDescription: (message: string) => `${message}`,
-          sizeError: 'Photo size must be less than 10 MB',
-          typeError: 'The format of the uploaded photo must be PNG and JPEG',
         },
         noButton: 'No',
         savePhoto: 'Save',
@@ -159,6 +157,8 @@ export const en = {
     passwordMismatch: 'Passwords must match',
     passwordVerification:
       'Password must contain 0-9, a-z, A-Z, ! " # $ % & \' () * + , - . / : ; < = > ? @ [ \\ ] ^ _ ` { | } ~',
+    sizeError: 'Photo size must be less than 10 MB',
+    typeError: 'The format of the uploaded photo must be PNG and JPEG',
     usernameVerification: 'Username can contain 0-9; A-Z; a-z; _ ; - ',
   },
 }
