@@ -1,5 +1,5 @@
-import { getRootLayout } from '@/shared/ui'
-import { HeadMeta } from '@/shared/ui/HeadMeta'
+import { getRootLayout } from '@/shared/layouts'
+import { HeadMeta } from '@/shared/ui'
 import { SignIn } from '@/widgets/SignIn'
 
 import s from './SignInPage.module.scss'

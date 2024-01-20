@@ -1,6 +1,6 @@
+import { getRootLayout } from '@/shared/layouts'
 import { useTranslation } from '@/shared/lib/hooks'
-import { LinkTo, Typography, getRootLayout } from '@/shared/ui'
-import { HeadMeta } from '@/shared/ui/HeadMeta'
+import { HeadMeta, LinkTo, Typography } from '@/shared/ui'
 
 import s from './PrivacyPolicy.module.scss'
 

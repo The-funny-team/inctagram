@@ -1,6 +1,6 @@
+import { getRootLayout } from '@/shared/layouts'
 import { useTranslation } from '@/shared/lib/hooks'
-import { Button, Typography, getRootLayout } from '@/shared/ui'
-import { HeadMeta } from '@/shared/ui/HeadMeta'
+import { Button, HeadMeta, Typography } from '@/shared/ui'
 import Image from 'next/image'
 import Link from 'next/link'
 

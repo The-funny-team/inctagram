@@ -1,5 +1,5 @@
+import { getNavbarLayout } from '@/shared/layouts'
 import { useTranslation } from '@/shared/lib/hooks'
-import { getNavbarLayout } from '@/shared/ui'
 
 const Home = () => {
   const { text } = useTranslation()

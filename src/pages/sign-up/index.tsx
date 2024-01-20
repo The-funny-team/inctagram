@@ -1,5 +1,5 @@
-import { getRootLayout } from '@/shared/ui'
-import { HeadMeta } from '@/shared/ui/HeadMeta'
+import { getRootLayout } from '@/shared/layouts'
+import { HeadMeta } from '@/shared/ui'
 import { SignUp } from '@/widgets/SignUp'
 
 const SignUpPage = () => {

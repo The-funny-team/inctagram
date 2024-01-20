@@ -2,7 +2,7 @@ import React, { PropsWithChildren, ReactElement } from 'react'
 
 import { NavbarLayout, RootLayout } from '@/shared/ui'
 import { NextPage } from 'next'
-import { ProtectionWrapper } from 'src/shared/ui/ProtectedNavbarLayout/ProtectedWrapper'
+import { ProtectionWrapper } from 'src/shared/layouts/ProtectedNavbarLayout/ProtectedWrapper'
 
 export const ProtectedNavbarLayout: NextPage<PropsWithChildren<{}>> = ({ children }) => {
   return <ProtectionWrapper>{children}</ProtectionWrapper>

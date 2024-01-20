@@ -1,5 +1,5 @@
-import { HeadMeta } from '@/shared/ui/HeadMeta'
-import { getTabsLayout } from '@/shared/ui/TabsLayout'
+import { getTabsLayout } from '@/shared/layouts'
+import { HeadMeta } from '@/shared/ui'
 
 const ManagementPage = () => {
   return (

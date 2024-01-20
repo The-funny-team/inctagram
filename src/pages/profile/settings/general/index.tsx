@@ -1,6 +1,6 @@
 import { useMeQuery } from '@/shared/api/profileApi'
-import { HeadMeta } from '@/shared/ui/HeadMeta'
-import { getTabsLayout } from '@/shared/ui/TabsLayout'
+import { getTabsLayout } from '@/shared/layouts'
+import { HeadMeta } from '@/shared/ui'
 import { AddProfilePhoto } from '@/widgets/AddProfilePhoto'
 
 const GeneralPage = () => {
