@@ -34,7 +34,9 @@ export const NavBar = ({ className }: Props) => {
 
   const {
     router: { pathname },
-    text: { navBar: t },
+    text: {
+      layout: { navBar: t },
+    },
   } = useTranslation()
 
   const logoutHandler = async () => {

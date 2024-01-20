@@ -23,17 +23,24 @@ export const ru: LocaleType = {
       signInBtn: 'Войти',
       signUpBtn: 'Регистрация',
     },
+    navBar: {
+      create: 'Создать',
+      favorites: 'Избранное',
+      home: 'Главная',
+      logOut: 'Выйти',
+      messenger: 'Мессенджер',
+      profile: 'Мой профиль',
+      search: 'Поиск',
+      statistics: 'Статистика',
+    },
+    tabs: {
+      devices: 'Устройства',
+      general: 'Общая информация',
+      management: 'Управление аккаунтом',
+      payments: 'Мои платежи',
+    },
   },
-  navBar: {
-    create: 'Создать',
-    favorites: 'Избранное',
-    home: 'Главная',
-    logOut: 'Выйти',
-    messenger: 'Мессенджер',
-    profile: 'Мой профиль',
-    search: 'Поиск',
-    statistics: 'Статистика',
-  },
+
   pages: {
     confirmedEmail: {
       description: 'Ваш адрес электронной почты подтвержден',
@@ -103,21 +110,6 @@ export const ru: LocaleType = {
         savePhoto: 'Сохранить',
         selectPhoto: 'Выберите фото',
         yesButton: 'Да',
-      },
-
-      settings: {
-        devices: {
-          title: 'Устройства',
-        },
-        general: {
-          title: 'Общая информация',
-        },
-        management: {
-          title: 'Управление аккаунтом',
-        },
-        payments: {
-          title: 'Мои платежи',
-        },
       },
     },
     signIn: {

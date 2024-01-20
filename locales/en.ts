@@ -21,17 +21,24 @@ export const en = {
       signInBtn: 'Log in',
       signUpBtn: 'Sign up',
     },
+    navBar: {
+      create: 'Create',
+      favorites: 'Favorites',
+      home: 'Home',
+      logOut: 'Log Out',
+      messenger: 'Messenger',
+      profile: 'My Profile',
+      search: 'Search',
+      statistics: 'Statistics',
+    },
+    tabs: {
+      devices: 'Devices',
+      general: 'General Information',
+      management: 'Account Management',
+      payments: 'My payments',
+    },
   },
-  navBar: {
-    create: 'Create',
-    favorites: 'Favorites',
-    home: 'Home',
-    logOut: 'Log Out',
-    messenger: 'Messenger',
-    profile: 'My Profile',
-    search: 'Search',
-    statistics: 'Statistics',
-  },
+
   pages: {
     confirmedEmail: {
       description: 'Your email has been confirmed',
@@ -101,20 +108,6 @@ export const en = {
         savePhoto: 'Save',
         selectPhoto: 'Select from Computer',
         yesButton: 'Yes',
-      },
-      settings: {
-        devices: {
-          title: 'Devices',
-        },
-        general: {
-          title: 'General Information',
-        },
-        management: {
-          title: 'Account Management',
-        },
-        payments: {
-          title: 'My payments',
-        },
       },
     },
     signIn: {
