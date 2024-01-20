@@ -30,7 +30,7 @@ export const RootLayout: NextPage<PropsWithChildren<any>> = ({ children }) => {
       />
       <HeadMeta />
       <div className={inter.className}>
-        <Header isLoggedIn={false} />
+        <Header />
         <main className={s.main}>{children}</main>
       </div>
     </>
