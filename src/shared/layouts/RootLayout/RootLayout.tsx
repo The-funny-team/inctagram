@@ -1,10 +1,10 @@
-import React, { PropsWithChildren, ReactElement, useEffect, useLayoutEffect } from 'react'
+import React, { PropsWithChildren, ReactElement } from 'react'
 import { ToastContainer } from 'react-toastify'
 
+import { HeadMeta } from '@/shared/ui/HeadMeta'
 import { Header } from '@/widgets/Header'
 import { NextPage } from 'next'
 import { Inter } from 'next/font/google'
-import Head from 'next/head'
 
 import 'react-toastify/dist/ReactToastify.css'
 
@@ -28,11 +28,7 @@ export const RootLayout: NextPage<PropsWithChildren<any>> = ({ children }) => {
         rtl={false}
         theme={'colored'}
       />
-      <Head>
-        <title>Next App</title>
-        <meta content={'width=device-width, initial-scale=1'} name={'viewport'} />
-        <link href={'/favicon.ico'} rel={'icon'} />
-      </Head>
+      <HeadMeta />
       <div className={inter.className}>
         <Header isLoggedIn={false} />
         <main className={s.main}>{children}</main>

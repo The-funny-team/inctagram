@@ -1,8 +1,8 @@
 import React, { PropsWithChildren, ReactElement } from 'react'
 
-import { RootLayout, WithNavbarLayout } from '@/shared/ui'
+import { NavbarLayout, RootLayout } from '@/shared/layouts'
+import { ProtectionWrapper } from '@/shared/layouts/ProtectedNavbarLayout/ProtectedWrapper'
 import { NextPage } from 'next'
-import { ProtectionWrapper } from 'src/shared/ui/ProtectedNavbarLayout/ProtectedWrapper'
 
 export const ProtectedNavbarLayout: NextPage<PropsWithChildren<{}>> = ({ children }) => {
   return <ProtectionWrapper>{children}</ProtectionWrapper>
@@ -11,7 +11,7 @@ export const getProtectedNavbarLayout = (page: ReactElement) => {
   return (
     <RootLayout>
       <ProtectedNavbarLayout>
-        <WithNavbarLayout>{page}</WithNavbarLayout>
+        <NavbarLayout>{page}</NavbarLayout>
       </ProtectedNavbarLayout>
     </RootLayout>
   )

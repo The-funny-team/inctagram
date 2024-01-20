@@ -1,7 +1,13 @@
-import { getTabsLayout } from '@/shared/ui/TabsLayout'
+import { getTabsLayout } from '@/shared/layouts'
+import { HeadMeta } from '@/shared/ui'
 
 const PaymentsPage = () => {
-  return <p>Payments Page</p>
+  return (
+    <>
+      <HeadMeta title={'Payments'} />
+      <p>Payments Page</p>
+    </>
+  )
 }
 
 PaymentsPage.getLayout = getTabsLayout

@@ -26,8 +26,8 @@
 }
 
 .link {
-  all: unset;
   cursor: pointer;
+  text-decoration: none;
 }
 
 .headerDashboard {
@@ -45,13 +45,12 @@
 }
 
 .signInLink {
-  all: unset;
-
   cursor: pointer;
 
   padding: 0 24px;
 
   color: var(--color-accent-500);
+  text-decoration: none;
 
   transition: color 0.2s ease;
 

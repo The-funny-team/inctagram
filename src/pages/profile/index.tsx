@@ -1,7 +1,13 @@
-import { getProtectedNavbarLayout } from '@/shared/ui'
+import { getProtectedNavbarLayout } from '@/shared/layouts'
+import { HeadMeta } from '@/shared/ui'
 
 const ProfilePage = () => {
-  return <h1>Profile Page</h1>
+  return (
+    <>
+      <HeadMeta title={'Profile'} />
+      <h1>Profile Page</h1>
+    </>
+  )
 }
 
 ProfilePage.getLayout = getProtectedNavbarLayout

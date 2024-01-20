@@ -1,5 +1,6 @@
 import { useMeQuery } from '@/shared/api/profileApi'
-import { getTabsLayout } from '@/shared/ui/TabsLayout'
+import { getTabsLayout } from '@/shared/layouts'
+import { HeadMeta } from '@/shared/ui'
 import { AddProfilePhoto } from '@/widgets/AddProfilePhoto'
 
 const GeneralPage = () => {
@@ -8,10 +9,13 @@ const GeneralPage = () => {
   const avatar = userInfo?.avatarUrl
 
   return (
-    <div>
-      <p>General Info Page</p>
-      <AddProfilePhoto avatar={avatar} />
-    </div>
+    <>
+      <HeadMeta title={'General'} />
+      <div>
+        <p>General Info Page</p>
+        <AddProfilePhoto avatar={avatar} />
+      </div>
+    </>
   )
 }
 

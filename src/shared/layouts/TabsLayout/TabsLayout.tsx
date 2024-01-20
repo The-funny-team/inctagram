@@ -1,27 +1,23 @@
 import { PropsWithChildren, ReactElement } from 'react'
 
 import { ROUTES_URL } from '@/shared/const'
+import { NavbarLayout, ProtectedNavbarLayout, RootLayout } from '@/shared/layouts'
 import { useTranslation } from '@/shared/lib/hooks'
-import { ProtectedNavbarLayout, RootLayout, Tabs, WithNavbarLayout } from '@/shared/ui'
+import { Tabs } from '@/shared/ui'
 import { NextPage } from 'next'
 
 import s from './TabsLayout.module.scss'
 
-type TabsOptions = {
-  label: string
-  value: string
-}
-
 export const TabsLayout: NextPage<PropsWithChildren<{}>> = ({ children }) => {
   const { router, text } = useTranslation()
-  const t = text.pages.profile.settings
+  const t = text.layout.tabs
   const path = router.pathname
 
-  const optionsTabs: TabsOptions[] = [
-    { label: t.general.title, value: ROUTES_URL.GENERAL_INFO },
-    { label: t.devices.title, value: ROUTES_URL.DEVICES },
-    { label: t.management.title, value: ROUTES_URL.ACCOUNT_MANAGEMENT },
-    { label: t.payments.title, value: ROUTES_URL.MY_PAYMENTS },
+  const optionsTabs = [
+    { label: t.general, value: ROUTES_URL.GENERAL_INFO },
+    { label: t.devices, value: ROUTES_URL.DEVICES },
+    { label: t.management, value: ROUTES_URL.ACCOUNT_MANAGEMENT },
+    { label: t.payments, value: ROUTES_URL.MY_PAYMENTS },
   ]
 
   const onChangeHandler = (value: string) => {
@@ -40,9 +36,9 @@ export const getTabsLayout = (page: ReactElement) => {
   return (
     <RootLayout>
       <ProtectedNavbarLayout>
-        <WithNavbarLayout>
+        <NavbarLayout>
           <TabsLayout>{page}</TabsLayout>
-        </WithNavbarLayout>
+        </NavbarLayout>
       </ProtectedNavbarLayout>
     </RootLayout>
   )

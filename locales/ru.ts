@@ -23,17 +23,24 @@ export const ru: LocaleType = {
       signInBtn: 'Войти',
       signUpBtn: 'Регистрация',
     },
+    navBar: {
+      create: 'Создать',
+      favorites: 'Избранное',
+      home: 'Главная',
+      logOut: 'Выйти',
+      messenger: 'Мессенджер',
+      profile: 'Мой профиль',
+      search: 'Поиск',
+      statistics: 'Статистика',
+    },
+    tabs: {
+      devices: 'Устройства',
+      general: 'Общая информация',
+      management: 'Управление аккаунтом',
+      payments: 'Мои платежи',
+    },
   },
-  navBar: {
-    create: 'Создать',
-    favorites: 'Избранное',
-    home: 'Главная',
-    logOut: 'Выйти',
-    messenger: 'Мессенджер',
-    profile: 'Мой профиль',
-    search: 'Поиск',
-    statistics: 'Статистика',
-  },
+
   pages: {
     confirmedEmail: {
       description: 'Ваш адрес электронной почты подтвержден',
@@ -94,30 +101,13 @@ export const ru: LocaleType = {
         deletePhotoQuestion: 'Вы уверены, что хотите удалить фото?',
         errorText: {
           description: `<1>error</1> <2>terms</2>`,
-          error: 'Ошибка!',
+          error: 'Ошибка! ',
           getDescription: (message: string) => `${message}`,
-          sizeError: 'Размер фото должен быть менее 10 МБ',
-          typeError: 'Формат загружаемой фотографии должен быть PNG или JPEG',
         },
         noButton: 'Нет',
         savePhoto: 'Сохранить',
         selectPhoto: 'Выберите фото',
         yesButton: 'Да',
-      },
-
-      settings: {
-        devices: {
-          title: 'Устройства',
-        },
-        general: {
-          title: 'Общая информация',
-        },
-        management: {
-          title: 'Управление аккаунтом',
-        },
-        payments: {
-          title: 'Мои платежи',
-        },
       },
     },
     signIn: {
@@ -170,6 +160,8 @@ export const ru: LocaleType = {
     passwordMismatch: 'Пароли должны совпадать',
     passwordVerification:
       'Пароль должен содержать 0-9, a-z, A-Z, ! " # $ % & \' () * + , - . / : ; < = > ? @ [ \\ ] ^ _ ` { | } ~',
+    sizeError: 'Размер фото должен быть менее 10 МБ',
+    typeError: 'Формат загружаемой фотографии должен быть PNG или JPEG',
     usernameVerification: 'Имя пользователя может содержать 0-9; A-Z; a-z; _ ; - ',
   },
 }
