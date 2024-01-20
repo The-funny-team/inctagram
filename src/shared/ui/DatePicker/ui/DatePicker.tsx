@@ -12,6 +12,8 @@ import 'react-datepicker/dist/react-datepicker.min.css'
 
 import s from './DatePicker.module.scss'
 
+import { CustomHeader } from './custom/CustomHeader'
+
 export type DatePickerProps = {
   disabled?: boolean
   endDate?: Date | null
