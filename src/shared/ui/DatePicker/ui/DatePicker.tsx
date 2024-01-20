@@ -13,6 +13,7 @@ import 'react-datepicker/dist/react-datepicker.min.css'
 import s from './DatePicker.module.scss'
 
 import { CustomHeader } from './custom/CustomHeader'
+import { CustomInput } from './custom/CustomInput'
 
 export type DatePickerProps = {
   disabled?: boolean
@@ -84,7 +85,7 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>(
           calendarStartDay={1}
           className={classNames.input}
           closeOnScroll={e => e.target === document}
-          customInput={<CustomInput />}
+          customInput={<CustomInput disabled={disabled} error={error} label={label} />}
           dateFormat={'dd/MM/yyyy'}
           dayClassName={classNames.day}
           disabled={disabled}
