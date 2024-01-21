@@ -10,9 +10,13 @@
 .root {
   @include flex($direction: column, $gap: 180px);
 
+  position: fixed;
+  z-index: 1;
+
   width: 150px;
   height: 100%;
   padding-top: 72px;
+
   border-right: solid 1px var(--color-dark-300);
 
   .button {
@@ -26,14 +30,14 @@
 
     background: transparent;
 
-    transition: color .2s ease;
+    transition: color 0.2s ease;
 
-    &:hover{
+    &:hover {
       color: var(--color-accent-100);
       background-color: transparent;
     }
 
-    &.active{
+    &.active {
       font-weight: 700;
       color: var(--color-accent-500);
     }
@@ -50,6 +54,4 @@
   a:nth-child(5) {
     margin-bottom: 60px;
   }
-
 }
-

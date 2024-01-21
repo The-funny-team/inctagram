@@ -3,6 +3,7 @@ import { ToastContainer } from 'react-toastify'
 
 import { HeadMeta } from '@/shared/ui/HeadMeta'
 import { Header } from '@/widgets/Header'
+import clsx from 'clsx'
 import { NextPage } from 'next'
 import { Inter } from 'next/font/google'
 
@@ -29,9 +30,9 @@ export const RootLayout: NextPage<PropsWithChildren<any>> = ({ children }) => {
         theme={'colored'}
       />
       <HeadMeta />
-      <div className={inter.className}>
+      <div className={clsx(s.root, inter.className)}>
         <Header />
-        <main className={s.main}>{children}</main>
+        <div className={s.container}>{children}</div>
       </div>
     </>
   )
