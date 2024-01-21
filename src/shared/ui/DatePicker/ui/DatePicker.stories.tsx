@@ -1,55 +1,77 @@
-import type { Meta, StoryObj } from '@storybook/react'
+import { useState } from 'react'
+
+import { Meta } from '@storybook/react'
 
 import { DatePicker } from './DatePicker'
 
-const meta = {
+export default {
   component: DatePicker,
-  decorators: [
-    Story => (
-      <div
-        style={{
-          alignItems: 'center',
-          display: 'flex',
-          justifyContent: 'center',
-          marginTop: '80px',
-        }}
-      >
-        <Story />
-      </div>
-    ),
-  ],
-  parameters: {
-    layout: 'fullscreen',
-  },
-  tags: ['autodocs'],
   title: 'Components/DatePicker',
-} satisfies Meta<typeof DatePicker>
+} as Meta<typeof DatePicker>
 
-export default meta
-type Story = StoryObj<typeof meta>
+export const Default = {
+  render() {
+    const [startDate, setStartDate] = useState<Date | null>(null)
 
-export const withoutRangeMode: Story = {
-  args: {
-    error: undefined,
-    label: 'Date select',
-    rangeMode: false,
-    value: '',
+    return (
+      <DatePicker
+        disabled={false}
+        label={'date of birth'}
+        placeholder={'00.00.0000'}
+        setStartDate={setStartDate}
+        startDate={startDate}
+      />
+    )
   },
 }
 
-export const rangeMode: Story = {
-  args: {
-    error: undefined,
-    label: 'Date range',
-    rangeMode: true,
-    value: '',
+export const DefaultWithError = {
+  render() {
+    const [startDate, setStartDate] = useState<Date | null>(null)
+
+    return (
+      <DatePicker
+        disabled={false}
+        error={'some error'}
+        label={'date of birth'}
+        placeholder={'00.00.0000'}
+        setStartDate={setStartDate}
+        startDate={startDate}
+      />
+    )
   },
 }
 
-export const withError: Story = {
-  args: {
-    error: 'Error!',
-    label: 'Date',
-    value: '',
+export const DefaultDisabled = {
+  render() {
+    const [startDate, setStartDate] = useState<Date | null>(null)
+
+    return (
+      <DatePicker
+        disabled
+        label={'date of birth'}
+        placeholder={'00.00.0000'}
+        setStartDate={setStartDate}
+        startDate={startDate}
+      />
+    )
+  },
+}
+
+export const RangeMode = {
+  render() {
+    const [startDate, setStartDate] = useState<Date | null>(null)
+    const [endDate, setEndDate] = useState<Date | null>(null)
+
+    return (
+      <DatePicker
+        endDate={endDate}
+        label={'select range'}
+        placeholder={'00.00.0000 - 00.00.0000'}
+        setEndDate={setEndDate}
+        setStartDate={setStartDate}
+        startDate={startDate}
+      />
+    )
   },
 }
