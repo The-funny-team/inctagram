@@ -18,10 +18,8 @@ const GeneralPage = () => {
     <>
       <HeadMeta title={'General'} />
       <main className={classNames.page}>
-        <div style={{ paddingTop: '48px' }}>
-          <AddProfilePhoto avatar={avatar} />
-          <ProfileInfoForm />
-        </div>
+        <AddProfilePhoto avatar={avatar} />
+        <ProfileInfoForm />
       </main>
     </>
   )
