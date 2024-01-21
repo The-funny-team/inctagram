@@ -9,4 +9,4 @@ export const OPEN_CLOSE_TAG_REGEX = /<(\d+)>([^<>]*)<\/(\d+)>/
 
 export const USER_FIRST_LAST_NAME_PATTERN = /^[A-Za-zА-Яа-я]+$/
 
-export const ABOUT_ME_PATTERN = /^[0-9A-Za-zА-Яа-я!@#$%^&*()_+\-\s]+$/
+export const ABOUT_ME_PATTERN = /^[0-9A-Za-zА-Яа-я!@#$%^&*()_+\-\s]*$/
