@@ -66,7 +66,7 @@ export type UserProfileFormValuesType = z.infer<ReturnType<typeof userProfileSch
 
 export const useProfileForm = (values: UserProfileFormValuesType, errorsText: ErrorsTextProps) => {
   return useForm<UserProfileFormValuesType>({
-    mode: 'onTouched',
+    mode: 'onChange',
     resolver: zodResolver(userProfileSchema(errorsText)),
     values: values,
   })
