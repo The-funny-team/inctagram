@@ -26,39 +26,6 @@
   }
 }
 
-.input {
-  width: 100%;
-  padding: 0;
-
-  font-size: 16px;
-  color: var(--color-light-100);
-
-  background-color: var(--color-dark-700);
-  border: none;
-
-  &:hover {
-    color: var(--color-light-100);
-    outline: 0;
-    outline-offset: 0;
-  }
-
-  &:focus-within {
-    color: var(--color-light-100);
-    outline: 0;
-    outline-offset: 0;
-  }
-
-  &:active {
-    color: var(--color-light-100);
-    outline: 0;
-    outline-offset: 0;
-  }
-
-  &.error {
-    color: var(--color-danger-500);
-  }
-}
-
 .inputContainer {
   position: relative;
 

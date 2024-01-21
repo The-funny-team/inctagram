@@ -75,7 +75,6 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>(
       } else {
         setStartDate(dates)
       }
-      console.log(dates)
     }
 
     return (
@@ -84,7 +83,6 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>(
           calendarClassName={classNames.calendar}
           calendarStartDay={1}
           className={classNames.input}
-          closeOnScroll={e => e.target === document}
           customInput={<CustomInput disabled={disabled} error={error} label={label} />}
           dateFormat={'dd/MM/yyyy'}
           dayClassName={classNames.day}
