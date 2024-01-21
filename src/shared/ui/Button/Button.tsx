@@ -19,7 +19,7 @@ export const Button = <T extends ElementType = 'button'>(
     as: Component = 'button',
     children,
     className,
-    fullWidth = true,
+    fullWidth = false,
     variant = 'primary',
     ...rest
   } = props
