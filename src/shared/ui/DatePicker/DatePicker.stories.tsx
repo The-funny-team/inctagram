@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { ComponentProps, useState } from 'react'
 
 import { Meta } from '@storybook/react'
 
@@ -6,72 +6,62 @@ import { DatePicker } from './DatePicker'
 
 export default {
   component: DatePicker,
+  tags: ['autodocs'],
   title: 'Components/DatePicker',
 } as Meta<typeof DatePicker>
 
+const DatePickerWithState = ({
+  isRange = false,
+  ...props
+}: Omit<
+  ComponentProps<typeof DatePicker>,
+  'endDate' | 'setEndDate' | 'setStartDate' | 'startDate'
+> & {
+  isRange?: boolean
+}) => {
+  const [startDate, setStartDate] = useState<Date | null>(null)
+  const [endDate, setEndDate] = useState<Date | null>(null)
+
+  let range = {}
+
+  if (isRange) {
+    range = {
+      endDate,
+      setEndDate,
+    }
+  }
+
+  return <DatePicker {...props} {...range} setStartDate={setStartDate} startDate={startDate} />
+}
+
 export const Default = {
   render() {
-    const [startDate, setStartDate] = useState<Date | null>(null)
-
-    return (
-      <DatePicker
-        disabled={false}
-        label={'date of birth'}
-        placeholder={'00.00.0000'}
-        setStartDate={setStartDate}
-        startDate={startDate}
-      />
-    )
+    return <DatePickerWithState label={'date of birth'} placeholder={'00.00.0000'} />
   },
 }
 
-export const DefaultWithError = {
+export const WithError = {
   render() {
-    const [startDate, setStartDate] = useState<Date | null>(null)
-
     return (
-      <DatePicker
-        disabled={false}
+      <DatePickerWithState
         error={'some error'}
         label={'date of birth'}
         placeholder={'00.00.0000'}
-        setStartDate={setStartDate}
-        startDate={startDate}
       />
     )
   },
 }
 
-export const DefaultDisabled = {
+export const Disabled = {
   render() {
-    const [startDate, setStartDate] = useState<Date | null>(null)
-
-    return (
-      <DatePicker
-        disabled
-        label={'date of birth'}
-        placeholder={'00.00.0000'}
-        setStartDate={setStartDate}
-        startDate={startDate}
-      />
-    )
+    return <DatePickerWithState disabled label={'date of birth'} placeholder={'00.00.0000'} />
   },
 }
 
 export const RangeMode = {
   render() {
-    const [startDate, setStartDate] = useState<Date | null>(null)
-    const [endDate, setEndDate] = useState<Date | null>(null)
-
     return (
-      <DatePicker
-        endDate={endDate}
-        label={'select range'}
-        placeholder={'00.00.0000 - 00.00.0000'}
-        setEndDate={setEndDate}
-        setStartDate={setStartDate}
-        startDate={startDate}
-      />
+      <DatePickerWithState isRange label={'select range'} placeholder={'00.00.0000 - 00.00.0000'} />
     )
   },
 }
