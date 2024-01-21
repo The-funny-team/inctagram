@@ -103,6 +103,10 @@
   font-weight: var(--font-weight-regular);
   line-height: var(--line-height-m);
   color: var(--color-danger-500);
+
+  & a {
+    color: var(--color-danger-500);
+  }
 }
 
 .calendar {
@@ -144,7 +148,7 @@
   font-size: 16px;
   color: var(--color-light-100);
 
-  background-color: var(--color-dark-700);
+  background-color: var(--color-dark-900);
   border: none;
 
   &:hover {
@@ -208,4 +212,8 @@
     background-image: radial-gradient(28px circle, var(--color-accent-500) 48%, transparent 51%);
     border-radius: 0 50% 50% 0;
   }
+}
+
+.link {
+  text-decoration: var(--color-danger-500) underline;
 }
