@@ -33,11 +33,13 @@ export const NavBar = ({ className }: Props) => {
   const [logout] = useLogoutMutation()
 
   const {
-    router: { pathname },
+    router,
     text: {
       layout: { navBar: t },
     },
   } = useTranslation()
+
+  const pathname = '/'.concat(router.pathname.split('/')[1])
 
   const logoutHandler = async () => {
     try {
