@@ -1,3 +1,4 @@
-@import 'colors';
-@import 'typography';
-@import 'globals';
+@forward 'colors';
+@forward 'typography';
+@forward 'globals';
+@forward 'mixins';

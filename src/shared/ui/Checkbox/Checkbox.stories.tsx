@@ -13,21 +13,21 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const DefaultCheckbox: Story = {
+export const Default: Story = {
   args: {
     checked: false,
     label: 'Unchecked checkbox',
   },
 }
 
-export const DefaultCheckedCheckbox: Story = {
+export const DefaultChecked: Story = {
   args: {
     checked: true,
     label: 'Checked checkbox',
   },
 }
 
-export const DisabledCheckedCheckbox: Story = {
+export const DisabledChecked: Story = {
   args: {
     checked: true,
     disabled: true,
@@ -35,7 +35,7 @@ export const DisabledCheckedCheckbox: Story = {
   },
 }
 
-export const DisabledUncheckedCheckbox: Story = {
+export const DisabledUnchecked: Story = {
   args: {
     checked: false,
     disabled: true,
@@ -52,7 +52,7 @@ const CheckboxWithHooks = (args: CheckboxProps) => {
   return <Checkbox {...args} checked={checked} onCheckedChange={onCheckboxClickHandler} />
 }
 
-export const ControlledCheckbox: Story = {
+export const Controlled: Story = {
   args: {
     label: 'Controlled checkbox',
   },

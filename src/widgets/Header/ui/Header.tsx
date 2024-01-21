@@ -1,5 +1,6 @@
 import { ComponentPropsWithoutRef } from 'react'
 
+import { useMeQuery } from '@/shared/api/profileApi'
 import { BellNotifyIcon } from '@/shared/assets'
 import { ROUTES_URL } from '@/shared/const'
 import { useTranslation } from '@/shared/lib/hooks'
@@ -35,12 +36,9 @@ const languageOptions = [
   },
 ]
 
-type Props = {
-  isLoggedIn: boolean
-} & ComponentPropsWithoutRef<'header'>
-
-export const Header = ({ className, isLoggedIn, ...restProps }: Props) => {
+export const Header = ({ className, ...restProps }: ComponentPropsWithoutRef<'header'>) => {
   const { router, text } = useTranslation()
+  const { data } = useMeQuery()
 
   const changeLangHandler = (value: string) => {
     router.push({ pathname: router.pathname, query: router.query }, router.asPath, {
@@ -65,13 +63,13 @@ export const Header = ({ className, isLoggedIn, ...restProps }: Props) => {
           Inctagram
         </Typography>
         <div className={classNames.headerDashboard}>
-          {isLoggedIn && <BellNotifyIcon />}
+          {data && <BellNotifyIcon />}
           <Select
             onValueChange={changeLangHandler}
             options={languageOptions}
             value={router.locale}
           />
-          {!isLoggedIn && (
+          {!data && (
             <div className={classNames.authLinks}>
               <Typography
                 as={Link}

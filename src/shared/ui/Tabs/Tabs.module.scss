@@ -18,6 +18,10 @@
   border: none;
   border-bottom: 2px solid var(--color-dark-100);
 
+  transition:
+    background-color 0.2s ease,
+    border-bottom-color 0.2s ease;
+
   &[data-state='active'] {
     color: var(--color-accent-500);
     border-bottom-color: var(--color-accent-500);

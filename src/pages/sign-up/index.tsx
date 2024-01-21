@@ -1,11 +1,15 @@
-import { getRootLayout } from '@/shared/ui'
+import { getRootLayout } from '@/shared/layouts'
+import { HeadMeta } from '@/shared/ui'
 import { SignUp } from '@/widgets/SignUp'
 
 const SignUpPage = () => {
   return (
-    <div style={{ padding: '36px 10px 0' }}>
-      <SignUp />
-    </div>
+    <>
+      <HeadMeta title={'Sign Up'} />
+      <main style={{ display: 'flex', justifyContent: 'center', paddingTop: '24px' }}>
+        <SignUp />
+      </main>
+    </>
   )
 }
 

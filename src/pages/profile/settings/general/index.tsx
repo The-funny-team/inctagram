@@ -1,5 +1,6 @@
 import { useMeQuery } from '@/shared/api/profileApi'
-import { getTabsLayout } from '@/shared/ui/TabsLayout'
+import { getTabsLayout } from '@/shared/layouts'
+import { HeadMeta } from '@/shared/ui'
 import { AddProfilePhoto } from '@/widgets/AddProfilePhoto'
 import { ProfileInfoForm } from '@/widgets/ProfileInfoForm'
 
@@ -14,10 +15,15 @@ const GeneralPage = () => {
   }
 
   return (
-    <main className={classNames.page}>
-      <AddProfilePhoto avatar={avatar} />
-      <ProfileInfoForm />
-    </main>
+    <>
+      <HeadMeta title={'General'} />
+      <main className={classNames.page}>
+        <div style={{ paddingTop: '48px' }}>
+          <AddProfilePhoto avatar={avatar} />
+          <ProfileInfoForm />
+        </div>
+      </main>
+    </>
   )
 }
 

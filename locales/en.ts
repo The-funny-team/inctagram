@@ -14,24 +14,30 @@ export const en = {
       'November',
       'December',
     ],
-    weekDays: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
   },
   layout: {
     header: {
       signInBtn: 'Log in',
       signUpBtn: 'Sign up',
     },
+    navBar: {
+      create: 'Create',
+      favorites: 'Favorites',
+      home: 'Home',
+      logOut: 'Log Out',
+      messenger: 'Messenger',
+      profile: 'My Profile',
+      search: 'Search',
+      statistics: 'Statistics',
+    },
+    tabs: {
+      devices: 'Devices',
+      general: 'General Information',
+      management: 'Account Management',
+      payments: 'My payments',
+    },
   },
-  navBar: {
-    create: 'Create',
-    favorites: 'Favorites',
-    home: 'Home',
-    logOut: 'Log Out',
-    messenger: 'Messenger',
-    profile: 'My Profile',
-    search: 'Search',
-    statistics: 'Statistics',
-  },
+
   pages: {
     confirmedEmail: {
       description: 'Your email has been confirmed',
@@ -92,10 +98,8 @@ export const en = {
         deletePhotoQuestion: 'Are you sure you want to delete the photo?',
         errorText: {
           description: `<1>error!</1> <2>message</2>`,
-          error: 'Error!',
+          error: 'Error! ',
           getDescription: (message: string) => `${message}`,
-          sizeError: 'Photo size must be less than 10 MB',
-          typeError: 'The format of the uploaded photo must be PNG and JPEG',
         },
         noButton: 'No',
         savePhoto: 'Save',
@@ -197,6 +201,8 @@ export const en = {
     passwordMismatch: 'Passwords must match',
     passwordVerification:
       'Password must contain 0-9, a-z, A-Z, ! " # $ % & \' () * + , - . / : ; < = > ? @ [ \\ ] ^ _ ` { | } ~',
+    sizeError: 'Photo size must be less than 10 MB',
+    typeError: 'The format of the uploaded photo must be PNG and JPEG',
     usernameVerification: 'Username can contain 0-9; A-Z; a-z; _ ; - ',
   },
 }
