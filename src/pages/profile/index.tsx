@@ -5,7 +5,7 @@ const ProfilePage = () => {
   return (
     <>
       <HeadMeta title={'Profile'} />
-      <h1>Profile Page</h1>
+      <main>Profile Page</main>
     </>
   )
 }

@@ -4,7 +4,7 @@ import { useTranslation } from '@/shared/lib/hooks'
 const Home = () => {
   const { text } = useTranslation()
 
-  return <h1>{text.pages.home}</h1>
+  return <main>{text.pages.home}</main>
 }
 
 Home.getLayout = getNavbarLayout

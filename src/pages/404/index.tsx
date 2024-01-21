@@ -13,7 +13,7 @@ const NotFound = () => {
   return (
     <>
       <HeadMeta title={'404 Not found'} />
-      <div className={s.wrapper}>
+      <main className={s.wrapper}>
         <Image alt={'not-found'} height={192} src={'/notFound.png'} width={451} />
         <div>
           <Typography className={s.title} variant={'regularText16'}>
@@ -23,7 +23,7 @@ const NotFound = () => {
         <Button as={Link} fullWidth={false} href={'/'}>
           {t.captionBtn}
         </Button>
-      </div>
+      </main>
     </>
   )
 }

@@ -7,9 +7,9 @@ import s from './SignInPage.module.scss'
 const SignInPage = () => (
   <>
     <HeadMeta title={'Sign In'} />
-    <div className={s.root}>
+    <main className={s.root}>
       <SignIn />
-    </div>
+    </main>
   </>
 )
 
