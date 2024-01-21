@@ -1,4 +1,4 @@
-import { Controller, useForm } from 'react-hook-form'
+import { Controller } from 'react-hook-form'
 import { toast } from 'react-toastify'
 
 import { COUNTRIES_LIST } from '@/shared/const'
@@ -73,10 +73,12 @@ export const ProfileInfoForm = () => {
         render={({ field, fieldState: { error } }) => {
           return (
             <DatePicker
+              className={error && s.formFieldWithError}
               error={error?.message}
-              onChange={field.onChange}
+              label={formText.dateOfBirth}
               placeholder={formText.dateOfBirth}
-              value={field.value ? new Date(field.value).toString() : ''} // TODO what is value
+              setStartDate={field.onChange}
+              startDate={field.value || null}
             />
           )
         }}
