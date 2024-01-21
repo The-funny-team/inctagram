@@ -14,7 +14,6 @@ export const en = {
       'November',
       'December',
     ],
-    weekDays: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
   },
   layout: {
     header: {

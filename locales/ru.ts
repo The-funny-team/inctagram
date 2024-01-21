@@ -16,7 +16,6 @@ export const ru: LocaleType = {
       'Ноябрь',
       'Декабрь',
     ],
-    weekDays: ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'],
   },
   layout: {
     header: {
