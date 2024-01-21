@@ -15,7 +15,7 @@ export const CustomInput = forwardRef<HTMLInputElement, CustomInputProps>(
   ({ disabled, error, label, ...rest }, ref) => {
     const classNames = {
       icon: clsx(s.icon, disabled && s.disabled, error && s.error),
-      inputContainer: clsx(s.inputContainer, error && s.error),
+      inputContainer: clsx(s.inputContainer, error && s.error, disabled && s.disabled),
     }
 
     return (

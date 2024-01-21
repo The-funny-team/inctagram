@@ -17,12 +17,12 @@
   width: 24px;
   height: 24px;
 
-  &.disabled {
-    color: var(--color-text-disabled);
-  }
-
   &.error > svg {
     fill: var(--color-danger-500);
+  }
+
+  &.disabled {
+    cursor: default;
   }
 }
 
@@ -57,10 +57,10 @@
   &:focus-visible {
     color: var(--color-light-100);
     border-color: var(--color-accent-500);
-    outline: 1px solid var(--color-accent-500);
+    outline: 1px solid var(--color-danger-500);
   }
 
-  &:disabled {
+  &.disabled {
     color: var(--color-dark-100);
     border-color: var(--color-dark-100);
   }
@@ -93,5 +93,10 @@
   &:active:not(.error) {
     border: 1px solid var(--color-accent-700);
     outline: 1px solid var(--color-accent-700);
+  }
+
+  &:active:has(.disabled) {
+    border: 1px solid var(--color-dark-100);
+    outline: none;
   }
 }
