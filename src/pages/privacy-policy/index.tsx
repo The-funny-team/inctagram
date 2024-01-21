@@ -14,7 +14,7 @@ const PrivacyPolicy = () => {
   return (
     <>
       <HeadMeta title={'Privacy Policy'} />
-      <div className={s.root}>
+      <main className={s.root}>
         <LinkTo>{privacyPolicy.backToBtn}</LinkTo>
         <Typography as={'h1'} className={s.title} variant={'h1'}>
           {privacyPolicy.title}
@@ -22,7 +22,7 @@ const PrivacyPolicy = () => {
         <Typography className={s.desc} variant={'regularText14'}>
           {privacyPolicy.descripton}
         </Typography>
-      </div>
+      </main>
     </>
   )
 }

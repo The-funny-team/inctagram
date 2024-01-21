@@ -4,14 +4,12 @@ import { RootLayout } from '@/shared/layouts'
 import { NavBar } from '@/widgets/NavBar'
 import { NextPage } from 'next'
 
-import s from './NavbarLayout.module.scss'
-
 export const NavbarLayout: NextPage<PropsWithChildren<any>> = ({ children }) => {
   return (
-    <div className={s.main}>
+    <>
       <NavBar />
-      {children}
-    </div>
+      <div style={{ paddingLeft: '150px' }}>{children}</div>
+    </>
   )
 }
 export const getNavbarLayout = (page: ReactElement) => {

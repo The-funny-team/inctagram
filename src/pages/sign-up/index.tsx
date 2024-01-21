@@ -6,9 +6,9 @@ const SignUpPage = () => {
   return (
     <>
       <HeadMeta title={'Sign Up'} />
-      <div style={{ padding: '36px 10px 0' }}>
+      <main style={{ display: 'flex', justifyContent: 'center', paddingTop: '24px' }}>
         <SignUp />
-      </div>
+      </main>
     </>
   )
 }

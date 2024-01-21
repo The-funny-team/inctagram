@@ -11,10 +11,11 @@ const GeneralPage = () => {
   return (
     <>
       <HeadMeta title={'General'} />
-      <div>
-        <p>General Info Page</p>
-        <AddProfilePhoto avatar={avatar} />
-      </div>
+      <main>
+        <div style={{ paddingTop: '48px' }}>
+          <AddProfilePhoto avatar={avatar} />
+        </div>
+      </main>
     </>
   )
 }

@@ -15,7 +15,7 @@ const TermsOfServicePage = () => {
   return (
     <>
       <HeadMeta title={'Terms of Service'} />
-      <div className={s.root}>
+      <main className={s.root}>
         <LinkTo className={s.link} href={ROUTES_URL.SIGN_UP}>
           {termsOfService.backTo}
         </LinkTo>
@@ -25,7 +25,7 @@ const TermsOfServicePage = () => {
         <Typography className={s.text} variant={'regularText14'}>
           {termsOfService.description}
         </Typography>
-      </div>
+      </main>
     </>
   )
 }

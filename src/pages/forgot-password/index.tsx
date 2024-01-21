@@ -8,9 +8,9 @@ const ForgotPasswordPage = () => {
   return (
     <>
       <HeadMeta title={'Forgot Password'} />
-      <div className={s.root}>
+      <main className={s.root}>
         <ForgotPassword />
-      </div>
+      </main>
     </>
   )
 }

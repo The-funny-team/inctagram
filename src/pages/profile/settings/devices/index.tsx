@@ -5,7 +5,7 @@ const DevicesPage = () => {
   return (
     <>
       <HeadMeta title={'Devices'} />
-      <p>Devices Page</p>
+      <main>Devices Page</main>
     </>
   )
 }
