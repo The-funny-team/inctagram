@@ -2,6 +2,7 @@ import { Controller } from 'react-hook-form'
 import { toast } from 'react-toastify'
 
 import { COUNTRIES_LIST } from '@/shared/const'
+import { onRequestErrorHandler } from '@/shared/lib/helpers'
 import { Button, Input, Select, TextField } from '@/shared/ui'
 import { DatePicker } from '@/shared/ui/DatePicker'
 import { UserProfileFormValuesType } from '@/widgets/ProfileInfoForm/services/useProfileForm'
@@ -14,7 +15,14 @@ import { ProfileSelectChildren } from '../ui/ProfileSelectChildren'
 export const ProfileInfoForm = () => {
   const { formData, formErrorsText, formText, profileNotifications, updateProfile } =
     useProfileData()
-  const { control, handleSubmit, setValue, watch } = useProfileForm(formData, formErrorsText)
+  const {
+    control,
+    formState: { isValid },
+    handleSubmit,
+    setError,
+    setValue,
+    watch,
+  } = useProfileForm(formData, formErrorsText)
   const country = watch('country')
 
   const { citiesLoading, citiesOptions } = useGetCity({ country, setValue })
@@ -23,7 +31,7 @@ export const ProfileInfoForm = () => {
     updateProfile(data)
       .unwrap()
       .then(() => toast.success(profileNotifications.successfulSave))
-      .catch(() => toast.success(profileNotifications.errorSave))
+      .catch(error => onRequestErrorHandler(error, setError))
   }
 
   return (
@@ -35,6 +43,7 @@ export const ProfileInfoForm = () => {
           <Input
             className={error && s.formFieldWithError}
             error={error?.message}
+            isRequired
             label={formText.userNameLabel}
             type={'text'}
             {...field}
@@ -48,6 +57,7 @@ export const ProfileInfoForm = () => {
           <Input
             className={error && s.formFieldWithError}
             error={error?.message}
+            isRequired
             label={formText.firstNameLabel}
             type={'text'}
             {...field}
@@ -61,6 +71,7 @@ export const ProfileInfoForm = () => {
           <Input
             className={error && s.formFieldWithError}
             error={error?.message}
+            isRequired
             label={formText.lastNameLabel}
             type={'text'}
             {...field}
@@ -83,7 +94,6 @@ export const ProfileInfoForm = () => {
           )
         }}
       />
-
       <div className={s.selectWrapper}>
         <div className={s.select}>
           <Controller
@@ -135,7 +145,7 @@ export const ProfileInfoForm = () => {
           />
         )}
       />
-      <Button className={s.saveButton} fullWidth={false}>
+      <Button className={s.saveButton} disabled={!isValid} fullWidth={false}>
         {formText.saveFormButton}
       </Button>
     </form>
