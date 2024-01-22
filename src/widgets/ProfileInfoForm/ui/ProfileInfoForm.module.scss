@@ -1,0 +1,28 @@
+.form {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  width: 100%;
+
+  .selectWrapper {
+    display: flex;
+    gap: 24px;
+
+    .select {
+      flex: 1 1 100%;
+    }
+  }
+}
+
+.formFieldWithError{
+  margin-bottom: -24px;
+}
+
+.saveButton{
+  position: absolute;
+  right: 0;
+  bottom: -90px;
+}

@@ -2,11 +2,14 @@ import React, { ComponentProps, forwardRef } from 'react'
 import * as RDP from 'react-datepicker'
 import { registerLocale } from 'react-datepicker'
 
+import { ROUTES_URL } from '@/shared/const'
 import { useTranslation } from '@/shared/lib/hooks'
+import { Trans } from '@/shared/ui'
 import { clsx } from 'clsx'
 import { getYear } from 'date-fns'
 import { ru } from 'date-fns/locale'
 import { range } from 'lodash'
+import Link from 'next/link'
 
 import 'react-datepicker/dist/react-datepicker.min.css'
 
@@ -16,6 +19,7 @@ import { CustomHeader } from './custom/CustomHeader'
 import { CustomInput } from './custom/CustomInput'
 
 export type DatePickerProps = {
+  className?: string
   disabled?: boolean
   endDate?: Date | null
   error?: string
@@ -58,6 +62,7 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>(
       day: () => s.day,
       errorText: s.errorText,
       input: clsx(s.input),
+      link: s.link,
       popper: s.popper,
       root: clsx(s.root, className),
     }
@@ -120,7 +125,20 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>(
           showYearPicker={false}
           startDate={startDate}
         />
-        {error && <span className={s.errorMessage}>{error}</span>}
+        {error && (
+          <span className={s.errorMessage}>
+            <Trans
+              tags={{
+                1: () => (
+                  <Link className={classNames.link} href={ROUTES_URL.PRIVACY_POLICY}>
+                    {'Privacy Policy'}
+                  </Link>
+                ),
+              }}
+              text={error || ''}
+            />
+          </span>
+        )}
       </div>
     )
   }

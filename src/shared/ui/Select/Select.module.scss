@@ -67,6 +67,12 @@
     color: var(--color-dark-100);
     border-color: var(--color-dark-100);
   }
+
+  span:first-child{
+    display: flex;
+    gap: 16px;
+    align-items: center;
+  }
 }
 
 .viewport {

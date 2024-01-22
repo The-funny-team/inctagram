@@ -41,7 +41,7 @@ export const AddProfilePhoto = ({ avatar }: Props) => {
         ) : (
           <BlankCover />
         )}
-        <Button className={s.avatarButton} onClick={openAddPhotoModalHandler} variant={'tertiary'}>
+        <Button onClick={openAddPhotoModalHandler} variant={'tertiary'}>
           {text.pages.profile.addProfilePhoto.addPhoto}
         </Button>
       </div>

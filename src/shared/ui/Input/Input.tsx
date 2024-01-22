@@ -7,6 +7,7 @@ import s from './Input.module.scss'
 
 type Props = {
   error?: string
+  isRequired?: boolean
   label?: string
   onEnter?: ComponentPropsWithoutRef<'input'>['onKeyDown']
   onValueChange?: (value: string) => void
@@ -15,7 +16,18 @@ type Props = {
 } & ComponentPropsWithoutRef<'input'>
 
 export const Input = forwardRef<HTMLInputElement, Props>((props, ref) => {
-  const { className, error, label, onEnter, onKeyDown, onValueChange, type, value, ...rest } = props
+  const {
+    className,
+    error,
+    isRequired,
+    label,
+    onEnter,
+    onKeyDown,
+    onValueChange,
+    type,
+    value,
+    ...rest
+  } = props
 
   const [isVisible, setIsVisible] = useState<boolean>(false)
 
@@ -57,6 +69,7 @@ export const Input = forwardRef<HTMLInputElement, Props>((props, ref) => {
       {label && (
         <label className={classNames.label} htmlFor={label}>
           {label}
+          {isRequired && <span>*</span>}
         </label>
       )}
       <div className={classNames.textField}>

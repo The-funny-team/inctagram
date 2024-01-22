@@ -108,6 +108,51 @@ export const ru: LocaleType = {
         selectPhoto: 'Выберите фото',
         yesButton: 'Да',
       },
+      profileInfoForm: {
+        citySelectLabel: 'Выберете Ваш город',
+        citySelectPlaceholder: 'Город',
+        countrySelectLabel: 'Выберете Вашу страну',
+        countrySelectPlaceholder: 'Страна',
+        dateOfBirth: 'Дата рождения',
+        firstNameLabel: 'Имя',
+        lastNameLabel: 'Фамилия',
+        saveFormButton: 'Сохранить изменения',
+        textFieldLabel: 'Обо мне',
+        userNameLabel: 'Имя пользователя',
+      },
+      profileInfoFormErrors: {
+        aboutMeRegex:
+          'Обо мне может быть из символов 0-9, a-z, A-Z, ! " # $ % & \' () * + , - . / : ; < = > ? @ [ \\ ] ^ _ ` { | } ~',
+        dateOfBirth: 'Пользователь младше 13 лет не может создать профиль. <1>link</1>',
+        firstNameRegex: 'Имя может быть из символов A-Z a-z, А-Я а-я',
+        lastNameRegex: 'Фамилия может быть из символов A-Z a-z, А-Я а-я',
+        maxAboutMeLength: 'Максимальное количество символов 200',
+        maxFirstNameLength: 'Максимальное количество символов 50',
+        maxLastNameLength: 'Максимальное количество символов 50',
+        maxUserNameLength: 'Максимальное количество символов 30',
+        minFirstNameLength: 'Минимальное количество символов 1',
+        minLastNameLength: 'Минимальное количество символов 1',
+        minUserNameLength: 'Минимальное количество символов 6',
+        userNameRegex: 'Имя пользователя может быть из символов 0-9, a-z A-Z, _, -',
+      },
+      profileNotifications: {
+        errorSave: 'Ошибка! Сервер недоступен!',
+        successfulSave: 'Ваши настройки сохранены!',
+      },
+      settings: {
+        devices: {
+          title: 'Устройства',
+        },
+        general: {
+          title: 'Общая информация',
+        },
+        management: {
+          title: 'Управление аккаунтом',
+        },
+        payments: {
+          title: 'Мои платежи',
+        },
+      },
     },
     signIn: {
       emailLabel: 'Электронная почта',
