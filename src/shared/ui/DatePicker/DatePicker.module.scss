@@ -60,7 +60,6 @@
 
     .react-datepicker__day.react-datepicker__day--weekend,
     .react-datepicker__day.react-datepicker__day--selected.react-datepicker__day--today.react-datepicker__day--weekend {
-      font-weight: var(--font-weight-bold);
       color: var(--color-danger-300);
 
       &:active {
@@ -203,33 +202,61 @@
     border-radius: 0;
   }
 
-  &:global(.react-datepicker__day--selecting-range-start) {
+  &:global(
+      .react-datepicker__day.react-datepicker__day--selected.react-datepicker__day--in-selecting-range.react-datepicker__day--selecting-range-start.react-datepicker__day--selecting-range-end
+    ) {
     background-color: var(--color-accent-900);
-    background-image: radial-gradient(28px circle, var(--color-accent-500) 48%, transparent 51%);
     border-radius: 50% 0 0 50%;
-  }
 
-  &:global(.react-datepicker__day--selecting-range-end) {
-    background-color: var(--color-accent-900);
-    background-image: radial-gradient(28px circle, var(--color-accent-500) 48%, transparent 51%);
-    border-radius: 0 50% 50% 0;
+    &:hover {
+      border-radius: 50% 0 0 50%;
+    }
   }
 
   &:global(.react-datepicker__day--in-range) {
     background-color: var(--color-accent-900);
     border-radius: 0;
+
+    &:hover {
+      background-color: var(--color-accent-700);
+      border-radius: 0;
+    }
   }
 
   &:global(.react-datepicker__day--range-start) {
     background-color: var(--color-accent-900);
-    background-image: radial-gradient(28px circle, var(--color-accent-500) 48%, transparent 51%);
     border-radius: 50% 0 0 50%;
+
+    &:hover {
+      border-radius: 50% 0 0 50%;
+    }
   }
 
   &:global(.react-datepicker__day--range-end) {
     background-color: var(--color-accent-900);
-    background-image: radial-gradient(28px circle, var(--color-accent-500) 48%, transparent 51%);
     border-radius: 0 50% 50% 0;
+
+    &:hover {
+      border-radius: 0 50% 50% 0;
+    }
+  }
+
+  &:global(.react-datepicker__day--selecting-range-start) {
+    background-color: var(--color-accent-900);
+    border-radius: 50% 0 0 50%;
+
+    &:hover {
+      border-radius: 50% 0 0 50%;
+    }
+  }
+
+  &:global(.react-datepicker__day--selecting-range-end) {
+    background-color: var(--color-accent-900);
+    border-radius: 0 50% 50% 0;
+
+    &:hover {
+      border-radius: 0 50% 50% 0;
+    }
   }
 }
 
