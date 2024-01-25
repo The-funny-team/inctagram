@@ -9,7 +9,7 @@ const SvgComponent = (props: SVGProps<SVGSVGElement>, ref: Ref<SVGSVGElement>) =
     xmlns={'http://www.w3.org/2000/svg'}
     {...props}
   >
-    <circle cx={12} cy={12} fill={'#CC1439'} r={10} stroke={'#0D0D0D'} strokeWidth={4} />
+    <circle cx={12} cy={12} fill={'#CC1439'} r={10} stroke={'#000000'} strokeWidth={4} />
     <g clipPath={'url(#clip0_23092_10749)'}>
       <path
         d={

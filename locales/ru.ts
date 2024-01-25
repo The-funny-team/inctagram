@@ -16,24 +16,30 @@ export const ru: LocaleType = {
       'Ноябрь',
       'Декабрь',
     ],
-    weekDays: ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'],
   },
   layout: {
     header: {
       signInBtn: 'Войти',
       signUpBtn: 'Регистрация',
     },
+    navBar: {
+      create: 'Создать',
+      favorites: 'Избранное',
+      home: 'Главная',
+      logOut: 'Выйти',
+      messenger: 'Мессенджер',
+      profile: 'Мой профиль',
+      search: 'Поиск',
+      statistics: 'Статистика',
+    },
+    tabs: {
+      devices: 'Устройства',
+      general: 'Общая информация',
+      management: 'Управление аккаунтом',
+      payments: 'Мои платежи',
+    },
   },
-  navBar: {
-    create: 'Создать',
-    favorites: 'Избранное',
-    home: 'Главная',
-    logOut: 'Выйти',
-    messenger: 'Мессенджер',
-    profile: 'Мой профиль',
-    search: 'Поиск',
-    statistics: 'Статистика',
-  },
+
   pages: {
     confirmedEmail: {
       description: 'Ваш адрес электронной почты подтвержден',
@@ -94,17 +100,45 @@ export const ru: LocaleType = {
         deletePhotoQuestion: 'Вы уверены, что хотите удалить фото?',
         errorText: {
           description: `<1>error</1> <2>terms</2>`,
-          error: 'Ошибка!',
+          error: 'Ошибка! ',
           getDescription: (message: string) => `${message}`,
-          sizeError: 'Размер фото должен быть менее 10 МБ',
-          typeError: 'Формат загружаемой фотографии должен быть PNG или JPEG',
         },
         noButton: 'Нет',
         savePhoto: 'Сохранить',
         selectPhoto: 'Выберите фото',
         yesButton: 'Да',
       },
-
+      profileInfoForm: {
+        citySelectLabel: 'Выберете Ваш город',
+        citySelectPlaceholder: 'Город',
+        countrySelectLabel: 'Выберете Вашу страну',
+        countrySelectPlaceholder: 'Страна',
+        dateOfBirth: 'Дата рождения',
+        firstNameLabel: 'Имя',
+        lastNameLabel: 'Фамилия',
+        saveFormButton: 'Сохранить изменения',
+        textFieldLabel: 'Обо мне',
+        userNameLabel: 'Имя пользователя',
+      },
+      profileInfoFormErrors: {
+        aboutMeRegex:
+          'Обо мне может быть из символов 0-9, a-z, A-Z, ! " # $ % & \' () * + , - . / : ; < = > ? @ [ \\ ] ^ _ ` { | } ~',
+        dateOfBirth: 'Пользователь младше 13 лет не может создать профиль. <1>link</1>',
+        firstNameRegex: 'Имя может быть из символов A-Z a-z, А-Я а-я',
+        lastNameRegex: 'Фамилия может быть из символов A-Z a-z, А-Я а-я',
+        maxAboutMeLength: 'Максимальное количество символов 200',
+        maxFirstNameLength: 'Максимальное количество символов 50',
+        maxLastNameLength: 'Максимальное количество символов 50',
+        maxUserNameLength: 'Максимальное количество символов 30',
+        minFirstNameLength: 'Минимальное количество символов 1',
+        minLastNameLength: 'Минимальное количество символов 1',
+        minUserNameLength: 'Минимальное количество символов 6',
+        userNameRegex: 'Имя пользователя может быть из символов 0-9, a-z A-Z, _, -',
+      },
+      profileNotifications: {
+        errorSave: 'Ошибка! Сервер недоступен!',
+        successfulSave: 'Ваши настройки сохранены!',
+      },
       settings: {
         devices: {
           title: 'Устройства',
@@ -170,6 +204,8 @@ export const ru: LocaleType = {
     passwordMismatch: 'Пароли должны совпадать',
     passwordVerification:
       'Пароль должен содержать 0-9, a-z, A-Z, ! " # $ % & \' () * + , - . / : ; < = > ? @ [ \\ ] ^ _ ` { | } ~',
+    sizeError: 'Размер фото должен быть менее 10 МБ',
+    typeError: 'Формат загружаемой фотографии должен быть PNG или JPEG',
     usernameVerification: 'Имя пользователя может содержать 0-9; A-Z; a-z; _ ; - ',
   },
 }

@@ -1,7 +1,13 @@
-import { getTabsLayout } from '@/shared/ui/TabsLayout'
+import { getTabsLayout } from '@/shared/layouts'
+import { HeadMeta } from '@/shared/ui'
 
 const DevicesPage = () => {
-  return <p>Devices Page</p>
+  return (
+    <>
+      <HeadMeta title={'Devices'} />
+      <main>Devices Page</main>
+    </>
+  )
 }
 
 DevicesPage.getLayout = getTabsLayout

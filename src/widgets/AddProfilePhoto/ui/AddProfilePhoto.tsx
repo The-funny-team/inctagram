@@ -12,7 +12,6 @@ import { DeletePhotoModal } from './DeletePhotoModal/DeletePhotoModal'
 type Props = { avatar?: null | string }
 export const AddProfilePhoto = ({ avatar }: Props) => {
   const { text } = useTranslation()
-  const t = text.pages.profile.addProfilePhoto
 
   const [currentPhoto, setCurrentPhoto] = useState<File | null>(null)
   const [isOpenAddPhotoModal, setIsOpenAddPhotoModal] = useState(false)
@@ -42,8 +41,8 @@ export const AddProfilePhoto = ({ avatar }: Props) => {
         ) : (
           <BlankCover />
         )}
-        <Button className={s.avatarButton} onClick={openAddPhotoModalHandler} variant={'tertiary'}>
-          {t.addPhoto}
+        <Button onClick={openAddPhotoModalHandler} variant={'tertiary'}>
+          {text.pages.profile.addProfilePhoto.addPhoto}
         </Button>
       </div>
       <AddProfilePhotoModal
@@ -53,12 +52,12 @@ export const AddProfilePhoto = ({ avatar }: Props) => {
         setCurrentPhoto={setCurrentPhoto}
         setError={setError}
         setIsOpenAddPhotoModal={setIsOpenAddPhotoModal}
-        t={t}
+        text={text}
       />
       <DeletePhotoModal
         isOpenDeletePhotoModal={isOpenDeletePhotoModal}
         setIsOpenDeletePhotoModal={setIsOpenDeletePhotoModal}
-        t={t}
+        text={text}
       />
     </>
   )

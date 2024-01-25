@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react'
 
 import { useEmailConfirmationMutation, useEmailResendingMutation } from '@/shared/api/authApi'
-import { Loader, getRootLayout } from '@/shared/ui'
+import { getRootLayout } from '@/shared/layouts'
+import { Loader } from '@/shared/ui'
 import { ConfirmedEmail } from '@/widgets/ConfirmedEmail'
 import { ExpiredLink } from '@/widgets/ExpiredLink'
 import { useRouter } from 'next/router'

@@ -42,7 +42,7 @@ export const SignIn = () => {
       .unwrap()
       .then(data => {
         saveToLocalStorage('accessToken', data.accessToken)
-        router.push(ROUTES_URL.PROFILE)
+        void router.push(ROUTES_URL.PROFILE)
       })
       .catch(error => onRequestErrorHandler(error, setError, 'password'))
   }

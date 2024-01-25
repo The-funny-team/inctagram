@@ -11,14 +11,16 @@ import s from './DeletePhotoModal.module.scss'
 type Props = {
   isOpenDeletePhotoModal: boolean
   setIsOpenDeletePhotoModal: (isOpenDeletePhotoModal: boolean) => void
-  t: LocaleType['pages']['profile']['addProfilePhoto']
+  text: LocaleType
 }
 export const DeletePhotoModal = ({
   isOpenDeletePhotoModal,
   setIsOpenDeletePhotoModal,
-  t,
+  text,
 }: Props) => {
   const [deleteAvatar] = useDeleteAvatarMutation()
+
+  const t = text.pages.profile.addProfilePhoto
 
   const deletePhoto = () => {
     deleteAvatar()

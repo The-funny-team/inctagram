@@ -14,24 +14,30 @@ export const en = {
       'November',
       'December',
     ],
-    weekDays: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
   },
   layout: {
     header: {
       signInBtn: 'Log in',
       signUpBtn: 'Sign up',
     },
+    navBar: {
+      create: 'Create',
+      favorites: 'Favorites',
+      home: 'Home',
+      logOut: 'Log Out',
+      messenger: 'Messenger',
+      profile: 'My Profile',
+      search: 'Search',
+      statistics: 'Statistics',
+    },
+    tabs: {
+      devices: 'Devices',
+      general: 'General Information',
+      management: 'Account Management',
+      payments: 'My payments',
+    },
   },
-  navBar: {
-    create: 'Create',
-    favorites: 'Favorites',
-    home: 'Home',
-    logOut: 'Log Out',
-    messenger: 'Messenger',
-    profile: 'My Profile',
-    search: 'Search',
-    statistics: 'Statistics',
-  },
+
   pages: {
     confirmedEmail: {
       description: 'Your email has been confirmed',
@@ -92,15 +98,44 @@ export const en = {
         deletePhotoQuestion: 'Are you sure you want to delete the photo?',
         errorText: {
           description: `<1>error!</1> <2>message</2>`,
-          error: 'Error!',
+          error: 'Error! ',
           getDescription: (message: string) => `${message}`,
-          sizeError: 'Photo size must be less than 10 MB',
-          typeError: 'The format of the uploaded photo must be PNG and JPEG',
         },
         noButton: 'No',
         savePhoto: 'Save',
         selectPhoto: 'Select from Computer',
         yesButton: 'Yes',
+      },
+      profileInfoForm: {
+        citySelectLabel: 'Select your city',
+        citySelectPlaceholder: 'City',
+        countrySelectLabel: 'Select your country',
+        countrySelectPlaceholder: 'Country',
+        dateOfBirth: 'Date of birth',
+        firstNameLabel: 'First Name',
+        lastNameLabel: 'Last Name',
+        saveFormButton: 'Save Changes',
+        textFieldLabel: 'About Me',
+        userNameLabel: 'Username',
+      },
+      profileInfoFormErrors: {
+        aboutMeRegex:
+          'About me may contain 0-9, a-z, A-Z, ! " # $ % & \' () * + , - . / : ; < = > ? @ [ \\ ] ^ _ ` { | } ~',
+        dateOfBirth: 'A user under 13 cannot create a profile. <1>link</1>',
+        firstNameRegex: 'First Name may contain A-Z a-z, А-Я а-я',
+        lastNameRegex: 'Last Name may contain A-Z a-z, А-Я а-я',
+        maxAboutMeLength: 'Maximum number of characters 200',
+        maxFirstNameLength: 'Maximum number of characters 50',
+        maxLastNameLength: 'Maximum number of characters 50',
+        maxUserNameLength: 'Maximum number of characters 30',
+        minFirstNameLength: 'Minimum number of characters 1',
+        minLastNameLength: 'Minimum number of characters 1',
+        minUserNameLength: 'Minimum number of characters 6',
+        userNameRegex: 'Username may contain 0-9, a-z A-Z, _, -',
+      },
+      profileNotifications: {
+        errorSave: 'Error! Server is not available!',
+        successfulSave: 'Your settings are saved!',
       },
       settings: {
         devices: {
@@ -166,6 +201,8 @@ export const en = {
     passwordMismatch: 'Passwords must match',
     passwordVerification:
       'Password must contain 0-9, a-z, A-Z, ! " # $ % & \' () * + , - . / : ; < = > ? @ [ \\ ] ^ _ ` { | } ~',
+    sizeError: 'Photo size must be less than 10 MB',
+    typeError: 'The format of the uploaded photo must be PNG and JPEG',
     usernameVerification: 'Username can contain 0-9; A-Z; a-z; _ ; - ',
   },
 }

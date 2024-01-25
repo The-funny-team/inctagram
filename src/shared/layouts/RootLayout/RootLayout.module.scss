@@ -1,0 +1,15 @@
+@mixin container {
+  width: 100%;
+  max-width: 1180px;
+  min-height: 100%;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+.root {
+  @include container;
+}
+
+.container {
+  padding-top: 60px;
+}

@@ -6,10 +6,16 @@ const nextConfig = {
     locales: ['en', 'ru'],
   },
   images: {
-    domains: ['it-incubator.storage.yandexcloud.net'],
+    remotePatterns: [
+      {
+        hostname: 'it-incubator.storage.yandexcloud.net',
+        pathname: '**',
+        protocol: 'https',
+      },
+    ],
   },
   output: 'standalone',
-  reactStrictMode: true,
+  reactStrictMode: false,
 }
 
 module.exports = {

@@ -72,10 +72,10 @@ export type User = {
 }
 
 type UpdateUserDto = {
-  aboutMe: null | string
-  city: null | string
-  country: null | string
-  dateOfBirth: null | string
+  aboutMe?: string | undefined
+  city?: string | undefined
+  country?: string | undefined
+  dateOfBirth?: Date | undefined
   firstName: string
   lastName: string
   username: string

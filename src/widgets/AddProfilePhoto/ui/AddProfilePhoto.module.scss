@@ -4,8 +4,9 @@
   gap: 24px;
   align-items: center;
 
-  width: 250px;
-  padding: 24px;
+  width: 100%;
+  max-width: 196px;
+  margin-top: 24px;
 
   .avatar {
     position: relative;
@@ -20,7 +21,7 @@
     .deleteIcon {
       position: absolute;
       top: 8px;
-      left: 68px;
+      right: 16px;
 
       padding: 0;
 
@@ -28,15 +29,4 @@
     }
   }
 
-  .avatarButton {
-    width: auto;
-    max-height: 36px;
-    white-space: nowrap
-  }
 }
-
-
-
-
-
-
