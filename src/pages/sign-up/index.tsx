@@ -1,14 +1,16 @@
 import { getRootLayout } from '@/shared/layouts'
-import { HeadMeta } from '@/shared/ui'
+import { HeadMeta, RedirectToProfilePage } from '@/shared/ui'
 import { SignUp } from '@/widgets/SignUp'
 
 const SignUpPage = () => {
   return (
     <>
       <HeadMeta title={'Sign Up'} />
-      <main style={{ display: 'flex', justifyContent: 'center', paddingTop: '24px' }}>
-        <SignUp />
-      </main>
+      <RedirectToProfilePage>
+        <main style={{ display: 'flex', justifyContent: 'center', paddingTop: '24px' }}>
+          <SignUp />
+        </main>
+      </RedirectToProfilePage>
     </>
   )
 }
