@@ -7,7 +7,7 @@ import { useTranslation } from '@/shared/lib/hooks'
 import { Button, Card, Input, Typography } from '@/shared/ui'
 import { clsx } from 'clsx'
 import Link from 'next/link'
-import { onRequestErrorHandler, saveToLocalStorage } from 'src/shared/lib/helpers'
+import { onRequestErrorHandler } from 'src/shared/lib/helpers'
 
 import s from './SignIn.module.scss'
 
