@@ -1,4 +1,5 @@
 import { baseApi } from '@/shared/api/baseApi'
+import { ACCESS_TOKEN } from '@/shared/const'
 import { loadFromLocalStorage } from '@/shared/lib/helpers'
 
 export const profileApi = baseApi.injectEndpoints({
@@ -6,7 +7,7 @@ export const profileApi = baseApi.injectEndpoints({
     deleteAvatar: builder.mutation<void, void>({
       invalidatesTags: ['Me'],
       query: () => ({
-        headers: { Authorization: `Bearer ${loadFromLocalStorage('accessToken', '')}` },
+        headers: { Authorization: `Bearer ${loadFromLocalStorage(ACCESS_TOKEN, '')}` },
         method: 'DELETE',
         url: '/user/avatar',
       }),
@@ -14,7 +15,7 @@ export const profileApi = baseApi.injectEndpoints({
     me: builder.query<MeResponse, void>({
       providesTags: ['Me'],
       query: () => ({
-        headers: { Authorization: `Bearer ${loadFromLocalStorage('accessToken', '')}` },
+        headers: { Authorization: `Bearer ${loadFromLocalStorage(ACCESS_TOKEN, '')}` },
         method: 'GET',
         url: '/user/me',
       }),
@@ -28,7 +29,7 @@ export const profileApi = baseApi.injectEndpoints({
 
         return {
           body: formData,
-          headers: { Authorization: `Bearer ${loadFromLocalStorage('accessToken', '')}` },
+          headers: { Authorization: `Bearer ${loadFromLocalStorage(ACCESS_TOKEN, '')}` },
           method: 'POST',
           url: '/user/avatar',
         }
@@ -39,7 +40,7 @@ export const profileApi = baseApi.injectEndpoints({
       query: body => {
         return {
           body,
-          headers: { Authorization: `Bearer ${loadFromLocalStorage('accessToken', '')}` },
+          headers: { Authorization: `Bearer ${loadFromLocalStorage(ACCESS_TOKEN, '')}` },
           method: 'PUT',
           url: '/user',
         }
@@ -50,7 +51,6 @@ export const profileApi = baseApi.injectEndpoints({
 
 export const {
   useDeleteAvatarMutation,
-  useLazyMeQuery,
   useMeQuery,
   useUpdateAvatarMutation,
   useUpdateUserMutation,

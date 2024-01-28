@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import { toast } from 'react-toastify'
 
 import { useLoginByGoogleQuery } from '@/shared/api/authApi'
-import { ROUTES_URL } from '@/shared/const'
+import { ACCESS_TOKEN, ROUTES_URL } from '@/shared/const'
 import { saveToLocalStorage } from '@/shared/lib/helpers'
 import { Loader } from '@/shared/ui'
 import { useRouter } from 'next/router'
@@ -15,7 +15,7 @@ const GoogleAuthPage = () => {
 
   useEffect(() => {
     if (data?.accessToken) {
-      saveToLocalStorage('accessToken', data.accessToken)
+      saveToLocalStorage(ACCESS_TOKEN, data.accessToken)
       router.push('/')
     }
   }, [data?.accessToken, router])
