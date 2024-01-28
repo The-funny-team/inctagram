@@ -40,8 +40,7 @@ export const SignIn = () => {
   const onFormSubmit = (data: SignInFormValuesType) => {
     signIn(data)
       .unwrap()
-      .then(data => {
-        saveToLocalStorage('accessToken', data.accessToken)
+      .then(() => {
         void router.push(ROUTES_URL.PROFILE)
       })
       .catch(error => onRequestErrorHandler(error, setError, 'password'))

@@ -1,5 +1,7 @@
 import { baseApi } from '@/shared/api/baseApi'
 import { profileApi } from '@/shared/api/profileApi'
+import { ACCESS_TOKEN } from '@/shared/const'
+import { saveToLocalStorage } from '@/shared/lib/helpers'
 
 const authApi = baseApi.injectEndpoints({
   endpoints: builder => ({
@@ -71,6 +73,15 @@ const authApi = baseApi.injectEndpoints({
     }),
     signIn: builder.mutation<SignInResponseType, SignInRequestType>({
       invalidatesTags: ['Me'],
+      async onQueryStarted(_, { queryFulfilled }) {
+        try {
+          const { data } = await queryFulfilled
+
+          saveToLocalStorage(ACCESS_TOKEN, data.accessToken)
+        } catch {
+          localStorage.removeItem(ACCESS_TOKEN)
+        }
+      },
       query: body => ({
         body,
         method: 'POST',
