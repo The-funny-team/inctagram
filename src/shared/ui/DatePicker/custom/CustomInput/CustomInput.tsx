@@ -22,10 +22,10 @@ export const CustomInput = forwardRef<HTMLInputElement, CustomInputProps>(
       <label className={s.label}>
         <span>{label}</span>
         <div className={classNames.inputContainer}>
-          <input disabled={disabled} ref={ref} {...rest} />
           <div className={classNames.icon}>
             <CalendarIcon />
           </div>
+          <input disabled={disabled} ref={ref} {...rest} />
         </div>
       </label>
     )
