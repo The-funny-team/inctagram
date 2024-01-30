@@ -19,6 +19,7 @@
     "@radix-ui/react-tabs": "^1.0.4",
     "@reduxjs/toolkit": "1.9.7",
     "@types/react-window": "^1.8.8",
+    "async-mutex": "^0.4.1",
     "clsx": "2.0.0",
     "date-fns": "^3.3.0",
     "lodash": "^4.17.21",
