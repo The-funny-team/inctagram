@@ -1,5 +1,5 @@
 import { ACCESS_TOKEN, BASE_API_URL } from '@/shared/const'
-import { saveToLocalStorage } from '@/shared/lib/helpers'
+import { loadFromLocalStorage, saveToLocalStorage } from '@/shared/lib/helpers'
 import { BaseQueryFn, FetchArgs, FetchBaseQueryError, fetchBaseQuery } from '@reduxjs/toolkit/query'
 import { Mutex } from 'async-mutex'
 
@@ -8,6 +8,17 @@ const mutex = new Mutex()
 const baseQuery = fetchBaseQuery({
   baseUrl: BASE_API_URL,
   credentials: 'include',
+  prepareHeaders: headers => {
+    if (typeof window !== 'undefined') {
+      const accessToken: string = loadFromLocalStorage(ACCESS_TOKEN, '')
+
+      if (accessToken) {
+        headers.set('Authorization', `Bearer ${accessToken}`)
+      }
+    }
+
+    return headers
+  },
 })
 
 export const customFetchBase: BaseQueryFn<
