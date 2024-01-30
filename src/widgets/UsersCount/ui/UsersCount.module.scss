@@ -1,0 +1,35 @@
+.usersCountField {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px;
+
+  .usersCount {
+    all: unset;
+
+    display: flex;
+
+    padding: 9px 12px;
+
+    list-style-type: none;
+
+    background-color: var(--color-dark-700);
+    border: 1px solid var(--color-dark-300);
+    border-radius: 2px;
+
+    & li {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      width: 24px;
+      height: 24px;
+
+      font-size: 18px;
+    }
+
+    & li:not(:last-child){
+      border-right: 1px solid var(--color-dark-300);
+    }
+  }
+}
