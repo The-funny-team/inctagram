@@ -1,11 +1,14 @@
-import { getNavbarLayout } from '@/shared/layouts'
+import { WelcomePage } from '@/_pages/WelcomePage'
+import { useMeQuery } from '@/shared/api/profileApi'
 import { useTranslation } from '@/shared/lib/hooks'
 
 const Home = () => {
   const { text } = useTranslation()
+  const { data } = useMeQuery()
 
-  return <main>{text.pages.home}</main>
+  if (!data) {
+    return WelcomePage.getLayout(<WelcomePage />)
+  }
 }
 
-Home.getLayout = getNavbarLayout
 export default Home
