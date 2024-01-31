@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 
 import { BrowserIcon } from '@/shared/assets/icons/devices/BrowserIcon'
 import { ChromeIcon } from '@/shared/assets/icons/devices/ChromeIcon'
-import { DesctopIcon } from '@/shared/assets/icons/devices/DesctopIcon'
+import { DesktopIcon } from '@/shared/assets/icons/devices/DesktopIcon'
 import { DevicesList } from '@/shared/assets/icons/devices/DevicesList'
 import { FireFoxIcon } from '@/shared/assets/icons/devices/FireFoxIcon'
 import { MobileIcon } from '@/shared/assets/icons/devices/MobileIcon'
@@ -36,11 +36,11 @@ export const Chrome: Story = {
     ),
   },
 }
-export const Desctop: Story = {
+export const Desktop: Story = {
   args: {
     children: (
       <>
-        <DesctopIcon />
+        <DesktopIcon />
       </>
     ),
   },
