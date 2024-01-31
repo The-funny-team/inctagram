@@ -106,6 +106,13 @@ export const en = {
         selectPhoto: 'Select from Computer',
         yesButton: 'Yes',
       },
+      devices: {
+        activeSessions: 'Active sessions',
+        currentDevice: 'Current device',
+        lastVisit: 'Last visit: ',
+        logOut: 'Log Out',
+        terminateButton: 'Terminate all other session',
+      },
       profileInfoForm: {
         citySelectLabel: 'Select your city',
         citySelectPlaceholder: 'City',
