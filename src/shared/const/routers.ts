@@ -1,6 +1,5 @@
 export const ROUTES_URL = {
   ACCOUNT_MANAGEMENT: '/profile/settings/management',
-  CREATE: '/create',
   DEVICES: '/profile/settings/devices',
   FAVORITES: '/favorites',
   FORGOT_PASSWORD: '/forgot-password',
