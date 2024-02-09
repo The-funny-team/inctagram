@@ -1,7 +1,10 @@
 import { useState } from 'react'
 
-import { Cross2Icon } from '@/shared/assets'
-import { BlankCover, Button, Modal, Typography } from '@/shared/ui'
+import { Modal } from '@/shared/ui'
+import { Cropping } from '@/widgets/CreatePost/ui/Cropping'
+import { Filtering } from '@/widgets/CreatePost/ui/Filtering'
+import { ImageSelection } from '@/widgets/CreatePost/ui/ImageSelection'
+import { Publish } from '@/widgets/CreatePost/ui/Publish'
 
 import s from './CreatePost.module.scss'
 
@@ -16,37 +19,19 @@ export const CreatePost = ({ isOpen, isOpenChange }: Props) => {
   const onCloseBtnHandler = () => {
     isOpenChange(false)
   }
+  const setPrevHandler = () => {
+    setStage(stage => stage - 1)
+  }
+  const setNextHandler = () => {
+    setStage(stage => stage + 1)
+  }
 
   return (
     <Modal className={s.modal} isOpen={isOpen} onIsOpenChange={isOpenChange}>
-      <ImageSelection onCloseBtn={onCloseBtnHandler} />
+      {stage === 0 && <ImageSelection onCloseBtn={onCloseBtnHandler} setNext={setNextHandler} />}
+      {stage === 1 && <Cropping setNext={setNextHandler} setPerv={setPrevHandler} />}
+      {stage === 2 && <Filtering setNext={setNextHandler} setPerv={setPrevHandler} />}
+      {stage === 3 && <Publish setPerv={setPrevHandler} />}
     </Modal>
-  )
-}
-
-type ImageSelectionProps = {
-  onCloseBtn: () => void
-}
-
-export const ImageSelection = ({ onCloseBtn }: ImageSelectionProps) => {
-  return (
-    <>
-      <div className={s.title}>
-        <Typography as={'h1'} variant={'h1'}>
-          Add Photo
-        </Typography>
-        <button className={s.closeBtn} onClick={onCloseBtn}>
-          <Cross2Icon />
-        </button>
-      </div>
-
-      <div className={s.body}>
-        <BlankCover type={'square'} />
-        <div className={s.btnGroup}>
-          <Button>Select from Computer</Button>
-          <Button variant={'tertiary'}>Open Draft</Button>
-        </div>
-      </div>
-    </>
   )
 }
