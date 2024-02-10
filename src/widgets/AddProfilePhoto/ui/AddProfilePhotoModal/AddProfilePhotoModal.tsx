@@ -3,7 +3,7 @@ import AvatarEditor from 'react-avatar-editor'
 import { toast } from 'react-toastify'
 
 import { useUpdateAvatarMutation } from '@/shared/api/profileApi'
-import { maxFileSize } from '@/shared/const'
+import { MAX_FILE_SIZE } from '@/shared/const'
 import { isFetchBaseQueryError } from '@/shared/lib/helpers'
 import { BlankCover, Button, Modal, Trans, Typography } from '@/shared/ui'
 import { LocaleType } from '@locales/en'
@@ -46,7 +46,7 @@ export const AddProfilePhotoModal = ({
     if (e.target.files && e.target.files.length > 0) {
       const file = e.target.files[0]
 
-      if (file.size > maxFileSize) {
+      if (file.size > MAX_FILE_SIZE) {
         setError(tValidation.sizeError)
         e.target.value = ''
       } else if (file.type !== 'image/jpeg' && file.type !== 'image/png') {

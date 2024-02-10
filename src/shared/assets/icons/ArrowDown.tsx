@@ -19,6 +19,5 @@ const SvgComponent = (props: SVGProps<SVGSVGElement>, ref: Ref<SVGSVGElement>) =
   </svg>
 )
 const ForwardRef = forwardRef(SvgComponent)
-const Memo = memo(ForwardRef)
 
 export const ArrowDownIcon = memo(ForwardRef)
