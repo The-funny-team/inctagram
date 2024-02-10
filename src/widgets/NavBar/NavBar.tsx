@@ -58,12 +58,16 @@ export const NavBar = ({ className }: Props) => {
     }
   }
 
+  const shouldActive = (value: boolean) => {
+    return !isOpen && value
+  }
+
   return (
     <aside className={clsx(s.root, className)}>
       <nav className={s.nav}>
         <Button
           as={Link}
-          className={clsx(s.button, pathname === ROUTES_URL.HOME && s.active)}
+          className={clsx(s.button, shouldActive(pathname === ROUTES_URL.HOME) && s.active)}
           href={ROUTES_URL.HOME}
         >
           {pathname === ROUTES_URL.HOME ? <FilledHomeIcon /> : <HomeIcon />}
@@ -71,29 +75,33 @@ export const NavBar = ({ className }: Props) => {
         </Button>
 
         <Button className={clsx(s.button, isOpen && s.active)} onClick={() => setIsOpen(true)}>
-          {<CreateIcon />}
+          {isOpen ? <FilledCreateIcon /> : <CreateIcon />}
           {t.create}
         </Button>
 
         <Button
           as={Link}
-          className={clsx(s.button, pathname === ROUTES_URL.PROFILE && s.active)}
+          className={clsx(s.button, shouldActive(pathname === ROUTES_URL.PROFILE) && s.active)}
           href={ROUTES_URL.PROFILE}
         >
-          {pathname === ROUTES_URL.PROFILE ? <FilledProfileIcon /> : <ProfileIcon />}
+          {shouldActive(pathname === ROUTES_URL.PROFILE) ? <FilledProfileIcon /> : <ProfileIcon />}
           {t.profile}
         </Button>
         <Button
           as={Link}
-          className={clsx(s.button, pathname === ROUTES_URL.MESSENGER && s.active)}
+          className={clsx(s.button, shouldActive(pathname === ROUTES_URL.MESSENGER) && s.active)}
           href={ROUTES_URL.MESSENGER}
         >
-          {pathname === ROUTES_URL.MESSENGER ? <FilledMessengerIcon /> : <MessengerIcon />}
+          {shouldActive(pathname === ROUTES_URL.MESSENGER) ? (
+            <FilledMessengerIcon />
+          ) : (
+            <MessengerIcon />
+          )}
           {t.messenger}
         </Button>
         <Button
           as={Link}
-          className={clsx(s.button, pathname === ROUTES_URL.SEARCH && s.active)}
+          className={clsx(s.button, shouldActive(pathname === ROUTES_URL.SEARCH) && s.active)}
           href={ROUTES_URL.SEARCH}
         >
           <SearchOutlineIcon />
@@ -101,7 +109,7 @@ export const NavBar = ({ className }: Props) => {
         </Button>
         <Button
           as={Link}
-          className={clsx(s.button, pathname === ROUTES_URL.STATISTICS && s.active)}
+          className={clsx(s.button, shouldActive(pathname === ROUTES_URL.STATISTICS) && s.active)}
           href={ROUTES_URL.STATISTICS}
         >
           <StatisticsIcon />
@@ -109,10 +117,14 @@ export const NavBar = ({ className }: Props) => {
         </Button>
         <Button
           as={Link}
-          className={clsx(s.button, pathname === ROUTES_URL.FAVORITES && s.active)}
+          className={clsx(s.button, shouldActive(pathname === ROUTES_URL.FAVORITES) && s.active)}
           href={ROUTES_URL.FAVORITES}
         >
-          {pathname === ROUTES_URL.MESSENGER ? <FilledFavoritesIcon /> : <FavoritesIcon />}
+          {shouldActive(pathname === ROUTES_URL.MESSENGER) ? (
+            <FilledFavoritesIcon />
+          ) : (
+            <FavoritesIcon />
+          )}
           {t.favorites}
         </Button>
       </nav>
