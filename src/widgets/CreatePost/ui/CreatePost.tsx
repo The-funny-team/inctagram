@@ -14,10 +14,13 @@ type Props = {
 }
 
 export const CreatePost = ({ isOpen, isOpenChange }: Props) => {
+  const [photos, setPhotos] = useState<string[]>([])
   const [stage, setStage] = useState<number>(0)
 
-  const onCloseBtnHandler = () => {
+  const onCloseHandler = () => {
     isOpenChange(false)
+    setPhotos([])
+    setStage(0)
   }
   const setPrevHandler = () => {
     setStage(stage => stage - 1)
@@ -25,11 +28,22 @@ export const CreatePost = ({ isOpen, isOpenChange }: Props) => {
   const setNextHandler = () => {
     setStage(stage => stage + 1)
   }
+  const setPhotosHandler = (photos: string[]) => {
+    setPhotos(currentFiles => [...currentFiles, ...photos])
+  }
 
   return (
-    <Modal className={s.modal} isOpen={isOpen} onIsOpenChange={isOpenChange}>
-      {stage === 0 && <ImageSelection onCloseBtn={onCloseBtnHandler} setNext={setNextHandler} />}
-      {stage === 1 && <Cropping setNext={setNextHandler} setPerv={setPrevHandler} />}
+    <Modal className={s.modal} isOpen={isOpen} onIsOpenChange={onCloseHandler}>
+      {stage === 0 && (
+        <ImageSelection
+          onCloseBtn={onCloseHandler}
+          setNext={setNextHandler}
+          setPhotos={setPhotosHandler}
+        />
+      )}
+      {stage === 1 && (
+        <Cropping photos={photos} setNext={setNextHandler} setPerv={setPrevHandler} />
+      )}
       {stage === 2 && <Filtering setNext={setNextHandler} setPerv={setPrevHandler} />}
       {stage === 3 && <Publish setPerv={setPrevHandler} />}
     </Modal>

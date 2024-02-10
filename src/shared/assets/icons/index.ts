@@ -1,5 +1,7 @@
 export { ArrowDownIcon } from './ArrowDown'
 export { ArrowLeftIcon } from './ArrowLeftIcon'
+export { ArrowLeftShortIcon } from './ArrowLeftShortIcon'
+export { ArrowRightShortIcon } from './ArrowRightShortIcon'
 export { BellNotifyIcon } from './BellNotifyIcon'
 export { CalendarBtnLeftIcon } from './CalendarBtnLeftIcon'
 export { CalendarBtnRightIcon } from './CalendarBtnRightIcon'

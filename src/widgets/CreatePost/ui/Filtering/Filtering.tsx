@@ -1,4 +1,4 @@
-import { ArrowLeftIcon } from '@/shared/assets'
+import { ArrowLeftShortIcon } from '@/shared/assets'
 import { Button, Typography } from '@/shared/ui'
 
 import s from './Filtering.module.scss'
@@ -13,7 +13,7 @@ export const Filtering = ({ setNext, setPerv }: Props) => {
     <div>
       <div className={s.title}>
         <button className={s.backBtn} onClick={setPerv}>
-          <ArrowLeftIcon />
+          <ArrowLeftShortIcon />
         </button>
         <Typography as={'h1'} variant={'h1'}>
           Filtering
