@@ -1,9 +1,19 @@
-import React, { ComponentProps } from 'react'
+import React, { ComponentProps, useState } from 'react'
 import Slider, { Settings } from 'react-slick'
 
-import { ArrowLeftShortIcon, ArrowRightShortIcon } from '@/shared/assets'
+import {
+  ArrowLeftShortIcon,
+  ArrowRightShortIcon,
+  ExpandIcon,
+  FilledPhotoIcon,
+  LoupeIcon,
+  PhotoIcon,
+} from '@/shared/assets'
 import { Button, Typography } from '@/shared/ui'
+import { AspectRatioSettings } from '@/widgets/CreatePost/ui/Cropping/AspectRatioSettings'
+import { SelectedImagesPreview } from '@/widgets/CreatePost/ui/Cropping/SelectedImagesPreview'
 import { clsx } from 'clsx'
+import { SliderButton, SliderDot } from 'src/widgets/CreatePost/ui/SliderButtons'
 
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
@@ -11,12 +21,17 @@ import 'slick-carousel/slick/slick-theme.css'
 import s from './Cropping.module.scss'
 
 type Props = {
+  onRemove: (index: number) => void
   photos: string[]
   setNext: () => void
   setPerv: () => void
+  setPhotos: (value: string[]) => void
 }
 
-export const Cropping = ({ photos, setNext, setPerv }: Props) => {
+export const Cropping = ({ onRemove, photos, setNext, setPerv, setPhotos }: Props) => {
+  const [showSelectedPreview, setShowSelectedPreview] = useState<boolean>(false)
+  const [showAspectRatioSettings, setShowAspectRatioSettings] = useState<boolean>(false)
+
   const settings: Settings = {
     customPaging: () => {
       return <SliderDot />
@@ -24,8 +39,8 @@ export const Cropping = ({ photos, setNext, setPerv }: Props) => {
     dots: true,
     dotsClass: s.slickDots,
     infinite: false,
-    nextArrow: <SliderButton direction={'right'} />,
-    prevArrow: <SliderButton direction={'left'} />,
+    nextArrow: <NextBtn />,
+    prevArrow: <PrevBtn />,
     slidesToScroll: 1,
     slidesToShow: 1,
     speed: 500,
@@ -47,33 +62,76 @@ export const Cropping = ({ photos, setNext, setPerv }: Props) => {
         </Button>
       </div>
       <div className={s.body}>
-        <Slider {...settings}>
+        <Slider {...settings} className={s.slider}>
           {photos.map((photo, i) => (
-            <img alt={`post photo ${i + 1}`} className={s.image} key={i} src={photo} />
+            <img alt={`post photo ${i + 1}`} className={s.image} key={`key-${photo}`} src={photo} />
           ))}
         </Slider>
+        <AddImageBtn
+          isActive={showSelectedPreview}
+          onClick={() => setShowSelectedPreview(value => !value)}
+        />
+        <SizeBtn />
+        <AspectRatioBtn
+          isActive={showAspectRatioSettings}
+          onClick={() => setShowAspectRatioSettings(value => !value)}
+        />
+        <SelectedImagesPreview
+          isShow={showSelectedPreview}
+          onRemove={onRemove}
+          photos={photos}
+          setPhotos={setPhotos}
+        />
+        <AspectRatioSettings isShow={showAspectRatioSettings} />
       </div>
     </div>
   )
 }
 
-type SliderButtonProps = {
-  direction?: 'left' | 'right'
+const AspectRatioBtn = (props: {
+  isActive: boolean
   onClick?: ComponentProps<'button'>['onClick']
-}
-
-export const SliderButton = ({ direction = 'right', onClick }: SliderButtonProps) => {
+}) => {
   return (
-    <button className={clsx(s.sliderBtn, s[direction])} onClick={onClick}>
-      {direction === 'left' ? <ArrowLeftShortIcon /> : <ArrowRightShortIcon />}
-    </button>
+    <SliderButton
+      className={clsx(s.aspectRatioBtn, props.isActive && s.active)}
+      onClick={props.onClick}
+    >
+      <ExpandIcon />
+    </SliderButton>
   )
 }
-
-export const SliderDot = ({ onClick }: { onClick?: ComponentProps<'button'>['onClick'] }) => {
+const SizeBtn = (props: { onClick?: ComponentProps<'button'>['onClick'] }) => {
   return (
-    <button className={s.sliderDot} onClick={onClick}>
-      •
-    </button>
+    <SliderButton className={s.sizeBtn} onClick={props.onClick}>
+      <LoupeIcon />
+    </SliderButton>
+  )
+}
+const AddImageBtn = (props: {
+  isActive: boolean
+  onClick?: ComponentProps<'button'>['onClick']
+}) => {
+  return (
+    <SliderButton
+      className={clsx(s.addImageBtn, props.isActive && s.active)}
+      onClick={props.onClick}
+    >
+      {props.isActive ? <FilledPhotoIcon /> : <PhotoIcon height={24} width={24} />}
+    </SliderButton>
+  )
+}
+const NextBtn = (props: { onClick?: ComponentProps<'button'>['onClick'] }) => {
+  return (
+    <SliderButton className={s.nextBtn} onClick={props.onClick}>
+      <ArrowRightShortIcon />
+    </SliderButton>
+  )
+}
+const PrevBtn = (props: { onClick?: ComponentProps<'button'>['onClick'] }) => {
+  return (
+    <SliderButton className={s.prevBtn} onClick={props.onClick}>
+      <ArrowLeftShortIcon />
+    </SliderButton>
   )
 }

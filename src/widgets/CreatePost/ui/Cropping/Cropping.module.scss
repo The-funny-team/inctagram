@@ -23,41 +23,14 @@
   height: 490px;
 }
 
+.slider {
+  height: 100%;
+}
+
 .image {
   display: block !important;
   height: 490px;
   object-fit: cover;
-}
-
-.sliderBtn {
-  all: unset;
-
-  cursor: pointer;
-
-  position: absolute;
-  z-index: 10;
-  top: 50%;
-  transform: translateY(-50%);
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  width: 36px;
-  height: 36px;
-
-  background-color: var(--color-dark-500);
-  border-radius: 2px;
-
-  transition: color 0.2s ease;
-
-  &.right {
-    right: 0;
-  }
-
-  &:hover {
-    color: var(--color-accent-500);
-  }
 }
 
 .slickDots {
@@ -79,22 +52,32 @@
   }
 }
 
-.sliderDot {
-  all: unset;
+.nextBtn {
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+}
 
-  cursor: pointer;
+.prevBtn {
+  top: 50%;
+  transform: translateY(-50%);
+}
 
-  width: 20px;
-  height: 20px;
-  padding: 0 2px 4px;
+.addImageBtn {
+  right: 11px;
+  bottom: 11px;
+}
 
-  font-size: 24px;
-  color: var(--color-light-900);
-  text-align: center;
+.aspectRatioBtn {
+  bottom: 11px;
+  left: 11px;
+}
 
-  transition: color 0.2s ease;
+.sizeBtn {
+  bottom: 11px;
+  left: 71px;
+}
 
-  &:hover {
-    color: var(--color-accent-500);
-  }
+.active {
+  color: var(--color-accent-500);
 }

@@ -31,6 +31,16 @@ export const CreatePost = ({ isOpen, isOpenChange }: Props) => {
   const setPhotosHandler = (photos: string[]) => {
     setPhotos(currentFiles => [...currentFiles, ...photos])
   }
+  const removePhotoHandler = (index: number) => {
+    setPhotos(currentPhotos => {
+      const currentPhotosCopy = [...currentPhotos]
+
+      currentPhotosCopy.splice(index, 1)
+
+      return currentPhotosCopy
+    })
+    URL.revokeObjectURL(photos[index])
+  }
 
   return (
     <Modal className={s.modal} isOpen={isOpen} onIsOpenChange={onCloseHandler}>
@@ -42,7 +52,13 @@ export const CreatePost = ({ isOpen, isOpenChange }: Props) => {
         />
       )}
       {stage === 1 && (
-        <Cropping photos={photos} setNext={setNextHandler} setPerv={setPrevHandler} />
+        <Cropping
+          onRemove={removePhotoHandler}
+          photos={photos}
+          setNext={setNextHandler}
+          setPerv={setPrevHandler}
+          setPhotos={setPhotosHandler}
+        />
       )}
       {stage === 2 && <Filtering setNext={setNextHandler} setPerv={setPrevHandler} />}
       {stage === 3 && <Publish setPerv={setPrevHandler} />}
