@@ -1,13 +1,34 @@
 .root {
   width: 100%;
-  max-width: 234px;
+  max-width: 240px;
+  border: 1px solid white;
 
   .postPhoto {
+    position: relative;
     height: 240px;
+    margin-bottom: 12px;
   }
 
   .userInfo {
     display: flex;
     justify-content: space-between;
+
+    .userInfoBtn{
+      margin-bottom: 12px;
+      padding: 0;
+      color: var(--color-light-100);
+    }
+  }
+
+  .time{
+    color: var(--color-light-900);
+  }
+
+  .description{
+    .expandButton{
+      padding: 0;
+      font-size: 14px;
+      text-decoration: underline;
+    }
   }
 }
