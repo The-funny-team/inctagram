@@ -16,13 +16,20 @@ export type PictureObj = {
   zoom: number
 }
 
-type CroppedPicture = {
+export type CroppedPicture = {
+  croppedArea: CroppedArea
   filter: string
+  img: string
+}
+
+export type FilteredPictureObj = {
+  id: string
   img: string
 }
 
 const initialState = {
   croppedPictures: [] as CroppedPicture[],
+  filteredPictures: [] as FilteredPictureObj[],
   pictures: [] as PictureObj[],
   stage: 0,
 }
@@ -56,7 +63,8 @@ export const createPostSlice = createSlice({
       state.pictures[pictureId].croppedArea = action.payload.croppedArea
     },
     setCroppedImages: (state, action: PayloadAction<{ croppedImages: string[] }>) => {
-      state.croppedPictures = action.payload.croppedImages.map(el => ({
+      state.croppedPictures = action.payload.croppedImages.map((el, i) => ({
+        croppedArea: { ...state.pictures[i].croppedArea },
         filter: 'none',
         img: el,
       }))
@@ -65,6 +73,12 @@ export const createPostSlice = createSlice({
       if (state.pictures[action.payload.index]) {
         state.croppedPictures[action.payload.index].filter = action.payload.filter
       }
+    },
+    setFilteredImages: (state, action: PayloadAction<{ filteredImages: string[] }>) => {
+      state.filteredPictures = action.payload.filteredImages.map(el => ({
+        id: String(getRandomId()),
+        img: el,
+      }))
     },
     setNextStage: state => {
       state.stage += 1
@@ -100,6 +114,7 @@ export const {
   setCroppedArea,
   setCroppedImages,
   setFilter,
+  setFilteredImages,
   setNextStage,
   setPictures,
   setPrevStage,

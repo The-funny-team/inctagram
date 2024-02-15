@@ -12,5 +12,10 @@ export const getCroppedImage = async (photoObj: PictureObj): Promise<string> => 
   ctx?.translate(-photoObj.croppedArea.x, -photoObj.croppedArea.y)
   ctx?.drawImage(imageObj, 0, 0)
 
-  return canvasObj.toDataURL('image/jpeg')
+  const dataUrl = canvasObj.toDataURL('image/jpeg')
+
+  imageObj.remove()
+  canvasObj.remove()
+
+  return dataUrl
 }

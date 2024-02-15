@@ -4,7 +4,14 @@ import { ArrowLeftShortIcon } from '@/shared/assets'
 import { FILTERS } from '@/shared/const'
 import { useAppDispatch, useAppSelector } from '@/shared/lib/hooks'
 import { Button, Typography } from '@/shared/ui'
-import { setFilter, setNextStage, setPrevStage } from '@/widgets/CreatePost/service'
+import {
+  getCroppedImage,
+  getFilteredImage,
+  setFilter,
+  setFilteredImages,
+  setNextStage,
+  setPrevStage,
+} from '@/widgets/CreatePost/service'
 import { FilterCard } from '@/widgets/CreatePost/ui/Filtering/FilterCard'
 import { Slider } from '@/widgets/CreatePost/ui/Slider'
 import NextImage from 'next/image'
@@ -17,10 +24,23 @@ export const Filtering = () => {
 
   const dispatch = useAppDispatch()
 
+  const savedImages = async () => {
+    const images: string[] = []
+
+    for (let i = 0; i < croppedPictures.length; i++) {
+      images.push(await getFilteredImage(croppedPictures[i]))
+    }
+
+    return images
+  }
+
   const setPerv = () => {
     dispatch(setPrevStage())
   }
-  const setNext = () => {
+  const setNext = async () => {
+    const filteredImages = await savedImages()
+
+    dispatch(setFilteredImages({ filteredImages }))
     dispatch(setNextStage())
   }
   const setFilterHandler = (i: number, filter: string) => {
@@ -49,7 +69,7 @@ export const Filtering = () => {
                   alt={'post image with filter'}
                   height={499}
                   src={pic.img}
-                  style={{ filter: pic.filter, objectFit: 'cover' }}
+                  style={{ filter: pic.filter, objectFit: 'contain' }}
                   width={489}
                 />
               </div>
