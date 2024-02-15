@@ -1,11 +1,16 @@
+import React from 'react'
+
 import { ArrowLeftShortIcon } from '@/shared/assets'
-import { useAppDispatch } from '@/shared/lib/hooks'
+import { useAppDispatch, useAppSelector } from '@/shared/lib/hooks'
 import { Button, Typography } from '@/shared/ui'
-import { setNextStage, setPrevStage } from '@/widgets/CreatePost/service'
+import { setPrevStage } from '@/widgets/CreatePost/service'
+import { Slider } from '@/widgets/CreatePost/ui/Slider'
+import NextImage from 'next/image'
 
 import s from './Publish.module.scss'
 
 export const Publish = () => {
+  const filteredImages = useAppSelector(state => state.createPostSlice.filteredPictures)
   const dispatch = useAppDispatch()
 
   const setPerv = () => {
@@ -25,7 +30,25 @@ export const Publish = () => {
           Publish
         </Button>
       </div>
-      <div className={s.body}>body</div>
+
+      <div className={s.body}>
+        <div className={s.sliderBlock}>
+          <Slider sliderLength={filteredImages.length}>
+            {filteredImages.map(pic => (
+              <div key={pic.id}>
+                <NextImage
+                  alt={'post image with filter'}
+                  height={499}
+                  src={pic.img}
+                  style={{ objectFit: 'contain' }}
+                  width={489}
+                />
+              </div>
+            ))}
+          </Slider>
+        </div>
+        <div className={s.publishBlock}>publish</div>
+      </div>
     </div>
   )
 }

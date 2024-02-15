@@ -3,7 +3,12 @@ import { ChangeEvent } from 'react'
 import { Cross2Icon } from '@/shared/assets'
 import { useAppDispatch } from '@/shared/lib/hooks'
 import { BlankCover, Button, Typography } from '@/shared/ui'
-import { setNextStage, setPictures, uploadPhotos } from '@/widgets/CreatePost/service'
+import {
+  setNextStage,
+  setPictures,
+  setStageFromDraft,
+  uploadPhotos,
+} from '@/widgets/CreatePost/service'
 
 import s from './ImageSelection.module.scss'
 
@@ -23,6 +28,10 @@ export const ImageSelection = ({ onCloseBtn }: ImageSelectionProps) => {
       setPhotos(readyForSetFiles)
       setNext()
     }
+  }
+
+  const openDraftHandler = () => {
+    dispatch(setStageFromDraft())
   }
 
   return (
@@ -51,7 +60,9 @@ export const ImageSelection = ({ onCloseBtn }: ImageSelectionProps) => {
             <Button as={'span'}>Select from Computer</Button>
           </label>
 
-          <Button variant={'tertiary'}>Open Draft</Button>
+          <Button onClick={openDraftHandler} variant={'tertiary'}>
+            Open Draft
+          </Button>
         </div>
       </div>
     </>

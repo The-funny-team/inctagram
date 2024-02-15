@@ -29,6 +29,7 @@ export type FilteredPictureObj = {
 
 const initialState = {
   croppedPictures: [] as CroppedPicture[],
+  draftedPage: 0,
   filteredPictures: [] as FilteredPictureObj[],
   pictures: [] as PictureObj[],
   stage: 0,
@@ -69,6 +70,10 @@ export const createPostSlice = createSlice({
         img: el,
       }))
     },
+    setDraftedPage: state => {
+      state.draftedPage = state.stage
+      state.stage = 0
+    },
     setFilter: (state, action: PayloadAction<{ filter: string; index: number }>) => {
       if (state.pictures[action.payload.index]) {
         state.croppedPictures[action.payload.index].filter = action.payload.filter
@@ -98,6 +103,9 @@ export const createPostSlice = createSlice({
     setPrevStage: state => {
       state.stage -= 1
     },
+    setStageFromDraft: state => {
+      state.stage = state.draftedPage
+    },
     setZoom: (state, action: PayloadAction<{ id: PictureObj['id']; zoom: PictureObj['zoom'] }>) => {
       const pictureId = state.pictures.findIndex(pic => pic.id === action.payload.id)
 
@@ -113,10 +121,12 @@ export const {
   setAspectRatio,
   setCroppedArea,
   setCroppedImages,
+  setDraftedPage,
   setFilter,
   setFilteredImages,
   setNextStage,
   setPictures,
   setPrevStage,
+  setStageFromDraft,
   setZoom,
 } = createPostSlice.actions

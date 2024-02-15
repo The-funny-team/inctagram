@@ -19,6 +19,15 @@
 }
 
 .body {
-  width: 490px;
+  display: flex;
   height: 500px;
+
+  .sliderBlock {
+    width: 490px;
+  }
+
+  .publishBlock {
+    width: 490px;
+    padding: 24px 24px 44px;
+  }
 }
