@@ -1,0 +1,16 @@
+import { createImageElement } from '@/widgets/CreatePost/service/createImageElement'
+import { PictureObj } from '@/widgets/CreatePost/service/createPost.slice'
+
+export const getCroppedImage = async (photoObj: PictureObj): Promise<string> => {
+  const imageObj = await createImageElement(photoObj.img)
+  const canvasObj = document.createElement('canvas')
+  const ctx = canvasObj.getContext('2d')
+
+  canvasObj.width = photoObj.croppedArea.width
+  canvasObj.height = photoObj.croppedArea.height
+
+  ctx?.translate(-photoObj.croppedArea.x, -photoObj.croppedArea.y)
+  ctx?.drawImage(imageObj, 0, 0)
+
+  return canvasObj.toDataURL('image/jpeg')
+}
