@@ -1,33 +1,52 @@
-import { ChangeEvent, useRef } from 'react'
-import { toast } from 'react-toastify'
+import React, { ChangeEvent, ComponentProps, useRef, useState } from 'react'
 
-import { CircleIcon, Cross2Icon } from '@/shared/assets'
-import { MAX_FILE_SIZE } from '@/shared/const'
+import { CircleIcon, Cross2Icon, FilledPhotoIcon, PhotoIcon } from '@/shared/assets'
+import { useAppDispatch, useAppSelector } from '@/shared/lib/hooks'
+import {
+  removePicture,
+  setPictures,
+  uploadPhotos,
+  useOutsideClick,
+} from '@/widgets/CreatePost/service'
+import { SliderButton } from '@/widgets/CreatePost/ui/SliderButtons'
 import { clsx } from 'clsx'
-import { SliderButton } from 'src/widgets/CreatePost/ui/SliderButtons'
 
 import s from './SelectedImagesPreview.module.scss'
 
-type SelectedImagesPreviewProps = {
-  isShow: boolean
-  onRemove: (index: number) => void
-  photos: string[]
-  setPhotos: (value: string[]) => void
-}
+export const SelectedImagesPreview = () => {
+  const photos = useAppSelector(state => state.createPostSlice.pictures)
+  const [showSelectedPreview, setShowSelectedPreview] = useState<boolean>(false)
 
-export const SelectedImagesPreview = ({
-  isShow,
-  onRemove,
-  photos,
-  setPhotos,
-}: SelectedImagesPreviewProps) => {
+  const previewRef = useRef<HTMLDivElement>(null)
+
+  useOutsideClick(previewRef, () => setShowSelectedPreview(false))
+
+  const dispatch = useAppDispatch()
+
+  const setPhotosHandler = (imgs: string[]) => {
+    dispatch(setPictures({ pictures: imgs }))
+  }
+  const removePhotoHandler = (id: number) => {
+    dispatch(removePicture({ id }))
+  }
+
   return (
-    <div className={clsx(s.previewBlock, !isShow && s.hide)}>
-      {photos.map((photo, i) => (
-        <ImagePreview key={photo} onRemove={() => onRemove(i)} photo={photo} />
-      ))}
-      <SelectImageBtn setPhotos={setPhotos} />
-    </div>
+    <>
+      <div className={clsx(s.previewBlock, !showSelectedPreview && s.hide)} ref={previewRef}>
+        {photos.map(photo => (
+          <ImagePreview
+            key={photo.id}
+            onRemove={() => removePhotoHandler(photo.id)}
+            photo={photo.img}
+          />
+        ))}
+        <SelectImageBtn setPhotos={setPhotosHandler} />
+      </div>
+      <ShowPicturesBtn
+        isActive={showSelectedPreview}
+        onClick={() => setShowSelectedPreview(value => !value)}
+      />
+    </>
   )
 }
 
@@ -58,28 +77,10 @@ const SelectImageBtn = ({ setPhotos }: SelectImageBtnProps) => {
     inputRef && inputRef.current?.click()
   }
   const changePhotoHandler = (e: ChangeEvent<HTMLInputElement>) => {
-    e.preventDefault()
-    if (e.target.files && e.target.files.length > 0) {
-      const files = e.target.files
-      const readyForSetFiles: string[] = []
+    const readyForSetFiles = uploadPhotos(e)
 
-      for (let i = 0; i < files.length; i++) {
-        const file = files[i]
-
-        if (file.size > MAX_FILE_SIZE) {
-          toast.error(`size too big: ${file.name}`)
-        } else if (file.type !== 'image/jpeg' && file.type !== 'image/png') {
-          toast.error(`incorrect file type, accept only png/jpg: ${file.name}`)
-        } else {
-          const fileUrl = URL.createObjectURL(file)
-
-          readyForSetFiles.push(fileUrl)
-        }
-      }
-
-      if (readyForSetFiles.length > 0) {
-        setPhotos(readyForSetFiles)
-      }
+    if (readyForSetFiles.length > 0) {
+      setPhotos(readyForSetFiles)
     }
   }
 
@@ -98,5 +99,18 @@ const SelectImageBtn = ({ setPhotos }: SelectImageBtnProps) => {
         type={'file'}
       />
     </label>
+  )
+}
+const ShowPicturesBtn = (props: {
+  isActive: boolean
+  onClick?: ComponentProps<'button'>['onClick']
+}) => {
+  return (
+    <SliderButton
+      className={clsx(s.addImageBtn, props.isActive && s.active)}
+      onClick={props.onClick}
+    >
+      {props.isActive ? <FilledPhotoIcon /> : <PhotoIcon height={24} width={24} />}
+    </SliderButton>
   )
 }

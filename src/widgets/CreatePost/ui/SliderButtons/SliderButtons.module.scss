@@ -13,6 +13,10 @@
 
   transition: color 0.2s ease;
 
+  &.active {
+    color: var(--color-accent-500);
+  }
+
   &:hover {
     color: var(--color-accent-500);
   }
@@ -38,7 +42,12 @@
 
   transition: color 0.2s ease;
 
-  &:hover {
+  &:disabled {
+    cursor: not-allowed;
+    color: var(--color-light-900);
+  }
+
+  &:hover:not([disabled]) {
     color: var(--color-accent-500);
   }
 }

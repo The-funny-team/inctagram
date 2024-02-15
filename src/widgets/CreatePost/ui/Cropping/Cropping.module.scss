@@ -19,65 +19,6 @@
 }
 
 .body {
-  width: 500px;
-  height: 490px;
-}
-
-.slider {
-  height: 100%;
-}
-
-.image {
-  display: block !important;
-  height: 490px;
-  object-fit: cover;
-}
-
-.slickDots {
-  position: absolute;
-  bottom: 25px;
-
-  display: flex !important;
-  align-items: center;
-  justify-content: center;
-
-  width: 100%;
-  margin: 0;
-  padding: 0;
-
-  text-align: center;
-
-  li {
-    list-style: none;
-  }
-}
-
-.nextBtn {
-  top: 50%;
-  right: 0;
-  transform: translateY(-50%);
-}
-
-.prevBtn {
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-.addImageBtn {
-  right: 11px;
-  bottom: 11px;
-}
-
-.aspectRatioBtn {
-  bottom: 11px;
-  left: 11px;
-}
-
-.sizeBtn {
-  bottom: 11px;
-  left: 71px;
-}
-
-.active {
-  color: var(--color-accent-500);
+  width: 490px;
+  height: 500px;
 }

@@ -1,10 +1,17 @@
 import React, { ComponentProps } from 'react'
 
+import { clsx } from 'clsx'
+
 import s from './SliderButtons.module.scss'
 
-export const SliderDot = ({ onClick }: { onClick?: ComponentProps<'button'>['onClick'] }) => {
+type SliderDotProps = {
+  isActive?: boolean
+  onClick?: ComponentProps<'button'>['onClick']
+}
+
+export const SliderDot = ({ isActive, onClick }: SliderDotProps) => {
   return (
-    <button className={s.sliderDot} onClick={onClick}>
+    <button className={clsx(s.sliderDot, isActive && s.active)} onClick={onClick}>
       •
     </button>
   )

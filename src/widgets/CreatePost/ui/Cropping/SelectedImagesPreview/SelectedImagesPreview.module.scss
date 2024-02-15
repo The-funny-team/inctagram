@@ -39,3 +39,12 @@
     height: 12px;
   }
 }
+
+.addImageBtn {
+  right: 11px;
+  bottom: 11px;
+
+  &.active {
+    color: var(--color-accent-500);
+  }
+}
