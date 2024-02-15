@@ -4,6 +4,7 @@ import { Cross2Icon } from '@/shared/assets'
 import { useAppDispatch } from '@/shared/lib/hooks'
 import { BlankCover, Button, Typography } from '@/shared/ui'
 import {
+  resetState,
   setNextStage,
   setPictures,
   setStageFromDraft,
@@ -25,6 +26,7 @@ export const ImageSelection = ({ onCloseBtn }: ImageSelectionProps) => {
     const readyForSetFiles = uploadPhotos(e)
 
     if (readyForSetFiles.length > 0) {
+      dispatch(resetState())
       setPhotos(readyForSetFiles)
       setNext()
     }

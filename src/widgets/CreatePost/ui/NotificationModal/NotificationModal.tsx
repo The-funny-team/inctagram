@@ -1,6 +1,6 @@
 import { useAppDispatch } from '@/shared/lib/hooks'
 import { Button, Modal, Typography } from '@/shared/ui'
-import { setDraftedPage } from '@/widgets/CreatePost/service'
+import { resetState, setDraftedPage } from '@/widgets/CreatePost/service'
 
 import s from './NotificationModal.module.scss'
 
@@ -14,7 +14,9 @@ export const NotificationModal = ({ closeOtherModal, isOpen, isOpenChange }: Pro
   const dispatch = useAppDispatch()
 
   const onDiscardhandler = () => {
+    dispatch(resetState())
     isOpenChange(false)
+    closeOtherModal(false)
   }
 
   const onSaveDrafthandler = () => {

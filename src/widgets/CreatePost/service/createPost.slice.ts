@@ -45,6 +45,11 @@ export const createPostSlice = createSlice({
 
       URL.revokeObjectURL(removed[0].img)
     },
+    resetState: state => {
+      state.pictures.forEach(picObj => URL.revokeObjectURL(picObj.img))
+
+      return initialState
+    },
     setAspectRatio: (
       state,
       action: PayloadAction<{ aspect: PictureObj['aspectRatio']; id: PictureObj['id'] }>
@@ -118,6 +123,7 @@ export const createPostSlice = createSlice({
 
 export const {
   removePicture,
+  resetState,
   setAspectRatio,
   setCroppedArea,
   setCroppedImages,
