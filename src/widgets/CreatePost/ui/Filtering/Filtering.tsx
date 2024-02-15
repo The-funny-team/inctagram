@@ -1,14 +1,32 @@
+import React, { useState } from 'react'
+
 import { ArrowLeftShortIcon } from '@/shared/assets'
+import { FILTERS } from '@/shared/const'
+import { useAppDispatch, useAppSelector } from '@/shared/lib/hooks'
 import { Button, Typography } from '@/shared/ui'
+import { setFilter, setNextStage, setPrevStage } from '@/widgets/CreatePost/service'
+import { FilterCard } from '@/widgets/CreatePost/ui/Filtering/FilterCard'
+import { Slider } from '@/widgets/CreatePost/ui/Slider'
+import NextImage from 'next/image'
 
 import s from './Filtering.module.scss'
 
-type Props = {
-  setNext: () => void
-  setPerv: () => void
-}
+export const Filtering = () => {
+  const [slideId, setSlideId] = useState<number>(0)
+  const croppedPictures = useAppSelector(state => state.createPostSlice.croppedPictures)
 
-export const Filtering = ({ setNext, setPerv }: Props) => {
+  const dispatch = useAppDispatch()
+
+  const setPerv = () => {
+    dispatch(setPrevStage())
+  }
+  const setNext = () => {
+    dispatch(setNextStage())
+  }
+  const setFilterHandler = (i: number, filter: string) => {
+    dispatch(setFilter({ filter, index: i }))
+  }
+
   return (
     <div>
       <div className={s.title}>
@@ -22,7 +40,33 @@ export const Filtering = ({ setNext, setPerv }: Props) => {
           Next
         </Button>
       </div>
-      <div className={s.body}>body</div>
+      <div className={s.body}>
+        <div className={s.sliderBlock}>
+          <Slider setSlideId={setSlideId} slideId={slideId} sliderLength={croppedPictures.length}>
+            {croppedPictures.map((pic, i) => (
+              <div key={i}>
+                <NextImage
+                  alt={'post image with filter'}
+                  height={499}
+                  src={pic.img}
+                  style={{ filter: pic.filter, objectFit: 'cover' }}
+                  width={489}
+                />
+              </div>
+            ))}
+          </Slider>
+        </div>
+        <div className={s.filtersBlock}>
+          {FILTERS.map(el => (
+            <FilterCard
+              filter={el.value}
+              key={el.name}
+              onClick={() => setFilterHandler(slideId, el.value)}
+              title={el.name}
+            />
+          ))}
+        </div>
+      </div>
     </div>
   )
 }
