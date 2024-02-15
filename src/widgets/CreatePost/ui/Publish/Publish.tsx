@@ -1,13 +1,17 @@
 import { ArrowLeftShortIcon } from '@/shared/assets'
+import { useAppDispatch } from '@/shared/lib/hooks'
 import { Button, Typography } from '@/shared/ui'
+import { setNextStage, setPrevStage } from '@/widgets/CreatePost/service'
 
 import s from './Publish.module.scss'
 
-type Props = {
-  setPerv: () => void
-}
+export const Publish = () => {
+  const dispatch = useAppDispatch()
 
-export const Publish = ({ setPerv }: Props) => {
+  const setPerv = () => {
+    dispatch(setPrevStage())
+  }
+
   return (
     <div>
       <div className={s.title}>

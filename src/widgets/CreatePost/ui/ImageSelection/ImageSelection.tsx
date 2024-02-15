@@ -1,43 +1,27 @@
 import { ChangeEvent } from 'react'
-import { toast } from 'react-toastify'
 
 import { Cross2Icon } from '@/shared/assets'
-import { MAX_FILE_SIZE } from '@/shared/const'
+import { useAppDispatch } from '@/shared/lib/hooks'
 import { BlankCover, Button, Typography } from '@/shared/ui'
+import { setNextStage, setPictures, uploadPhotos } from '@/widgets/CreatePost/service'
 
 import s from './ImageSelection.module.scss'
 
 type ImageSelectionProps = {
   onCloseBtn: () => void
-  setNext: () => void
-  setPhotos: (photo: string[]) => void
 }
 
-export const ImageSelection = ({ onCloseBtn, setNext, setPhotos }: ImageSelectionProps) => {
+export const ImageSelection = ({ onCloseBtn }: ImageSelectionProps) => {
+  const dispatch = useAppDispatch()
+  const setNext = () => dispatch(setNextStage())
+  const setPhotos = (pictures: string[]) => dispatch(setPictures({ pictures }))
+
   const changePhotoHandler = (e: ChangeEvent<HTMLInputElement>) => {
-    e.preventDefault()
-    if (e.target.files && e.target.files.length > 0) {
-      const files = e.target.files
-      const readyForSetFiles: string[] = []
+    const readyForSetFiles = uploadPhotos(e)
 
-      for (let i = 0; i < files.length; i++) {
-        const file = files[i]
-
-        if (file.size > MAX_FILE_SIZE) {
-          toast.error(`size too big: ${file.name}`)
-        } else if (file.type !== 'image/jpeg' && file.type !== 'image/png') {
-          toast.error(`incorrect file type, accept only png/jpg: ${file.name}`)
-        } else {
-          const fileUrl = URL.createObjectURL(file)
-
-          readyForSetFiles.push(fileUrl)
-        }
-      }
-
-      if (readyForSetFiles.length > 0) {
-        setPhotos(readyForSetFiles)
-        setNext()
-      }
+    if (readyForSetFiles.length > 0) {
+      setPhotos(readyForSetFiles)
+      setNext()
     }
   }
 

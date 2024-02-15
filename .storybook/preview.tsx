@@ -2,7 +2,7 @@ import type { Preview } from '@storybook/react'
 import '@/application/styles/index.scss'
 import { Inter } from 'next/font/google'
 import { Provider } from 'react-redux'
-import { store } from '../src/application/store'
+import { store } from '@/application/store'
 
 const inter = Inter({ subsets: ['latin'] })
 
