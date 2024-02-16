@@ -19,9 +19,8 @@ export const TextField = forwardRef<HTMLTextAreaElement, Props>((props, ref) => 
     wrapper: clsx(s.wrapper, className),
   }
   const onChangeHandler = (e: ChangeEvent<HTMLTextAreaElement>) => {
-    if (onValueChange) {
-      onValueChange(e.target.value)
-    }
+    onValueChange?.(e.target.value)
+
     onChange?.(e)
   }
 

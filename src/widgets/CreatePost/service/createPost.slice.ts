@@ -29,6 +29,7 @@ export type FilteredPictureObj = {
 
 const initialState = {
   croppedPictures: [] as CroppedPicture[],
+  description: '',
   draftedPage: 0,
   filteredPictures: [] as FilteredPictureObj[],
   pictures: [] as PictureObj[],
@@ -74,6 +75,9 @@ export const createPostSlice = createSlice({
         filter: 'none',
         img: el,
       }))
+    },
+    setDescription: (state, action: PayloadAction<{ desc: string }>) => {
+      state.description = action.payload.desc
     },
     setDraftedPage: state => {
       state.draftedPage = state.stage
@@ -127,6 +131,7 @@ export const {
   setAspectRatio,
   setCroppedArea,
   setCroppedImages,
+  setDescription,
   setDraftedPage,
   setFilter,
   setFilteredImages,
