@@ -1,0 +1,6 @@
+export { BrowserIcon } from './BrowserIcon'
+export { ChromeIcon } from './ChromeIcon'
+export { FireFoxIcon } from './FireFoxIcon'
+export { MobileIcon } from './MobileIcon'
+export { OperaIcon } from './OperaIcon'
+export { DesktopIcon } from 'src/shared/assets/icons/devices/DesktopIcon'

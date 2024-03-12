@@ -108,6 +108,13 @@ export const ru: LocaleType = {
         selectPhoto: 'Выберите фото',
         yesButton: 'Да',
       },
+      devices: {
+        activeSessions: 'Активные сессии',
+        currentDevice: 'Текущее устройство',
+        lastVisit: 'Последнее посещение: ',
+        logOut: 'Выйти',
+        terminateButton: 'Прервать все остальные сессии',
+      },
       profileInfoForm: {
         citySelectLabel: 'Выберете Ваш город',
         citySelectPlaceholder: 'Город',
