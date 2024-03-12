@@ -1,8 +1,9 @@
-import { BASE_API_URL } from '@/shared/const'
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
+import { createApi } from '@reduxjs/toolkit/query/react'
+
+import { customFetchBase } from '../base-api-with-refresh'
 
 export const baseApi = createApi({
-  baseQuery: fetchBaseQuery({ baseUrl: BASE_API_URL, credentials: 'include' }),
+  baseQuery: customFetchBase,
   endpoints: () => ({}),
   reducerPath: 'baseApi',
   tagTypes: ['Me'],
