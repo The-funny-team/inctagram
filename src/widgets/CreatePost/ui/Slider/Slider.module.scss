@@ -1,0 +1,33 @@
+.slider {
+  height: 100%;
+}
+
+.slickDots {
+  position: absolute;
+  bottom: 25px;
+
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+
+  width: 50%;
+  margin: 0 25%;
+  padding: 0;
+
+  text-align: center;
+
+  li {
+    list-style: none;
+  }
+}
+
+.nextBtn {
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+}
+
+.prevBtn {
+  top: 50%;
+  transform: translateY(-50%);
+}

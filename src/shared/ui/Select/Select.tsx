@@ -48,7 +48,7 @@ export const Select = forwardRef<ElementRef<typeof SelectRadix.Trigger>, Props>(
           </SelectRadix.Trigger>
 
           <SelectRadix.Portal>
-            <SelectRadix.Content position={'popper'} sideOffset={-1}>
+            <SelectRadix.Content className={s.content} position={'popper'} sideOffset={-1}>
               <SelectRadix.Viewport className={clsx(s.viewport, inter.className)}>
                 {children && children}
                 {!children &&

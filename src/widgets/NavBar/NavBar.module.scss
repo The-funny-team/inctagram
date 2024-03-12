@@ -47,6 +47,7 @@
 .nav {
   @include flex($direction: column);
 
+  button:not(:last-child),
   a:not(:last-child) {
     margin-bottom: 24px;
   }

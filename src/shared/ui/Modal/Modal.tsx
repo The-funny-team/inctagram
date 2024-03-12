@@ -14,8 +14,8 @@ type Props = {
   children?: ReactNode
   className?: string
   isOpen: boolean
-  onIsOpenChange: (event: any) => void
-  title: string
+  onIsOpenChange: (open: boolean) => void
+  title?: ReactNode | string
 }
 
 export const Modal: FC<Props> = ({ children, className, isOpen, onIsOpenChange, title }: Props) => {
@@ -24,15 +24,17 @@ export const Modal: FC<Props> = ({ children, className, isOpen, onIsOpenChange, 
       <Dialog.Portal>
         <Dialog.Overlay className={styles.dialogOverlay} />
         <Dialog.Content className={clsx(styles.dialogContent, inter.className, className)}>
-          <div className={styles.dialogHeader}>
-            <Dialog.Title className={styles.dialogTitle}>{title}</Dialog.Title>
-            <Dialog.Close asChild>
-              <button aria-label={'Close'} className={styles.iconButton}>
-                <Cross2Icon />
-              </button>
-            </Dialog.Close>
-          </div>
-          {children && <div className={styles.content}>{children}</div>}
+          {title && (
+            <div className={styles.dialogHeader}>
+              <Dialog.Title className={styles.dialogTitle}>{title}</Dialog.Title>
+              <Dialog.Close asChild>
+                <button aria-label={'Close'} className={styles.iconButton}>
+                  <Cross2Icon />
+                </button>
+              </Dialog.Close>
+            </div>
+          )}
+          {children && <div>{children}</div>}
         </Dialog.Content>
       </Dialog.Portal>
     </Dialog.Root>

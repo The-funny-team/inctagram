@@ -7,7 +7,7 @@ import s from './Avatar.module.scss'
 type Props = {
   className?: string
   size: number
-  src?: string
+  src?: null | string
   userName: string
 }
 export const Avatar = ({ className, size, src, userName }: Props) => {

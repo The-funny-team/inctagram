@@ -1,5 +1,6 @@
-import { baseApi } from '@/shared/api/baseApi/baseApi'
+import { baseApi } from '@/shared/api/baseApi'
 import { citiesApi } from '@/shared/api/citiesApi'
+import { createPostSlice } from '@/widgets/CreatePost/service'
 import { configureStore } from '@reduxjs/toolkit'
 
 export const store = configureStore({
@@ -8,6 +9,7 @@ export const store = configureStore({
   reducer: {
     [baseApi.reducerPath]: baseApi.reducer,
     [citiesApi.reducerPath]: citiesApi.reducer,
+    [createPostSlice.name]: createPostSlice.reducer,
   },
 })
 
